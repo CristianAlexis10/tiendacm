@@ -1,5 +1,5 @@
 RewriteEngine on
 
-RewriteRule ^landing$ index.php?
+RewriteRule ^landing$ index.php?c=views&a=landin
 RewriteRule ^tienda$ index.php?c=tienda
-RewriteRule ^dashboard$ index.php?c=dashboard
+RewriteRule ^dashboard$ index.php?c=views&a=dashboard
