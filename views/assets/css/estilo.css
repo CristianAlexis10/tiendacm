@@ -77,9 +77,12 @@ font-family: 'Lato', sans-serif;*/
 }
 
 .item{
+  position: relative;
   height: 450px;
   width: 350px;
   background: red;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
 .item img{
   height: 100px;
