@@ -6,6 +6,6 @@
   </head>
   <body>
     <br>
-    <a href="http://localhost/maestro_mf/cm_p/tienda">tienda</a>
+    <a href="http://localhost/tiendacm/tienda">tienda</a>
   </body>
 </html>
