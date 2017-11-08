@@ -7,5 +7,7 @@
   <body>
     <br>
     <a href="http://localhost/tiendacm/tienda">tienda</a>
+    <br>
+    <a href="http://localhost/tiendacm/dashboard">dashboard</a>
   </body>
 </html>
