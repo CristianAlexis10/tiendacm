@@ -205,3 +205,25 @@
   left: 45%;
   font-size: 50px;
 }
+/*estilos de la dashboard*/
+.top_menu_dash{
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 50px;
+  background: red;
+  left: 250px;
+}
+.left_menu_dash{
+  position: fixed;
+  height: 100vh;
+  width: 250px;
+  background: lime;
+}
+.contenido{
+  background: blue;
+  position: absolute;
+  left: 300px;
+  top: 100px;
+  width: 25%;
+}

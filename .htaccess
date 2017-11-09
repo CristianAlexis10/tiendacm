@@ -2,3 +2,4 @@ RewriteEngine on
 
 RewriteRule ^landing$ index.php?
 RewriteRule ^tienda$ index.php?c=tienda
+RewriteRule ^dashboard$ index.php?c=dashboard
