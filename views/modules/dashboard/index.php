@@ -1,13 +1,13 @@
 <nav class="top_menu_dash">
   <ul>
     <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-    <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
+    <!-- <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a></li> -->
     <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
   </ul>
 </nav>
 <nav class="left_menu_dash">
   <div class="imagen">
-    <img src="views/assets/img/logo.png">
+    <img src="views/assets/img/logo_cm_completo.png">
   </div>
   <ul>
     <li><a href="#">Gestion tienda</a></li>
@@ -30,10 +30,10 @@
         <td>contenido</td>
         <td>contenido</td>
         <td>contenido</td>
-        <td>
-          <li>hola</li>
-          <li>esto</li>
-          <li>funciona</li>
+        <td class="accion">
+          <li><i class="fa fa-eye" aria-hidden="true"></i></li>
+          <li><i class="fa fa-refresh" aria-hidden="true"></i></li>
+          <li><i class="fa fa-trash" aria-hidden="true"></i></li>
         </td>
       </tr>
     </tbody>
