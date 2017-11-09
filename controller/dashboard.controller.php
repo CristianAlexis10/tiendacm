@@ -1,4 +1,5 @@
 <?php
+require_once ("model/tienda.model.php");
 class DashboardController{
     public function mainPage(){
       require_once ("views/include/header.php");

@@ -211,19 +211,24 @@
   display: flex;
   width: 100%;
   height: 50px;
-  background: red;
+  background: #545454;
   left: 250px;
 }
 .left_menu_dash{
   position: fixed;
   height: 100vh;
   width: 250px;
-  background: lime;
+  background: #545454;
 }
 .contenido{
-  background: blue;
+  /*background: #545454;*/
   position: absolute;
   left: 300px;
   top: 100px;
   width: 25%;
+  /*border: 1px solid black;*/
+}
+table,th,td{
+  border: 1px solid black;
+  border-collapse: collapse;
 }
