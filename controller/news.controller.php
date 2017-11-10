@@ -7,9 +7,9 @@ Class NewsController{
       // $this->TiendaM = new TiendaModel();
     }
     public function mainPage(){
-             require_once("views/include/header.php");
+             require_once("views/include/usuario/header.php");
              require_once("views/modules/news/index.php");
-             require_once("views/include/footer.php");
+             require_once("views/include/usuario/footer.php");  
     }
   }
 ?>

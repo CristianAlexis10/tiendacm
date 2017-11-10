@@ -1,6 +1,5 @@
     <section>
       <div class="seccion1">
-        <div class="filtro"></div>
         <div class="slider">
           <div class="wrap--text">
             <h2>TIENDA</h2>

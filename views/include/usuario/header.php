@@ -9,5 +9,5 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
+    <?php require_once "views/include/usuario/topMenu.php"; ?>
     <section class="contenedor">
-      <?php require_once "views/include/usuario/topMenu.php"; ?>
