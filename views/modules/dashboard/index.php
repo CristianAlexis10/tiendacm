@@ -26,10 +26,10 @@
     </thead>
     <tbody>
       <tr>
-        <td>contenido</td>
-        <td>contenido</td>
-        <td>contenido</td>
-        <td>contenido</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
         <td class="accion">
           <li><i class="fa fa-eye" aria-hidden="true"></i></li>
           <li><i class="fa fa-refresh" aria-hidden="true"></i></li>

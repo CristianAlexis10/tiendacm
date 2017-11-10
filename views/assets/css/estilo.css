@@ -90,11 +90,11 @@
   text-align: right;
 }
 /*.filtro{
-  z-index: 2;
+  z-index: 3;
   position: absolute;
   background: #000000;
   opacity: 0.6;
-  height: 100vh;
+  height: 70vh;
   width: 100%;
 }*/
 /*seccion 2 muestra los productos registrados en la base de datos*/
