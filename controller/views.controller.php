@@ -1,18 +1,20 @@
 <?php
 class ViewsController{
 	function mainPage(){
-		 require_once("views/include/header.php");
+		 require_once("views/include/usuario/header.php");
      require_once("views/modules/landing.php");
-     require_once("views/include/footer.php");
+     require_once("views/include/usuario/footer.php");
 	}
 
 	function dashboard(){
-		 require_once("views/include/header.php");
+		 require_once("views/include/dashboard/header.php");
      require_once("views/modules/dashboard/index.php");
-     require_once("views/include/footer.php");
+     require_once("views/include/dashboard/footer.php");
 	}
 	function landin(){
+		 require_once("views/include/usuario/header.php");
      require_once("views/modules/landing.php");
+		 require_once("views/include/usuario/footer.php");
 	}
 }
 ?>
