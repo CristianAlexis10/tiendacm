@@ -1,22 +1,13 @@
 /*estilos de la dashboard*/
-.wrap--contenido{
-  position: absolute;
-  width: 74%;
-  background: red;
-  margin: 100px 300px;
-}
-.contenido{
-  position: relative;
-  font-family: 'lato',sans-serif;
-  background: #d4d4d4;
-  width: 96%;
-  margin: 20px;
+body{
+  background: #dfdfdf;
 }
 .top_menu_dash{
   position: fixed;
+  z-index: 2;
   width: 100%;
   height: 50px;
-  background: #dadada;
+  background: #828282;
   left: 250px;
 }
 .top_menu_dash ul{
@@ -31,47 +22,67 @@
 }
 .left_menu_dash{
   position: fixed;
-  height: 100vh;
+  z-index: 2;
+  height: 100%;
   width: 250px;
-  background: #dadada;
+  background: #828282;
   font-family: 'lato',sans-serif;;
 }
 .left_menu_dash ul{
-  position: absolute;
-  top: 160px;
   font-size: 25px;
+  padding-top: 5px;
 }
 .left_menu_dash ul li{
-  padding: 20px 0px;
+  padding: 20px 10px;
   margin-bottom: 5px;
-  width: 250px;
+  transition: .3s;
 }
-
+.imagen{
+  background: #ffffff;
+}
 .imagen img{
   width: 230px;
-  left: 8px;
+  padding: 30px 7px;
+}
+.wrap--contenido{
   position: absolute;
-  top: 10px;
+  width: 74%;
+  margin: 105px 305px;
+}
+.contenido{
+  position: relative;
+  font-family: 'lato',sans-serif;
+  background: #fff;
+  width: 99%;
+  padding: 10px;
+  border-radius: 5px;
+}
+.contenido h1{
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #a0a0a0;
+  margin-bottom: 20px;
 }
 table,th,td{
   border: 1px solid black;
   border-collapse: collapse;
 }
-.accion{
-  display: flex;
-  justify-content: space-around;
-}
 .accion li{
+  display: inline;
   padding: 0px 10px;
   cursor: pointer;
 }
+.accion li i{
+  transition: 1s;
+}
 .accion li i:hover{
-  color:  #cd0072;
+  /*color:  #cd0072;*/
+  transform: rotate(360deg);
 }
 .left_menu_dash ul li:hover{
-  border-bottom: 2px solid #f9098e;
-  background: #c1c0c0;
+  border-left: 10px solid #ed2194;
+  background: #dfdfdf;
 }
 .top_menu_dash ul li a i:hover{
-  color:  #cd0072;
+  color:  #ffffff;
 }

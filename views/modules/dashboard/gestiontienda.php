@@ -1,6 +1,6 @@
 <div class="contenido">
-  <h1>Bienvenido a la dashboard</h1>
-  <!-- <table>
+  <h1>Bienvenido a la gestion de la tienda</h1>
+  <table>
     <thead>
       <th>cod</th>
       <th>nombre</th>
@@ -23,5 +23,5 @@
         </td>
       </tr>
     </tbody>
-  </table> -->
+  </table>
 </div>

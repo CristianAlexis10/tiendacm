@@ -9,6 +9,6 @@
     <title></title>
   </head>
   <body>
-    <?php require_once("views/include/dashboard/navigator.php"); ?>
     <?php require_once("views/include/dashboard/topMenu.php"); ?>
+    <?php require_once("views/include/dashboard/navigator.php"); ?>
     <section class="wrap--contenido">
