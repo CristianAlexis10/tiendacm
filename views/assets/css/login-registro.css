@@ -1,0 +1,18 @@
+.modal{
+  z-index: 5;
+  display: flex;
+  position: fixed;
+  width: 500px;
+  height: 400px;
+  background: lime;
+}
+.login{
+  width: 100%;
+  height: 100%;
+  background: yellow;
+}
+.registro{
+  width: 10%;
+  height: 100%;
+  background: red;
+}
