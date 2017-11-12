@@ -5,6 +5,7 @@
     </div>
     <ul class="caja--menu">
       <li>Tienda</li>
+      <li>videos</li>
       <li>Noticias</li>
       <li>Iniciar Sesion</li>
       <li>Registrarse</li>
