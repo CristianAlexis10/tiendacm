@@ -1,4 +1,4 @@
     </section>
-  <script src="views/assets/js/script.js"></script>
+  <script src="views/assets/js/main.js"></script>
   </body>
 </html>

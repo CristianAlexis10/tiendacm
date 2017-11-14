@@ -14,4 +14,4 @@ if (isset($_REQUEST["c"])) {
   $controller = new $controller;
   $controller->mainPage();
 }
- ?>
+?>

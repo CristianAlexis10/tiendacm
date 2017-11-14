@@ -1,18 +1,121 @@
 .modal{
   z-index: 5;
-  display: flex;
+  display: inline;
   position: fixed;
-  width: 500px;
-  height: 400px;
-  background: lime;
+  width: 467px;; /*467px*/ /*450px*/
+  height: 400px; /*400px*/
+  box-shadow: 0 1px 20px -8px black;
+  overflow: scroll;
+  font-family: "lato", sans-serif;
 }
+/*estilos del login*/
 .login{
+  width: 450px;
+  height: 400px;
+  background: #ffffff;
+}
+.titulo{
+  position: relative;
+  top: 30px;
+  margin: 0px 70px;
+  font-size: 30px;
+}
+.titulo h2{
+  color: #f1396d;
+}
+.formulario{
+  position: relative;
   width: 100%;
   height: 100%;
-  background: yellow;
+  /*background: lime;*/
 }
+.caja_usuario{
+  position: relative;
+  top: 100px;
+  margin: 0px 90px;
+  /*background: orange;*/
+}
+.caja_contra{
+  position: relative;
+  top: 160px;
+  margin: 0px 90px;
+  /*background: blue;*/
+}
+.label{
+  position: absolute;
+  top: -10px;
+  bottom: -20px;
+  z-index: 2;
+  color: #000000;
+  font-size: 25px;
+}
+.input{
+  position: relative;
+  border: none;
+  width: 100%;
+  background: none;
+  border-bottom: 2px solid #000000;
+}
+.btn_inicio button{
+  border: none;
+  font-size: 15px;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 0px 166px;
+  position: relative;
+  top: 210px;
+  background: #f1396d;
+  color: #ffffff;
+}
+
+/*estilos del registro*/
 .registro{
-  width: 10%;
-  height: 100%;
-  background: red;
+  width: 450px;
+  height: 600px;
+  background: #c6c6c6;
 }
+.titulo_registro{
+  position: relative;
+  top: 30px;
+  padding-bottom: 30px;
+  margin: 0px 120px;
+  font-size: 30px;
+}
+.titulo_registro h2{
+  color: #f1396d;
+}
+.btn_registro{
+  position: relative;
+  top: 20px;
+}
+.btn_registro button{
+  border: none;
+  font-size: 15px;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 0px 166px;
+  position: relative;
+  background: #f1396d;
+  color: #ffffff;
+}
+.caja_nombre{
+  position: relative;
+  margin: 50px 60px;
+}
+.caja_apellido{
+  position: relative;
+  margin: 50px 60px;
+}
+.caja_correo{
+  position: relative;
+  margin: 50px 60px;
+}
+.caja_pass{
+  position: relative;
+  margin: 50px 60px;
+}
+.caja_conpass{
+  position: relative;
+  margin: 50px 60px;
+}
+.

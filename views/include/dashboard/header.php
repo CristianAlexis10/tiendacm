@@ -12,5 +12,4 @@
   <body>
     <?php require_once("views/include/dashboard/topMenu.php"); ?>
     <?php require_once("views/include/dashboard/navigator.php"); ?>
-    <?php require_once("views/include/login-registro.php"); ?>
     <section class="wrap--contenido">
