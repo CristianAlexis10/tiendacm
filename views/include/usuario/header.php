@@ -11,5 +11,5 @@
   </head>
   <body>
     <?php require_once("views/include/usuario/topMenu.php"); ?>
-    <?php require_once("views/include/login-registro.php"); ?>
     <section class="contenedor">
+    <?php require_once("views/include/login-registro.php"); ?>

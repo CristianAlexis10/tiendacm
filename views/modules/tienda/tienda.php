@@ -11,10 +11,6 @@
         <?php foreach ($consulta as $row) { ?>
         <div class="item">
           <div class="caja--img">
-            <div class="h_detalle">
-              <i class="fa fa-search" aria-hidden="true"></i>
-              <h2>Haz click para ver detalles</h2>
-            </div>
             <img src="views/assets/img/<?php echo $row["pro_img"]; ?>">
           </div>
           <div class="descripcion">
