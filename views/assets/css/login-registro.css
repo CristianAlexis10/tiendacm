@@ -1,4 +1,7 @@
 .modal{
+  /*position: absolute;*/
+  left: 32%;
+  top: 4%;
   display: none;
   z-index: 5;
   position: fixed;
@@ -8,10 +11,13 @@
   overflow: hidden;
   font-family: "lato", sans-serif;
 }
+.agrandar_modal{
+  height: 600px;
+}
 /*estilos del login*/
 .login{
   width: 450px;
-  height: 400px;
+  height: 100%;
   background: #ffffff;
 }
 .titulo{
@@ -30,7 +36,7 @@
 }
 .caja_usuario{
   position: relative;
-  top: 100px;
+  top: 80px;
   height: 30px;
   margin: 0px 50px;
   background: #e4e4e4;
@@ -38,7 +44,7 @@
 }
 .caja_contra{
   position: relative;
-  top: 160px;
+  top: 135px;
   height: 30px;
   margin: 0px 50px;
   background: #e4e4e4;
@@ -48,7 +54,7 @@
   position: absolute;
   top: 3px;
   z-index: 2;
-  color: #c6c6c6;
+  color: #b1b1b1;
   font-size: 20px;
   padding-left: 5px;
 }
@@ -67,19 +73,28 @@
   border-radius: 5px;
   margin: 0px 166px;
   position: relative;
-  top: 210px;
+  top: 185px;
   background: #f1396d;
   color: #ffffff;
 }
 
 /*estilos del registro*/
 .registro{
+  z-index: 6;
   position: absolute;
   top: 0px;
   left: 450px;
   width: 450px;
   height: 600px;
   background: #dddddd; /*c6c6c6*/
+}
+.registro:hover{
+  transform: translateX(-10px);
+  transition: .3s;
+  cursor: pointer;
+}
+.mover_registro{
+  transform: translateX(-400px);
 }
 .titulo_registro{
   position: relative;
@@ -126,9 +141,11 @@
   margin: 50px 60px;
 }
 .input:focus,.input:valid{
-  border-bottom: 3px solid #3498db;
+  border-bottom: 3px solid #f1396d;
+  transition: .3s;
 }
 .input:focus ~ .label,.input:valid ~ .label{
   transform: translateY(-30px);
-  color: #3498db;
+  color: #f1396d;
+  transition: .3s;
 }
