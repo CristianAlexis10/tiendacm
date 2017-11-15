@@ -16,19 +16,17 @@ $("#formulario-login").submit(function(e) {
                 structure = $(this).val();
                 dataJson.push(structure);
             });
-           console.log(dataJson);
             $.ajax({
               url: "validar-inicio-sesion",
               type: "POST",
                dataType:'json',
                data: ({data: dataJson}),
                success: function(result){
-                 // if (result=='customer') {
-                 //   location.href = 'maxirecargas';
-
-                 // }else  if (result==true) {
-                 //      location.href = 'dashboard';
-                 //  }
+                  if (result==true) {
+                      location.href = 'dashboard';
+                  }else{
+                 	console.log(result);
+                  }
                },
                error: function(result){
                   console.log(result);
