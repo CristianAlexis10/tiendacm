@@ -1,12 +1,13 @@
 .modal{
   z-index: 5;
-  display: inline;
+  display: none;
   position: fixed;
   width: 500px;; /*467px*/ /*450px*/
   height: 400px; /*400px*/
   box-shadow: 0 1px 20px -8px black;
   overflow: scroll;
   font-family: "lato", sans-serif;
+
 }
 /*estilos del login*/
 .login{

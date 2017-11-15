@@ -1,3 +1,13 @@
+//menu 
+$('#modal-login').click(function(){
+	$('#modal-login-registro').toggle();	
+});
+
+$('#cerrar_modal').click(function(){
+	$('#modal-login-registro').toggle();	
+});
+
+
 // var wea = document.getElementsByClassName('formulario');
 // var label = document.getElementsByClassName('label');
 // var input = document.getElementsByClassName('input');
@@ -24,3 +34,4 @@
 //   input.style.borderBottom = "2px solid #02a88f";
 //   input.style.transition = "0.3s";
 // }
+ 

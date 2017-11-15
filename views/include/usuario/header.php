@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>PRUEBAS CM</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="views/assets/css/reset.css">
     <link rel="stylesheet" href="views/assets/css/main.css">
     <link rel="stylesheet" href="views/assets/css/login-registro.css">

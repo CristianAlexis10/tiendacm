@@ -1,5 +1,6 @@
-<div class="modal">
+<div class="modal" id="modal-login-registro">
   <div class="login">
+    <span id="cerrar_modal"><i class="fa fa-times" aria-hidden="true"></i></span>
     <form class="formulario" id="formulario" action="index.html" method="post">
       <div class="titulo">
         <h2>Inicio de sesión</h2>
