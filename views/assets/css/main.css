@@ -1,3 +1,4 @@
+
 /*menu superior*/
 .menu--top{
   z-index: 3;
@@ -29,12 +30,19 @@
   height: 100%;
   right: 0px;
 }
-.caja--menu li{
+.caja--menu li {
   color: #f1396d;
   cursor: pointer;
   padding: 15px;
 }
+.caja--menu a{
+    color: #f1396d;
+}
 .caja--menu li:hover{
+  color: #000000;
+  background: #f1396d;
+}
+.caja--menu li:hover a{
   color: #000000;
   background: #f1396d;
 }

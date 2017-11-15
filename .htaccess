@@ -6,3 +6,10 @@ RewriteRule ^dashboard$ index.php?c=views&a=dashboard
 
 #NOTICIAS
 RewriteRule ^noticias$ index.php?c=news
+
+
+#VIDEOS
+RewriteRule ^videos$ index.php?c=videos
+
+#LOGIN
+RewriteRule ^validar-inicio-sesion$ index.php?c=auth&a=validateUser
