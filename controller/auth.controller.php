@@ -8,15 +8,15 @@
 	 	}
 		function validateUser(){
 			$data = $_POST['data'];
-			$result = $this->master->selectCount('acceso','acc_correo',$data[0]);
+			$result = $this->master->selectCount('usuario','usu_correo',$data[0]);
 			if ($result[0]==1) {
-				$result = $this->master->selectBy('acceso',array('acc_correo',$data[0]));
+				$resultData = $this->master->selectBy('usuario',array('usu_correo',$data[0]));
+				$result = $this->master->selectBy('acceso',array('usu_id',$resultData['usu_codigo']));
 				if (password_verify($data[1], $result['acc_contra'])) {
-				    $result = $this->master->selectBy('usuario',array('acc_codigo',$result['acc_codigo']));
-				    $_SESSION['USER']['NAME']=$result['usu_nombres'];
-				    $_SESSION['USER']['ADDRESS']=$result['usu_direccion'];
-				    $_SESSION['USER']['ROL']=$result['rol_codigo'];
-				    $_SESSION['USER']['CODE']=$result['usu_codigo'];
+				    $_SESSION['USER']['NAME']=$resultData['usu_nombre1'];
+				    $_SESSION['USER']['ADDRESS']=$resultData['usu_direccion'];
+				    $_SESSION['USER']['ROL']=$resultData['rol_codigo'];
+				    $_SESSION['USER']['CODE']=$resultData['usu_codigo'];
 				    if ($_SESSION['USER']['ROL']==1) {
 				   	 echo json_encode('admin');
 				    }else{
