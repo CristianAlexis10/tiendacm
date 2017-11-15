@@ -22,8 +22,10 @@ $("#formulario-login").submit(function(e) {
                dataType:'json',
                data: ({data: dataJson}),
                success: function(result){
-                  if (result==true) {
+                  if (result=='admin') {
                       location.href = 'dashboard';
+                  }else if(result=='customer'){
+                      location.href = 'cliente';
                   }else{
                  	console.log(result);
                   }

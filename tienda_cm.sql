@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-11-2017 a las 03:36:10
--- Versión del servidor: 10.1.21-MariaDB
--- Versión de PHP: 5.6.30
+-- Tiempo de generación: 15-11-2017 a las 04:21:08
+-- Versión del servidor: 10.1.8-MariaDB
+-- Versión de PHP: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `acceso` (
   `acc_codigo` int(11) NOT NULL,
   `acc_correo` varchar(30) NOT NULL,
-  `acc_contra` varchar(16) NOT NULL
+  `acc_contra` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `acceso` (
 --
 
 INSERT INTO `acceso` (`acc_codigo`, `acc_correo`, `acc_contra`) VALUES
-(1, 'admin', '1234');
+(1, 'admin', '$2y$10$E6aCJNo1XdgieHiWBqGQL.FO6SJHSsXsFWUFkszaUx2YQSzyvmLyO');
 
 -- --------------------------------------------------------
 
@@ -226,7 +226,8 @@ CREATE TABLE `rol` (
 --
 
 INSERT INTO `rol` (`rol_codigo`, `rol_rol`) VALUES
-(1, 'admin');
+(1, 'admin'),
+(2, 'cliente');
 
 -- --------------------------------------------------------
 
