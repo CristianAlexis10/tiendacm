@@ -13,7 +13,7 @@
 				$resultData = $this->master->selectBy('usuario',array('usu_correo',$data[0]));
 				$result = $this->master->selectBy('acceso',array('usu_id',$resultData['usu_codigo']));
 				if (password_verify($data[1], $result['acc_contra'])) {
-				    $_SESSION['USER']['NAME']=$resultData['usu_nombre1'];
+				    $_SESSION['USER']['NAME']=$resultData['usu_nombre1']; 
 				    $_SESSION['USER']['ADDRESS']=$resultData['usu_direccion'];
 				    $_SESSION['USER']['ROL']=$resultData['rol_codigo'];
 				    $_SESSION['USER']['CODE']=$resultData['usu_codigo'];
