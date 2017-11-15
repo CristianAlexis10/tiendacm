@@ -1,6 +1,6 @@
 <div class="contenido">
   <h1>Bienvenido a la gestion de la tienda</h1>
-  <table>
+  <!-- <table>
     <thead>
       <th>cod</th>
       <th>nombre</th>
@@ -23,5 +23,12 @@
         </td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
+  <?php
+  $result = $this->master->selectAll('categoria');
+  foreach ($result as $row) {?>
+        <div class="">
+          <a href="#"><?php echo $row['cat_categ']; ?></a>
+        </div>
+    <?php } ?>
 </div>

@@ -6,11 +6,7 @@ class ViewsController{
      require_once("views/include/usuario/footer.php");
 	}
 
-	function dashboard(){
-		 require_once("views/include/dashboard/header.php");
-     require_once("views/modules/dashboard/index.php");
-     require_once("views/include/dashboard/footer.php");
-	}
+	
 	function landin(){
 		 require_once("views/include/usuario/header.php");
      require_once("views/modules/landing.php");

@@ -2,7 +2,7 @@ RewriteEngine on
 
 RewriteRule ^landing$ index.php?c=views&a=landin
 RewriteRule ^tienda$ index.php?c=tienda
-RewriteRule ^dashboard$ index.php?c=views&a=dashboard
+RewriteRule ^dashboard$ index.php?c=admin&a=dashboard
 
 #NOTICIAS
 RewriteRule ^noticias$ index.php?c=news
@@ -13,3 +13,6 @@ RewriteRule ^videos$ index.php?c=videos
 #LOGIN
 RewriteRule ^validar-inicio-sesion$ index.php?c=auth&a=validateUser
 RewriteRule ^cerrar-sesion$ index.php?c=auth&a=singOut
+
+#TIENDA
+RewriteRule ^gestion-tienda$ index.php?c=tienda&a=gestionar

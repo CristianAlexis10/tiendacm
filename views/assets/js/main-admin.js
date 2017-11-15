@@ -1,7 +1,6 @@
-if (document.getElementById('cerrar_session')) {
 	$('#cerrar_session').click(function(){
 			$.ajax({
-				url: "cerrar_session",
+				url: "cerrar-sesion",
 				type: "POST",
 				dataType:'json',
 				success: function(result){
@@ -11,4 +10,3 @@ if (document.getElementById('cerrar_session')) {
 				}
 			});
 	});
-}

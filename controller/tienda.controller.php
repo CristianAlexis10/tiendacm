@@ -13,5 +13,23 @@ Class TiendaController{
     require_once("views/modules/tienda/tienda.php");
     require_once("views/include/usuario/footer.php");
   }
+
+  function gestionar(){
+    if (isset($_SESSION['USER']['ROL'])) {
+      if ($_SESSION['USER']['ROL']==1) {
+        require_once("views/include/dashboard/header.php");
+        require_once("views/modules/dashboard/store/gestiontienda.php");
+        require_once("views/include/dashboard/footer.php");
+      }else{
+        require_once("views/include/usuario/header.php");
+        require_once("views/modules/landing.php");
+       require_once("views/include/usuario/footer.php");
+      }
+    }else{
+      require_once("views/include/usuario/header.php");
+      require_once("views/modules/landing.php");
+     require_once("views/include/usuario/footer.php");
+    }
+  }
 }
 ?>
