@@ -29,5 +29,10 @@
 				echo json_encode('El usuario no existe');
 			}
 		}
+
+		function singOut(){
+			session_destroy();
+			echo json_encode(true);
+		}
 	}
 ?>

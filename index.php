@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("model/conn.model.php");
 require_once("model/master.model.php");
 require_once("controller/doizer.controller.php");

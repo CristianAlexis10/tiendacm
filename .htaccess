@@ -12,3 +12,4 @@ RewriteRule ^videos$ index.php?c=videos
 
 #LOGIN
 RewriteRule ^validar-inicio-sesion$ index.php?c=auth&a=validateUser
+RewriteRule ^cerrar-sesion$ index.php?c=auth&a=singOut
