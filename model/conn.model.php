@@ -1,24 +1,28 @@
 <?php
-Class DataBase{
-  private static $db_host = "localhost";
-  private static $db_name = "tienda_cm";
-  private static $db_user = "root";
-  private static $db_pass = "";
-  private static $db_conn = null;
+    class DataBase{
+        private static $dbhost = "localhost";
+        private static $dbname = "tienda_cm";
+        private static $dbuser = "root";
+        private static $dbpass = "";
+        private static $dbstatus = null;
 
-    public static function connect(){
-      if (self::$db_conn==null) {
-          try {
-              self::$db_conn = new PDO("mysql:host=".self::$db_host.";dbname=".self::$db_name,self::$db_user,self::$db_pass);
-              self::$db_conn->exec("SET CHARACTER SET utf8");
-          } catch (PDOException $e) {
-              die($e->getMessage()."".$e->getLine()."".$e->getFile());
-          }
-      }
-      return self::$db_conn;
+        public static function openDB(){
+            if (self::$dbstatus==null){
+                try{
+                    self::$dbstatus=new PDO("mysql:host=".self::$dbhost.";dbname=".self::$dbname,self::$dbuser,self::$dbpass);
+                    self::$dbstatus->exec("SET CHARACTER utf8");
+                    return self::$dbstatus;
+                }catch(PDOException $e){
+                    die($e->getMessage());
+                }
+            }
+        }
+        public static function getName(){
+            return self::$dbname;
+        }
+        public static function closeDB(){
+            self::$dbstatus=null;
+        }
     }
-    public static function disconnect(){
-      self::$db_conn = null;
-    }
-  }
-?>
+
+ ?>

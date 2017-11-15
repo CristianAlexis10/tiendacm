@@ -8,34 +8,32 @@ $('#cerrar_modal').click(function(){
 });
 
 //login
-$("#form--login").submit(function(e) {
+$("#formulario-login").submit(function(e) {
     e.preventDefault();
-    if ($(this).parsley().isValid()) {
             dataJson = [];
             $("input[name=data-login]").each(function(){
                 structure = {};
                 structure = $(this).val();
                 dataJson.push(structure);
             });
+           console.log(dataJson);
             $.ajax({
               url: "validar-inicio-sesion",
               type: "POST",
                dataType:'json',
                data: ({data: dataJson}),
                success: function(result){
-                 if (result=='customer') {
-                   location.href = 'maxirecargas';
+                 // if (result=='customer') {
+                 //   location.href = 'maxirecargas';
 
-                 }else  if (result==true) {
-                      location.href = 'dashboard';
-                  }
-                  console.log(result);
+                 // }else  if (result==true) {
+                 //      location.href = 'dashboard';
+                 //  }
                },
                error: function(result){
                   console.log(result);
                }
             });
-  }
 });
 
 
