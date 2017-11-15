@@ -14,7 +14,7 @@
             <img src="views/assets/img/<?php echo $row["pro_img"]; ?>">
           </div>
           <div class="descripcion">
-            <h2><?php echo $row["pro_nompro"]; ?></h2>
+            <h2><?php echo $row["pro_nombre"]; ?></h2>
             <article><?php echo $row["pro_des"]; ?></article>
             <div class="descripcion--footer">
               <div class="btn--carrito">
