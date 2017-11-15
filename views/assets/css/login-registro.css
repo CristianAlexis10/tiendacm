@@ -1,17 +1,12 @@
 .modal{
-  z-index: 5;
-<<<<<<< HEAD
-  display: inline-block;
-=======
   display: none;
->>>>>>> 2a2754c91e81e0dd1140dd4c0e6780f69655caf1
+  z-index: 5;
   position: fixed;
   width: 500px; /*467px*/ /*450px*/
   height: 400px; /*400px*/
   box-shadow: 0 1px 20px -8px black;
   overflow: hidden;
   font-family: "lato", sans-serif;
-
 }
 /*estilos del login*/
 .login{
@@ -134,6 +129,6 @@
   border-bottom: 3px solid #3498db;
 }
 .input:focus ~ .label,.input:valid ~ .label{
-  transform: translateY(-40px);
+  transform: translateY(-30px);
   color: #3498db;
 }

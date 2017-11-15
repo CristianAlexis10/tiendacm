@@ -3,8 +3,8 @@
     <img src="views/assets/img/logo_cm_completo.png">
   </div>
   <ul>
-    <li><a href="gestion-tienda">Gestion tienda</a></li>
-    <li><a href="#">Gestion noticias</a></li>
-    <!-- <li><a href="#">Gestion modulo extra</a></li> -->
+    <a href="gestion-tienda"><li>Gestion tienda</li></a>
+    <a href="#"><li>Gestion noticias</li></a>
+    <a href="#"><li>Gestion videos</li></a>
   </ul>
 </nav>

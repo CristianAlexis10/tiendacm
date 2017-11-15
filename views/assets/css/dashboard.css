@@ -35,7 +35,6 @@ body{
 .left_menu_dash ul li{
   padding: 20px 10px;
   margin-bottom: 5px;
-  transition: .3s;
 }
 .imagen{
   background: #ffffff;
@@ -72,16 +71,17 @@ table,th,td{
   padding: 0px 10px;
   cursor: pointer;
 }
-.accion li i{
-  transition: 1s;
-}
 .accion li i:hover{
   /*color:  #cd0072;*/
+  transition: 1s;
   transform: rotate(360deg);
+  /*font-size: 25px;*/
 }
 .left_menu_dash ul li:hover{
-  border-left: 10px solid #ed2194;
+  /*border-left: 10px solid #ed2194;*/
   background: #dfdfdf;
+  font-size: 27px;
+  transition: .3s;
 }
 .top_menu_dash ul li a i:hover{
   color:  #ffffff;
