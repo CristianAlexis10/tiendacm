@@ -1,83 +1,141 @@
 .modal{
-  /*position: absolute;*/
-  left: 32%;
-  top: 4%;
-  display: none;
   z-index: 5;
+  left: 32%;
+  top: 20vh;
+  display: none;
   position: fixed;
-  width: 500px; /*467px*/ /*450px*/
-  height: 400px; /*400px*/
+  width: 450px;
+  height: 400px;
   box-shadow: 0 1px 20px -8px black;
   overflow: hidden;
   font-family: "lato", sans-serif;
+  background: #fff;
+  /*cursor: wait;*/
+  transition: 0.3s;
 }
 .agrandar_modal{
   height: 600px;
+  /*background: #dddddd;*/
+  top: 3vh;
+}
+.cerrar{
+  z-index: 7;
+  position: absolute;
+  right: 10px;
+  font-size: 20px;
 }
 /*estilos del login*/
 .login{
   width: 450px;
   height: 100%;
-  background: #ffffff;
+  background: none;
 }
 .titulo{
   position: relative;
-  top: 30px;
-  margin: 0px 70px;
   font-size: 30px;
+  background-color: #9D133A;
+  padding: 15px 17px;
 }
 .titulo h2{
-  color: #f1396d;
+  color: white;
+  text-transform: uppercase;
+  font-family: "Lato";
+  font-weight: lighter;
+}
+
+#cerrar_modal{
+  background-color: #ce587a;
+  border-radius: 300px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffc8d8;
+  cursor: pointer;
+}
+
+.login label{
+  cursor: text;
+}
+.login form p{
+  color: #6b6565;
+  margin:20px auto 25px auto;
+  line-height: 20px;
+  font-size: 16px;
 }
 .formulario{
   position: relative;
   width: 100%;
   height: 100%;
+  font-family: "Roboto";
 }
 .caja_usuario{
   position: relative;
-  top: 80px;
   height: 30px;
-  margin: 0px 50px;
-  background: #e4e4e4;
-  border-radius: 5px;
+  margin-top: 40px;
 }
+
+.wrap-content-form{
+  padding: 0px 20px;
+  position: absolute;
+  width: 91%;
+  height: 85%;
+}
+
+.caja_usuario, .caja_contra{
+  margin-bottom: 40px
+}
+
+.caja_usuario label, .caja_contra label{
+  font-size: 16px;
+}
+
 .caja_contra{
   position: relative;
-  top: 135px;
   height: 30px;
-  margin: 0px 50px;
-  background: #e4e4e4;
   border-radius: 5px;
 }
 .label{
   position: absolute;
-  top: 3px;
+  top: 8px;
   z-index: 2;
   color: #b1b1b1;
   font-size: 20px;
   padding-left: 5px;
+  background: none;
 }
 .input{
+  background: #e4e4e4;
   position: relative;
   border: none;
   width: 100%;
   height: 100%;
-  background: none;
   border-bottom: 2px solid #c6c6c6;
+  outline: none;
 }
-.btn_inicio button{
+.btn_inicio{
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  right: 22px;
+  width: 91%;
+  bottom: 15px;
+}
+.ini_sesion, .ir_registro{
   border: none;
   font-size: 15px;
   padding: 15px;
-  border-radius: 5px;
-  margin: 0px 166px;
-  position: relative;
-  top: 185px;
-  background: #f1396d;
+  border-radius: 2px;
+  background: #9D133A;
   color: #ffffff;
+  cursor: pointer;
+  width: 45%;
+  height: 100%;
 }
-
+.ir_registro{
+  margin-left: 15px;
+}
 /*estilos del registro*/
 .registro{
   z-index: 6;
@@ -86,15 +144,17 @@
   left: 450px;
   width: 450px;
   height: 600px;
-  background: #dddddd; /*c6c6c6*/
+  background: #ffffff;
 }
-.registro:hover{
-  transform: translateX(-10px);
-  transition: .3s;
-  cursor: pointer;
+.registro form p{
+  color: #6b6565;
+  margin: 20px auto 25px auto;
+  line-height: 20px;
+  font-size: 16px;
 }
 .mover_registro{
-  transform: translateX(-400px);
+  transform: translateX(-450px);
+  background: #fff;
 }
 .titulo_registro{
   position: relative;
@@ -106,42 +166,66 @@
 .titulo_registro h2{
   color: #f1396d;
 }
+.btn_registrarse{
+  border: none;
+  font-size: 15px;
+  padding: 15px;
+  border-radius: 2px;
+  background: #9D133A;
+  color: #ffffff;
+  cursor: pointer;
+  width: 45%;
+  height: 100%;
+}
 .btn_registro{
-  position: relative;
-  top: 20px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  right: 22px;
+  width: 91%;
+  bottom: 15px;
 }
 .btn_registro button{
   border: none;
   font-size: 15px;
   padding: 15px;
-  border-radius: 5px;
-  margin: 0px 166px;
+  border-radius: 3px;
   position: relative;
-  background: #f1396d;
+  background:  #9D133A;
   color: #ffffff;
+  cursor: pointer;
 }
 .caja_nombre{
   position: relative;
-  margin: 50px 60px;
+  width: 100%;
+  height: 30px;
 }
 .caja_apellido{
   position: relative;
-  margin: 50px 60px;
+  height: 30px;
+  width: 100%;
+  margin: 50px 0px;
 }
 .caja_correo{
   position: relative;
-  margin: 50px 60px;
+  margin: 50px 0px;
+  width: 100%;
+  height: 30px;
 }
 .caja_pass{
   position: relative;
-  margin: 50px 60px;
+  margin: 50px 0px;
+  width: 100%;
+  height: 30px;
 }
 .caja_conpass{
   position: relative;
-  margin: 50px 60px;
+  margin: 50px 0px;
+  width: 100%;
+  height: 30px;
 }
 .input:focus,.input:valid{
-  border-bottom: 3px solid #f1396d;
+  border-bottom: 2px solid #f1396d;
   transition: .3s;
 }
 .input:focus ~ .label,.input:valid ~ .label{

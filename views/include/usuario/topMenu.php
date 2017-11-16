@@ -1,12 +1,12 @@
 <header>
   <div class="menu--top">
     <div class="wrap--logo">
-     <a href="tienda"><img src="views/assets/img/logo_blanco.png"></a> 
+     <a href="tienda"><img src="views/assets/img/logo_blanco.png"></a>
     </div>
     <ul class="caja--menu">
-      <li><a href="tienda">Tienda</a></li>
-      <li><a href="videos">videos</a></li>
-      <li><a href="noticias">Noticias</a></li>
+      <a href="tienda"><li>Tienda</li></a>
+      <a href="videos"><li>videos</li></a>
+      <a href="noticias"><li>Noticias</li></a>
       <li id="modal-login">Iniciar Sesion / Registrarse</li>
       <!-- <li></li> -->
     </ul>
