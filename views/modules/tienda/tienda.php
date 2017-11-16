@@ -8,26 +8,44 @@
           </div>
         </div>
         <div class="seccion2">
-          <?php foreach ($consulta as $row) { ?>
-<div class="item">
-            <div class="caja--img">
-              <img src="views/assets/img/<?php echo $row["pro_img"]; ?>">
-            </div>
-            <div class="descripcion">
-              <h2><?php echo $row["pro_nombre"]; ?></h2>
-              <article><?php echo $row["pro_des"]; ?></article>
-              <div class="descripcion--footer">
-                <div class="btn--carrito">
-                  <button type="button">Añadir al carrito</button>
-                </div>
-                <div class="btn--mas_menos">
-                  <button type="button" class="menos">-</button>
-                  <label>0</label>
-                  <button type="button" class="mas">+</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        <?php  } ?>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="views/assets/css/style.hola.css">
+  <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
+  <link rel="stylesheet" type="text/css" href="views/assets/css/style.css">
+
+    <ul id="gallery" class="gallery ui-helper-reset ">
+           <?php 
+            foreach($consulta as $row){ ?>
+                      <h5 class="ui-widget-header"><?php echo $row["pro_nombre"]; ?></h5>
+                      <img src="views/assets/img/<?php echo $row["pro_img"]; ?>" alt="On top of Kozi kopka" width="96" height="72">
+                     
+                      <div class="des"><?php echo $row["pro_des"]; ?></div>
+                      <span class="dame">Ver</span>
+                      <input type="txt" value="<?php echo $row["pro_codigo"]; ?>" class='input-value'>
+                     cantidad: <input type="number" value="0" class="input-number-pro" id="<?php echo 'idCan'.$row["pro_codigo"]; ?>">
+                     <select id="<?php echo 'idCo'.$row["pro_codigo"]; ?>">
+                       <option value="blanco">Blanco</option>
+                       <option value="rojo">rojo</option>
+                     </select>
+                      <a title="Agregar al carrito" class="fa fa-cart-plus"></a>
+                </li>
+            <?php } ?>
+    </ul>
+
+    <div id="contenedor-objetos" class="ui-widget-content ui-state-default">
+         <h4 class="ui-widget-header"><span class="fa fa-shopping-cart"></span> Carrito de compras</h4>
+    </div>
+
+
+
 </div>
       </section>
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="views/assets/js/script.js"></script>
+    </section>
+    <script src="views/assets/js/main.js"></script>
+  </body>
+</html>
