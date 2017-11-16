@@ -17,3 +17,9 @@
   .input-number-pro{
     width: 50px;
   }
+
+  #confirm-order{
+    position: absolute;
+    top:95%;
+    cursor: pointer;
+  }
