@@ -16,6 +16,7 @@
     <ul id="gallery" class="gallery ui-helper-reset ">
            <?php 
             foreach($consulta as $row){ ?>
+                <li class="ui-widget-content">
                       <h5 class="ui-widget-header"><?php echo $row["pro_nombre"]; ?></h5>
                       <img src="views/assets/img/<?php echo $row["pro_img"]; ?>" alt="On top of Kozi kopka" width="96" height="72">
                      
@@ -34,6 +35,7 @@
 
     <div id="contenedor-objetos" class="ui-widget-content ui-state-default">
          <h4 class="ui-widget-header"><span class="fa fa-shopping-cart"></span> Carrito de compras</h4>
+         <div id="confirm-order">Realizar pedido</div>
     </div>
 
 
@@ -44,7 +46,7 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="views/assets/js/script.js"></script>
+  <script src="views/assets/js/carrito.js"></script>
     </section>
     <script src="views/assets/js/main.js"></script>
   </body>
