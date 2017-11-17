@@ -51,14 +51,14 @@ $(function() {
 
        //  $('#'+ui.draggable.context.childNodes[13].id).attr('disabled',false);
        //  $('#'+ui.draggable.context.childNodes[15].id).attr('disabled',false);
-        
+
        // pedidoTotal.splice(codigo, 1);
 
        //  console.log(pedidoTotal);
       }
     });
 
-    // eliminar imagen 
+    // eliminar imagen
         // recycle_icon el que aparece una vez se elimina
     var recycle_icon = "<a href='' title='Eliminar del pedido' class='fa fa-minus-circle'></a>";
     function deleteImage( $item ) {
@@ -74,14 +74,45 @@ $(function() {
             .find( "img" )
               .animate({ height: "36px" });
         });
-        var pro_codigo =  $item.context.childNodes[9].value;
-        var pro_cantidad = $item.context.childNodes[11].value;
-        var pro_color = $item.context.childNodes[13].value;
-        // console.log( $item.context.childNodes[13].value);
-        pedidoTotal[pro_codigo]={'pro_codigo':pro_codigo,'cant':pro_cantidad,'color':pro_color};
+        //valores de las cantidades
+        var pro_codigo =  $item.context.childNodes[11].id;
+        var clases_cantidad =  $('#'+pro_codigo).attr("class");
+        clases_cantidad = clases_cantidad.split(" ");
+        var cantidades = [];
+        $("."+clases_cantidad[1]).each(function(){
 
- 
+            cantidades.push($(this).val());
+        });
+        //valores de los colores
+        var pro_color =  $item.context.childNodes[13].id;
+        var clases_colores =  $('#'+pro_color).attr("class");
+        clases_colores = clases_colores.split(" ");
+        var colores = [];
+        $("."+clases_colores[0]).each(function(){
+
+            colores.push($(this).val());
+        });
+        //valores de las tallas
+        var pro_talla =  $item.context.childNodes[15].id;
+        var clases_tallas =  $('#'+pro_talla).attr("class");
+        clases_tallas = clases_tallas.split(" ");
+        var tallas = [];
+        $("."+clases_tallas[0]).each(function(){
+            tallas.push($(this).val());
+        });
+        // console.log(tallas);
+
+
+
+
+        pro_codigo =  $item.context.childNodes[9].value;
+        // var pro_cantidad = $item.context.childNodes[11].value;
+        // var pro_color = $item.context.childNodes[13].value;
+        // var pro_talla = $('#'+$item.context.childNodes[15].id).val();
+        pedidoTotal[pro_codigo]={'pro_codigo':pro_codigo,'cantidades':cantidades,'colores':colores,'pro_talla':tallas};
         // console.log(pedidoTotal);
+
+
         // desabilitar botones
         $('#'+$item.context.childNodes[11].id).attr('disabled',true);
         $('#'+$item.context.childNodes[13].id).attr('disabled',true);
@@ -110,7 +141,7 @@ $(function() {
 
             delete pedidoTotal[codigo];
 
-            // console.log(pedidoTotal);
+            console.log(pedidoTotal);
       });
     }
 
@@ -146,4 +177,29 @@ $('#confirm-order').click(function(){
                   console.log(result);
                }
             });
+});
+
+$('.otroP').click(function(){
+    // encontar la clase
+    var hermanos = $('#'+this.id).siblings('input,select');
+    var id_input = hermanos[1].id;
+    var clase = $('#'+id_input).attr("class");
+    clase = clase.split(" ")
+    $('#'+this.id).before('cantidad: <input type="number"  value="0" class="input-number-pro '+clase[1]+'">');
+    // traer clase del select
+    var id_select = hermanos[2].id;
+    var clase_select = $('#'+id_select).attr("class");
+    clase_select = clase_select.split(" ");
+    $('#'+this.id).before(' <select class="'+clase_select[0]+'"><option value="blanco">Blanco</option> <option value="rojo">rojo</option>   </select>');
+
+    //traer clase de la talla
+    var id_select_talla = hermanos[3].id;
+    var clase_select_talla = $('#'+id_select_talla).attr("class");
+    clase_select_talla = clase_select_talla.split(" ");
+    $('#'+this.id).before(' <select class="'+clase_select_talla[0]+'"><option value="">M</option><option value="x">X</option></select>');
+
+
+    hermanos = $('#'+this.id).siblings('input,select')
+    // console.log(hermanos);
+
 });
