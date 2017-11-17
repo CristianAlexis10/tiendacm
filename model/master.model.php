@@ -196,6 +196,18 @@ class MasterModel{
 
         return $result;
     }
+      public function selectMaxBy($table,$colum,$condition){
+        try {
+            $this->sql="SELECT max($colum) FROM $table WHERE $condition[0] = ? ";
+            $query=$this->pdo->prepare($this->sql);
+            $query->execute(array($condition[1]));
+            $result = $query->fetch(PDO::FETCH_BOTH);
+        } catch (PDOException $e) {
+            $result = $e->getMessage();
+        }
+
+        return $result;
+    }
 
     public function selectBy($table,$condition){
         try {

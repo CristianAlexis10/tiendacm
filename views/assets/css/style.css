@@ -20,11 +20,11 @@
 
   #confirm-order{
     position: absolute;
-    top:90%;
+    top:200px;
     cursor: pointer;
     background-color: tomato;
     width: 125px;
-    margin-left: 100px;
+    margin: 40px;
     border-radius: 5px;
     color:#000;
   }

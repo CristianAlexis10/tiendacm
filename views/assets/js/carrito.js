@@ -15,6 +15,7 @@ $(function() {
 
     //hacer que el contenedor acepte los elementos droppable
     $trash.droppable({
+      cancel: "#confirm-order",
       accept: "#gallery > li",
       classes: {
         "ui-droppable-active": "ui-state-highlight"//efecto cada que se seleciona un droppable
@@ -77,10 +78,10 @@ $(function() {
         var pro_cantidad = $item.context.childNodes[11].value;
         var pro_color = $item.context.childNodes[13].value;
         // console.log( $item.context.childNodes[13].value);
-        pedidoTotal[pro_codigo]={'cant':pro_cantidad,'color':pro_color};
+        pedidoTotal[pro_codigo]={'pro_codigo':pro_codigo,'cant':pro_cantidad,'color':pro_color};
 
  
-        console.log(pedidoTotal);
+        // console.log(pedidoTotal);
         // desabilitar botones
         $('#'+$item.context.childNodes[11].id).attr('disabled',true);
         $('#'+$item.context.childNodes[13].id).attr('disabled',true);
@@ -109,7 +110,7 @@ $(function() {
 
             delete pedidoTotal[codigo];
 
-            console.log(pedidoTotal);
+            // console.log(pedidoTotal);
       });
     }
 
@@ -130,4 +131,19 @@ $(function() {
 
 $('.dame').click(function(){
   alert('ya dio');
+});
+
+$('#confirm-order').click(function(){
+   $.ajax({
+              url: "realizar-pedido",
+              type: "POST",
+               dataType:'json',
+               data: ({data: pedidoTotal}),
+               success: function(result){
+                 console.log(result);
+               },
+               error: function(result){
+                  console.log(result);
+               }
+            });
 });
