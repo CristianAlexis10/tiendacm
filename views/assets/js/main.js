@@ -28,6 +28,7 @@ $("#formulario-login").submit(function(e) {
                       location.href = 'cliente';
                   }else{
                  	console.log(result);
+									// alert('Error en el usuario o contraseña');
                   }
                },
                error: function(result){
