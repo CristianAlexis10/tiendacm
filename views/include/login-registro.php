@@ -1,4 +1,4 @@
-<div class="fondo">
+<!-- <div class="fondo" id="fondo"> -->
   <div class="modal" id="modal-login-registro">
         <div class="login" id='login'>
           <form class="formulario" id="formulario-login" action="index.html" method="post">
@@ -15,6 +15,7 @@
                 <div class="caja_contra">
                   <input type="password" name="data-login" id="login-pass" class="input" required>
                   <label for="login-pass" class="label" >Contraseña</label>
+                  <span class="olvi_contra"><a href="#">¿Olvidaste la contraseña?</a></span>
                 </div>
                 <div class="btn_inicio">
                   <button type="submit" class="ini_sesion">Iniciar sesion</button>
@@ -58,4 +59,4 @@
           </form>
         </div>
       </div>
-    </div>
+    <!-- </div> -->

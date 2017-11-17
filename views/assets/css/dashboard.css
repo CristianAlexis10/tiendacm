@@ -20,6 +20,9 @@ body{
 .top_menu_dash ul li{
   padding: 0px 10px;
 }
+.top_menu_dash ul li a i{
+  color: #000;
+}
 .left_menu_dash{
   position: fixed;
   z-index: 2;
@@ -35,6 +38,7 @@ body{
 .left_menu_dash ul li{
   padding: 20px 10px;
   margin-bottom: 5px;
+  color: #000
 }
 .imagen{
   background: #ffffff;
@@ -54,13 +58,14 @@ body{
   background: #fff;
   width: 99%;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 .contenido h1{
   text-align: center;
   padding-bottom: 10px;
   border-bottom: 2px solid #a0a0a0;
   margin-bottom: 20px;
+  font-size: 20px;
 }
 table,th,td{
   border: 1px solid black;
@@ -72,17 +77,45 @@ table,th,td{
   cursor: pointer;
 }
 .accion li i:hover{
-  /*color:  #cd0072;*/
   transition: 1s;
   transform: rotate(360deg);
-  /*font-size: 25px;*/
 }
 .left_menu_dash ul li:hover{
-  /*border-left: 10px solid #ed2194;*/
+  border-left: 10px solid #ed2194;
   background: #dfdfdf;
-  font-size: 27px;
   transition: .3s;
 }
 .top_menu_dash ul li a i:hover{
-  color:  #ffffff;
+  color:  #dfdfdf;
+}
+/*gestion de la tienda*/
+.gestion_ropa{
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 3px;
+}
+.categorias_ropa{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  height: 100px;
+  background: #ff98f5;
+  margin: 10px 16px;
+  font-size: 25px;
+}
+.categorias_ropa a{
+  color: #000;
+}
+.categorias_ropa:hover{
+  background: #fe72f0;
+  transition: .3s;
+}
+.categorias_ropa:nth-last-child(1){
+  background: #c6c6c6;
+  font-size: 60px;
+}
+.categorias_ropa:nth-last-child(1):hover{
+  background: #fe72f0;
+  transition: .3s;
 }

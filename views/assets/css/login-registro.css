@@ -1,3 +1,13 @@
+/*.fondo{
+display: none;
+position: absolute;
+height: 100vh;
+width: 100%;
+background: rgba(0, 0, 0, 0.7);
+}
+.visible{
+display: inherit;
+}*/
 .modal{
   z-index: 5;
   left: 32%;
@@ -11,6 +21,18 @@
   font-family: "lato", sans-serif;
   background: #fff;
   transition: 0.3s;
+}
+.olvi_contra{
+  right: 0px;
+  position: absolute;
+  font-size: 12px;
+  margin-top: 5px;
+}
+.olvi_contra a{
+  color: #908c8c;
+}
+.olvi_contra a:hover{
+  color: #f1396d;
 }
 .agrandar_modal{
   height: 600px;
@@ -228,4 +250,5 @@
   font-size: 15px;
   color: #f1396d;
   transition: .3s;
+  cursor: default;
 }

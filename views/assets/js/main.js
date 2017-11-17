@@ -35,10 +35,9 @@ $("#formulario-login").submit(function(e) {
                }
             });
 });
-// animaciones estilos
+// animaciones login
 var registro = document.getElementById('registro');
 var modal = document.getElementById('modal-login-registro');
-var login = document.getElementById('login');
 var btn_registro = document.getElementById('btn_registro');
 var btn_login = document.getElementById('btn_login');
 

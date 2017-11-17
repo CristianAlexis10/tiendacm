@@ -1,7 +1,7 @@
 <header>
   <div class="menu--top">
     <div class="wrap--logo">
-     <a href="tienda"><img src="views/assets/img/logo_blanco.png"></a>
+     <a href="landing"><img src="views/assets/img/logo_blanco.png"></a>
     </div>
     <ul class="caja--menu">
       <a href="tienda"><li>Tienda</li></a>
