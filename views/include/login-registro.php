@@ -1,59 +1,61 @@
-<div class="modal" id="modal-login-registro">
-      <div class="login" id='login'>
-        <form class="formulario" id="formulario-login" action="index.html" method="post">
-          <div class="titulo">
-            <span id="cerrar_modal" class="cerrar"><i class="fa fa-times" aria-hidden="true"></i></span>
-            <h2>INICIAR SESIÓN</h2>
-          </div>
-          <div class="wrap-content-form">
-              <p>Ingrese el correo electronico y la contraseña para poder acceder al sistema</p>
-              <div class="caja_usuario">
-                <input type="text" name="data-login" id="login-email" class="input" required>
-                <label for="login-email" class="label">Correo</label>
+<div class="fondo">
+  <div class="modal" id="modal-login-registro">
+        <div class="login" id='login'>
+          <form class="formulario" id="formulario-login" action="index.html" method="post">
+            <div class="titulo">
+              <span id="cerrar_modal" class="cerrar"><i class="fa fa-times" aria-hidden="true"></i></span>
+              <h2>INICIAR SESIÓN</h2>
+            </div>
+            <div class="wrap-content-form">
+                <p>Ingrese el correo electronico y la contraseña para poder acceder al sistema</p>
+                <div class="caja_usuario">
+                  <input type="text" name="data-login" id="login-email" class="input" required>
+                  <label for="login-email" class="label">Correo</label>
+                </div>
+                <div class="caja_contra">
+                  <input type="password" name="data-login" id="login-pass" class="input" required>
+                  <label for="login-pass" class="label" >Contraseña</label>
+                </div>
+                <div class="btn_inicio">
+                  <button type="submit" class="ini_sesion">Iniciar sesion</button>
+                  <button type="button" class="ir_registro" id="btn_registro">registro</button>
+                </div>
+            </div>
+          </form>
+        </div>
+        <div class="registro" id="registro">
+          <form class="formulario" action="index.html" method="post">
+            <div class="titulo">
+              <h2>REGISTRATE</h2>
+            </div>
+            <div class="wrap-content-form">
+              <p>Ingrese lo datos correspondientes para poder Registrarse en el sistema</p>
+              <div class="caja_nombre">
+                <input type="text" class="input" required id="1">
+                <label for="1"class="label">Nombre</label>
               </div>
-              <div class="caja_contra">
-                <input type="password" name="data-login" id="login-pass" class="input" required>
-                <label for="login-pass" class="label" >Contraseña</label>
+              <div class="caja_apellido">
+                <input type="text" class="input" required id="2">
+                <label for="2" class="label">Apellidos</label>
               </div>
-              <div class="btn_inicio">
-                <button type="submit" class="ini_sesion">Iniciar sesion</button>
-                <button type="button" class="ir_registro" id="btn_registro">registro</button>
+              <div class="caja_correo">
+                <input type="text" class="input" required id="3">
+                <label for="3" class="label">Correo</label>
               </div>
-          </div>
-        </form>
-      </div>
-      <div class="registro" id="registro">
-        <form class="formulario" action="index.html" method="post">
-          <div class="titulo">
-            <h2>REGISTRATE</h2>
-          </div>
-          <div class="wrap-content-form">
-            <p>Ingrese lo datos correspondientes para poder Registrarse en el sistema</p>
-            <div class="caja_nombre">
-              <input type="text" class="input" required>
-              <label for=""class="label">Nombre</label>
+              <div class="caja_pass">
+                <input type="password" class="input" required id="4">
+                <label for="4" class="label">Contraseña</label>
+              </div>
+              <div class="caja_conpass">
+                <input type="password" class="input" required id="5">
+                <label for="5" class="label">Confirmar contraseña</label>
+              </div>
             </div>
-            <div class="caja_apellido">
-              <input type="text" class="input" required>
-              <label for="" class="label">Apellidos</label>
-            </div>
-            <div class="caja_correo">
-              <input type="text" class="input" required>
-              <label for="" class="label">Correo</label>
-            </div>
-            <div class="caja_pass">
-              <input type="text" class="input" required>
-              <label for="" class="label">Contraseña</label>
-            </div>
-            <div class="caja_conpass">
-              <input type="text" class="input" required>
-              <label for="" class="label">Confirmar contraseña</label>
-            </div>
-          </div>
-            <div class="btn_registro">
-              <button type="submit" class="btn_registrarse">Registrarse</button>
-              <button type="button" id="btn_login" class="ir_registro">Iniciar sesión</button>
-            </div>
-        </form>
+              <div class="btn_registro">
+                <button type="submit" class="btn_registrarse">Registrarse</button>
+                <button type="button" id="btn_login" class="ir_registro">Iniciar sesión</button>
+              </div>
+          </form>
+        </div>
       </div>
     </div>
