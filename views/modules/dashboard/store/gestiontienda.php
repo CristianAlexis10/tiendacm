@@ -8,7 +8,7 @@
           <a href="#"><?php echo $row['cat_categ']; ?></a>
         </div>
     <?php } ?>
-        <div class="categorias_ropa">
+        <div class="categorias_ropa" id="add_categoria">
           <span>+</span>
         </div>
   </div>
