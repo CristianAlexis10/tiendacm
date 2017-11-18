@@ -109,10 +109,16 @@ $(function() {
         // var pro_cantidad = $item.context.childNodes[11].value;
         // var pro_color = $item.context.childNodes[13].value;
         // var pro_talla = $('#'+$item.context.childNodes[15].id).val();
-        pedidoTotal[pro_codigo]={'pro_codigo':pro_codigo,'cantidades':cantidades,'colores':colores,'pro_talla':tallas};
+        // pedidoTotal[pro_codigo]={'pro_codigo':pro_codigo,'cantidades':cantidades,'colores':colores,'pro_talla':tallas};
+        var cantidad_colores_tallas = [];
+        var conta = (cantidades.length-1);
+        while(conta>=0){
+            cantidad_colores_tallas.push({'cantidad':cantidades[conta],'color':colores[conta],'talla':tallas[conta]});
+            conta = conta-1;
+        }
+
+        pedidoTotal[pro_codigo]={'pro_codigo':pro_codigo,'detalles':cantidad_colores_tallas};
         // console.log(pedidoTotal);
-
-
         // desabilitar botones
         $('#'+$item.context.childNodes[11].id).attr('disabled',true);
         $('#'+$item.context.childNodes[13].id).attr('disabled',true);
@@ -196,7 +202,7 @@ $('.otroP').click(function(){
     var id_select_talla = hermanos[3].id;
     var clase_select_talla = $('#'+id_select_talla).attr("class");
     clase_select_talla = clase_select_talla.split(" ");
-    $('#'+this.id).before(' <select class="'+clase_select_talla[0]+'"><option value="">M</option><option value="x">X</option></select>');
+    $('#'+this.id).before(' <select class="'+clase_select_talla[0]+'"><option value="m">M</option><option value="x">X</option></select>');
 
 
     hermanos = $('#'+this.id).siblings('input,select')
