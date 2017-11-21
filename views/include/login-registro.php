@@ -1,4 +1,4 @@
-<!-- <div class="fondo" id="fondo"> -->
+<div class="fondo" id="fondo"></div>
   <div class="modal" id="modal-login-registro">
         <div class="login" id='login'>
           <form class="formulario" id="formulario-login" action="index.html" method="post">
@@ -59,4 +59,3 @@
           </form>
         </div>
       </div>
-    <!-- </div> -->

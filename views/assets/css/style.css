@@ -1,29 +1,73 @@
- #gallery { float: left; width: 65%; min-height: 12em; }
-  .gallery.custom-state-active { background: #eee; }
-  .gallery li { float: left; width: 270px; height:400px; padding: 0.4em; margin: 0 0.4em 0.4em 0; text-align: center; }
-  .gallery li h5 { margin: 0 0 0.4em; cursor: move; }
-  .gallery li a { float: right; }
-  .gallery li img { width: 200px; height: 250px;cursor: move; }
+body{
+  overflow-x: hidden;
+}
+ #gallery{
+   position: absolute;
+   display: flex;
+   flex-wrap: wrap;
+   left: 300px;
+   top: 0px;
+   padding: 10px;
+   width: 52%;
+   min-height: 12em;
+   /*background: red;*/
+ }
+  .gallery.custom-state-active{
+  }
+  .gallery li{
+    z-index: 4;
+    width: 200px;
+    padding: 0.4em;
+    margin: 16px 9px;
+    text-align: center;
+  }
+  .gallery li h5{
+    margin: 0 0 0.4em;
+  }
+  .gallery li a{
+    color: red;
+  }
+  .gallery li img{
+    width: 200px;
+    height: 200px;
+  }
 
-  #contenedor-objetos { float: right; width: 32%; min-height: 18em; padding: 1%; }
-  #contenedor-objetos h4 { line-height: 16px; margin: 0 0 0.4em; }
-  #contenedor-objetos h4 .ui-icon { float: left; }
-  #contenedor-objetos .gallery h5 { display: none; }
+  #contenedor-objetos{
+    z-index: 3;
+    position: fixed;
+    right: 0px;
+    top: 50px;
+    width: 300px;
+    height: 100%;
+    padding: 10px;
+    overflow: auto;
+  }
+  .open{
+    transform: translateX(105%);
+  }
+  #contenedor-objetos h4{
+    line-height: 16px;
+    margin: 0 0 0.4em;
+  }
+  #contenedor-objetos h4 .ui-icon{
+    color: #000;
+  }
+  #contenedor-objetos .gallery h5{
+    display: none;
+  }
   .input-value{
     display: none;
   }
-
   .input-number-pro{
     width: 50px;
   }
-
   #confirm-order{
     position: absolute;
-    top:200px;
+    bottom: 0px;
     cursor: pointer;
-    background-color: tomato;
-    width: 125px;
-    margin: 40px;
-    border-radius: 5px;
-    color:#000;
+    background-color: #ea0086;
+    border-radius: 3px;
+    color: #fff;
+    padding: 10px;
+    margin: 0px 85px 10px;
   }

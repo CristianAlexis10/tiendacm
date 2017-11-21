@@ -11,7 +11,7 @@
   <section class="seccion2_noticia">
     <div class="noticia">
       <div class="noticia_img">
-
+        <img src="views/assets/img/img3.JPEG" alt="">
       </div>
       <div class="">
         <div class="titulo_noticia">

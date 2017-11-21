@@ -50,3 +50,29 @@ btn_login.onclick = function() {
 	registro.classList.remove('mover_registro');
 	modal.classList.remove('agrandar_modal');
 }
+var carrito = document.getElementById('btn_car_compra');
+var carrito_items = document.getElementById('contenedor-objetos');
+
+carrito.onclick = function() {
+	carrito_items.classList.toggle("open");
+}
+//slider
+// var slideIndex = 0;
+// showSlides();
+//
+// function showSlides() {
+// 	var i;
+// 	var slides = document.getElementsByClassName('imagen');
+// 	var indi = document.getElementsByClassName('indicador');
+// 	for (i = 0; i < slides.length; i++) {
+// 		slides[i].style.display = "none";
+// 	}
+// 	slideIndex++;
+// 	if (slideIndex > slides.length) {slideIndex = 1}
+// 	for (i = 0; i < indi.length; i++) {
+// 		indi[i].className = indi[i].className.replace(" active","");
+// 	}
+// 	slides[slideIndex - 1].style.display = "block";
+// 	indi[slideIndex - 1].classNamea += " active";
+// 	setTimeout(showSlides, 1000);
+// }

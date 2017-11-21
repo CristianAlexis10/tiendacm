@@ -70,9 +70,9 @@ $(function() {
         $item.find( "a.fa-cart-plus" ).remove();
         $item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
           $item
-            .animate({ width: "48px" })
+            .animate({ width: "250px" })
             .find( "img" )
-              .animate({ height: "36px" });
+              .animate({ height: "100px" });
         });
         //valores de las cantidades
         var pro_codigo =  $item.context.childNodes[11].id;
@@ -133,10 +133,10 @@ $(function() {
           .find( "a.fa-minus-circle" )
             .remove()
           .end()
-          .css( "width", "96px")
+          .css( "width", "200px")
           .append( trash_icon )
           .find( "img" )
-            .css( "height", "72px" )
+            .css( "height", "200px" )
           .end()
           .appendTo( $gallery )
           .fadeIn();
@@ -186,7 +186,7 @@ $('#confirm-order').click(function(){
 });
 
 $('.otroP').click(function(){
-    // encontar la clase
+    // encontrar la clase
     var hermanos = $('#'+this.id).siblings('input,select');
     var id_input = hermanos[1].id;
     var clase = $('#'+id_input).attr("class");

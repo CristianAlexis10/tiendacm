@@ -1,6 +1,9 @@
 /*menu superior*/
+body{
+  background: #ecf0f1;
+}
 .menu--top{
-  z-index: 3;
+  z-index: 5;
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   position: fixed;
@@ -42,6 +45,7 @@
   color: #000000;
   background: #f1396d;
 }
+
 /*slider o primera seccion*/
 .slider{
   z-index: 1;
@@ -80,18 +84,11 @@
 }
 /*seccion 2 tienda*/
 .seccion2{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
   position: absolute;
-  box-sizing: border-box;
   top: 70vh;
   width: 100%;
-  background: #ecf0f1;
 }
-
-.item{
+/*.item{
   position: relative;
   height: 450px;
   width: 350px;
@@ -178,18 +175,27 @@
   position: relative;
   bottom: 2px;
   right: 3px;
-}
+}*/
+/*Seccion noticias*/
 .seccion2_noticia{
   position: absolute;
   top: 70vh;
   width: 100%;
-  background-color: #ecf0f1;;
+  background-color: #ecf0f1;
 }
 .noticia{
   height: 200px;
   width: 90%;
   margin: 2% 5%;
   background: red;
+}
+.noticia_img{
+  height: 100%;
+  width: 250px;
+}
+.noticia_img img{
+  height: 100%;
+  width: 100%;
 }
 .cont_noticia{
 
@@ -199,4 +205,14 @@
   width: 100%;
   overflow: hidden;
   background: rgba(75, 196, 16, 0.42);
+}
+.footer{
+  /*position: absolute;
+  bottom: 0px;*/
+  background: black;
+  width: 100%;
+  height: 100px;
+  color: #f1396d;
+  text-align: center;
+  font-size: 18px;
 }

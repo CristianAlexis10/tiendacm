@@ -8,18 +8,20 @@
           </div>
         </div>
         <div class="seccion2">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="views/assets/css/style.hola.css">
-  <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
-  <link rel="stylesheet" type="text/css" href="views/assets/css/style.css">
-
+  <div class="cat_lista">
+    <h2>CATEGORIAS</h2>
+    <ul>
+      <a href="#"><li>TODA</li></a>
+      <a href="#"><li>SU PUTA</li></a>
+      <a href="#"><li>MADRE</li></a>
+    </ul>
+  </div>
     <ul id="gallery" class="gallery ui-helper-reset ">
            <?php
             foreach($consulta as $row){ ?>
                 <li class="ui-widget-content">
                       <h5 class="ui-widget-header"><?php echo $row["pro_nombre"]; ?></h5>
                       <img src="views/assets/img/<?php echo $row["pro_img"]; ?>" alt="On top of Kozi kopka" width="96" height="72">
-
                       <div class="des"><?php echo $row["pro_des"]; ?></div>
                       <span class="dame">Ver</span>
                       <input type="txt" value="<?php echo $row["pro_codigo"]; ?>" class='input-value'>
@@ -39,7 +41,7 @@
             <?php } ?>
     </ul>
 
-    <div id="contenedor-objetos" class="ui-widget-content ui-state-default">
+    <div id="contenedor-objetos" class="ui-widget-content ui-state-default open">
          <h4 class="ui-widget-header"><span class="fa fa-shopping-cart"></span> Carrito de compras</h4>
          <div id="confirm-order">Realizar pedido</div>
     </div>
@@ -48,12 +50,8 @@
 
 </div>
       </section>
-
-
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="views/assets/js/carrito.js"></script>
-    </section>
-    <script src="views/assets/js/main.js"></script>
-  </body>
-</html>
+      <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="views/assets/js/carrito.js"></script> -->
+          </section>
+          <!-- <script src="views/assets/js/main.js"></script> -->
