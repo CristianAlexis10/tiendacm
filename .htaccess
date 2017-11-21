@@ -3,6 +3,8 @@ RewriteEngine on
 RewriteRule ^landing$ index.php?c=views&a=landin
 RewriteRule ^tienda$ index.php?c=tienda
 RewriteRule ^dashboard$ index.php?c=admin&a=dashboard
+#USUARIOS
+RewriteRule ^guardar-cliente$ index.php?c=user&a=newUser
 
 #NOTICIAS
 RewriteRule ^noticias$ index.php?c=news

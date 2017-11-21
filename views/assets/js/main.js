@@ -76,3 +76,28 @@ carrito.onclick = function() {
 // 	indi[slideIndex - 1].classNamea += " active";
 // 	setTimeout(showSlides, 1000);
 // }
+
+
+//Registro
+$("#modal-login-registro").submit(function(e) {
+    e.preventDefault();
+            dataJson = [];
+            $(".dataNewUser").each(function(){
+                structure = {};
+                structure = $(this).val();
+                dataJson.push(structure);
+            });
+			console.log(dataJson);
+            $.ajax({
+              url: "guardar-usuario",
+              type: "POST",
+               dataType:'json',
+               data: ({data: dataJson}),
+               success: function(result){
+                  console.log(result);
+               },
+               error: function(result){
+                  console.log(result);
+               }
+            });
+});

@@ -32,23 +32,23 @@
             <div class="wrap-content-form">
               <p>Ingrese lo datos correspondientes para poder Registrarse en el sistema</p>
               <div class="caja_nombre">
-                <input type="text" class="input" required id="1">
+                <input type="text" class="input dataNewUser" required id="1">
                 <label for="1"class="label">Nombre</label>
               </div>
               <div class="caja_apellido">
-                <input type="text" class="input" required id="2">
+                <input type="text" class="input dataNewUser" required id="2">
                 <label for="2" class="label">Apellidos</label>
               </div>
               <div class="caja_correo">
-                <input type="text" class="input" required id="3">
+                <input type="text" class="input dataNewUser" required id="3">
                 <label for="3" class="label">Correo</label>
               </div>
               <div class="caja_pass">
-                <input type="password" class="input" required id="4">
+                <input type="password" class="input dataNewUser" required id="4">
                 <label for="4" class="label">Contraseña</label>
               </div>
               <div class="caja_conpass">
-                <input type="password" class="input" required id="5">
+                <input type="password" class="input dataNewUser" required id="5">
                 <label for="5" class="label">Confirmar contraseña</label>
               </div>
             </div>
