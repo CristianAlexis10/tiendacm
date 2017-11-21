@@ -22,5 +22,12 @@
 				}
 			}
 		}
+
+		function view(){
+			$data = $_GET['data'];
+			require_once 'views/include/dashboard/header.php';
+			require_once 'views/modules/dashboard/store/view-category.php';
+			require_once 'views/include/dashboard/footer.php';
+		}
 	}
 ?>
