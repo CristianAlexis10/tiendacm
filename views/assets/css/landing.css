@@ -9,16 +9,16 @@
 }
 @keyframes slider {
   0%,25%{
-    content: url("../img/IMG_2754.jpg");
+    content: url("../img/IMG_2737.jpg");
   }
   26%,50%{
-    content: url("../img/IMG_2765.jpg");
+    content: url("../img/IMG_2744.jpg");
   }
   51%,75%{
-    content: url("../img/IMG_2764.jpg");
+    content: url("../img/IMG_2747.jpg");
   }
   76%,100%{
-    content: url("../img/IMG_2737.jpg");
+    content: url("../img/IMG_2764.jpg");
   }
 }
 .landing-seccion2, .landing-seccion3{
