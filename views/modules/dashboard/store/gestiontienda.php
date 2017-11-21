@@ -1,4 +1,4 @@
-<div class="contenido">
+<div class="contenido" id="cat-conte">
   <h1>Bienvenido a la gestion de la tienda</h1>
   <div class="gestion_ropa">
   <?php

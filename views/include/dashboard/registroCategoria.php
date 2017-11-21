@@ -3,9 +3,9 @@
   <div class="reg_categoria" id="reg_categoria">
     <h2>Añadir categoria</h2>
     <div class="reg_categoria_form">
-      <form class="" action="index.html" method="post">
+      <form id="frmNewCat">
         <label for="">Ingrese el nombre de la categoria</label>
-        <input type="text">
+        <input type="text" name="data-newCat" placeholder="Ingresa el nombre de la categoria">
         <button type="submit">guardar</button>
       </form>
     </div>

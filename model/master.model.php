@@ -128,7 +128,7 @@ class MasterModel{
             $query->execute($vals);
             $result = true;
         } catch (PDOException $e) {
-            $result = $e->getMessage();
+            $result =  $query->errorInfo()[1];
         }
        return $result;
     }
