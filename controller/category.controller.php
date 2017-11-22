@@ -22,6 +22,15 @@
 				}
 			}
 		}
+		function delete(){
+			$data = $_POST['data'];
+			$result = $this->master->delete('categoria',array('cat_categ',$data));
+			if ($result==1) {
+				echo json_encode('eliminado exitosamente');
+			}else{
+				echo json_encode($this->doizer->knowError($result));
+			}
+		}
 
 		function view(){
 			$data = $_GET['data'];

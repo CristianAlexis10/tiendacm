@@ -6,7 +6,31 @@ $('#modal-login').click(function(){
 $('#cerrar_modal').click(function(){
 	$('#modal-login-registro').toggle();
 });
+//validar correo
+  $('#iniciar_se').attr('disabled',true);
+$('#login-pass').focus(function(){
+    var value = $('#login-email').val();
+    if (value!='') {
+	    $.ajax({
+	      url: 'validar_correo',
+	      type:'post',
+	      dataType:'json',
+	      data:'data='+value,
+	  }).done(function(response){
+       if(response==true) {
+		    $(".message").remove();
+		    $('#iniciar_se').attr('disabled',false);
+	     }else{
+	     	$(".message").remove();
+		$("#login-email").after("<div class='message'>Correo no valido</div>");
+		$('#iniciar_se').attr('disabled',true);
+	     }
 
+	  });
+    }else{
+    	$(".message").remove();
+    }
+});
 //login
 $("#formulario-login").submit(function(e) {
     e.preventDefault();
@@ -82,6 +106,29 @@ carrito.onclick = function() {
 
 
 //Registro
+$('#contrasena').focus(function(){
+    var value = $('#newEmail').val();
+    if (value!='') {
+	    $.ajax({
+	      url: 'validar_correo',
+	      type:'post',
+	      dataType:'json',
+	      data:'data='+value,
+	  }).done(function(response){
+       if(response!=true) {
+		    $(".message").remove();
+		    $('#btn_regis').attr('disabled',false);
+	     }else{
+	     	$(".message").remove();
+		$("#newEmail").after("<div class='message'>Correo no valido</div>");
+		$('#btn_regis').attr('disabled',true);
+	     }
+
+	  });
+    }else{
+    	$(".message").remove();
+    }
+});
 $("#frmNew").submit(function(e) {
     e.preventDefault();
             dataJson = [];
