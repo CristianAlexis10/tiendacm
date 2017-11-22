@@ -6,7 +6,15 @@
 	 		$this->master = new MasterModel;
 	 		$this->doizer = new DoizerController;
 	 	}
-
+		function readByEmail(){
+			$data=$_POST['data'];
+			$result = $this->master->selectBy('usuario',array('usu_correo',$data));
+			if ($result != array()) {
+				echo  json_encode(true);
+			}else{
+				echo json_encode(false);
+			}
+		}
 		function newUser(){
 			$data = $_POST['data'];
 			if ($data[3]==$data[4]) {

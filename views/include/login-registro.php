@@ -18,7 +18,7 @@
                   <span class="olvi_contra"><a href="#">¿Olvidaste la contraseña?</a></span>
                 </div>
                 <div class="btn_inicio">
-                  <button type="submit" class="ini_sesion">Iniciar sesion</button>
+                  <button type="submit" class="ini_sesion" id="iniciar_se" >Iniciar sesion</button>
                   <button type="button" class="ir_registro" id="btn_registro">registro</button>
                 </div>
             </div>
@@ -39,12 +39,12 @@
                 <input type="text" class="input dataNewUser" required id="2">
                 <label for="2" class="label">Apellidos</label>
               </div>
-              <div class="caja_correo">
-                <input type="text" class="input dataNewUser" required id="3">
+              <div class="caja_correo" >
+                <input type="text" class="input dataNewUser" required id="newEmail">
                 <label for="3" class="label">Correo</label>
               </div>
               <div class="caja_pass">
-                <input type="password" class="input dataNewUser" required id="4">
+                <input type="password" class="input dataNewUser" required id="contrasena">
                 <label for="4" class="label">Contraseña</label>
               </div>
               <div class="caja_conpass">
@@ -53,7 +53,7 @@
               </div>
             </div>
               <div class="btn_registro">
-                <button type="submit" class="btn_registrarse">Registrarse</button>
+                <button type="submit" class="btn_registrarse" id="btn_regis">Registrarse</button>
                 <button type="button" id="btn_login" class="ir_registro">Iniciar sesión</button>
               </div>
           </form>
