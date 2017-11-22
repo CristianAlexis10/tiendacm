@@ -223,6 +223,9 @@ class DoizerController{
 			case 'HY093':
 				return 'los parametos a modificar no coinciden';
 				break;
+			case '1062':
+				return 'no';
+				break;
 			default:
 				'ocurrio un error';
 				break;
