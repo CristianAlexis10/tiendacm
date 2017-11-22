@@ -5,7 +5,7 @@ RewriteRule ^catalogo$ index.php?c=tienda
 RewriteRule ^dashboard$ index.php?c=admin&a=dashboard
 
 #PRODUCTOS
-RewriteRule ^gestinar-productos$ index.php?c=products
+RewriteRule ^gestion-producto$ index.php?c=products
 
 
 #USUARIOS
