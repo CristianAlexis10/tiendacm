@@ -3,7 +3,8 @@
     <img src="views/assets/img/logo_cm_completo.png">
   </div>
   <ul>
-    <a href="gestion-tienda"><li>Gestionar tienda</li></a>
+    <a href="gestion-categoria"><li>Gestionar categoria</li></a>
+    <a href="gestion-producto"><li>Gestionar producto</li></a>
     <a href="#"><li>Gestion noticias</li></a>
     <a href="#"><li>Gestion videos</li></a>
   </ul>

@@ -9,7 +9,7 @@
             <div class="wrap-content-form">
                 <p>Ingrese el correo electronico y la contraseña para poder acceder al sistema</p>
                 <div class="caja_usuario">
-                  <input type="text" name="data-login" id="login-email" class="input" required>
+                  <input type="email" name="data-login" id="login-email" class="input" required>
                   <label for="login-email" class="label">Correo</label>
                 </div>
                 <div class="caja_contra">

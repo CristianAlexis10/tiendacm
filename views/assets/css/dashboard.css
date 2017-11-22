@@ -108,7 +108,12 @@ table,th,td{
   cursor: pointer;
 }
 .categorias_ropa a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #000;
+  width: 100%;
+  height: 100%;
 }
 .categorias_ropa:hover{
   background: #fe72f0;
@@ -123,6 +128,8 @@ table,th,td{
   background: #fe72f0;
   transition: .3s;
 }
+/*gestion producto*/
+
 /*modal de registro de categoria*/
 .fondo{
   display: none;
