@@ -4,7 +4,7 @@
      <a href="landing"><img src="views/assets/img/logo_blanco.png"></a>
     </div>
     <ul class="caja--menu">
-      <a href="tienda"><li>Categorias</li></a>
+      <a href="tienda"><li>Catalogo</li></a>
       <a href="videos"><li>Videos</li></a>
       <a href="noticias"><li>Noticias</li></a>
       <li id="modal-login">Iniciar Sesion / Registrarse</li>
