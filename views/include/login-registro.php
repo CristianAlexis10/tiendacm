@@ -39,18 +39,14 @@
                 <input type="text" class="input dataNewUser" required id="2">
                 <label for="2" class="label">Apellidos</label>
               </div>
-<<<<<<< HEAD
-              <div class="caja_correo">
-                <input type="email" class="input dataNewUser" required id="3">
-=======
+
               <div class="caja_correo" >
                 <input type="text" class="input dataNewUser" required id="newEmail">
->>>>>>> 92195c6fdf8d46357e4339e68437c61849c8dd78
-                <label for="3" class="label">Correo</label>
+                <label for="newEmail" class="label">Correo</label>
               </div>
               <div class="caja_pass">
                 <input type="password" class="input dataNewUser" required id="contrasena">
-                <label for="4" class="label">Contraseña</label>
+                <label for="contrasena" class="label">Contraseña</label>
               </div>
               <div class="caja_conpass">
                 <input type="password" class="input dataNewUser" required id="5">
