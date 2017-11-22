@@ -4,8 +4,7 @@
         <span>¡contactanos!</span>
       </div>
       <div class="iconos-social">
-        <i class="fa fa-instagram" aria-hidden="true"></i>
-        <span> ¡su puta madre!</span>
+        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i><span> lorem</span></a>
         <!-- <i class="fa fa-youtube" aria-hidden="true"></i>
         <i class="fa fa-facebook" aria-hidden="true"></i> -->
       </div>

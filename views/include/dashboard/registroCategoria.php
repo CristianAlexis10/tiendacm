@@ -1,5 +1,4 @@
-<div class="fondo" id="fondo">
-</div>
+<div class="fondo" id="fondo"></div>
   <div class="reg_categoria" id="reg_categoria">
     <h2>Añadir categoria</h2>
     <div class="reg_categoria_form">

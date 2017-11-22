@@ -211,7 +211,6 @@ body{
   background: black;
   width: 100%;
   margin-bottom: 0px;
-  /*height: 100px;*/
   color: #f1396d;
   text-align: center;
   font-family: 'lato';
@@ -230,6 +229,9 @@ body{
   font-size: 25px;
   font-family: 'lato';
   text-transform: uppercase;
+}
+.iconos-social a{
+  color: #f1396d;
 }
 .copy{
   font-size: 10px;

@@ -5,7 +5,7 @@
 				dataType:'json',
 				success: function(result){
 					if (result==true) {
-						location.href = 'tienda';
+						location.href = 'landing';
 					}
 				}
 			});
@@ -43,7 +43,7 @@ $("#frmNewCat").submit(function(e) {
                	   	$("input[name=data-newCat]").val(' ');
                	   	window.location.reload();
                	}else{
-               		$("#frmNewCat").after('<div class="message">'+result+'</div>');	
+               		$("#frmNewCat").after('<div class="message">'+result+'</div>');
                	}
                	setTimeout(function(){
                                 $('div.message').remove();

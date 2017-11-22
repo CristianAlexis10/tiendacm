@@ -93,6 +93,8 @@ table,th,td{
   display: flex;
   flex-wrap: wrap;
   border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 .categorias_ropa{
   display: flex;
