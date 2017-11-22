@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-11-2017 a las 18:32:07
--- Versión del servidor: 10.1.21-MariaDB
--- Versión de PHP: 5.6.30
+-- Tiempo de generación: 22-11-2017 a las 18:48:06
+-- Versión del servidor: 10.1.19-MariaDB
+-- Versión de PHP: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -32,13 +32,6 @@ CREATE TABLE `acceso` (
   `acc_contra` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `acceso`
---
-
-INSERT INTO `acceso` (`acc_token`, `usu_id`, `acc_contra`) VALUES
-('sdsadasdsad', 1, '$2y$10$Y7aSqHcipH88Vp/Q6PQGmObMy0YqVXvXiPJ/sSvESLX847r618IHa');
-
 -- --------------------------------------------------------
 
 --
@@ -55,8 +48,7 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`cat_codigo`, `cat_categ`) VALUES
-(8, 'tops'),
-(9, 'sudaderas');
+(1, 'ropa');
 
 -- --------------------------------------------------------
 
@@ -197,6 +189,15 @@ CREATE TABLE `producto` (
   `cat_codigo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`pro_codigo`, `pro_nombre`, `pro_img`, `pro_precio`, `pro_cant`, `pro_des`, `cat_codigo`) VALUES
+(1, 'dsf', 'img5.jpeg', 234, 3, 'sddsfgdfsg', 1),
+(2, 'sad', 'img5.jpeg', 3, 342, 'cx', 1),
+(3, 'sad', 'img5.jpeg', 3, 342, 'cx', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -293,15 +294,9 @@ CREATE TABLE `usuario` (
   `rol_codigo` int(11) NOT NULL,
   `tid_codigo` int(11) NOT NULL,
   `usu_num_doc` int(15) NOT NULL,
-  `mun_codigo` int(11) NOT NULL
+  `mun_codigo` int(11) NOT NULL,
+  `usu_telefono` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `usuario`
---
-
-INSERT INTO `usuario` (`usu_codigo`, `usu_nombre1`, `usu_apellido1`, `usu_apellido2`, `usu_direccion`, `usu_correo`, `rol_codigo`, `tid_codigo`, `usu_num_doc`, `mun_codigo`) VALUES
-(1, 'sdf', 'dsf', 'sdf', 'sdsdf', 'admin', 1, 1, 545454, 1);
 
 --
 -- Índices para tablas volcadas
@@ -416,7 +411,6 @@ ALTER TABLE `tipo_documento`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`usu_codigo`),
-  ADD UNIQUE KEY `usu_correo` (`usu_correo`),
   ADD KEY `tid_codigo` (`tid_codigo`),
   ADD KEY `mun_codigo` (`mun_codigo`),
   ADD KEY `rol_codigo` (`rol_codigo`);
@@ -426,11 +420,6 @@ ALTER TABLE `usuario`
 --
 
 --
--- AUTO_INCREMENT de la tabla `categoria`
---
-ALTER TABLE `categoria`
-  MODIFY `cat_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
---
 -- AUTO_INCREMENT de la tabla `noticia`
 --
 ALTER TABLE `noticia`
@@ -439,7 +428,7 @@ ALTER TABLE `noticia`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `ped_codigo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ped_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
@@ -449,7 +438,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `usu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `usu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Restricciones para tablas volcadas
 --
@@ -495,7 +484,7 @@ ALTER TABLE `pedidos`
 -- Filtros para la tabla `producto`
 --
 ALTER TABLE `producto`
-  ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`cat_codigo`) REFERENCES `categoria` (`cat_codigo`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `producto_ibfk_3` FOREIGN KEY (`cat_codigo`) REFERENCES `categoria` (`cat_codigo`);
 
 --
 -- Filtros para la tabla `producto_pedido`
