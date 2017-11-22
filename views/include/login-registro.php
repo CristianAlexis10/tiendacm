@@ -40,7 +40,7 @@
                 <label for="2" class="label">Apellidos</label>
               </div>
               <div class="caja_correo">
-                <input type="text" class="input dataNewUser" required id="3">
+                <input type="email" class="input dataNewUser" required id="3">
                 <label for="3" class="label">Correo</label>
               </div>
               <div class="caja_pass">
