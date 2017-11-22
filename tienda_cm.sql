@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 18, 2017 at 11:26 PM
--- Server version: 10.1.8-MariaDB
--- PHP Version: 5.6.14
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 22-11-2017 a las 18:32:07
+-- Versión del servidor: 10.1.21-MariaDB
+-- Versión de PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `tienda_cm`
+-- Base de datos: `tienda_cm`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `acceso`
+-- Estructura de tabla para la tabla `acceso`
 --
 
 CREATE TABLE `acceso` (
@@ -33,7 +33,7 @@ CREATE TABLE `acceso` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `acceso`
+-- Volcado de datos para la tabla `acceso`
 --
 
 INSERT INTO `acceso` (`acc_token`, `usu_id`, `acc_contra`) VALUES
@@ -42,7 +42,7 @@ INSERT INTO `acceso` (`acc_token`, `usu_id`, `acc_contra`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categoria`
+-- Estructura de tabla para la tabla `categoria`
 --
 
 CREATE TABLE `categoria` (
@@ -51,16 +51,17 @@ CREATE TABLE `categoria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `categoria`
+-- Volcado de datos para la tabla `categoria`
 --
 
 INSERT INTO `categoria` (`cat_codigo`, `cat_categ`) VALUES
-(1, 'ropa');
+(8, 'tops'),
+(9, 'sudaderas');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `color`
+-- Estructura de tabla para la tabla `color`
 --
 
 CREATE TABLE `color` (
@@ -69,7 +70,7 @@ CREATE TABLE `color` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `color`
+-- Volcado de datos para la tabla `color`
 --
 
 INSERT INTO `color` (`col_codigo`, `col_color`) VALUES
@@ -78,7 +79,7 @@ INSERT INTO `color` (`col_codigo`, `col_color`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `color_producto`
+-- Estructura de tabla para la tabla `color_producto`
 --
 
 CREATE TABLE `color_producto` (
@@ -89,7 +90,7 @@ CREATE TABLE `color_producto` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `departamento`
+-- Estructura de tabla para la tabla `departamento`
 --
 
 CREATE TABLE `departamento` (
@@ -98,7 +99,7 @@ CREATE TABLE `departamento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `departamento`
+-- Volcado de datos para la tabla `departamento`
 --
 
 INSERT INTO `departamento` (`dep_codigo`, `dep_nombre`) VALUES
@@ -107,7 +108,7 @@ INSERT INTO `departamento` (`dep_codigo`, `dep_nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `img_noticia`
+-- Estructura de tabla para la tabla `img_noticia`
 --
 
 CREATE TABLE `img_noticia` (
@@ -118,7 +119,7 @@ CREATE TABLE `img_noticia` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `municipio`
+-- Estructura de tabla para la tabla `municipio`
 --
 
 CREATE TABLE `municipio` (
@@ -128,7 +129,7 @@ CREATE TABLE `municipio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `municipio`
+-- Volcado de datos para la tabla `municipio`
 --
 
 INSERT INTO `municipio` (`mun_codigo`, `mun_nombre`, `dep_codigo`) VALUES
@@ -137,7 +138,7 @@ INSERT INTO `municipio` (`mun_codigo`, `mun_nombre`, `dep_codigo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `noticia`
+-- Estructura de tabla para la tabla `noticia`
 --
 
 CREATE TABLE `noticia` (
@@ -152,7 +153,7 @@ CREATE TABLE `noticia` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `numeros_contacto`
+-- Estructura de tabla para la tabla `numeros_contacto`
 --
 
 CREATE TABLE `numeros_contacto` (
@@ -161,7 +162,7 @@ CREATE TABLE `numeros_contacto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `numeros_contacto`
+-- Volcado de datos para la tabla `numeros_contacto`
 --
 
 INSERT INTO `numeros_contacto` (`tel_codigo`, `tel_telefono`) VALUES
@@ -170,7 +171,7 @@ INSERT INTO `numeros_contacto` (`tel_codigo`, `tel_telefono`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pedidos`
+-- Estructura de tabla para la tabla `pedidos`
 --
 
 CREATE TABLE `pedidos` (
@@ -183,7 +184,7 @@ CREATE TABLE `pedidos` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `producto`
+-- Estructura de tabla para la tabla `producto`
 --
 
 CREATE TABLE `producto` (
@@ -196,19 +197,10 @@ CREATE TABLE `producto` (
   `cat_codigo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `producto`
---
-
-INSERT INTO `producto` (`pro_codigo`, `pro_nombre`, `pro_img`, `pro_precio`, `pro_cant`, `pro_des`, `cat_codigo`) VALUES
-(1, 'dsf', 'img5.jpeg', 234, 3, 'sddsfgdfsg', 1),
-(2, 'sad', 'img5.jpeg', 3, 342, 'cx', 1),
-(3, 'sad', 'img5.jpeg', 3, 342, 'cx', 1);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `producto_pedido`
+-- Estructura de tabla para la tabla `producto_pedido`
 --
 
 CREATE TABLE `producto_pedido` (
@@ -222,7 +214,7 @@ CREATE TABLE `producto_pedido` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rol`
+-- Estructura de tabla para la tabla `rol`
 --
 
 CREATE TABLE `rol` (
@@ -231,7 +223,7 @@ CREATE TABLE `rol` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `rol`
+-- Volcado de datos para la tabla `rol`
 --
 
 INSERT INTO `rol` (`rol_codigo`, `rol_rol`) VALUES
@@ -241,7 +233,7 @@ INSERT INTO `rol` (`rol_codigo`, `rol_rol`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `talla`
+-- Estructura de tabla para la tabla `talla`
 --
 
 CREATE TABLE `talla` (
@@ -250,7 +242,7 @@ CREATE TABLE `talla` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `talla`
+-- Volcado de datos para la tabla `talla`
 --
 
 INSERT INTO `talla` (`tal_codigo`, `tal_talla`) VALUES
@@ -259,7 +251,7 @@ INSERT INTO `talla` (`tal_codigo`, `tal_talla`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `talla_producto`
+-- Estructura de tabla para la tabla `talla_producto`
 --
 
 CREATE TABLE `talla_producto` (
@@ -270,7 +262,7 @@ CREATE TABLE `talla_producto` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipo_documento`
+-- Estructura de tabla para la tabla `tipo_documento`
 --
 
 CREATE TABLE `tipo_documento` (
@@ -279,7 +271,7 @@ CREATE TABLE `tipo_documento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tipo_documento`
+-- Volcado de datos para la tabla `tipo_documento`
 --
 
 INSERT INTO `tipo_documento` (`tid_codigo`, `tid_tipo_doc`) VALUES
@@ -288,7 +280,7 @@ INSERT INTO `tipo_documento` (`tid_codigo`, `tid_tipo_doc`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuario`
+-- Estructura de tabla para la tabla `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -301,228 +293,230 @@ CREATE TABLE `usuario` (
   `rol_codigo` int(11) NOT NULL,
   `tid_codigo` int(11) NOT NULL,
   `usu_num_doc` int(15) NOT NULL,
-  `mun_codigo` int(11) NOT NULL,
-  `tel_codigo` int(11) NOT NULL
+  `mun_codigo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `usuario`
+-- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`usu_codigo`, `usu_nombre1`, `usu_apellido1`, `usu_apellido2`, `usu_direccion`, `usu_correo`, `rol_codigo`, `tid_codigo`, `usu_num_doc`, `mun_codigo`, `tel_codigo`) VALUES
-(1, 'sdf', 'dsf', 'sdf', 'sdsdf', 'admin', 1, 1, 545454, 1, 1);
+INSERT INTO `usuario` (`usu_codigo`, `usu_nombre1`, `usu_apellido1`, `usu_apellido2`, `usu_direccion`, `usu_correo`, `rol_codigo`, `tid_codigo`, `usu_num_doc`, `mun_codigo`) VALUES
+(1, 'sdf', 'dsf', 'sdf', 'sdsdf', 'admin', 1, 1, 545454, 1);
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `acceso`
+-- Indices de la tabla `acceso`
 --
 ALTER TABLE `acceso`
   ADD PRIMARY KEY (`acc_token`),
   ADD KEY `usu_id` (`usu_id`);
 
 --
--- Indexes for table `categoria`
+-- Indices de la tabla `categoria`
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`cat_codigo`);
 
 --
--- Indexes for table `color`
+-- Indices de la tabla `color`
 --
 ALTER TABLE `color`
   ADD PRIMARY KEY (`col_codigo`);
 
 --
--- Indexes for table `color_producto`
+-- Indices de la tabla `color_producto`
 --
 ALTER TABLE `color_producto`
   ADD KEY `col_codigo` (`col_codigo`),
   ADD KEY `por_codigo` (`por_codigo`);
 
 --
--- Indexes for table `departamento`
+-- Indices de la tabla `departamento`
 --
 ALTER TABLE `departamento`
   ADD PRIMARY KEY (`dep_codigo`);
 
 --
--- Indexes for table `img_noticia`
+-- Indices de la tabla `img_noticia`
 --
 ALTER TABLE `img_noticia`
   ADD KEY `id_noticia` (`not_codigo`);
 
 --
--- Indexes for table `municipio`
+-- Indices de la tabla `municipio`
 --
 ALTER TABLE `municipio`
   ADD PRIMARY KEY (`mun_codigo`),
   ADD KEY `dep_codigo` (`dep_codigo`);
 
 --
--- Indexes for table `noticia`
+-- Indices de la tabla `noticia`
 --
 ALTER TABLE `noticia`
   ADD PRIMARY KEY (`not_codigo`),
   ADD KEY `usu_id` (`usu_id`);
 
 --
--- Indexes for table `numeros_contacto`
+-- Indices de la tabla `numeros_contacto`
 --
 ALTER TABLE `numeros_contacto`
   ADD PRIMARY KEY (`tel_codigo`);
 
 --
--- Indexes for table `pedidos`
+-- Indices de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
   ADD PRIMARY KEY (`ped_codigo`),
   ADD KEY `usu_id` (`usu_id`);
 
 --
--- Indexes for table `producto`
+-- Indices de la tabla `producto`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`pro_codigo`),
   ADD KEY `cat_codigo` (`cat_codigo`);
 
 --
--- Indexes for table `producto_pedido`
+-- Indices de la tabla `producto_pedido`
 --
 ALTER TABLE `producto_pedido`
   ADD KEY `ped_codigo` (`ped_codigo`),
   ADD KEY `pro_codigo` (`pro_codigo`);
 
 --
--- Indexes for table `rol`
+-- Indices de la tabla `rol`
 --
 ALTER TABLE `rol`
   ADD PRIMARY KEY (`rol_codigo`);
 
 --
--- Indexes for table `talla`
+-- Indices de la tabla `talla`
 --
 ALTER TABLE `talla`
   ADD PRIMARY KEY (`tal_codigo`);
 
 --
--- Indexes for table `talla_producto`
+-- Indices de la tabla `talla_producto`
 --
 ALTER TABLE `talla_producto`
   ADD KEY `pro_codigo` (`pro_codigo`),
   ADD KEY `tal_codigo` (`tal_codigo`);
 
 --
--- Indexes for table `tipo_documento`
+-- Indices de la tabla `tipo_documento`
 --
 ALTER TABLE `tipo_documento`
   ADD PRIMARY KEY (`tid_codigo`);
 
 --
--- Indexes for table `usuario`
+-- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`usu_codigo`),
   ADD UNIQUE KEY `usu_correo` (`usu_correo`),
   ADD KEY `tid_codigo` (`tid_codigo`),
   ADD KEY `mun_codigo` (`mun_codigo`),
-  ADD KEY `tel_codigo` (`tel_codigo`),
   ADD KEY `rol_codigo` (`rol_codigo`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `noticia`
+-- AUTO_INCREMENT de la tabla `categoria`
+--
+ALTER TABLE `categoria`
+  MODIFY `cat_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT de la tabla `noticia`
 --
 ALTER TABLE `noticia`
   MODIFY `not_codigo` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `pedidos`
+-- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `ped_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ped_codigo` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `producto`
+-- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
   MODIFY `pro_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT for table `usuario`
+-- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `usu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `acceso`
+-- Filtros para la tabla `acceso`
 --
 ALTER TABLE `acceso`
   ADD CONSTRAINT `acceso_ibfk_1` FOREIGN KEY (`usu_id`) REFERENCES `usuario` (`usu_codigo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `color_producto`
+-- Filtros para la tabla `color_producto`
 --
 ALTER TABLE `color_producto`
   ADD CONSTRAINT `color_producto_ibfk_1` FOREIGN KEY (`col_codigo`) REFERENCES `color` (`col_codigo`) ON UPDATE CASCADE,
   ADD CONSTRAINT `color_producto_ibfk_2` FOREIGN KEY (`por_codigo`) REFERENCES `producto` (`pro_codigo`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `img_noticia`
+-- Filtros para la tabla `img_noticia`
 --
 ALTER TABLE `img_noticia`
   ADD CONSTRAINT `img_noticia_ibfk_1` FOREIGN KEY (`not_codigo`) REFERENCES `noticia` (`not_codigo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `municipio`
+-- Filtros para la tabla `municipio`
 --
 ALTER TABLE `municipio`
   ADD CONSTRAINT `municipio_ibfk_1` FOREIGN KEY (`dep_codigo`) REFERENCES `departamento` (`dep_codigo`);
 
 --
--- Constraints for table `noticia`
+-- Filtros para la tabla `noticia`
 --
 ALTER TABLE `noticia`
   ADD CONSTRAINT `noticia_ibfk_1` FOREIGN KEY (`usu_id`) REFERENCES `usuario` (`usu_codigo`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `pedidos`
+-- Filtros para la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
   ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`usu_id`) REFERENCES `usuario` (`usu_codigo`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `producto`
+-- Filtros para la tabla `producto`
 --
 ALTER TABLE `producto`
-  ADD CONSTRAINT `producto_ibfk_3` FOREIGN KEY (`cat_codigo`) REFERENCES `categoria` (`cat_codigo`);
+  ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`cat_codigo`) REFERENCES `categoria` (`cat_codigo`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `producto_pedido`
+-- Filtros para la tabla `producto_pedido`
 --
 ALTER TABLE `producto_pedido`
   ADD CONSTRAINT `producto_pedido_ibfk_1` FOREIGN KEY (`ped_codigo`) REFERENCES `pedidos` (`ped_codigo`) ON UPDATE CASCADE,
   ADD CONSTRAINT `producto_pedido_ibfk_2` FOREIGN KEY (`pro_codigo`) REFERENCES `producto` (`pro_codigo`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `talla_producto`
+-- Filtros para la tabla `talla_producto`
 --
 ALTER TABLE `talla_producto`
   ADD CONSTRAINT `talla_producto_ibfk_2` FOREIGN KEY (`tal_codigo`) REFERENCES `talla` (`tal_codigo`) ON UPDATE CASCADE,
   ADD CONSTRAINT `talla_producto_ibfk_3` FOREIGN KEY (`pro_codigo`) REFERENCES `producto` (`pro_codigo`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `usuario`
+-- Filtros para la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD CONSTRAINT `usuario_ibfk_2` FOREIGN KEY (`tid_codigo`) REFERENCES `tipo_documento` (`tid_codigo`),
   ADD CONSTRAINT `usuario_ibfk_3` FOREIGN KEY (`mun_codigo`) REFERENCES `municipio` (`mun_codigo`),
-  ADD CONSTRAINT `usuario_ibfk_4` FOREIGN KEY (`tel_codigo`) REFERENCES `numeros_contacto` (`tel_codigo`),
   ADD CONSTRAINT `usuario_ibfk_6` FOREIGN KEY (`rol_codigo`) REFERENCES `rol` (`rol_codigo`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
