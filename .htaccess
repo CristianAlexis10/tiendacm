@@ -3,6 +3,11 @@ RewriteEngine on
 RewriteRule ^landing$ index.php?c=views&a=landin
 RewriteRule ^catalogo$ index.php?c=tienda
 RewriteRule ^dashboard$ index.php?c=admin&a=dashboard
+
+#PRODUCTOS
+RewriteRule ^gestinar-productos$ index.php?c=products
+
+
 #USUARIOS
 RewriteRule ^guardar-usuario$ index.php?c=user&a=newUser
 
@@ -17,7 +22,7 @@ RewriteRule ^validar-inicio-sesion$ index.php?c=auth&a=validateUser
 RewriteRule ^cerrar-sesion$ index.php?c=auth&a=singOut
 
 #TIENDA
-RewriteRule ^gestion-tienda$ index.php?c=tienda&a=gestionar
+RewriteRule ^gestion-categoria$ index.php?c=tienda&a=gestionar
 
 #pedido
 RewriteRule ^realizar-pedido$ index.php?c=orders&a=newOrder
