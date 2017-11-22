@@ -126,7 +126,10 @@ class MasterModel{
             // die($this->sql);
             $query=$this->pdo->prepare($this->sql);
             $query->execute($vals);
-            $result = true;
+           $result =  $query->errorInfo()[1];
+           if ($result==null) {
+              $result = true;
+           }
         } catch (PDOException $e) {
             $result =  $query->errorInfo()[1];
         }

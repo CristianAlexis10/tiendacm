@@ -27,7 +27,10 @@ $("#formulario-login").submit(function(e) {
                   }else if(result=='customer'){
                       location.href = 'cliente';
                   }else{
-                 	console.log(result);
+                 	 $('#login-pass').after('<div class="message">contraseña incorrecta</div>');
+                  setTimeout(function(){
+                                $('div.message').remove();
+                              }, 3000);
 									// alert('Error en el usuario o contraseña');
                   }
                },
@@ -79,7 +82,7 @@ carrito.onclick = function() {
 
 
 //Registro
-$("#modal-login-registro").submit(function(e) {
+$("#frmNew").submit(function(e) {
     e.preventDefault();
             dataJson = [];
             $(".dataNewUser").each(function(){
@@ -95,6 +98,10 @@ $("#modal-login-registro").submit(function(e) {
                data: ({data: dataJson}),
                success: function(result){
                   console.log(result);
+                  $('#5').after('<div class="message">'+result+'</div>');
+                  setTimeout(function(){
+                                $('div.message').remove();
+                              }, 3000);
                },
                error: function(result){
                   console.log(result);

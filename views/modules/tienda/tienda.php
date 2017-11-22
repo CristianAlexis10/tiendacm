@@ -50,8 +50,18 @@
 
 </div>
       </section>
-      <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="views/assets/js/carrito.js"></script> -->
-          </section>
-          <!-- <script src="views/assets/js/main.js"></script> -->
+        <script src="views/assets/js/carrito.js"></script>
+          <script src="views/assets/js/main.js"></script>
+              <footer class="footer">
+      <div class="caja-contac">
+        <span>¡contactanos!</span>
+        <div class="">
+          <span>+57 123 45 6 78 90 <i class="fa fa-instagram" aria-hidden="true"></i></span>
+        </div>
+      </div>
+      <span class="copy">© Copyright 2017 by Catalina Molano. All Rights Reserved.</span>
+    </footer>
+  </body>
+</html>

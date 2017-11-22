@@ -25,7 +25,7 @@
           </form>
         </div>
         <div class="registro" id="registro">
-          <form class="formulario" action="index.html" method="post">
+          <form class="formulario" id='frmNew'>
             <div class="titulo">
               <h2>REGISTRATE</h2>
             </div>

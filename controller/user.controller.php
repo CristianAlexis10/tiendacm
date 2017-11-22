@@ -13,13 +13,16 @@
 				//caracteres especiales
 					$i = 0;
 					foreach ($data as $key) {
-						if (!$i == 2) {
+						if ($i == 2) {
+						}else{
 							$result = $this->doizer->specialCharater($data[$i]);
 							if ($result==false) {
 								echo json_encode('Los campos no deben tener caracteres especiales');
 								return;
 							}
+
 						}
+						$i++;
 					}
 					if (!$this->doizer->validateEmail($data[2])==true) {
 						echo json_encode('El correo no es valido');
@@ -28,8 +31,19 @@
 					if (!$data[3]===$data[4]) {
 						echo json_encode('Las contraseñas no coinciden');
 					}
-					if (is_array($this->doizer->validateSecurityPassword($data[3]))) {
-						$result = $tihs->master->insert('usuario',$data,array('usu_codigo','usu_apellido2','usu_direccion',));
+					$password = $this->doizer->validateSecurityPassword($data[3]);
+					if (is_array($password)) {
+						$a = $this->master->insert('usuario',array($data[0],$data[1],$data[2],2,1,1),array('usu_codigo','usu_apellido2','usu_direccion','usu_num_doc','usu_telefono','usu_celular'));
+						$result = $this->master->selectBy('usuario',array('usu_correo',$data[2]));
+						$result = $this->master->insert('acceso',array(md5($data[2].date('y-m')),$result['usu_codigo'],$password[1]));
+						// die(json_encode($a));
+						if ($a==true) {
+							echo json_encode('Registardo con exito');
+						}else{
+							echo json_encode($this->doizer->knowError($a));
+						}
+					}else{
+						echo json_encode($password);
 					}
 			}else{
 				echo json_encode('Contraseñas Diferentes');
