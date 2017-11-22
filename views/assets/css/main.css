@@ -13,8 +13,8 @@ body{
 }
 .menu--top img{
   position: absolute;
-  top: 14px;
-  left: -26px;
+  top: 10px;
+  left: -28px;
   width: 60px;
 }
 .wrap--logo{
@@ -206,13 +206,32 @@ body{
   overflow: hidden;
   background: rgba(75, 196, 16, 0.42);
 }
+/*footer usuario*/
 .footer{
-  /*position: absolute;
-  bottom: 0px;*/
   background: black;
   width: 100%;
-  height: 100px;
+  margin-bottom: 0px;
+  /*height: 100px;*/
   color: #f1396d;
   text-align: center;
-  font-size: 18px;
+  font-family: 'lato';
+}
+.contacto-titulo{
+  font-size: 20px;
+  padding: 5px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.contacto-numero{
+  padding: 5px;
+}
+.iconos-social{
+  padding: 5px 0px 5px 0px;
+  font-size: 25px;
+  font-family: 'lato';
+  text-transform: uppercase;
+}
+.copy{
+  font-size: 10px;
+  padding: 10px;
 }

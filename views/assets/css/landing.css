@@ -54,7 +54,7 @@
 }
 .prod{
   width: 343px;
-  height: 350px;
+  height: 343px;
   background: red;
-  margin: 20px;
+  margin: 20px 20px 60px 20px;
 }

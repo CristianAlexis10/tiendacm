@@ -8,14 +8,6 @@
           </div>
         </div>
         <div class="seccion2">
-  <div class="cat_lista">
-    <h2>CATEGORIAS</h2>
-    <ul>
-      <a href="#"><li>TODA</li></a>
-      <a href="#"><li>SU PUTA</li></a>
-      <a href="#"><li>MADRE</li></a>
-    </ul>
-  </div>
     <ul id="gallery" class="gallery ui-helper-reset ">
            <?php
             foreach($consulta as $row){ ?>
@@ -50,8 +42,8 @@
 
 </div>
       </section>
-      <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="views/assets/js/carrito.js"></script> -->
+        <script src="views/assets/js/carrito.js"></script>
           </section>
-          <!-- <script src="views/assets/js/main.js"></script> -->
+          <script src="views/assets/js/main.js"></script>

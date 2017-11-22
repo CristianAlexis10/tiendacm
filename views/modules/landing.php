@@ -22,7 +22,7 @@
 </section>
 <section class="landing-seccion3">
   <div class="titulo_seccion_land">
-    <h2>algunos productos</h2>
+    <h2>productos recomendados</h2>
   </div>
   <div class="contenido-land">
     <div class="prod">
