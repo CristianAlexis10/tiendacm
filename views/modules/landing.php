@@ -15,12 +15,10 @@ $pro = $this->master->selectAllLi6('producto');
           <div class="bloque <?php echo 'cat'.$i; ?>">
             <a href="catalogo">
               <?php echo $row['cat_categ']; ?>
-            </a
-
+            </a>
           </div>
 
-         <?php $i++; }
-    ?>
+         <?php $i++; }  ?>
 
 </section>
 <section class="productos-recomendados">
@@ -33,6 +31,7 @@ $pro = $this->master->selectAllLi6('producto');
             <a href="catalogo">
               <?php echo $row['pro_nombre']; ?>
             </a>
+            <img src="views/assets/img/590f265b7cace74ba82b6eb6ff3a13a8.jpg">
           </div>
 
          <?php $i++; }
