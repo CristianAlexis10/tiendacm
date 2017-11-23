@@ -1,4 +1,4 @@
-.wrap-frase{
+/*.wrap-frase{
   position: absolute;
   top: 100px;
   right: 100px;
@@ -14,7 +14,7 @@
 .font{
   font-family: 'anton';
   font-size: 50px;
-}
+}*/
 .home{
   min-height: 100vh;
   width: 100%;
@@ -41,6 +41,9 @@
   padding-top: 5px;
   padding-bottom: 5px;
   margin-bottom: 20px
+}
+.productos-recomendados img{
+  width: 100%;
 }
 .contenido-categorias{
   display: grid;
