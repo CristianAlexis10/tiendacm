@@ -9,8 +9,20 @@
         </div>
         <div class="seccion2">
     <ul id="gallery" class="gallery ui-helper-reset ">
+      <form method="post">
+        <select name="na">
+            <option value="2">asd</option>
+        </select>
+          <input type="submit" name='aa'  value="ver">
+      </form>
+
            <?php
-            foreach($consulta as $row){ ?>
+           if (isset($_POST['aa'])) {
+             $cate = $_POST['na'];
+           }else{
+             $cate = 1;
+           }
+            foreach($this->master->selectAllBy('producto',array('cat_codigo',$cate)) as $row){ ?>
                 <li class="ui-widget-content">
                       <h5 class="ui-widget-header"><?php echo $row["pro_nombre"]; ?></h5>
                       <img src="views/assets/img/<?php echo $row["pro_img"]; ?>" alt="On top of Kozi kopka" width="96" height="72">
