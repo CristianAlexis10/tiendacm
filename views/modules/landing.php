@@ -15,7 +15,8 @@ $pro = $this->master->selectAllLi6('producto');
           <div class="bloque <?php echo 'cat'.$i; ?>">
             <a href="catalogo">
               <?php echo $row['cat_categ']; ?>
-            </a>
+            </a
+
           </div>
 
          <?php $i++; }
