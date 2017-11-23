@@ -148,6 +148,30 @@ class MasterModel{
 
         return $result;
     }
+    public function selectAllLi($table){
+        try {
+            $this->sql="SELECT * FROM $table LIMIT 4 ";
+            $query=$this->pdo->prepare($this->sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_BOTH);
+        } catch (PDOException $e) {
+            $result = $e->getMessage();
+        }
+
+        return $result;
+    }
+    public function selectAllLi6($table){
+        try {
+            $this->sql="SELECT * FROM $table LIMIT 6 ";
+            $query=$this->pdo->prepare($this->sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_BOTH);
+        } catch (PDOException $e) {
+            $result = $e->getMessage();
+        }
+
+        return $result;
+    }
     public function selectAllBy($table,$condition){
         try {
             $this->sql="SELECT * FROM $table WHERE $condition[0] = ?";
