@@ -85,13 +85,15 @@ carrito.onclick = function() {
 	carrito_items.classList.toggle("open");
 }
 //responsive
- var menu = document.getElementById('caja--menu');
- var menuRes = document.getElementById('menu-res');
-
-menuRes.onclick = function() {
-	menu.style.transform = 'translateX(-100%)';
-}
-
+//  var menu = document.getElementById('caja--menu');
+//  var menuRes = document.getElementById('menu-res');
+//
+// menuRes.onclick = function() {
+// 	menu.style.transform = 'translateX(0%)';
+// }
+$('#menu-res').click(function(){
+	$('#caja--menu').toggle();
+});
 //Registro
 $('#contrasena').focus(function(){
     var value = $('#newEmail').val();

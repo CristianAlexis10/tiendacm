@@ -5,8 +5,6 @@
       </div>
       <div class="iconos-social">
         <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i><span> lorem</span></a>
-        <!-- <i class="fa fa-youtube" aria-hidden="true"></i>
-        <i class="fa fa-facebook" aria-hidden="true"></i> -->
       </div>
       <div class="contacto-numero">
         <span>+57 123 45 6 78 90</span>
