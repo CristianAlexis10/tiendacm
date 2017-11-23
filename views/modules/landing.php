@@ -31,7 +31,7 @@ $pro = $this->master->selectAllLi6('producto');
             <a href="catalogo">
               <?php echo $row['pro_nombre']; ?>
             </a>
-            <img src="views/assets/img/590f265b7cace74ba82b6eb6ff3a13a8.jpg">
+            <img src="views/assets/img/<?php echo $row['pro_img']; ?>">
           </div>
 
          <?php $i++; }
