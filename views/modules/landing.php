@@ -5,6 +5,12 @@ $pro = $this->master->selectAllLi6('producto');
 ?>
 <section class="home">
   <img src="views/assets/img/IMG_2764.JPG">
+  <div class="wrap-frase">
+    <span>siempre en <span class="fra1"> instagram </span> con</span>
+    <span class="font">catalina molano</span>
+    <!-- <span>siempre a la <span class="fra1"> moda </span> con</span>
+    <span class="font">catalina molano</span> -->
+  </div>
 </section>
 <section class="categorias-recomendadas">
   <h2>categorias destacadas</h2>
