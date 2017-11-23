@@ -102,7 +102,17 @@
 }
 @media (max-width: 700px) {
   .caja--menu{
-    display: none !important;
+    position: absolute;
+    display: block !important;
+    /*height: 800px;*/
+    /*width: 100%;*/
+    right: 0px;
+    top: 50px;
+    background: black;
+    transform: translateX(100%);
+  }
+  .caja--menu li{
+    background: black;
   }
   .menu--mobile{
     color: white;
