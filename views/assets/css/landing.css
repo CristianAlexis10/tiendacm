@@ -1,3 +1,20 @@
+/*.wrap-frase{
+  position: absolute;
+  top: 100px;
+  right: 100px;
+  font-family: 'lato';
+  font-size: 30px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.fra1{
+  font-family: 'anton';
+  font-size: 50px;
+}
+.font{
+  font-family: 'anton';
+  font-size: 50px;
+}*/
 .home{
   min-height: 100vh;
   width: 100%;
@@ -104,12 +121,9 @@
   .caja--menu{
     position: absolute;
     display: block !important;
-    /*height: 800px;*/
-    /*width: 100%;*/
     right: 0px;
     top: 50px;
     background: black;
-    /*transform: translateX(100%);*/
   }
   .wrap-cajaMenu{
     display: none;

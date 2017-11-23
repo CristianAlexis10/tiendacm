@@ -20,6 +20,9 @@ body{
   left: -28px;
   width: 60px;
 }
+.wrap-cajaMenu{
+  display: inherit;
+}
 .wrap--logo{
   position: absolute;
   left: 100px;

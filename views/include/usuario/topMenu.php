@@ -3,7 +3,7 @@
     <div class="wrap--logo">
      <a href="landing"><img src="views/assets/img/logo_blanco.png"></a>
     </div>
-    <div class="wrap-cajaMenu"id="caja--menu">
+    <div class="wrap-cajaMenu" id="caja--menu">
         <ul class="caja--menu">
           <a href="catalogo"><li>Catalogo</li></a>
           <a href="videos"><li>Videos</li></a>
