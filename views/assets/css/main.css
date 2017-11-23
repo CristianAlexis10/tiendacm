@@ -11,6 +11,9 @@ body{
   width: 100%;
   height: 50px;
 }
+.menu--mobile{
+  display: none;
+}
 .menu--top img{
   position: absolute;
   top: 10px;

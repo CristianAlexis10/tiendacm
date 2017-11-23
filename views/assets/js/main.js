@@ -77,6 +77,7 @@ btn_login.onclick = function() {
 	registro.classList.remove('mover_registro');
 	modal.classList.remove('agrandar_modal');
 }
+//carrito
 var carrito = document.getElementById('btn_car_compra');
 var carrito_items = document.getElementById('contenedor-objetos');
 

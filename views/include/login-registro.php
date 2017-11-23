@@ -35,20 +35,20 @@
                 <input type="text" class="input dataNewUser" required id="1">
                 <label for="1"class="label">Nombre</label>
               </div>
-              <div class="caja_apellido">
+              <div class="caja_registros_usu">
                 <input type="text" class="input dataNewUser" required id="2">
                 <label for="2" class="label">Apellidos</label>
               </div>
 
-              <div class="caja_correo" >
+              <div class="caja_registros_usu" >
                 <input type="text" class="input dataNewUser" required id="newEmail">
                 <label for="newEmail" class="label">Correo</label>
               </div>
-              <div class="caja_pass">
+              <div class="caja_registros_usu">
                 <input type="password" class="input dataNewUser" required id="contrasena">
                 <label for="contrasena" class="label">Contraseña</label>
               </div>
-              <div class="caja_conpass">
+              <div class="caja_registros_usu">
                 <input type="password" class="input dataNewUser" required id="5">
                 <label for="5" class="label">Confirmar contraseña</label>
               </div>
