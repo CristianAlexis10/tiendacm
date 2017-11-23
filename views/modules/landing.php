@@ -1,49 +1,42 @@
+<?php
+$result = $this->master->selectAllLi('categoria');
+$pro = $this->master->selectAllLi6('producto');
+// print_r($result);
+?>
 <section class="home">
   <img src="views/assets/img/IMG_2764.JPG">
 </section>
 <section class="categorias-recomendadas">
   <h2>categorias destacadas</h2>
-  <div class="contenido-categorias">
-    <div class="bloque">
-      <a href="catalogo">
-        1
-      </a>
-    </div>
-    <div class="bloque">
-      <a href="catalogo">
-        2
-      </a>
-    </div>
-    <div class="bloque">
-      <a href="catalogo">
-        3
-      </a>
-    </div>
-    <div class="bloque">
-      <a href="catalogo">
-        4
-      </a>
-    </div>
-  </div>
+  <div class="contenido-categorias ">
+    <?php
+    $i = 0;
+        foreach ($result as $row) {?>
+          <div class="bloque <?php echo 'cat'.$i; ?>">
+            <a href="catalogo">
+              <?php echo $row['cat_categ']; ?>
+            </a>
+          </div>
+
+         <?php $i++; }
+    ?>
+
 </section>
 <section class="productos-recomendados">
   <h2>productos sugeridos</h2>
   <div class="contenido-productos">
-    <div class="bloque">
-      <a href="catalogo">
-        1
-      </a>
-    </div>
-    <div class="bloque">
-      <a href="catalogo">
-        2
-      </a>
-    </div>
-    <div class="bloque">
-      <a href="catalogo">
-        3
-      </a>
-    </div>
+    <?php
+    $i = 0;
+        foreach ($pro as $row) {?>
+          <div class="bloque <?php echo 'pro'.$i; ?>">
+            <a href="catalogo">
+              <?php echo $row['pro_nombre']; ?>
+            </a>
+          </div>
+
+         <?php $i++; }
+    ?>
+
   </div>
 </section>
 <!-- <section class="slider-landing">
