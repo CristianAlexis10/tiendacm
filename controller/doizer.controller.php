@@ -74,7 +74,7 @@ class DoizerController{
 //ARCHIVOS
 	public function ValidateImage($image,$folder){
 	        if (isset($image['file']) && $image['file']['error'] == 0) {
-	            $allowed = array('jpg'=>'image/jpg','png'=>'image/png','gif'=>'image/gif','jpeg'=>'image/jpeg');
+	            $allowed = array('jpg'=>'image/jpg','png'=>'image/png','gif'=>'image/gif','jpeg'=>'image/jpeg','JPG'=>'image/jpg','PNG'=>'image/png','GIF'=>'image/gif','JPEG'=>'image/jpeg');
 	            $filetype=$image['file']['type'];
 	            $filesize=$image['file']['size'];
 	            $extention = pathinfo($image['file']['name']);
