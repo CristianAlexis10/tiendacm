@@ -1,6 +1,13 @@
 <div class="contenido" id="cat-conte">
   <h1>Bienvenido a la gestion de la tienda</h1>
+  <?php
+if (isset($_SESSION['messagge'])) {
+        echo "<div class='message'>".$_SESSION['messagge']."</div>";
+        unset($_SESSION['messagge']);
+  }
+  ?>
   <div class="gestion_ropa">
+
   <?php
   $result = $this->master->selectAll('categoria');
   foreach ($result as $row) {?>

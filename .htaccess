@@ -6,6 +6,7 @@ RewriteRule ^dashboard$ index.php?c=admin&a=dashboard
 
 #PRODUCTOS
 RewriteRule ^gestion-producto$ index.php?c=products
+RewriteRule ^guardar-producto$ index.php?c=products&a=newRegister
 
 
 #USUARIOS
@@ -30,6 +31,9 @@ RewriteRule ^realizar-pedido$ index.php?c=orders&a=newOrder
 #CATEGORIAS
 RewriteRule ^nueva-categoria$ index.php?c=category&a=newCategory
 RewriteRule ^ver-categoria-(\w+)$ index.php?c=category&a=view&data=$1
+RewriteRule ^eliminar-categoria-(\w+)$ index.php?c=category&a=delete&data=$1
+RewriteRule ^actualizar-categoria-(\w+)$ index.php?c=category&a=viewUpdate&data=$1
+RewriteRule ^actualizar-cat$ index.php?c=category&a=update&data
 
 #validar
 RewriteRule ^validar_correo$ index.php?c=user&a=readByEmail

@@ -9,6 +9,7 @@
 
 		function newCategory(){
 			$data = $_POST['data'];
+			$data[]=1;
 			$result = $this->doizer->specialCharater($data[0]);
 			if ($result==false) {
 				echo json_encode('Los campos no deben tener caracteres especiales');
@@ -23,20 +24,55 @@
 			}
 		}
 		function delete(){
-			$data = $_POST['data'];
-			$result = $this->master->delete('categoria',array('cat_categ',$data));
+			$data = $_GET['data'];
+			$result = $this->master->delete('categoria',array('cat_codigo',$data));
 			if ($result==1) {
-				echo json_encode('eliminado exitosamente');
+				$_SESSION['messagge']='Eliminado Existosamente';
+				header("Location: gestion-categoria");
 			}else{
-				echo json_encode($this->doizer->knowError($result));
+				$_SESSION['messagge']=$this->doizer->knowError($result);
+				header("Location: gestion-categoria");
 			}
 		}
 
 		function view(){
-			$data = $_GET['data'];
-			require_once 'views/include/dashboard/header.php';
-			require_once 'views/modules/dashboard/store/view-category.php';
-			require_once 'views/include/dashboard/footer.php';
+			if (isset($_SESSION['USER']['ROL'])) {
+				if ($_SESSION['USER']['ROL']==1) {
+					$data = $_GET['data'];
+					require_once 'views/include/dashboard/header.php';
+					require_once 'views/modules/dashboard/store/view-category.php';
+					require_once 'views/include/dashboard/footer.php';
+				}else{
+					header("Location: catalogo");
+				}
+			}else{
+				header("Location: catalogo");
+			}
 		}
+		function viewUpdate(){
+			if (isset($_SESSION['USER']['ROL'])) {
+				if ($_SESSION['USER']['ROL']==1) {
+					$data = $_GET['data'];
+					require_once 'views/include/dashboard/header.php';
+					require_once 'views/modules/dashboard/store/update-category.php';
+					require_once 'views/include/dashboard/footer.php';
+				}else{
+					header("Location: catalogo");
+				}
+			}else{
+				header("Location: catalogo");
+			}
+		}
+		function update(){
+			$result = $this->master->updaCate(array($_POST['nombre'],$_POST['estado'],$_SESSION['cat_mod']));
+			if ($result==1) {
+				$_SESSION['messagge']='Modificado Existosamente';
+				header("Location: gestion-categoria");
+			}else{
+				$_SESSION['messagge']=$this->doizer->knowError($result);
+				header("Location: gestion-categoria");
+			}
+		}
+
 	}
 ?>

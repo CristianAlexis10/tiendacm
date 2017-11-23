@@ -1,8 +1,7 @@
 <div class="contenido">
   <h1>Bienvenido a la gestion del producto por categoria</h1>
-  <button type="button" name="button">eliminar categoria</button>
-  <button type="button" name="button">actualizar categoria</button>
-  <button type="button" name="button">habilitar categoria</button>
+  <a href="eliminar-categoria-<?php echo $_GET['data']?>">eliminar categoria</a>
+  <a href="actualizar-categoria-<?php echo $_GET['data']?>">Modificar categoria</a>
   <div class="gestion_ropa">
     <div class="wrap--datagrid">
       <table>
