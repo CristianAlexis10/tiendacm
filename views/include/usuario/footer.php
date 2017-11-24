@@ -4,7 +4,7 @@
         <span>¡contactanos!</span>
       </div>
       <div class="iconos-social">
-        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i><span> lorem</span></a>
+        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i><span> catalina molano</span></a>
       </div>
       <div class="contacto-numero">
         <span>+57 123 45 6 78 90</span>

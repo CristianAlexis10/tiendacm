@@ -217,7 +217,7 @@ body{
   background: black;
   width: 100%;
   margin-bottom: 0px;
-  color: #f1396d;
+  color: #fff;
   text-align: center;
   font-family: 'lato';
 }
@@ -237,7 +237,7 @@ body{
   text-transform: uppercase;
 }
 .iconos-social a{
-  color: #f1396d;
+  color: #fff;
 }
 .copy{
   font-size: 10px;

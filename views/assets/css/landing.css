@@ -68,7 +68,7 @@
   text-align: center;
 }
 .bloque a{
-  color: #0d0d0d;
+  color: #fff;
 }
 @media (max-width: 768px) {
   .modal{
