@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2017 a las 16:48:34
--- Versión del servidor: 10.1.21-MariaDB
--- Versión de PHP: 5.6.30
+-- Tiempo de generación: 24-11-2017 a las 18:07:05
+-- Versión del servidor: 10.1.26-MariaDB
+-- Versión de PHP: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -51,16 +53,16 @@ INSERT INTO `acceso` (`acc_token`, `usu_id`, `acc_contra`) VALUES
 CREATE TABLE `categoria` (
   `cat_codigo` int(11) NOT NULL,
   `cat_categ` varchar(15) NOT NULL,
-  `cat_estado` int(11) NOT NULL
+  `cat_estado` int(11) NOT NULL,
+  `cat_img` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `categoria`
 --
 
-INSERT INTO `categoria` (`cat_codigo`, `cat_categ`, `cat_estado`) VALUES
-(0, 'categoria 1', 1),
-(1, 'sghnjgfx', 1);
+INSERT INTO `categoria` (`cat_codigo`, `cat_categ`, `cat_estado`, `cat_img`) VALUES
+(6, 'sad', 1, '0eef53d6dca2cb2441676e74a03b447a.jpg');
 
 -- --------------------------------------------------------
 
@@ -157,24 +159,6 @@ CREATE TABLE `noticia` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `numeros_contacto`
---
-
-CREATE TABLE `numeros_contacto` (
-  `tel_codigo` int(11) NOT NULL,
-  `tel_telefono` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `numeros_contacto`
---
-
-INSERT INTO `numeros_contacto` (`tel_codigo`, `tel_telefono`) VALUES
-(1, '1234567890');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `pedidos`
 --
 
@@ -183,6 +167,17 @@ CREATE TABLE `pedidos` (
   `usu_id` int(11) NOT NULL,
   `ped_direccion` varchar(100) NOT NULL,
   `ped_fecha` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `por_imagenes`
+--
+
+CREATE TABLE `por_imagenes` (
+  `pro_codigo` int(11) NOT NULL,
+  `img` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -197,19 +192,8 @@ CREATE TABLE `producto` (
   `pro_precio` int(11) NOT NULL,
   `pro_cant` int(11) NOT NULL,
   `pro_des` longtext NOT NULL,
-  `cat_codigo` int(11) NOT NULL,
-  `pro_img` varchar(100) NOT NULL
+  `cat_codigo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `producto`
---
-
-INSERT INTO `producto` (`pro_codigo`, `pro_nombre`, `pro_precio`, `pro_cant`, `pro_des`, `cat_codigo`, `pro_img`) VALUES
-(1, 'dsf', 234, 3, 'sddsfgdfsg', 1, 'img5.jpeg'),
-(2, 'sad', 3, 342, 'cx', 1, 'img5.jpeg'),
-(3, 'sad', 3, 342, 'cx', 1, 'img5.jpeg'),
-(4, '1234', 1000, 1, 'su pinche madre', 1, '590f265b7cace74ba82b6eb6ff3a13a8.jpg');
 
 -- --------------------------------------------------------
 
@@ -378,17 +362,17 @@ ALTER TABLE `noticia`
   ADD KEY `usu_id` (`usu_id`);
 
 --
--- Indices de la tabla `numeros_contacto`
---
-ALTER TABLE `numeros_contacto`
-  ADD PRIMARY KEY (`tel_codigo`);
-
---
 -- Indices de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
   ADD PRIMARY KEY (`ped_codigo`),
   ADD KEY `usu_id` (`usu_id`);
+
+--
+-- Indices de la tabla `por_imagenes`
+--
+ALTER TABLE `por_imagenes`
+  ADD KEY `pro_codigo` (`pro_codigo`);
 
 --
 -- Indices de la tabla `producto`
@@ -443,6 +427,11 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
+--
+-- AUTO_INCREMENT de la tabla `categoria`
+--
+ALTER TABLE `categoria`
+  MODIFY `cat_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `noticia`
 --
@@ -505,10 +494,16 @@ ALTER TABLE `pedidos`
   ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`usu_id`) REFERENCES `usuario` (`usu_codigo`) ON UPDATE CASCADE;
 
 --
+-- Filtros para la tabla `por_imagenes`
+--
+ALTER TABLE `por_imagenes`
+  ADD CONSTRAINT `por_imagenes_ibfk_1` FOREIGN KEY (`pro_codigo`) REFERENCES `producto` (`pro_codigo`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Filtros para la tabla `producto`
 --
 ALTER TABLE `producto`
-  ADD CONSTRAINT `producto_ibfk_3` FOREIGN KEY (`cat_codigo`) REFERENCES `categoria` (`cat_codigo`);
+  ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`cat_codigo`) REFERENCES `categoria` (`cat_codigo`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `producto_pedido`
@@ -531,6 +526,7 @@ ALTER TABLE `usuario`
   ADD CONSTRAINT `usuario_ibfk_2` FOREIGN KEY (`tid_codigo`) REFERENCES `tipo_documento` (`tid_codigo`),
   ADD CONSTRAINT `usuario_ibfk_3` FOREIGN KEY (`mun_codigo`) REFERENCES `municipio` (`mun_codigo`),
   ADD CONSTRAINT `usuario_ibfk_6` FOREIGN KEY (`rol_codigo`) REFERENCES `rol` (`rol_codigo`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

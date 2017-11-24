@@ -349,6 +349,20 @@ class MasterModel{
         }
         return $result;
     }
+    public function updaCateImg($values){
+        try {
+            $this->sql="UPDATE categoria SET cat_img = ?  WHERE cat_codigo = ?";
+            $query=$this->pdo->prepare($this->sql);
+            $query->execute($values);
+            $result =  $query->errorInfo()[1];
+            if ($result==null) {
+               $result = true;
+            }
+        } catch (Exception $e) {
+            $result =  $query->errorInfo()[1];
+        }
+        return $result;
+    }
 }
 
  ?>
