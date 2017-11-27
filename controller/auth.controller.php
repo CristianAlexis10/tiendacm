@@ -10,9 +10,9 @@
 			$data = $_POST['data'];
 			$result = $this->master->selectCount('usuario','usu_correo',$data[0]);
 			if ($result[0]==1) {
-				$resultData = $this->master->selectBy('usuario',array('usu_correo',$data[0]));
-				$result = $this->master->selectBy('acceso',array('usu_id',$resultData['usu_codigo']));
-				if (password_verify($data[1], $result['acc_contra'])) {
+
+				$resultData = $this->master->consultaUsuarioAcceso($data[0]);
+				if (password_verify($data[1], $resultData['acc_contra'])) {
 				    $_SESSION['USER']['NAME']=$resultData['usu_nombre1']; 
 				    $_SESSION['USER']['ADDRESS']=$resultData['usu_direccion'];
 				    $_SESSION['USER']['ROL']=$resultData['rol_codigo'];

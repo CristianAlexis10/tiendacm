@@ -41,9 +41,9 @@
 					}
 					$password = $this->doizer->validateSecurityPassword($data[3]);
 					if (is_array($password)) {
-						$a = $this->master->insert('usuario',array($data[0],$data[1],$data[2],2,1,1),array('usu_codigo','usu_apellido2','usu_direccion','usu_num_doc','usu_telefono','usu_celular'));
-						$result = $this->master->selectBy('usuario',array('usu_correo',$data[2]));
-						$result = $this->master->insert('acceso',array(md5($data[2].date('y-m')),$result['usu_codigo'],$password[1]));
+						$a = $this->master->crearUsuario(array($data[0],$data[1],$data[2],2,1,1));
+						$result = $this->master->consultaUsuarioByCorreo($data[2]);
+						$result = $this->master->crearAcceso(array(md5($data[2].date('y-m')),$result['usu_codigo'],$password[1]));
 						// die(json_encode($a));
 						if ($a==true) {
 							echo json_encode('Registardo con exito');
