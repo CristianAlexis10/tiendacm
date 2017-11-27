@@ -7,7 +7,7 @@ body{
   z-index: 2;
   width: 100%;
   height: 50px;
-  background: #828282;
+  background: #bdbdbd;
   left: 250px;
 }
 .top_menu_dash ul{
@@ -28,7 +28,7 @@ body{
   z-index: 2;
   height: 100%;
   width: 250px;
-  background: #828282;
+  background: #ffffff;
   font-family: 'lato',sans-serif;;
 }
 .left_menu_dash ul{
@@ -40,105 +40,18 @@ body{
   margin-bottom: 5px;
   color: #000
 }
-.imagen{
-  background: #ffffff;
-}
 .imagen img{
   width: 230px;
   padding: 30px 7px;
 }
-.wrap--contenido{
-  position: absolute;
-  width: 74%;
-  margin: 105px 305px;
-}
-.contenido{
-  position: relative;
-  font-family: 'lato',sans-serif;
-  background: #fff;
-  width: 99%;
-  padding: 10px;
-  border-radius: 3px;
-}
-.contenido h1{
-  text-align: center;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #a0a0a0;
-  margin-bottom: 20px;
-  font-size: 20px;
-}
-table,th,td{
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-.accion li{
-  display: inline;
-  padding: 0px 10px;
-  cursor: pointer;
-}
-.accion li i:hover{
-  transition: 1s;
-  transform: rotate(360deg);
-}
 .left_menu_dash ul li:hover{
-  border-left: 10px solid #ed2194;
+  /*border-left: 10px solid #ed2194;*/
+  /*color: #ed2194;*/
   background: #dfdfdf;
   transition: .3s;
 }
 .top_menu_dash ul li a i:hover{
-  color:  #dfdfdf;
-}
-/*gestion de la tienda*/
-.gestion_ropa{
-  display: flex;
-  flex-wrap: wrap;
-  border-radius: 3px;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-.categorias_ropa{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30%;
-  height: 100px;
-  background: #ff98f5;
-  margin: 10px 16px;
-  font-size: 25px;
-  cursor: pointer;
-}
-.categorias_ropa a{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #000;
-  width: 100%;
-  height: 100%;
-}
-.categorias_ropa:hover{
-  background: #fe72f0;
-  transition: .3s;
-}
-.categorias_ropa:nth-last-child(1){
-  background: #ff98f5;
-  font-size: 60px;
-  cursor: pointer;
-}
-.categorias_ropa:nth-last-child(1):hover{
-  background: #fe72f0;
-  transition: .3s;
-}
-/*gestion producto*/
-.wrap--datagrid{
-  
-  width: 100%;
-  height: 100%;
-}
-.wrap--datagrid table{
-  padding: 10px;
-}
-th, td{
-  padding: 10px;
+  color:  #f1f1f1;
 }
 /*modal de registro de categoria*/
 .fondo{
@@ -149,7 +62,6 @@ th, td{
   height: 100vh;
   background: rgba(0, 0, 0, 0.6);
 }
-
 .reg_categoria{
   display: none;
   z-index: 4;
@@ -208,4 +120,70 @@ th, td{
   font-weight: 500;
   font-size: 20px;
   border-radius: 3px;
+}
+/*contenedores de la informacion dashboard*/
+.contenido{
+  position: absolute;
+  left: 300px;
+  top: 100px;
+  width: 74%;
+  min-height: 150px;
+  background: #ffffff;
+  border-radius: 3px;
+}
+.contenido h1{
+  padding: 5px;
+  border-bottom: 2px solid #c6c6c6;
+  font-size: 35px;
+  font-family: 'roboto';
+  font-weight: 900;
+  margin: 10px;
+  text-transform: uppercase;
+}
+/*gestion de las categorias*/
+.gestion-categoria{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 10px;
+  padding: 10px;
+  font-size: 25px;
+  font-family: 'lato';
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.categorias_ropa a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+}
+.categorias_ropa{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 100px;
+  border: 1px solid #c6c6c6;
+  cursor: pointer;
+  color: #000;
+  border-radius: 3px;
+}
+.categorias_ropa:hover, .categorias_ropa a:hover{
+  background: #ececec;
+}
+/*gestion de los productos*/
+.contenido-producto{
+  padding: 10px;
+  width: 98%;
+  height: 100%;
+  text-align: right;
+}
+.form-producto{
+  padding: 10px;
+  width: 50%;
+  background: rgb(202, 208, 100);
+}
+.caja{
+  margin: 20px;
 }

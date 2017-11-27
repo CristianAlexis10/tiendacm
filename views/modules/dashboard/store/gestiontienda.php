@@ -1,13 +1,12 @@
 <div class="contenido" id="cat-conte">
-  <h1>Bienvenido a la gestion de la tienda</h1>
+  <h1>gestion categorias</h1>
   <?php
 if (isset($_SESSION['messagge'])) {
-        echo "<div class='message'>".$_SESSION['messagge']."</div>";
+        echo "<span class='message'>".$_SESSION['messagge']."</span>";
         unset($_SESSION['messagge']);
   }
   ?>
-  <div class="gestion_ropa">
-
+  <div class="gestion-categoria">
   <?php
   $result = $this->master->selectAll('categoria');
   foreach ($result as $row) {?>
@@ -16,7 +15,7 @@ if (isset($_SESSION['messagge'])) {
         </div>
     <?php } ?>
         <div class="categorias_ropa" id="add_categoria">
-          <span>+</span>
+          <span>añadir categoria</span>
         </div>
   </div>
 </div>
