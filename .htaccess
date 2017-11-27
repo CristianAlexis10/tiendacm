@@ -2,6 +2,7 @@ RewriteEngine on
 
 RewriteRule ^landing$ index.php?c=views&a=landin
 RewriteRule ^catalogo$ index.php?c=tienda
+RewriteRule ^catalogo-(\w+)$ index.php?c=tienda&pagina=$1
 RewriteRule ^dashboard$ index.php?c=admin&a=dashboard
 
 #PRODUCTOS

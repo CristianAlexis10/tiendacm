@@ -160,6 +160,31 @@ class MasterModel{
 
         return $result;
     }
+
+       public function selectAllLimit($table,$inicio,$fin){
+        try {
+            $this->sql="SELECT * FROM $table LIMIT $inicio,$fin";
+            $query=$this->pdo->prepare($this->sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_BOTH);
+        } catch (PDOException $e) {
+            $result = $e->getMessage();
+        }
+
+        return $result;
+    }
+        public function selectAllLimitWhere($table,$inicio,$fin,$wh){
+        try {
+            $this->sql="SELECT * FROM $table  WHERE cat_codigo = ? LIMIT $inicio,$fin";
+            $query=$this->pdo->prepare($this->sql);
+            $query->execute(array($wh));
+            $result = $query->fetchAll(PDO::FETCH_BOTH);
+        } catch (PDOException $e) {
+            $result = $e->getMessage();
+        }
+
+        return $result;
+    }
     public function selectAllLi6($table){
         try {
             $this->sql="SELECT * FROM $table LIMIT 6 ";
@@ -203,6 +228,19 @@ class MasterModel{
             $this->sql="SELECT count($colum) FROM $table WHERE $colum = ?";
             $query=$this->pdo->prepare($this->sql);
             $query->execute(array($condition));
+            $result = $query->fetch(PDO::FETCH_BOTH);
+        } catch (PDOException $e) {
+            $result = $e->getMessage();
+        }
+
+        return $result;
+    }    
+
+    public function selectAllCount($table){
+        try {
+            $this->sql="SELECT count(*) FROM $table ";
+            $query=$this->pdo->prepare($this->sql);
+            $query->execute();
             $result = $query->fetch(PDO::FETCH_BOTH);
         } catch (PDOException $e) {
             $result = $e->getMessage();
@@ -352,6 +390,66 @@ class MasterModel{
     public function updaCateImg($values){
         try {
             $this->sql="UPDATE categoria SET cat_img = ?  WHERE cat_codigo = ?";
+            $query=$this->pdo->prepare($this->sql);
+            $query->execute($values);
+            $result =  $query->errorInfo()[1];
+            if ($result==null) {
+               $result = true;
+            }
+        } catch (Exception $e) {
+            $result =  $query->errorInfo()[1];
+        }
+        return $result;
+    }
+
+    //PROCEDIMIENTOS
+        public function consultaUsuarioAcceso($correo){
+        try {
+            $this->sql="call consultaUsuarioAcceso(?)";
+            $query=$this->pdo->prepare($this->sql);
+            $query->execute(array($correo));
+            $result = $query->fetch(PDO::FETCH_BOTH);
+        } catch (PDOException $e) {
+            $result = $e->getMessage();
+        }
+        return $result;
+    }
+
+
+    // crear usu
+    
+     public function crearUsuario($values){
+        try {
+            $this->sql="call crearUsuario(?,?,?,?,?,?)";
+            $query=$this->pdo->prepare($this->sql);
+            $query->execute($values);
+            $result =  $query->errorInfo()[1];
+            if ($result==null) {
+               $result = true;
+            }
+        } catch (Exception $e) {
+            $result =  $query->errorInfo()[1];
+        }
+        return $result;
+    } 
+       
+
+      public function consultaUsuarioByCorreo($correo){
+        try {
+            $this->sql="call consultaUsuarioByCorreo(?)";
+            $query=$this->pdo->prepare($this->sql);
+            $query->execute(array($correo));
+            $result = $query->fetch(PDO::FETCH_BOTH);
+        } catch (PDOException $e) {
+            $result = $e->getMessage();
+        }
+        return $result;
+    }
+
+
+     public function crearAcceso($values){
+        try {
+            $this->sql="call crearAcceso(?,?,?)";
             $query=$this->pdo->prepare($this->sql);
             $query->execute($values);
             $result =  $query->errorInfo()[1];
