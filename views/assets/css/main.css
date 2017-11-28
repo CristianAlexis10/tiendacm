@@ -90,7 +90,7 @@ body{
 }
 /*seccion 2 tienda*/
 .seccion2{
-  position: absolute;
+  position: relative;
   top: 70vh;
   width: 100%;
 }

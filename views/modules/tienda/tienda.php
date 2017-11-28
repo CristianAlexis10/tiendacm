@@ -29,9 +29,8 @@
           </form>
         <div class="seccion2">
 
-    <ul id="gallery" class="gallery ui-helper-reset ">
-<?php
-
+    <ul>
+            <?php
                  //total de elementos por cada pagina
                 $elementosPagina = 9;
                 //saber si existe la pagina
@@ -57,12 +56,12 @@
                 }
                 foreach ($consulta as $row ) {
                   // echo "<div id='".$row['pro_codigo']."' class='pro'>".$row['pro_nombre']."</div><br>";?>
-                    <li class="ui-widget-content">
-                      <h5 class="ui-widget-header"><?php echo $row["pro_nombre"]; ?></h5>
-                      <img src="views/assets/img/<?php echo $row["pro_imagen"]; ?>" alt="On top of Kozi kopka" width="96" height="72">
-                      <div class="des"><?php echo $row["pro_des"]; ?></div>
-                      <span class="dame">Ver</span>
-                </li>
+                    <li>
+                      <h5><?php echo $row["pro_nombre"]; ?></h5>
+                      <img src="views/assets/img/<?php echo $row["pro_imagen"]; ?>">
+                      <div><?php echo $row["pro_des"]; ?></div>
+                      <span>Ver</span>
+                    </li>
 
                 <?php
                 }?>
@@ -89,10 +88,5 @@
                       }
                 }
           ?>
-
         </div>
       </section>
-      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="views/assets/js/carrito.js"></script>
-        <script src="views/assets/js/main.js"></script>
