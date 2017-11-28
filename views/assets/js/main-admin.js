@@ -23,6 +23,14 @@
 		fondo.style.display = "none";
 		categoria.style.display = "none";
 	}
+	$('#btn-productos').click(function(){
+		$('#reg-productos').toggle();
+		$('#list-productos').toggle();
+	})
+	// var btnProductos = document.getElementById('btn-productos')
+	// var regProductos = document.getElementById('reg-productos')
+	// var listProductos = document.getElementById('list-productos')
+
 
 // $("#frmNewCat").submit(function(e) {
 //     e.preventDefault();
