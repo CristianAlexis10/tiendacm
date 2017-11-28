@@ -10,7 +10,7 @@
           <br>
           <form method="post">
               <select name="categoria">
-                <?php 
+                <?php
                   foreach ($this->master->selectAll('categoria') as $row) {
                       if (isset($_SESSION['CATEGORIA'])) {
                           if ($row['cat_codigo']==$_SESSION['CATEGORIA']) {?>

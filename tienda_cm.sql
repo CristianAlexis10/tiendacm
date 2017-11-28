@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2017 a las 18:07:05
--- Versión del servidor: 10.1.26-MariaDB
--- Versión de PHP: 7.1.8
+-- Tiempo de generación: 25-11-2017 a las 03:16:33
+-- Versión del servidor: 10.1.8-MariaDB
+-- Versión de PHP: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -21,6 +19,100 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `tienda_cm`
 --
+
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `consultaCategoriaByCod` (IN `cod` INT(11))  NO SQL
+BEGIN 
+SELECT * FROM categoria WHERE cat_codigo = cod;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `consultaCategoriaByNombre` (IN `nombre` VARCHAR(50))  NO SQL
+BEGIN 
+SELECT * FROM categoria WHERE cat_nombre = nombre;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `consultaUsuarioAcceso` (IN `correo` VARCHAR(100))  NO SQL
+BEGIN 
+SELECT * FROM usuario inner join acceso ON usuario.usu_codigo = acceso.usu_id WHERE usuario.usu_correo = correo;
+
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `consultaUsuarioByCorreo` (IN `correo` VARCHAR(100))  NO SQL
+BEGIN
+SELECT * FROM usuario WHERE usu_correo = correo;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `crearAcceso` (IN `token` VARCHAR(250), IN `id` INT(11), IN `contra` VARCHAR(250))  NO SQL
+BEGIN
+INSERT INTO acceso VALUES
+(token,id,contra);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `crearCategoria` (IN `nombre` VARCHAR(50), IN `estado` INT(11), IN `img` VARCHAR(150))  NO SQL
+BEGIN 
+insert into categoria (cat_nombre,cat_estado,cat_img)VALUES 
+(nombre,estado,img);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `crearImagenProducto` (IN `producto` INT(11), IN `img` VARCHAR(150))  NO SQL
+BEGIN 
+INSERT INTO por_imagenes VALUES(producto,img);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `crearPedido` (IN `usuario` INT(11), IN `municipio` INT(11), IN `direccion` VARCHAR(100), IN `fecha_re` DATE, IN `fecha_ent` DATE)  NO SQL
+BEGIN 
+INSERT INTO pedidos(usu_id,mun_codigo,ped_direccion,ped_fecha_realizacion,ped_fecha_entrega)VALUES
+(usuario,municipio,direccion,fecha_re,fecha_ent);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `crearProducto` (IN `nombre` VARCHAR(50), IN `precio` INT(11), IN `cantidad` INT(11), IN `des` LONGTEXT, IN `categoria` INT(11))  NO SQL
+BEGIN 
+INSERT INTO producto (pro_nombre,pro_precio,pro_cant,pro_des,cat_codigo)
+VALUES(nombre,precio,cantidad,des,categoria);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `crearProductoPedido` (IN `pedido` INT(11), IN `producto` INT(11), IN `cantidad` INT(11), IN `color` INT(11), IN `talla` INT(11))  NO SQL
+BEGIN
+INSERT INTO producto_pedido 
+VALUES (pedido,producto,cantidad,color,talla);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `crearUsuario` (IN `pri_nom` VARCHAR(30), IN `pri_ape` VARCHAR(25), IN `correo` VARCHAR(100), IN `rol` INT(11), IN `tip_doc` INT(11), IN `ciudad` INT(11))  NO SQL
+BEGIN
+INSERT INTO usuario (usu_nombre1,usu_apellido1,usu_correo,rol_codigo,tid_codigo,mun_codigo)
+VALUES
+(pri_nom,pri_ape,correo,rol,tip_doc,ciudad);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `eliminarCategoria` (IN `cod` INT(11))  NO SQL
+BEGIN
+DELETE FROM categoria WHERE cat_codigo = cod;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `eliminarProducto` (IN `cod` INT(11))  NO SQL
+BEGIN
+DELETE FROM producto WHERE pro_codigo = cod;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `eliminarUsuario` (IN `usuario` INT(11))  NO SQL
+BEGIN
+DELETE FROM usuario WHERE usu_codigo = usuario;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarCategoria` (IN `cod` INT(11), IN `nombre` VARCHAR(50), IN `estado` INT(11))  NO SQL
+BEGIN 
+UPDATE categoria set cat_nombre = nombre  , cat_estado = estado WHERE cat_codigo = cod;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarImagenCategoria` (IN `cod` INT(11), IN `img` VARCHAR(150))  NO SQL
+BEGIN
+UPDATE categoria SET cat_img = img WHERE cat_codigo = cod;
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -40,7 +132,6 @@ CREATE TABLE `acceso` (
 
 INSERT INTO `acceso` (`acc_token`, `usu_id`, `acc_contra`) VALUES
 ('01adb163751f819cb56e323785670957', 6, '$2y$10$Hl9HVC4KYCBQsgCSUPN0quaobvP0I/6T3l.OK1tXU.z13ToF0qX2S'),
-('37efb56558a63116e3e7e6f2ab3c9dce', 10, '$2y$10$ZEAUZyYxN.z6sdnpRNgxS.Lck9jP02luMOM79Qs3xaBbXf/vxKW2O'),
 ('d5cf38ba4f7816b2e7a6515ecbdf9732', 9, '$2y$10$NsaGCqsAXw.5cRjOQMIvFe6xzYxL3u2KJ5w2s/sLTB9S/YbHvODX.'),
 ('f4b3cf3fc6dfec17fbdd2ac6977e7436', 3, '$2y$10$clVWgrdPMZulTJCoXlc1hu9EkB.QmuHe3Vuzmz0xTP2joDLysdzu.');
 
@@ -52,17 +143,17 @@ INSERT INTO `acceso` (`acc_token`, `usu_id`, `acc_contra`) VALUES
 
 CREATE TABLE `categoria` (
   `cat_codigo` int(11) NOT NULL,
-  `cat_categ` varchar(15) NOT NULL,
+  `cat_nombre` varchar(50) NOT NULL,
   `cat_estado` int(11) NOT NULL,
-  `cat_img` varchar(100) NOT NULL
+  `cat_img` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `categoria`
 --
 
-INSERT INTO `categoria` (`cat_codigo`, `cat_categ`, `cat_estado`, `cat_img`) VALUES
-(6, 'sad', 1, '0eef53d6dca2cb2441676e74a03b447a.jpg');
+INSERT INTO `categoria` (`cat_codigo`, `cat_nombre`, `cat_estado`, `cat_img`) VALUES
+(6, 'hola', 2, '0eef53d6dca2cb2441676e74a03b447a.jpg');
 
 -- --------------------------------------------------------
 
@@ -165,9 +256,18 @@ CREATE TABLE `noticia` (
 CREATE TABLE `pedidos` (
   `ped_codigo` int(11) NOT NULL,
   `usu_id` int(11) NOT NULL,
+  `mun_codigo` int(11) NOT NULL,
   `ped_direccion` varchar(100) NOT NULL,
-  `ped_fecha` date NOT NULL
+  `ped_fecha_realizacion` date NOT NULL,
+  `ped_fecha_entrega` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `pedidos`
+--
+
+INSERT INTO `pedidos` (`ped_codigo`, `usu_id`, `mun_codigo`, `ped_direccion`, `ped_fecha_realizacion`, `ped_fecha_entrega`) VALUES
+(1, 3, 1, 'sdasd', '2000-02-02', '2000-02-02');
 
 -- --------------------------------------------------------
 
@@ -177,7 +277,7 @@ CREATE TABLE `pedidos` (
 
 CREATE TABLE `por_imagenes` (
   `pro_codigo` int(11) NOT NULL,
-  `img` int(11) NOT NULL
+  `img` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -195,6 +295,13 @@ CREATE TABLE `producto` (
   `cat_codigo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`pro_codigo`, `pro_nombre`, `pro_precio`, `pro_cant`, `pro_des`, `cat_codigo`) VALUES
+(7, '213', 123, 123, '123', 6);
+
 -- --------------------------------------------------------
 
 --
@@ -205,8 +312,8 @@ CREATE TABLE `producto_pedido` (
   `ped_codigo` int(11) NOT NULL,
   `pro_codigo` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL,
-  `color` varchar(20) NOT NULL,
-  `talla` varchar(5) NOT NULL
+  `col_codigo` int(11) NOT NULL,
+  `tal_codigo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -302,8 +409,7 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`usu_codigo`, `usu_nombre1`, `usu_apellido1`, `usu_apellido2`, `usu_direccion`, `usu_correo`, `rol_codigo`, `tid_codigo`, `usu_num_doc`, `mun_codigo`, `usu_telefono`) VALUES
 (3, 'julio', 'arias', NULL, '', 'algo@algo.com', 1, 1, 0, 1, 0),
 (6, 'julio', 'arias', NULL, '', 'nose@gds.com', 2, 1, 0, 1, 0),
-(9, 'jufdsgfs', 'gdsags', NULL, '', 'gsag@gsag', 2, 1, 0, 1, 0),
-(10, 'fdsgadsg', 'fdsghd', NULL, '', 'fdsagsdf@sgfasd', 2, 1, 0, 1, 0);
+(9, 'jufdsgfs', 'gdsags', NULL, '', 'gsag@gsag', 2, 1, 0, 1, 0);
 
 --
 -- Índices para tablas volcadas
@@ -366,7 +472,8 @@ ALTER TABLE `noticia`
 --
 ALTER TABLE `pedidos`
   ADD PRIMARY KEY (`ped_codigo`),
-  ADD KEY `usu_id` (`usu_id`);
+  ADD KEY `usu_id` (`usu_id`),
+  ADD KEY `mun_codigo` (`mun_codigo`);
 
 --
 -- Indices de la tabla `por_imagenes`
@@ -386,7 +493,9 @@ ALTER TABLE `producto`
 --
 ALTER TABLE `producto_pedido`
   ADD KEY `ped_codigo` (`ped_codigo`),
-  ADD KEY `pro_codigo` (`pro_codigo`);
+  ADD KEY `pro_codigo` (`pro_codigo`),
+  ADD KEY `col_codigo` (`col_codigo`),
+  ADD KEY `tal_codigo` (`tal_codigo`);
 
 --
 -- Indices de la tabla `rol`
@@ -431,7 +540,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `cat_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `cat_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `noticia`
 --
@@ -441,17 +550,17 @@ ALTER TABLE `noticia`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `ped_codigo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ped_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `pro_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pro_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `usu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `usu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- Restricciones para tablas volcadas
 --
@@ -491,7 +600,8 @@ ALTER TABLE `noticia`
 -- Filtros para la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`usu_id`) REFERENCES `usuario` (`usu_codigo`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`usu_id`) REFERENCES `usuario` (`usu_codigo`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `pedidos_ibfk_2` FOREIGN KEY (`mun_codigo`) REFERENCES `municipio` (`mun_codigo`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `por_imagenes`
@@ -510,7 +620,9 @@ ALTER TABLE `producto`
 --
 ALTER TABLE `producto_pedido`
   ADD CONSTRAINT `producto_pedido_ibfk_1` FOREIGN KEY (`ped_codigo`) REFERENCES `pedidos` (`ped_codigo`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `producto_pedido_ibfk_2` FOREIGN KEY (`pro_codigo`) REFERENCES `producto` (`pro_codigo`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `producto_pedido_ibfk_2` FOREIGN KEY (`pro_codigo`) REFERENCES `producto` (`pro_codigo`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `producto_pedido_ibfk_3` FOREIGN KEY (`tal_codigo`) REFERENCES `talla` (`tal_codigo`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `producto_pedido_ibfk_4` FOREIGN KEY (`col_codigo`) REFERENCES `color` (`col_codigo`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `talla_producto`
@@ -526,7 +638,6 @@ ALTER TABLE `usuario`
   ADD CONSTRAINT `usuario_ibfk_2` FOREIGN KEY (`tid_codigo`) REFERENCES `tipo_documento` (`tid_codigo`),
   ADD CONSTRAINT `usuario_ibfk_3` FOREIGN KEY (`mun_codigo`) REFERENCES `municipio` (`mun_codigo`),
   ADD CONSTRAINT `usuario_ibfk_6` FOREIGN KEY (`rol_codigo`) REFERENCES `rol` (`rol_codigo`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

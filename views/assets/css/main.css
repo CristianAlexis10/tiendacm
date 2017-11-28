@@ -70,7 +70,7 @@ body{
 
 }
 
-.slider .wrap--text h2{
+.wrap--text h2{
   font-family: "Lato";
   font-weight: 300;
   font-size: 140px;
@@ -80,7 +80,7 @@ body{
   line-height: 0.9
 }
 
-.slider .wrap--text h3{
+.wrap--text h3{
   font-family: "Roboto";
   font-size: 18px;
   font-weight: 100;
@@ -183,35 +183,7 @@ body{
   right: 3px;
 }*/
 /*Seccion noticias*/
-.seccion2_noticia{
-  position: absolute;
-  top: 70vh;
-  width: 100%;
-  background-color: #ecf0f1;
-}
-.noticia{
-  height: 200px;
-  width: 90%;
-  margin: 2% 5%;
-  background: red;
-}
-.noticia_img{
-  height: 100%;
-  width: 250px;
-}
-.noticia_img img{
-  height: 100%;
-  width: 100%;
-}
-.cont_noticia{
 
-}
-.cont_noticia article{
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  background: rgba(75, 196, 16, 0.42);
-}
 /*footer usuario*/
 .footer{
   background: black;
