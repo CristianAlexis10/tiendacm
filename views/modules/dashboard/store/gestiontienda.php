@@ -11,7 +11,7 @@ if (isset($_SESSION['messagge'])) {
   $result = $this->master->selectAll('categoria');
   foreach ($result as $row) {?>
         <div class="categorias_ropa">
-          <a href="ver-categoria-<?php echo $row['cat_codigo']?>"><?php echo $row['cat_categ']; ?></a>
+          <a href="ver-categoria-<?php echo $row['cat_codigo']?>"><?php echo $row['cat_nombre']; ?></a>
         </div>
     <?php } ?>
         <div class="categorias_ropa" id="add_categoria">

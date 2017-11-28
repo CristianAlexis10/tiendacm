@@ -25,7 +25,8 @@ $pro = $this->master->selectAllLi6('producto');
         foreach ($result as $row) {?>
           <div class="bloque <?php echo 'cat'.$i; ?>">
             <a href="catalogo" class="categoria-land">
-              <?php echo $row['cat_categ']; ?>
+              <?php echo $row['cat_nombre']; ?>
+              <img src="views/assets/img/<?php echo $row['cat_img'];?>">
             </a>
           </div>
 

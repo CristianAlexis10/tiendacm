@@ -45,8 +45,8 @@ body{
   padding: 30px 7px;
 }
 .left_menu_dash ul li:hover{
-  /*border-left: 10px solid #ed2194;*/
-  /*color: #ed2194;*/
+  border-left: 10px solid #ed2194;
+  color: #ed2194;
   background: #dfdfdf;
   transition: .3s;
 }

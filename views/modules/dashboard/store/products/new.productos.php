@@ -29,7 +29,7 @@ if (isset($_SESSION['messagge'])) {
             <option value="">seleccionar categoria</option>
       			<?php
       				foreach ($this->master->selectAll('categoria') as $row) {?>
-      					<option value="<?php echo $row['cat_codigo']?>"><?php echo $row['cat_categ'] ?></option>
+      					<option value="<?php echo $row['cat_codigo']?>"><?php echo $row['cat_nombre'] ?></option>
       				<?php
       				}
       			?>
