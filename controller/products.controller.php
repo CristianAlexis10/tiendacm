@@ -47,7 +47,7 @@ class ProductsController{
 		}
 		$data[]="activo";
 
-		$result = $this->master->insert('producto',$data,array('pro_codigo'));
+		$result = $this->master->crearProducto($data);
 		if ($result==1) {
 				$result = $this->master->selectBy('producto',array('pro_nombre',$data[0]));
 				$_SESSION['producto']=$result['pro_codigo'];
@@ -74,10 +74,10 @@ class ProductsController{
 		}
 
 		foreach ($colores as $color) {
-			$result= $this->master->insert('color_producto',array($color,$_SESSION['producto']));
+				$result= $this->master->color_producto(array($color,$_SESSION['producto']));
 		}
 		foreach ($tallas as $talla) {
-			$result= $this->master->insert('talla_producto',array($_SESSION['producto'],$talla));
+			$result= $this->master->talla_producto(array($_SESSION['producto'],$talla));
 		}
 		if ($result==1) {
 			$_SESSION['messagge']='Registrado Exitosamente';
@@ -113,7 +113,7 @@ class ProductsController{
 
 	function delete(){
 		$data = $_POST['data'];
-		$result = $this->master->delete('producto',array('pro_codigo',$data));
+		$result = $this->master->eliminarProducto($data);
 		if ($result==true) {
 			$_SESSION['messagge']='Eliminado Exitosamente';
 			echo json_encode(true);

@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-11-2017 a las 04:30:05
--- Versión del servidor: 10.1.8-MariaDB
--- Versión de PHP: 5.6.14
+-- Tiempo de generación: 29-11-2017 a las 23:15:16
+-- Versión del servidor: 10.1.19-MariaDB
+-- Versión de PHP: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -24,6 +24,11 @@ DELIMITER $$
 --
 -- Procedimientos
 --
+CREATE DEFINER=`root`@`localhost` PROCEDURE `color_producto` (IN `color` INT(11), IN `producto` INT(11))  NO SQL
+BEGIN 
+INSERT INTO color_producto VALUES(color,producto);
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `consultaCategoriaByCod` (IN `cod` INT(11))  NO SQL
 BEGIN 
 SELECT * FROM categoria WHERE cat_codigo = cod;
@@ -73,10 +78,10 @@ INSERT INTO pedidos(usu_id,mun_codigo,ped_direccion,ped_fecha_realizacion,ped_fe
 (usuario,municipio,direccion,fecha_re,fecha_ent);
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `crearProducto` (IN `nombre` VARCHAR(50), IN `precio` INT(11), IN `cantidad` INT(11), IN `des` LONGTEXT, IN `categoria` INT(11), IN `img` INT(150))  NO SQL
+CREATE DEFINER=`root`@`localhost` PROCEDURE `crearProducto` (IN `nombre` VARCHAR(50), IN `precio` INT(11), IN `cantidad` INT(11), IN `des` LONGTEXT, IN `categoria` INT(11), IN `img` VARCHAR(150), IN `est` VARCHAR(20))  NO SQL
 BEGIN 
-INSERT INTO producto (pro_nombre,pro_precio,pro_cant,pro_des,cat_codigo,pro_imagen)
-VALUES(nombre,precio,cantidad,des,categoria,img);
+INSERT INTO producto (pro_nombre,pro_precio,pro_cant,pro_des,cat_codigo,pro_imagen,pro_estado)
+VALUES(nombre,precio,cantidad,des,categoria,img,est);
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `crearProductoPedido` (IN `pedido` INT(11), IN `producto` INT(11), IN `cantidad` INT(11), IN `color` INT(11), IN `talla` INT(11))  NO SQL
@@ -117,6 +122,16 @@ BEGIN
 UPDATE categoria SET cat_img = img WHERE cat_codigo = cod;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `talla_producto` (IN `pro` INT(11), IN `tal` INT(11))  NO SQL
+BEGIN 
+INSERT INTO talla_producto VALUES(pro,tal);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `updatePro` (IN `nom` VARCHAR(30), IN `precio` INT(11), IN `cantidad` INT(11), IN `des` LONGTEXT, IN `cat` INT(11), IN `est` VARCHAR(20), IN `cod` INT(11))  NO SQL
+BEGIN 
+UPDATE producto set pro_nombre = nom , pro_precio = precio , pro_cant= cantidad , pro_des = des , cat_codigo = cat , pro_estado = est WHERE pro_codigo = cod;
+END$$
+
 DELIMITER ;
 
 -- --------------------------------------------------------
@@ -138,6 +153,7 @@ CREATE TABLE `acceso` (
 INSERT INTO `acceso` (`acc_token`, `usu_id`, `acc_contra`) VALUES
 ('014e4694d7376256832eff31ef3efb49', 15, '$2y$10$1o68uwEU5NFlCH3pSx7KU.z3gn567DGIJbDDiIpnf5LsMPORzVjcC'),
 ('01adb163751f819cb56e323785670957', 6, '$2y$10$Hl9HVC4KYCBQsgCSUPN0quaobvP0I/6T3l.OK1tXU.z13ToF0qX2S'),
+('665a565a47e732f7bf96e40eb2cfc226', 16, '$2y$10$WxfTypIQ1zLUcv46zyCAte6MnA3Zgv9XMIDKaIU7gA0qfcTZfmacu'),
 ('d5cf38ba4f7816b2e7a6515ecbdf9732', 9, '$2y$10$NsaGCqsAXw.5cRjOQMIvFe6xzYxL3u2KJ5w2s/sLTB9S/YbHvODX.'),
 ('f4b3cf3fc6dfec17fbdd2ac6977e7436', 3, '$2y$10$clVWgrdPMZulTJCoXlc1hu9EkB.QmuHe3Vuzmz0xTP2joDLysdzu.');
 
@@ -198,7 +214,7 @@ CREATE TABLE `color_producto` (
 --
 
 INSERT INTO `color_producto` (`col_codigo`, `por_codigo`) VALUES
-(2, 55);
+(2, 62);
 
 -- --------------------------------------------------------
 
@@ -311,8 +327,7 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`pro_codigo`, `pro_nombre`, `pro_precio`, `pro_cant`, `pro_des`, `cat_codigo`, `pro_imagen`, `pro_estado`) VALUES
-(55, '34', 344, 324, '324', 9, '601f027b7afc468edbcff45f37603612.JPG', 'activo'),
-(56, '34', 344, 324, '324', 9, 'default.jpg', 'activo');
+(62, 'sa', 0, 12, '213', 8, '5b2d9d0bf4842cf95ce5536a4255cc6d.png', 'activo');
 
 -- --------------------------------------------------------
 
@@ -382,7 +397,7 @@ CREATE TABLE `talla_producto` (
 --
 
 INSERT INTO `talla_producto` (`pro_codigo`, `tal_codigo`) VALUES
-(55, 1);
+(62, 2);
 
 -- --------------------------------------------------------
 
@@ -430,7 +445,8 @@ INSERT INTO `usuario` (`usu_codigo`, `usu_nombre1`, `usu_apellido1`, `usu_apelli
 (3, 'julio', 'arias', NULL, '', 'algo@algo.com', 1, 1, 0, 1, 0),
 (6, 'julio', 'arias', NULL, '', 'nose@gds.com', 2, 1, 0, 1, 0),
 (9, 'jufdsgfs', 'gdsags', NULL, '', 'gsag@gsag', 2, 1, 0, 1, 0),
-(15, 'dsf', 'dsf', NULL, '', 's@s.com', 2, 1, 0, 1, 0);
+(15, 'dsf', 'dsf', NULL, '', 's@s.com', 2, 1, 0, 1, 0),
+(16, 'Alexis', 'lopera', NULL, '', 'yo@yo.com', 1, 1, 0, 1, 0);
 
 --
 -- Índices para tablas volcadas
@@ -581,7 +597,7 @@ ALTER TABLE `pedidos`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `pro_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `pro_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 --
 -- AUTO_INCREMENT de la tabla `talla`
 --
@@ -591,7 +607,7 @@ ALTER TABLE `talla`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `usu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `usu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- Restricciones para tablas volcadas
 --

@@ -56,7 +56,7 @@ $_SESSION['update_pro']=$_GET['data'];
       	</div>
       </form>
       <div class="more">
-      	<a href="#">Imagenes</a>
+      	<!-- <a href="#">Imagenes</a> -->
       	<a href="modificar-col-talla">Colores y tallas</a>
       </div>
 </div>
