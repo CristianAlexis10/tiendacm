@@ -3,7 +3,7 @@ $data = $this->master->selectBy('producto',array('pro_codigo',$_GET['data']));
 $_SESSION['update_pro']=$_GET['data'];
 ?>
 <div class="contenido">
-	<form class="form-producto" action="guardar-modificacion-producto" method="post" enctype="multipart/form-data">
+	<form class="form-producto" action="guardar-modificacion-producto" method="post" >
       	<div class="caja">
           <label for="">nombre: </label>
       		<input type="text" name="data[]"  value="<?php echo $data['pro_nombre']?>" required>
@@ -40,23 +40,23 @@ $_SESSION['update_pro']=$_GET['data'];
       		estado:<select name="data[]">
       			<?php
       				if ($data['pro_estado']=="activo") {?>
-      					<option value="activo" selected>Activo</option>	
-      					<option value="inactivo">Inactivo</option>	
+      					<option value="activo" selected>Activo</option>
+      					<option value="inactivo">Inactivo</option>
       				<?php }else{?>
-      					<option value="activo" >Activo</option>	
-      					<option value="inactivo" >Inactivo</option>	
-      					<option value="inactivo" selected>Inactivo</option>	
+      					<option value="activo" >Activo</option>
+      					<option value="inactivo" >Inactivo</option>
+      					<option value="inactivo" selected>Inactivo</option>
       				<?php } ?>
       		</select>
       	</div>
-      
-      	
+
+
       	<div class="caja">
       		<button type="submit">Guardar</button>
       	</div>
       </form>
       <div class="more">
       	<a href="#">Imagenes</a>
-      	<a href="#">Colores y tallas</a>
+      	<a href="modificar-col-talla">Colores y tallas</a>
       </div>
 </div>

@@ -86,6 +86,30 @@ class ProductsController{
 			echo json_encode($this->doizer->knowError($result));
 		}
 	}
+	function updateColoresTallas(){
+		$result = $this->master->delete('talla_producto',array('pro_codigo',$_SESSION['update_pro']));
+		$result = $this->master->delete('color_producto',array('por_codigo',$_SESSION['update_pro']));
+		if (isset($_POST['colores'])   &&  isset($_POST['tallas'])) {
+			$colores = $_POST['colores'];
+			$tallas = $_POST['tallas'];
+		}else{
+			echo json_encode('Por favor selecciona al menos un color y una talla');
+			return;
+		}
+
+		foreach ($colores as $color) {
+			$result= $this->master->insert('color_producto',array($color,$_SESSION['update_pro']));
+		}
+		foreach ($tallas as $talla) {
+			$result= $this->master->insert('talla_producto',array($_SESSION['update_pro'],$talla));
+		}
+		if ($result==1) {
+			$_SESSION['messagge']='Registrado Exitosamente';
+			echo json_encode(true);
+		}else{
+			echo json_encode($this->doizer->knowError($result));
+		}
+	}
 
 	function delete(){
 		$data = $_POST['data'];
@@ -101,6 +125,21 @@ class ProductsController{
 		require_once("views/include/dashboard/header.php");
      		require_once("views/modules/dashboard/store/products/product-update.php");
      		require_once("views/include/dashboard/footer.php");
+	}
+	function viewUpdateTalCol(){
+		require_once("views/include/dashboard/header.php");
+     		require_once("views/modules/dashboard/store/products/tal-col-update.php");
+     		require_once("views/include/dashboard/footer.php");
+	}
+	function update(){
+		$data = $_POST['data'];
+		$result = $this->master->update('producto',array('pro_codigo',$_SESSION['update_pro']),$data,array('pro_codigo','pro_imagen'));
+		if ($result==true) {
+			$_SESSION['messagge']='Modificado Exitosamente';
+		}else{
+			$_SESSION['messagge']=$this->doizer->knowError($result);
+		}
+		header("Location: gestion-producto");
 	}
 
 }

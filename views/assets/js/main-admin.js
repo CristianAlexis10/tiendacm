@@ -28,7 +28,7 @@ if (document.getElementById('add_categoria')) {
 		$('#reg-productos').toggle();
 		$('#list-productos').toggle();
 	})
-	
+
 }
 
 
@@ -56,16 +56,16 @@ $("#frmCT").submit(function(e) {
             talla.push($(this).val());
         }
     });
-    
-   
-   
-            $.ajax({
+
+
+
+$.ajax({
               url: "guardar-color-producto-talla",
               type: "POST",
                dataType:'json',
                data: ({colores: color , tallas: talla}),
                success: function(result){
-               	
+
    		 // console.log(result);
                  if (result==true) {
                    location.href = 'gestion-producto';
@@ -75,8 +75,8 @@ $("#frmCT").submit(function(e) {
 	                  setTimeout(function(){
 	                     $('div.message-red').remove();
 	                   }, 2000);
-                 	
-                 } 
+
+                 }
                },
                error: function(result){
                   console.log(result);
@@ -113,6 +113,64 @@ $("#frmCT").submit(function(e) {
     	}
     }
 
+//TALLAS  Y MARCAS
+$("#update-tallas").submit(function(e) {
+    e.preventDefault();
+    color = [];
+    talla = [];
+	col = false;
+	tal = false;
+    $("input[name=color]").each(function(){
+        if ($(this).prop("checked")) {
+            color.push($(this).val());
+			col = true;
+        }
+    });
+    $("input[name=talla]").each(function(){
+        if ($(this).prop("checked")) {
+            talla.push($(this).val());
+			tal = true;
+        }
+    });
+if (col==false) {
+	$('#update-tallas').after('<div class="message-red">Seleccione al menos una color</div>');
+    setTimeout(function(){
+  	 $('div.message-red').remove();
+     }, 2000);
+	 return;
+}
+if (tal==false) {
+	$('#update-tallas').after('<div class="message-red">Seleccione al menos una talla</div>');
+    setTimeout(function(){
+  	 $('div.message-red').remove();
+     }, 2000);
+	  return;
+}
+$.ajax({
+              url: "modificar-color-producto-talla",
+              type: "POST",
+               dataType:'json',
+               data: ({colores: color , tallas: talla}),
+               success: function(result){
+
+   		 // console.log(result);
+                 if (result==true) {
+                   location.href = 'gestion-producto';
+                    return;
+                 }else{
+	                  $('#update-tallas').after('<div class="message-red">'+result+'</div>');
+	                  setTimeout(function(){
+	                     $('div.message-red').remove();
+	                   }, 2000);
+
+                 }
+               },
+               error: function(result){
+                  console.log(result);
+               }
+            });
+
+});
 
 
 
