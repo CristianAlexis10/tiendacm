@@ -80,12 +80,12 @@ btn_login.onclick = function() {
 //modales TIENDA
 $('.wea').click(function() {
 	$('.fondoModal').toggle();
-	$('.modalDetalle').toggle();
+	$('.wrap-modalDetalle').toggle();
 })
 
 $('.fondoModal').click(function() {
 	$('.fondoModal').toggle();
-	$('.modalDetalle').toggle();
+	$('.wrap-modalDetalle').toggle();
 })
 
 $('#menu-res').click(function(){
