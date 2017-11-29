@@ -77,20 +77,17 @@ btn_login.onclick = function() {
 	registro.classList.remove('mover_registro');
 	modal.classList.remove('agrandar_modal');
 }
-//carrito
-var carrito = document.getElementById('btn_car_compra');
-var carrito_items = document.getElementById('contenedor-objetos');
+//modales TIENDA
+$('.wea').click(function() {
+	$('.fondoModal').toggle();
+	$('.modalDetalle').toggle();
+})
 
-carrito.onclick = function() {
-	carrito_items.classList.toggle("open");
-}
-//responsive
-//  var menu = document.getElementById('caja--menu');
-//  var menuRes = document.getElementById('menu-res');
-//
-// menuRes.onclick = function() {
-// 	menu.style.transform = 'translateX(0%)';
-// }
+$('.fondoModal').click(function() {
+	$('.fondoModal').toggle();
+	$('.modalDetalle').toggle();
+})
+
 $('#menu-res').click(function(){
 	$('#caja--menu').toggle();
 });
