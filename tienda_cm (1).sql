@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-11-2017 a las 03:16:33
+-- Tiempo de generación: 29-11-2017 a las 04:30:05
 -- Versión del servidor: 10.1.8-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -32,6 +32,11 @@ END$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `consultaCategoriaByNombre` (IN `nombre` VARCHAR(50))  NO SQL
 BEGIN 
 SELECT * FROM categoria WHERE cat_nombre = nombre;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `consultaProductos` (IN `codigo` INT(11))  NO SQL
+BEGIN
+SELECT * FROM producto T1 INNER JOIN por_imagenes T2 ON  T1.pro_codigo = T2.pro_codigo WHERE T1.pro_codigo = codigo;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `consultaUsuarioAcceso` (IN `correo` VARCHAR(100))  NO SQL
@@ -68,10 +73,10 @@ INSERT INTO pedidos(usu_id,mun_codigo,ped_direccion,ped_fecha_realizacion,ped_fe
 (usuario,municipio,direccion,fecha_re,fecha_ent);
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `crearProducto` (IN `nombre` VARCHAR(50), IN `precio` INT(11), IN `cantidad` INT(11), IN `des` LONGTEXT, IN `categoria` INT(11))  NO SQL
+CREATE DEFINER=`root`@`localhost` PROCEDURE `crearProducto` (IN `nombre` VARCHAR(50), IN `precio` INT(11), IN `cantidad` INT(11), IN `des` LONGTEXT, IN `categoria` INT(11), IN `img` INT(150))  NO SQL
 BEGIN 
-INSERT INTO producto (pro_nombre,pro_precio,pro_cant,pro_des,cat_codigo)
-VALUES(nombre,precio,cantidad,des,categoria);
+INSERT INTO producto (pro_nombre,pro_precio,pro_cant,pro_des,cat_codigo,pro_imagen)
+VALUES(nombre,precio,cantidad,des,categoria,img);
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `crearProductoPedido` (IN `pedido` INT(11), IN `producto` INT(11), IN `cantidad` INT(11), IN `color` INT(11), IN `talla` INT(11))  NO SQL
@@ -131,6 +136,7 @@ CREATE TABLE `acceso` (
 --
 
 INSERT INTO `acceso` (`acc_token`, `usu_id`, `acc_contra`) VALUES
+('014e4694d7376256832eff31ef3efb49', 15, '$2y$10$1o68uwEU5NFlCH3pSx7KU.z3gn567DGIJbDDiIpnf5LsMPORzVjcC'),
 ('01adb163751f819cb56e323785670957', 6, '$2y$10$Hl9HVC4KYCBQsgCSUPN0quaobvP0I/6T3l.OK1tXU.z13ToF0qX2S'),
 ('d5cf38ba4f7816b2e7a6515ecbdf9732', 9, '$2y$10$NsaGCqsAXw.5cRjOQMIvFe6xzYxL3u2KJ5w2s/sLTB9S/YbHvODX.'),
 ('f4b3cf3fc6dfec17fbdd2ac6977e7436', 3, '$2y$10$clVWgrdPMZulTJCoXlc1hu9EkB.QmuHe3Vuzmz0xTP2joDLysdzu.');
@@ -153,7 +159,9 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`cat_codigo`, `cat_nombre`, `cat_estado`, `cat_img`) VALUES
-(6, 'hola', 2, '0eef53d6dca2cb2441676e74a03b447a.jpg');
+(6, 'hola', 2, '0eef53d6dca2cb2441676e74a03b447a.jpg'),
+(8, '321', 1, '818131a0da8b1688b40e0196c1c0d967.JPG'),
+(9, 'sdf', 1, 'bb72790831f5d1cdfe130bb0ec7ef358.jpg');
 
 -- --------------------------------------------------------
 
@@ -171,7 +179,8 @@ CREATE TABLE `color` (
 --
 
 INSERT INTO `color` (`col_codigo`, `col_color`) VALUES
-(1, 'rojo');
+(1, 'Rojo'),
+(2, 'Azul');
 
 -- --------------------------------------------------------
 
@@ -183,6 +192,13 @@ CREATE TABLE `color_producto` (
   `col_codigo` int(11) NOT NULL,
   `por_codigo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `color_producto`
+--
+
+INSERT INTO `color_producto` (`col_codigo`, `por_codigo`) VALUES
+(2, 55);
 
 -- --------------------------------------------------------
 
@@ -262,13 +278,6 @@ CREATE TABLE `pedidos` (
   `ped_fecha_entrega` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `pedidos`
---
-
-INSERT INTO `pedidos` (`ped_codigo`, `usu_id`, `mun_codigo`, `ped_direccion`, `ped_fecha_realizacion`, `ped_fecha_entrega`) VALUES
-(1, 3, 1, 'sdasd', '2000-02-02', '2000-02-02');
-
 -- --------------------------------------------------------
 
 --
@@ -292,15 +301,18 @@ CREATE TABLE `producto` (
   `pro_precio` int(11) NOT NULL,
   `pro_cant` int(11) NOT NULL,
   `pro_des` longtext NOT NULL,
-  `cat_codigo` int(11) NOT NULL
+  `cat_codigo` int(11) NOT NULL,
+  `pro_imagen` varchar(150) NOT NULL,
+  `pro_estado` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`pro_codigo`, `pro_nombre`, `pro_precio`, `pro_cant`, `pro_des`, `cat_codigo`) VALUES
-(7, '213', 123, 123, '123', 6);
+INSERT INTO `producto` (`pro_codigo`, `pro_nombre`, `pro_precio`, `pro_cant`, `pro_des`, `cat_codigo`, `pro_imagen`, `pro_estado`) VALUES
+(55, '34', 344, 324, '324', 9, '601f027b7afc468edbcff45f37603612.JPG', 'activo'),
+(56, '34', 344, 324, '324', 9, 'default.jpg', 'activo');
 
 -- --------------------------------------------------------
 
@@ -351,7 +363,8 @@ CREATE TABLE `talla` (
 --
 
 INSERT INTO `talla` (`tal_codigo`, `tal_talla`) VALUES
-(1, 'X');
+(1, 'X'),
+(2, 'M');
 
 -- --------------------------------------------------------
 
@@ -363,6 +376,13 @@ CREATE TABLE `talla_producto` (
   `pro_codigo` int(11) NOT NULL,
   `tal_codigo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `talla_producto`
+--
+
+INSERT INTO `talla_producto` (`pro_codigo`, `tal_codigo`) VALUES
+(55, 1);
 
 -- --------------------------------------------------------
 
@@ -409,7 +429,8 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`usu_codigo`, `usu_nombre1`, `usu_apellido1`, `usu_apellido2`, `usu_direccion`, `usu_correo`, `rol_codigo`, `tid_codigo`, `usu_num_doc`, `mun_codigo`, `usu_telefono`) VALUES
 (3, 'julio', 'arias', NULL, '', 'algo@algo.com', 1, 1, 0, 1, 0),
 (6, 'julio', 'arias', NULL, '', 'nose@gds.com', 2, 1, 0, 1, 0),
-(9, 'jufdsgfs', 'gdsags', NULL, '', 'gsag@gsag', 2, 1, 0, 1, 0);
+(9, 'jufdsgfs', 'gdsags', NULL, '', 'gsag@gsag', 2, 1, 0, 1, 0),
+(15, 'dsf', 'dsf', NULL, '', 's@s.com', 2, 1, 0, 1, 0);
 
 --
 -- Índices para tablas volcadas
@@ -540,7 +561,12 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `cat_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `cat_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT de la tabla `color`
+--
+ALTER TABLE `color`
+  MODIFY `col_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `noticia`
 --
@@ -555,12 +581,17 @@ ALTER TABLE `pedidos`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `pro_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `pro_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+--
+-- AUTO_INCREMENT de la tabla `talla`
+--
+ALTER TABLE `talla`
+  MODIFY `tal_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `usu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `usu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- Restricciones para tablas volcadas
 --
@@ -575,8 +606,8 @@ ALTER TABLE `acceso`
 -- Filtros para la tabla `color_producto`
 --
 ALTER TABLE `color_producto`
-  ADD CONSTRAINT `color_producto_ibfk_1` FOREIGN KEY (`col_codigo`) REFERENCES `color` (`col_codigo`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `color_producto_ibfk_2` FOREIGN KEY (`por_codigo`) REFERENCES `producto` (`pro_codigo`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `color_producto_ibfk_3` FOREIGN KEY (`col_codigo`) REFERENCES `color` (`col_codigo`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `color_producto_ibfk_4` FOREIGN KEY (`por_codigo`) REFERENCES `producto` (`pro_codigo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `img_noticia`
@@ -621,15 +652,15 @@ ALTER TABLE `producto`
 ALTER TABLE `producto_pedido`
   ADD CONSTRAINT `producto_pedido_ibfk_1` FOREIGN KEY (`ped_codigo`) REFERENCES `pedidos` (`ped_codigo`) ON UPDATE CASCADE,
   ADD CONSTRAINT `producto_pedido_ibfk_2` FOREIGN KEY (`pro_codigo`) REFERENCES `producto` (`pro_codigo`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `producto_pedido_ibfk_3` FOREIGN KEY (`tal_codigo`) REFERENCES `talla` (`tal_codigo`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `producto_pedido_ibfk_4` FOREIGN KEY (`col_codigo`) REFERENCES `color` (`col_codigo`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `producto_pedido_ibfk_4` FOREIGN KEY (`col_codigo`) REFERENCES `color` (`col_codigo`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `producto_pedido_ibfk_5` FOREIGN KEY (`tal_codigo`) REFERENCES `talla` (`tal_codigo`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `talla_producto`
 --
 ALTER TABLE `talla_producto`
-  ADD CONSTRAINT `talla_producto_ibfk_2` FOREIGN KEY (`tal_codigo`) REFERENCES `talla` (`tal_codigo`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `talla_producto_ibfk_3` FOREIGN KEY (`pro_codigo`) REFERENCES `producto` (`pro_codigo`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `talla_producto_ibfk_4` FOREIGN KEY (`tal_codigo`) REFERENCES `talla` (`tal_codigo`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `talla_producto_ibfk_5` FOREIGN KEY (`pro_codigo`) REFERENCES `producto` (`pro_codigo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `usuario`

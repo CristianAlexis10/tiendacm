@@ -1,10 +1,10 @@
+  <div class="contenido">
+    <h1>Gestion productos</h1>
 <?php
 if (isset($_SESSION['messagge'])) {
         echo "<div class='message'>".$_SESSION['messagge']."</div>";
         unset($_SESSION['messagge']);
   }?>
-  <div class="contenido">
-    <h1>Gestion productos</h1>
     <button type="button" name="button" id="btn-productos" class="btn-productos">Productos</button>
     <div class="wrap-form" id="reg-productos">
       <form class="form-producto" action="guardar-producto" method="post" enctype="multipart/form-data">
@@ -36,17 +36,18 @@ if (isset($_SESSION['messagge'])) {
       			?>
       		</select>
       	</div>
+      
       	<div class="caja">
           <label for="">imagen: </label>
       		<input type="file" name="file">
       	</div>
       	<div class="caja">
-      		<button type="submit">Registrar</button>
+      		<button type="submit">Siguiente</button>
       	</div>
       </form>
     </div>
     <div class="wrap-produ" id="list-productos">
-      <table>
+      <table class="datatable">
         <thead>
             <tr>
                 <th>#</th>
@@ -54,9 +55,7 @@ if (isset($_SESSION['messagge'])) {
                 <th>precio</th>
                 <th>cantidad</th>
                 <th>descripcion</th>
-                <th>color</th>
-                <th>talla</th>
-                <th>Acciones/estado</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -68,16 +67,14 @@ if (isset($_SESSION['messagge'])) {
                 <td><?php echo $row['pro_precio']; ?></td>
                 <td><?php echo $row['pro_cant']; ?></td>
                 <td><?php echo $row['pro_des']; ?></td>
-                <td>falta</td>
-                <td>falta</td>
                 <td>
-                    <i class="fa fa-refresh" aria-hidden="true"></i>
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                    <select class="" name="">
-                      <option value="">estado</option>
-                      <option value="">activo</option>
-                      <option value="">inactivo</option>
-                    </select>
+                    <a href="moficar-producto-<?php echo $row['pro_codigo']; ?>"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+
+                        <a href="#" onclick="return confirmDelete(
+                            <?php
+                                echo $row['pro_codigo'];
+                            ?>
+                            )"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                 </td>
             </tr>
           <?php } ?>

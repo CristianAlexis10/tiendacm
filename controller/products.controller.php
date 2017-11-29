@@ -8,8 +8,8 @@ class ProductsController{
 	 	}
 	function mainPage(){
 		 require_once("views/include/dashboard/header.php");
-     	require_once("views/modules/dashboard/store/products/new.productos.php");
-     	require_once("views/include/dashboard/footer.php");
+     		require_once("views/modules/dashboard/store/products/new.productos.php");
+     		require_once("views/include/dashboard/footer.php");
 	}
 
 	function newRegister(){
@@ -34,7 +34,7 @@ class ProductsController{
 				$i++;
 			}
 		if (isset($_FILES['file']['tmp_name'])) {
-			$profile = $this->doizer->ValidateImage($_FILES,"views/assets/img/");
+			$profile = $this->doizer->ValidateImage($_FILES,"views/assets/img/products/");
 			if (is_array($profile)) {
 				$data[] = $profile[1];
 			}else{
@@ -45,15 +45,62 @@ class ProductsController{
 		}else{
 			$data[] = 'default.jpg';
 		}
+		$data[]="activo";
 
 		$result = $this->master->insert('producto',$data,array('pro_codigo'));
 		if ($result==1) {
-				$_SESSION['messagge']='Registrado Existosamente';
-				header("Location: gestion-producto");
+				$result = $this->master->selectBy('producto',array('pro_nombre',$data[0]));
+				$_SESSION['producto']=$result['pro_codigo'];
+				header("Location: colores-producto");
 			}else{
 				$_SESSION['messagge']=$this->doizer->knowError($result);
+				die('nada5');
 				header("Location: gestion-producto");
 			}
+	}
+
+	function colores(){
+		require_once("views/include/dashboard/header.php");
+     		require_once("views/modules/dashboard/store/products/product-color.php");
+     		require_once("views/include/dashboard/footer.php");
+	}
+	function coloresTallas(){
+		if (isset($_POST['colores'])   &&  isset($_POST['tallas'])) {
+			$colores = $_POST['colores'];
+			$tallas = $_POST['tallas'];
+		}else{
+			echo json_encode('Por favor selecciona al menos un color y una talla');
+			return;
+		}
+
+		foreach ($colores as $color) {
+			$result= $this->master->insert('color_producto',array($color,$_SESSION['producto']));
+		}
+		foreach ($tallas as $talla) {
+			$result= $this->master->insert('talla_producto',array($_SESSION['producto'],$talla));
+		}
+		if ($result==1) {
+			$_SESSION['messagge']='Registrado Exitosamente';
+			echo json_encode(true);
+		}else{
+			echo json_encode($this->doizer->knowError($result));
+		}
+	}
+
+	function delete(){
+		$data = $_POST['data'];
+		$result = $this->master->delete('producto',array('pro_codigo',$data));
+		if ($result==true) {
+			$_SESSION['messagge']='Eliminado Exitosamente';
+			echo json_encode(true);
+		}else{
+			echo json_encode($this->doizer->knowError($result));
+		}
+	}
+	function viewUpdate(){
+		require_once("views/include/dashboard/header.php");
+     		require_once("views/modules/dashboard/store/products/product-update.php");
+     		require_once("views/include/dashboard/footer.php");
 	}
 
 }
