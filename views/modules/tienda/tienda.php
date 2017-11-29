@@ -1,92 +1,63 @@
-    <section>
-        <div class="seccion1">
-          <div class="slider">
-            <div class="wrap--text">
-              <h2>TIENDA</h2>
-              <h3>Cambia tu estilo con Catalina Molano</h3>
-            </div>
-          </div>
-        </div>
-          <br>
-          <form method="post">
-              <select name="categoria">
-                <option value="">seleccionar categoria</option>
-                <?php
-                  foreach ($this->master->selectAll('categoria') as $row) {
-                      if (isset($_SESSION['CATEGORIA'])) {
-                          if ($row['cat_codigo']==$_SESSION['CATEGORIA']) {?>
-                                <option value="<?php echo $row['cat_codigo']?>" selected ><?php echo $row['cat_nombre']?></option>
-                          <?php }else{?>
-                                <option value="<?php echo $row['cat_codigo']?>"  ><?php echo $row['cat_nombre']?></option>
-                          <?php }
-                      }else{?>
-                                <option value="<?php echo $row['cat_codigo']?>" ><?php echo $row['cat_nombre']?></option>
-
-                      <?php
-                      } } ?>
-              </select>
-              <input type="submit" value="Enviar" name="submit">
-          </form>
-        <div class="seccion2">
-
-    <ul>
-            <?php
-                 //total de elementos por cada pagina
-                $elementosPagina = 9;
-                //saber si existe la pagina
-                if (isset($_GET["pagina"])) {
-                  $pagina = $_GET["pagina"];
-                   $inicio = ($pagina - 1) * $elementosPagina;
-                }else{
-                   $inicio = 0;
-                   $pagina = 1;
-                }
-                if (isset($_POST['submit'])) {
-                        $_SESSION['CATEGORIA']= $_POST['categoria'];
-                        $consulta = $this->master->selectAllLimitWhere('producto',$inicio,$elementosPagina,$_SESSION['CATEGORIA']);
-                        $num_total_registros = $this->master->selectCount('producto','cat_codigo',$_SESSION['CATEGORIA']);
-                }else{
-                        $consulta = $this->master->selectAllLimit('producto',$inicio,$elementosPagina);
-                        $num_total_registros = $this->master->selectAllCount('producto');
-                }
-                //total paginas
-                $total_paginas = ceil($num_total_registros[0]/$elementosPagina);
-                if ($pagina>$total_paginas){
-                    echo "Pagina no disponible";
-                }
-                foreach ($consulta as $row ) {
-                  // echo "<div id='".$row['pro_codigo']."' class='pro'>".$row['pro_nombre']."</div><br>";?>
-                    <li>
-                      <h5><?php echo $row["pro_nombre"]; ?></h5>
-                      <img src="views/assets/img/<?php echo $row["pro_imagen"]; ?>">
-                      <div><?php echo $row["pro_des"]; ?></div>
-                      <span>Ver</span>
-                    </li>
-
-                <?php
-                }?>
-                  </ul>
-                <?php
-
-                if ($total_paginas > 1) {
-
-                   if ($pagina != 1){
-                      echo '<a href="catalogo-'.($pagina-1).'"><i class="fa fa-arrow-left"></i></a>';
-                   }
-                      for ($i=1;$i<=$total_paginas;$i++) {
-                         if ($pagina == $i){
-                            //si muestro el índice de la página actual, no coloco enlace
-                            echo $pagina;
-                         }else{
-                            //si el índice no corresponde con la página mostrada actualmente,
-                            echo '  <a href="catalogo-'.$i.'">'.$i.'</a>  ';
-                            //coloco el enlace para ir a esa página
-                         }
-                      }
-                      if ($pagina != $total_paginas){
-                         echo '<a href="catalogo-'.($pagina+1).'"><i class="fa fa-arrow-right"></i></a>';
-                      }
-                }
-          ?>
-        </div>
-      </section>
+<div class="slider">
+  <div class="wrap--text">
+    <h2>TIENDA</h2>
+    <h3>Cambia tu estilo con Catalina Molano</h3>
+  </div>
+</div>
+<div class="seccion2">
+  <div class="wrap-items">
+    <?php $result = $this->master->selectAll('producto');
+    foreach ($result as $row) { ?>
+    <div class="item">
+        <!-- <img src="views/assets/img/products/<?php //echo $row['pro_imagen']; ?>" alt=""> -->
+        <img src="views/assets/img/IMG_2737.JPG" alt="" class="wea">
+      <div class="nombre-produc">
+        <h2><?php echo $row['pro_nombre']; ?></h2>
+      </div>
+      <div class="precio-produc">
+        <h2><?php echo $row['pro_precio']; ?></h2>
+      </div>
+      <button type="button" name="button">añadir al carrito</button>
+    </div>
+    <?php } ?>
+  </div>
+  <div class="fondoModal" id="fondoModal"></div>
+  <div class="modalDetalle" id="modalDetalle">
+    <div class="wrap-image">
+      <div class="image">
+        <img src="views/assets/img/IMG_2737.JPG" alt="">
+      </div>
+    </div>
+    <div class="wrap-detalle">
+      <div class="nombre">
+        <h2>hola</h2>
+      </div>
+      <div class="descripcion">
+        <span>esto es una descripcion</span>
+      </div>
+      <div class="precio">
+        <span>10000</span>
+      </div>
+      <div class="talla">
+        <select class="" name="">
+          <option value="">selecciona color</option>
+          <option value="">azul</option>
+          <option value="">rojo</option>
+        </select>
+      </div>
+      <div class="color">
+        <select class="" name="">
+          <option value="">selecciona talla</option>
+          <option value="">X</option>
+          <option value="">L</option>
+        </select>
+      </div>
+      <div class="cantidad">
+        <span>-</span>
+        <span>0</span>
+        <span>+</span>
+      </div>
+      <button type="button" name="button">añadir al carrito</button>
+    </div>
+  </div>
+</div>
