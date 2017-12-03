@@ -81,9 +81,56 @@ btn_login.onclick = function() {
 $('.wea').click(function() {
 	$('.fondoModal').toggle();
 	$('.wrap-modalDetalle').toggle();
+      // console.log();
+      var cod = this.id;
+  $.ajax({
+              url: "dataModal",
+              type: "POST",
+               dataType:'json',
+               data: ({data: cod}),
+               success: function(result){
+                    // console.log(result);
+                    $("#imgModal").attr("src","views/assets/img/products/"+result['pro_imagen']);
+                    $("#nomModal").html(result['pro_nombre']);
+                    $("#desModal").html(result['pro_des']);
+                    $("#preModal").html(result['pro_precio']);
+                                    $.ajax({
+                                        url: "selectColor",
+                                        type: "POST",
+                                        dataType:'json',
+                                        data: ({data:cod}),
+                                        success: function(result){
+                                            var selector = document.getElementById('selectModal');
+                                            for (var i = 0; i < result.length; i++) {
+                                                selector.options[i] = new Option(result[i].col_color,result[i].col_codigo);
+                                            }
+                                            // console.log(result);
+                                        }
+                                    });
+                                    $.ajax({
+                                        url: "selectTalla",
+                                        type: "POST",
+                                        dataType:'json',
+                                        data: ({data:cod}),
+                                        success: function(result){
+                                            var selector = document.getElementById('selectTallasModal');
+                                            for (var i = 0; i < result.length; i++) {
+                                                selector.options[i] = new Option(result[i].tal_talla,result[i].tal_codigo);
+                                            }
+                                            console.log(result);
+                                        }
+                                    });
+                  }
+               ,
+               error: function(result){
+                  console.log(result);
+               }
+            });
 })
 
 $('.fondoModal').click(function() {
+     $('#selectModal').empty();  
+     $('#selectTallasModal').empty();  
 	$('.fondoModal').toggle();
 	$('.wrap-modalDetalle').toggle();
 })

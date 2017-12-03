@@ -11,7 +11,22 @@ class ProductsController{
      		require_once("views/modules/dashboard/store/products/new.productos.php");
      		require_once("views/include/dashboard/footer.php");
 	}
+	function readByCod(){
+		$data = $_POST['data'];
+		$result = $this->master->selectBy('producto',array('pro_codigo',$data));
+		echo json_encode($result);
+	}
 
+	function readByCodColor(){
+		$data = $_POST['data'];
+		$result = $this->master->colores($data);
+		echo json_encode($result);
+	}
+	function readByCodTalla(){
+		$data = $_POST['data'];
+		$result = $this->master->tallas($data);
+		echo json_encode($result);
+	}
 	function newRegister(){
 		$data = $_POST['data'];
 		// die(print_r($data));

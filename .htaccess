@@ -15,6 +15,9 @@ RewriteRule ^eliminar-producto$ index.php?c=products&a=delete
 RewriteRule ^moficar-producto-(\w+)$ index.php?c=products&a=viewUpdate&data=$1
 RewriteRule ^guardar-modificacion-producto$ index.php?c=products&a=update&data=$1
 RewriteRule ^modificar-col-talla$ index.php?c=products&a=viewUpdateTalCol
+RewriteRule ^dataModal$ index.php?c=products&a=readByCod
+RewriteRule ^selectColor$ index.php?c=products&a=readByCodColor
+RewriteRule ^selectTalla$ index.php?c=products&a=readByCodTalla
 
 
 #USUARIOS
