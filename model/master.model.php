@@ -520,6 +520,28 @@ class MasterModel{
         }
         return $result;
     }
+   public function colores($col){
+        try {
+            $this->sql="call colores(?)";
+            $query=$this->pdo->prepare($this->sql);
+            $query->execute(array($col));
+            $result = $query->fetchAll(PDO::FETCH_BOTH);
+        } catch (PDOException $e) {
+            $result = $e->getMessage();
+        }
+        return $result;
+    }
+     public function tallas($col){
+        try {
+            $this->sql="call tallas(?)";
+            $query=$this->pdo->prepare($this->sql);
+            $query->execute(array($col));
+            $result = $query->fetchAll(PDO::FETCH_BOTH);
+        } catch (PDOException $e) {
+            $result = $e->getMessage();
+        }
+        return $result;
+    }
 
 
      public function crearAcceso($values){
