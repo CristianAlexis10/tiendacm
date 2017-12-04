@@ -7,15 +7,10 @@
 <div class="seccion2">
   <div class="wrap-items">
     <?php $result = $this->master->selectAll('producto');
-    foreach ($result as $row) { 
+    foreach ($result as $row) {
       ?>
     <div class="item">
-<<<<<<< HEAD
-        <img src="views/assets/img/products/<?php echo $row['pro_imagen']; ?>" alt="" class="wea">
-=======
-        <!-- <img src="views/assets/img/products/<?php //echo $row['pro_imagen']; ?>" alt=""> -->
         <img src="views/assets/img/products/<?php echo $row['pro_imagen'] ?>" id="<?php echo $row['pro_codigo']?>" alt="" class="wea">
->>>>>>> dcfa92a8f54502e408e5e42da5575da17eafe486
       <div class="nombre-produc">
         <h2><?php echo $row['pro_nombre']; ?></h2>
       </div>
@@ -46,7 +41,7 @@
         </div>
         <div class="talla">
           <select class="" name="" id="selectModal">
-            
+
           </select>
         </div>
         <div class="color">
