@@ -3,11 +3,6 @@ $result = $this->master->selectAllLi('categoria');
 $pro = $this->master->selectAllLi6('producto');
 // print_r($result);
 ?>
-<style>
-  #btn_car_compra{
-    display: none;
-  }
-</style>
 <section class="home">
   <img src="views/assets/img/IMG_2764.JPG">
   <div class="wrap-frase">

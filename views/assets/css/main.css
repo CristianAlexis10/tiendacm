@@ -51,7 +51,6 @@ body{
   color: #000000;
   background: #f1396d;
 }
-
 /*slider o primera seccion*/
 .slider{
   z-index: 1;
@@ -61,15 +60,12 @@ body{
   width: 100%;
   background-size: cover;
 }
-
 .slider .wrap--text{
   position: absolute;
   bottom: 70px;
   left: 50px;
   min-width:600px;
-
 }
-
 .wrap--text h2{
   font-family: "Lato";
   font-weight: 300;
@@ -79,7 +75,6 @@ body{
   margin-bottom: 0;
   line-height: 0.9
 }
-
 .wrap--text h3{
   font-family: "Roboto";
   font-size: 18px;
@@ -114,11 +109,16 @@ body{
   position: relative;
   margin: 10px 65px;
   border: none;
-  background: #f1396d;
+  background: #9d133a;
   padding: 10px 30px;
   color: #fff;
   border-radius: 3px;
   text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+}
+.item button:hover{
+  background: #c61848;
 }
 /*modal detalles de los articulos*/
 .fondoModal{
@@ -181,6 +181,49 @@ body{
   border-radius: 3px;
   text-transform: uppercase;
   margin-top: 25px;
+}
+/*carrito de compras*/
+.carrito{
+  z-index: 3;
+  position: fixed;
+  width: 300px;
+  top: 50px;
+  right: 0px;
+  background: #ecf0f1;
+  height: 92vh;
+  font-family: 'lato';
+  overflow-y: auto;
+  font-weight: lighter;
+  box-shadow: -5px 0px 20px -10px black;
+}
+.titulo-carrito{
+  background: lime;
+  padding: 20px 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+  background: #9d133a;
+}
+.btn-comprar{
+  position: fixed;
+  bottom: 0px;
+  margin: 10px;
+  width: 21%;
+}
+.btn-comprar button{
+  text-transform: uppercase;
+  color: #fff;
+  border: none;
+  padding: 10px 73px;
+  cursor: pointer;
+  border-radius: 3px;
+  background: #9d133a;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+.btn-comprar button:hover{
+  background: #c61848;
 }
 /*Seccion noticias*/
 

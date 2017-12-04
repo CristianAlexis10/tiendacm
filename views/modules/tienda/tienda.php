@@ -9,8 +9,7 @@
     <?php $result = $this->master->selectAll('producto');
     foreach ($result as $row) { ?>
     <div class="item">
-        <!-- <img src="views/assets/img/products/<?php //echo $row['pro_imagen']; ?>" alt=""> -->
-        <img src="views/assets/img/IMG_2737.JPG" alt="" class="wea">
+        <img src="views/assets/img/products/<?php echo $row['pro_imagen']; ?>" alt="" class="wea">
       <div class="nombre-produc">
         <h2><?php echo $row['pro_nombre']; ?></h2>
       </div>
@@ -60,5 +59,18 @@
         </div>
         <button type="button" name="button">añadir al carrito</button>
       </div>
+    </div>
+  </div>
+  <div class="carrito">
+    <div class="titulo-carrito">
+      <span><i class="fa fa-shopping-cart" aria-hidden="true"></i> carrito</span>
+    </div>
+    <div class="items-carrito">
+      <div class="">
+
+      </div>
+    </div>
+    <div class="btn-comprar">
+      <button type="button" name="button">Hacer compra</button>
     </div>
   </div>
