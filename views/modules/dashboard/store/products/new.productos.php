@@ -5,7 +5,6 @@ if (isset($_SESSION['messagge'])) {
         echo "<div class='message'>".$_SESSION['messagge']."</div>";
         unset($_SESSION['messagge']);
   }?>
-    <button type="button" name="button" id="btn-productos" class="btn-productos">Productos</button>
     <div class="wrap-form" id="reg-productos">
       <form class="form-producto" action="guardar-producto" method="post" enctype="multipart/form-data">
       	<div class="caja">
@@ -14,7 +13,7 @@ if (isset($_SESSION['messagge'])) {
       	</div>
       	<div class="caja">
           <label for="">precio: </label>
-      		<input type="text" name="data[]" required>
+      		<input type="number" name="data[]" required>
       	</div>
       	<div class="caja">
           <label for="">cantidad: </label>
@@ -36,7 +35,7 @@ if (isset($_SESSION['messagge'])) {
       			?>
       		</select>
       	</div>
-      
+
       	<div class="caja">
           <label for="">imagen: </label>
       		<input type="file" name="file">

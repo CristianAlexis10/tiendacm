@@ -21,7 +21,7 @@ $pro = $this->master->selectAllLi6('producto');
           <div class="bloque <?php echo 'cat'.$i; ?>">
             <a href="catalogo" class="categoria-land">
               <?php echo $row['cat_nombre']; ?>
-              <img src="views/assets/img/<?php echo $row['cat_img'];?>">
+              <img src="views/assets/img/products/<?php echo $row['cat_img'];?>">
             </a>
           </div>
 

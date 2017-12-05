@@ -22,7 +22,8 @@ $('#login-pass').focus(function(){
 		    $('#iniciar_se').attr('disabled',false);
 	     }else{
 	     	$(".message").remove();
-		$("#login-email").after("<div class='message'>Correo no valido</div>");
+		// $("#login-email").after("<div class='message'>Correo no valido</div>");
+		$(".caja_contra").after("<div class='message'>Correo no valido</div>");
 		$('#iniciar_se').attr('disabled',true);
 	     }
 
@@ -51,7 +52,8 @@ $("#formulario-login").submit(function(e) {
                   }else if(result=='customer'){
                       location.href = 'cliente';
                   }else{
-                 	 $('#login-pass').after('<div class="message">contraseña incorrecta</div>');
+                 	 // $('#login-pass').after('<div class="message">contraseña incorrecta</div>');
+                 	 $('.caja_contra').after('<div class="message">contraseña incorrecta</div>');
                   setTimeout(function(){
                                 $('div.message').remove();
                               }, 3000);
@@ -129,8 +131,8 @@ $('.wea').click(function() {
 })
 
 $('.fondoModal').click(function() {
-     $('#selectModal').empty();  
-     $('#selectTallasModal').empty();  
+     $('#selectModal').empty();
+     $('#selectTallasModal').empty();
 	$('.fondoModal').toggle();
 	$('.wrap-modalDetalle').toggle();
 })
@@ -138,6 +140,19 @@ $('.fondoModal').click(function() {
 $('#menu-res').click(function(){
 	$('#caja--menu').toggle();
 });
+// carrito de compras
+
+// var btnCarrito = document.getElementById('btnCart');
+// var cartCompra = document.getElementById('cartCompra');
+//
+// btnCarrito.onclick = function() {
+// 	cartCompra.style.transform = 'translateX(0%)';
+// }
+
+// $('#btnCarrito').click(function() {
+// 	$('#cartCompra').toggle();
+// })
+
 //Registro
 $('#contrasena').focus(function(){
     var value = $('#newEmail').val();

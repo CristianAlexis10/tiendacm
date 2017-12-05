@@ -10,7 +10,9 @@
     foreach ($result as $row) {
       ?>
     <div class="item">
+      <div class="wrap-img">
         <img src="views/assets/img/products/<?php echo $row['pro_imagen'] ?>" id="<?php echo $row['pro_codigo']?>" alt="" class="wea">
+      </div>
       <div class="nombre-produc">
         <h2><?php echo $row['pro_nombre']; ?></h2>
       </div>
@@ -41,11 +43,13 @@
         </div>
         <div class="talla">
           <select class="" name="" id="selectModal">
-
+            <option value="">selecionar talla</option>
           </select>
         </div>
         <div class="color">
-          <select class="" name="" id="selectTallasModal">          </select>
+          <select class="" name="" id="selectTallasModal">
+            <option value="">seleccionar color</option>
+          </select>
         </div>
         <div class="cantidad">
           <span>-</span>
@@ -56,13 +60,18 @@
       </div>
     </div>
   </div>
-  <div class="carrito">
+  <div class="carrito" id="cartCompra">
     <div class="titulo-carrito">
       <span><i class="fa fa-shopping-cart" aria-hidden="true"></i> carrito</span>
     </div>
-    <div class="items-carrito">
-      <div class="">
-
+    <div class="wrap-items-carrito">
+      <div class="item-carrito">
+        <div class="item-cart-img">
+          <img src="views/assets/img/img3.JPEG" alt="">
+        </div>
+        <div class="">
+          <h2>hola</h2>
+        </div>
       </div>
     </div>
     <div class="btn-comprar">

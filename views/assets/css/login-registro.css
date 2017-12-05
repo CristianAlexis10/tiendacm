@@ -225,3 +225,6 @@
   transition: .3s;
   cursor: default;
 }
+.message{
+  font-family: 'lato';
+}
