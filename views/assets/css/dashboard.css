@@ -56,7 +56,7 @@ body{
 /*modal de registro de categoria*/
 .fondo{
   display: none;
-  z-index: 3;
+  z-index: 0;
   position: absolute;
   width: 100%;
   height: 100vh;
@@ -64,7 +64,7 @@ body{
 }
 .reg_categoria{
   display: none;
-  z-index: 4;
+  z-index: 6;
   position: absolute;
   height: 240px;
   width: 450px;

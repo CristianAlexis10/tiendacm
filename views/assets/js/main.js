@@ -100,7 +100,7 @@ $('.wea').click(function() {
                     $("#imgModal").attr("src","views/assets/img/products/"+result['pro_imagen']);
                     $("#nomModal").html(result['pro_nombre']);
                     $("#desModal").html(result['pro_des']);
-                    $("#preModal").html(result['pro_precio']);
+                    $("#preModal").html('$ '+result['pro_precio']);
                                     $.ajax({
                                         url: "selectColor",
                                         type: "POST",

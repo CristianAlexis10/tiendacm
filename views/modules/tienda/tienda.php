@@ -17,7 +17,7 @@
         <h2><?php echo $row['pro_nombre']; ?></h2>
       </div>
       <div class="precio-produc">
-        <h2><?php echo $row['pro_precio']; ?></h2>
+        <h2>$ <?php echo $row['pro_precio']; ?></h2>
       </div>
       <button type="button" name="button">añadir al carrito</button>
     </div>
@@ -28,7 +28,12 @@
     <div class="modalDetalle">
       <div class="wrap-image">
         <div class="image">
-          <img src="" id="imgModal" alt="">
+          <!-- <div class="img-principal"> -->
+            <img src="" id="imgModal" alt="">
+          <!-- </div>
+          <div class="img-extra">
+
+          </div> -->
         </div>
       </div>
       <div class="wrap-detalle">
@@ -39,7 +44,7 @@
           <span id="desModal"></span>
         </div>
         <div class="precio">
-          <span id="preModal"></span>
+          <span id="preModal">$ </span>
         </div>
         <div class="talla">
           <select class="" name="" id="selectModal">

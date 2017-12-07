@@ -21,7 +21,7 @@ $pro = $this->master->selectAllLi6('producto');
           <div class="bloque <?php echo 'cat'.$i; ?>">
             <a href="catalogo" class="categoria-land">
               <?php echo $row['cat_nombre']; ?>
-              <img src="views/assets/img/products/<?php echo $row['cat_img'];?>">
+              <img src="views/assets/img/<?php echo $row['cat_img'];?>">
             </a>
           </div>
 
@@ -36,9 +36,11 @@ $pro = $this->master->selectAllLi6('producto');
         foreach ($pro as $row) {?>
           <div class="bloque <?php echo 'pro'.$i; ?>">
             <a href="catalogo" class="producto-land">
-              <?php echo $row['pro_nombre']; ?>
+              <!-- <?php //echo $row['pro_nombre']; ?> -->
             </a>
-            <img src="views/assets/img/<?php echo $row['pro_img']; ?>">
+            <div class="wrap-imagen">
+              <img src="views/assets/img/products/<?php echo $row['pro_imagen']; ?>">
+            </div>
           </div>
 
          <?php $i++; }

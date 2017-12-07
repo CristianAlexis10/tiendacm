@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>CM</title>
     <meta charset="utf-8">
-    <title>PRUEBAS CM</title>
     <link rel="stylesheet" href="views/assets/css/reset.css">
     <link rel="stylesheet" href="views/assets/css/style.hola.css">
     <link rel="stylesheet" href="views/assets/css/login-registro.css">
