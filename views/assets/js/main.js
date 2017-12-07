@@ -1,10 +1,15 @@
 //menu
 $('#modal-login').click(function(){
 	$('#modal-login-registro').toggle();
+	$('#fondo').toggle();
 });
-
 $('#cerrar_modal').click(function(){
 	$('#modal-login-registro').toggle();
+	$('#fondo').toggle();
+});
+$('#fondo').click(function(){
+	$('#modal-login-registro').toggle();
+	$('#fondo').toggle();
 });
 //validar correo
   $('#iniciar_se').attr('disabled',true);
@@ -149,9 +154,9 @@ $('#menu-res').click(function(){
 // 	cartCompra.style.transform = 'translateX(0%)';
 // }
 
-// $('#btnCarrito').click(function() {
-// 	$('#cartCompra').toggle();
-// })
+$('#btnCarrito').click(function() {
+	$('#cartCompra').toggle();
+})
 
 //Registro
 $('#contrasena').focus(function(){

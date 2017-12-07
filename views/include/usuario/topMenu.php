@@ -11,7 +11,7 @@
           <a href="#"><li>Noticias</li></a>
           <!-- <a href="noticias"><li>Noticias</li></a> -->
           <li id="modal-login">Iniciar Sesion / Registrarse</li>
-          <li id="btnCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></li>
+          <li id="btnCarrito"><i class="fa fa-shopping-cart" aria-hidden="true"></i></li>
         </ul>
       </div>
     <div class="menu--mobile">

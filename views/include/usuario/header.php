@@ -18,3 +18,4 @@
     <?php require_once("views/include/usuario/topMenu.php"); ?>
     <section class="contenedor">
     <?php require_once("views/include/login-registro.php"); ?>
+    <?php require_once("views/include/cart.php"); ?>
