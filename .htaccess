@@ -39,6 +39,9 @@ RewriteRule ^gestion-categoria$ index.php?c=tienda&a=gestionar
 #pedido
 RewriteRule ^realizar-pedido$ index.php?c=orders&a=newOrder
 
+
+RewriteRule ^cliente$ index.php?c=customer
+
 #CATEGORIAS
 RewriteRule ^nueva-categoria$ index.php?c=category&a=newCategory
 RewriteRule ^ver-categoria-(\w+)$ index.php?c=category&a=view&data=$1
