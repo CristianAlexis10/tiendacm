@@ -15,7 +15,7 @@
     <meta name="viewport"  content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <?php require_once("views/include/usuario/topMenu.php"); ?>
+    <?php require_once("views/include/usuario/topMenu-logeado.php"); ?>
     <section class="contenedor">
     <?php require_once("views/include/login-registro.php"); ?>
     <?php require_once("views/include/cart.php"); ?>
