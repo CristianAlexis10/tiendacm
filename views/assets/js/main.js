@@ -11,6 +11,11 @@ $('#fondo').click(function(){
 	$('#modal-login-registro').toggle();
 	$('#fondo').toggle();
 });
+$('.abrirEsaWea').click(function(){
+	$('#modal-login-registro').toggle();
+	$('#fondo').toggle();
+});
+
 //validar correo
   $('#iniciar_se').attr('disabled',true);
 $('#login-pass').focus(function(){

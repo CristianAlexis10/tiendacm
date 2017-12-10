@@ -19,7 +19,7 @@
       <div class="precio-produc">
         <h2>$ <?php echo $row['pro_precio']; ?></h2>
       </div>
-      <button type="button" name="button">añadir al carrito</button>
+      <button type="button" name="button" class="abrirEsaWea">añadir al carrito</button>
     </div>
     <?php } ?>
   </div>
@@ -61,7 +61,7 @@
           <span>0</span>
           <span>+</span>
         </div>
-        <button type="button" name="button">añadir al carrito</button>
+        <button type="button" name="button" class="abrirEsaWea">añadir al carrito</button>
       </div>
     </div>
   </div>
