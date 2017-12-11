@@ -323,10 +323,8 @@ body{
   top: 110px;
   margin: 0px auto 180px auto;
   width: 90%;
-  /*height: 90vh;*/
   border-radius: 3px;
   background: #dfdfdf;
-  /*background: red;*/
   display: grid;
   grid-template-columns: 30% 70%;
   grid-template-rows: 350px 250px;
