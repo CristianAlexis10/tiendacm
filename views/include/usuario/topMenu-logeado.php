@@ -8,7 +8,7 @@
       <a href="videos"><li>Videos</li></a>
       <a href="noticias"><li>Noticias</li></a>
       <a href="#"><li>julio</li></a>
-      <li id="btnCarrito"><i class="fa fa-sign-out" aria-hidden="true"></i></li>
+      <li><i class="fa fa-sign-out" aria-hidden="true"></i></li>
       <li id="btnCarrito"><i class="fa fa-shopping-cart" aria-hidden="true"></i></li>
     </ul>
   </div>

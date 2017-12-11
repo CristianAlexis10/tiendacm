@@ -317,8 +317,67 @@ body{
 .restar-carrito:hover{
   background: #c61848;
 }
-/*Seccion noticias*/
-
+/*perfil del usuario*/
+.wrap-contenido{
+  position: relative;
+  top: 110px;
+  margin: 0px auto 180px auto;
+  width: 90%;
+  /*height: 90vh;*/
+  border-radius: 3px;
+  background: #dfdfdf;
+  /*background: red;*/
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 350px 250px;
+  grid-template-areas:
+  "imgPerfil nomPerfil"
+  "infoPerfil infoPerfil";
+}
+.imagen-perfil{
+  grid-area: imgPerfil;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imagen-perfil img{
+  border-radius: 50%;
+  width: 70%;
+  border: 1px solid black;
+  background: #f0f0f0;
+}
+.nombre-perfil{
+  grid-area: nomPerfil;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.nombre-perfil label{
+  margin-right: 30px;
+  text-transform: uppercase;
+  font-family: 'Roboto';
+  font-size: 30px;
+  font-weight: bold;
+  width: 100%;
+  border-bottom: 2px solid #b5b5b5;
+}
+.info-perfil{
+  grid-area: infoPerfil;
+  padding: 0px 150px;
+}
+.info-perfil label span{
+  font-weight: lighter;
+  font-size: 18px;
+}
+.info-perfil label{
+  font-size: 20px;
+  font-family: 'Roboto';
+  font-weight: bolder;
+  text-transform: capitalize;
+}
+.direccion-perfil, .correo-perfil, .doc-perfil, .muni-perfil, .depto-perfil, .num-perfil{
+  margin: 15px 0px;
+}
 /*footer usuario*/
 .footer{
   background: black;
