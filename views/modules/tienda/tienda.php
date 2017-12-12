@@ -8,6 +8,7 @@
   <form method="post">
       <select name="categoria">
         <option value="">seleccionar categoria</option>
+        <option value="">ver todo</option>
         <?php
           foreach ($this->master->selectAll('categoria') as $row) {
               if (isset($_SESSION['CATEGORIA'])) {
