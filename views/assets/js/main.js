@@ -178,7 +178,7 @@ $('#contrasena').focus(function(){
 		    $('#btn_regis').attr('disabled',false);
 	     }else{
 	     	$(".message").remove();
-		$("#newEmail").after("<div class='message'>Correo no valido</div>");
+		$("#debajo").after("<span class='message'>Correo no valido</span>");
 		$('#btn_regis').attr('disabled',true);
 	     }
 

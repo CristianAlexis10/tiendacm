@@ -4,7 +4,7 @@
      <a href="landing"><img src="views/assets/img/logo_blanco.png"></a>
     </div>
     <ul class="caja--menu">
-      <a href="tienda"><li>Catalogo</li></a>
+      <a href="catalogo"><li>Catalogo</li></a>
       <a href="videos"><li>Videos</li></a>
       <a href="noticias"><li>Noticias</li></a>
       <a href="#"><li>julio</li></a>

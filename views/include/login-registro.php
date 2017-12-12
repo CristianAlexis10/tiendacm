@@ -48,7 +48,7 @@
                 <input type="password" class="input dataNewUser" required id="contrasena">
                 <label for="contrasena" class="label">Contraseña</label>
               </div>
-              <div class="caja_registros_usu">
+              <div class="caja_registros_usu" id="debajo">
                 <input type="password" class="input dataNewUser" required id="5">
                 <label for="5" class="label">Confirmar contraseña</label>
               </div>

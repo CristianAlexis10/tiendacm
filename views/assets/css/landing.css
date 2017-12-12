@@ -64,11 +64,13 @@
 }
 .bloque{
   background-color: #d5d5d5;
-  height: 300px;
+  height: 400px;
+  box-shadow: 0 5px 20px -10px #000;
 }
 .bloque a{
   color: #595959;
   text-transform: uppercase;
+  cursor: pointer;
 }
 .wrap-text{
   flex-wrap: wrap;
@@ -77,13 +79,13 @@
   max-width: 250px;
   display: flex;
   align-items: center;
-  padding: 10px;
 }
 .wrap-text label{
   padding-left: 20px;
   font-family: 'lato';
   font-weight: bolder;
   font-size: 20px;
+  cursor: pointer;
 }
 .wrap-imagen{
   display: flex;
