@@ -48,29 +48,37 @@ body{
   color: #f1396d;
 }
 .caja--menu li:hover{
-  color: #000000;
+  color: #fff;
   background: #f1396d;
 }
 /*seccion seleccion de categorias menu top*/
+.catalogo:hover ~ .categoria-menu{
+  display: flex;
+}
+.categoria-menu:hover{
+  display: flex;
+}
 .categoria-menu{
   display: none;
-  z-index: 4;
+  z-index: -1;
   top: 50px;
+  left: 0%;
   position: fixed;
   width: 100%;
-  height: 300px;
-  background: #000;
-  color: red;
+  background: rgba(0, 0, 0, 0.7);
 }
 .categorias-items{
-  background: yellow;
-  position: absolute;
-  width: 250px;
+  width: 25%;
   height: 100%;
   right: 0px;
   text-align: center;
+  margin-top: 50px;
+  color: white;
 }
 .categorias-items h2{
+  padding: 20px 0px;
+}
+.categorias-items h2:hover{
   padding: 20px 0px;
 }
 /*slider o primera seccion*/
