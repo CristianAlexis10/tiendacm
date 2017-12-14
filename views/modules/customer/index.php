@@ -5,26 +5,7 @@
   </div>
 </div>
 <div class="seccion2">
-  <form method="post">
-      <select name="categoria">
-        <option value="">seleccionar categoria</option>
-        <option value="">ver todo</option>
-        <?php
-          foreach ($this->master->selectAll('categoria') as $row) {
-              if (isset($_SESSION['CATEGORIA'])) {
-                  if ($row['cat_codigo']==$_SESSION['CATEGORIA']) {?>
-                        <option value="<?php echo $row['cat_codigo']?>" selected ><?php echo $row['cat_nombre']?></option>
-                  <?php }else{?>
-                        <option value="<?php echo $row['cat_codigo']?>"  ><?php echo $row['cat_nombre']?></option>
-                  <?php }
-              }else{?>
-                        <option value="<?php echo $row['cat_codigo']?>" ><?php echo $row['cat_nombre']?></option>
 
-              <?php
-              } } ?>
-      </select>
-      <input type="submit" value="Enviar" name="submit">
-  </form>
 
   <?php
        //total de elementos por cada pagina
@@ -37,10 +18,9 @@
          $inicio = 0;
          $pagina = 1;
       }
-      if (isset($_POST['submit'])) {
-              $_SESSION['CATEGORIA']= $_POST['categoria'];
-              $consulta = $this->master->selectAllLimitWhere('producto',$inicio,$elementosPagina,$_SESSION['CATEGORIA']);
-              $num_total_registros = $this->master->selectCount('producto','cat_codigo',$_SESSION['CATEGORIA']);
+      if (isset($_GET['data'])) {
+              $consulta = $this->master->selectAllLimitWhere('producto',$inicio,$elementosPagina,$_GET['data']);
+              $num_total_registros = $this->master->selectCount('producto','cat_codigo',$_GET['data']);
       }else{
               $consulta = $this->master->selectAllLimit('producto',$inicio,$elementosPagina);
               $num_total_registros = $this->master->selectAllCount('producto');
@@ -64,7 +44,7 @@
           <div class="precio-produc">
             <h2>$ <?php echo $row['pro_precio']; ?></h2>
           </div>
-          <button type="button" name="button" class="abrirEsaWea">añadir al carrito</button>
+          <button type="button" name="button" class="añadirCarro">añadir al carrito</button>
         </div>
 
       <?php
@@ -133,7 +113,7 @@
           <span>0</span>
           <span>+</span>
         </div>
-        <button type="button" name="button" class="abrirEsaWea">añadir al carrito</button>
+        <button type="button" name="button" class="añadirCarro">añadir al carrito</button>
       </div>
     </div>
   </div>

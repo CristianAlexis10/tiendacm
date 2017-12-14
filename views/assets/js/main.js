@@ -213,3 +213,8 @@ $("#frmNew").submit(function(e) {
                }
             });
 });
+
+
+$(".añadirCarro").click(function(){
+	console.log(this);
+});
