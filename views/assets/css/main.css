@@ -14,7 +14,7 @@ body{
 .menu--mobile{
   display: none;
 }
-.menu--top img{
+.menu--top .img{
   position: absolute;
   top: 10px;
   left: -28px;
@@ -68,6 +68,7 @@ body{
   background: rgba(0, 0, 0, 0.7);
 }
 .categorias-items{
+  background: red;
   width: 25%;
   height: 100%;
   right: 0px;
@@ -80,6 +81,12 @@ body{
 }
 .categorias-items h2:hover{
   padding: 20px 0px;
+}
+.wrapImgCategoria{
+  width: 70px;
+}
+.wrapImgCategoria img{
+  width: 100%;
 }
 /*slider o primera seccion*/
 .slider{

@@ -1,13 +1,18 @@
 <header>
   <div class="menu--top">
     <div class="wrap--logo">
-     <a href="landing"><img src="views/assets/img/logo_blanco.png"></a>
+     <a href="landing"><img src="views/assets/img/logo_blanco.png" class="img"></a>
     </div>
     <ul class="caja--menu">
       <a href="catalogo" class="catalogo"><li>Catalogo</li></a>
       <div class="categoria-menu">
         <div class="categorias-items">
-          <h2>camisa</h2>
+          <div class="wrapImgCategoria">
+            <img src="views/assets/img/category/0ccfcabb5544c058c352457575fce34c.JPEG" alt="">
+          </div>
+          <div class="wrapCategoria">
+            <h2>camisa</h2>
+          </div>
         </div>
       </div>
       <a href="videos"><li>Videos</li></a>
