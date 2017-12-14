@@ -51,3 +51,4 @@ RewriteRule ^actualizar-cat$ index.php?c=category&a=update&data
 
 #validar
 RewriteRule ^validar_correo$ index.php?c=user&a=readByEmail
+RewriteRule ^catalogo--(\w+)$ index.php?c=customer&data=$1
