@@ -7,10 +7,10 @@
       <a href="cliente" class="catalogo"><li>Catalogo</li></a>
       <div class="categoria-menu">
         <div class="categorias-items">
+          <h2><a href="cliente">Todos</a></h2>
         <?php foreach ($this->master->selectAll('categoria') as $row ) {?>
-          <h1><a href="catalogo--<?php echo $row['cat_codigo'] ?>"><?php echo $row['cat_nombre'] ?></a></h1>
+          <h2><a href="catalogo--<?php echo $row['cat_codigo'] ?>"><?php echo $row['cat_nombre'] ?></a></h2>
         <?php } ?>
-        <h1><a href="cliente">Todos</a></h1>
         </div>
       </div>
       <a href="videos"><li>Videos</li></a>
@@ -19,5 +19,21 @@
       <li><i class="fa fa-sign-out" aria-hidden="true"></i></li>
       <li id="btnCarrito"><i class="fa fa-shopping-cart" aria-hidden="true"></i></li>
     </ul>
+  </div>
+  <div class="wrapInfoUser">
+    <form class="InfoUser" action="index.html" method="post">
+      <div class="">
+
+      </div>
+      <div class="">
+
+      </div>
+      <div class="">
+
+      </div>
+      <div class="">
+
+      </div>
+    </form>
   </div>
 </header>

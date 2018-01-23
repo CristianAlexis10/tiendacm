@@ -5,27 +5,6 @@
   </div>
 </div>
 <div class="seccion2">
-  <form method="post">
-      <select name="categoria">
-        <option value="">seleccionar categoria</option>
-        <option value="">ver todo</option>
-        <?php
-          foreach ($this->master->selectAll('categoria') as $row) {
-              if (isset($_SESSION['CATEGORIA'])) {
-                  if ($row['cat_codigo']==$_SESSION['CATEGORIA']) {?>
-                        <option value="<?php echo $row['cat_codigo']?>" selected ><?php echo $row['cat_nombre']?></option>
-                  <?php }else{?>
-                        <option value="<?php echo $row['cat_codigo']?>"  ><?php echo $row['cat_nombre']?></option>
-                  <?php }
-              }else{?>
-                        <option value="<?php echo $row['cat_codigo']?>" ><?php echo $row['cat_nombre']?></option>
-
-              <?php
-              } } ?>
-      </select>
-      <input type="submit" value="Enviar" name="submit">
-  </form>
-
   <?php
        //total de elementos por cada pagina
       $elementosPagina = 12;

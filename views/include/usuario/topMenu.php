@@ -8,18 +8,16 @@
           <a href="catalogo" class="catalogo"><li>Catalogo</li></a>
           <div class="categoria-menu">
             <div class="categorias-items">
-              <div class="wrapImgCategoria">
-                <img src="views/assets/img/category/0ccfcabb5544c058c352457575fce34c.JPEG" alt="">
-              </div>
-              <div class="wrapCategoria">
-                <h2>camisa</h2>
-              </div>
+              <h2><a href="cliente">Todos</a></h2>
+            <?php foreach ($this->master->selectAll('categoria') as $row ) {?>
+              <h2><a href="catalogo--<?php echo $row['cat_codigo'] ?>"><?php echo $row['cat_nombre'] ?></a></h2>
+            <?php } ?>
             </div>
           </div>
-          <a href="#"><li>Videos</li></a>
-          <!-- <a href="videos"><li>Videos</li></a> -->
-          <a href="#"><li>Noticias</li></a>
-          <!-- <a href="noticias"><li>Noticias</li></a> -->
+          <!-- <a href="#"><li>Videos</li></a> -->
+          <a href="videos"><li>Videos</li></a>
+          <!-- <a href="#"><li>Noticias</li></a> -->
+          <a href="noticias"><li>Noticias</li></a>
           <li id="modal-login">Iniciar Sesion / Registrarse</li>
         </ul>
       </div>

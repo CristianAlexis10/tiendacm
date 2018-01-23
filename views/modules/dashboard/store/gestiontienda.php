@@ -11,7 +11,15 @@ if (isset($_SESSION['messagge'])) {
   $result = $this->master->selectAll('categoria');
   foreach ($result as $row) {?>
         <div class="categorias_ropa">
-          <a href="ver-categoria-<?php echo $row['cat_codigo']?>"><?php echo $row['cat_nombre']; ?></a>
+          <div class="nameCat">
+            <span ><?php echo $row['cat_nombre']; ?></span>
+          </div>
+          <div class="deleteCat">
+            <a href="actualizar-categoria-<?php echo $_GET['data']?>" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+          </div>
+          <div class="updateCat">
+            <a href="eliminar-categoria-<?php echo $_GET['data']?>" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></a>
+          </div>
         </div>
     <?php } ?>
         <div class="categorias_ropa" id="add_categoria">
