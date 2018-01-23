@@ -15,10 +15,10 @@ if (isset($_SESSION['messagge'])) {
             <span ><?php echo $row['cat_nombre']; ?></span>
           </div>
           <div class="deleteCat">
-            <a href="actualizar-categoria-<?php echo $_GET['data']?>" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+            <a href="actualizar-categoria-<?php echo $row['cat_codigo']?>" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
           </div>
           <div class="updateCat">
-            <a href="eliminar-categoria-<?php echo $_GET['data']?>" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></a>
+            <a href="eliminar-categoria-<?php echo $row['cat_codigo']?>" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></a>
           </div>
         </div>
     <?php } ?>

@@ -5,7 +5,7 @@
 				dataType:'json',
 				success: function(result){
 					if (result==true) {
-						location.href = 'landing';
+						location.href = 'inicio';
 					}
 				}
 			});

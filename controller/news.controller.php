@@ -2,14 +2,28 @@
 
 // require_once("model/tienda.model.php");
 Class NewsController{
-    private $TiendaM;
-    public function __CONSTRUCT(){
-      // $this->TiendaM = new TiendaModel();
-    }
+  private $master;
+  private $doizer;
+  function __CONSTRUCT(){
+    $this->master =  MasterModel();
+    $this->doizer = new DoizerController;
+  }
     public function mainPage(){
-             require_once("views/include/usuario/header.php");
-             require_once("views/modules/news/index.php");
-             require_once("views/include/usuario/footer.php");  
+      if (isset($_SESSION['USER']['CODE'])) {
+             require_once("views/include/customer/header.php");
+             require_once("views/modules/customer/news/index.php");
+             require_once("views/include/customer/footer.php");
+      }else{
+        require_once("views/include/user/header.php");
+        require_once("views/modules/user/news/index.php");
+        require_once("views/include/user/footer.php");
+      }
+    }
+
+    function gestion(){
+      require_once("views/include/dashboard/header.php");
+      require_once("views/modules/admin/news/index.php");
+      require_once("views/include/dashboard/footer.php");
     }
   }
 ?>

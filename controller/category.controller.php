@@ -71,7 +71,7 @@
 				if ($_SESSION['USER']['ROL']==1) {
 					$data = $_GET['data'];
 					require_once 'views/include/dashboard/header.php';
-					require_once 'views/modules/dashboard/store/update-category.php';
+					require_once 'views/modules/admin/category/update-category.php';
 					require_once 'views/include/dashboard/footer.php';
 				}else{
 					header("Location: catalogo");

@@ -1,9 +1,16 @@
 RewriteEngine on
 
-RewriteRule ^landing$ index.php?c=views&a=landin
-RewriteRule ^catalogo$ index.php?c=tienda
-RewriteRule ^catalogo-(\w+)$ index.php?c=tienda&pagina=$1
+RewriteRule ^inicio$ index.php?c=views
 RewriteRule ^dashboard$ index.php?c=admin&a=dashboard
+
+#CATALOGO
+RewriteRule ^catalogo$ index.php?c=tienda
+RewriteRule ^catalogo-(\w+)$ index.php?c=tienda&categoria=$1
+#RewriteRule ^catalogo-(\w+)$ index.php?c=tienda&pagina=$1
+
+#VIDEOS
+RewriteRule ^videos$ index.php?c=videos
+RewriteRule ^gestion-videos$ index.php?c=videos&a=gestion
 
 #PRODUCTOS
 RewriteRule ^gestion-producto$ index.php?c=products
@@ -25,24 +32,24 @@ RewriteRule ^guardar-usuario$ index.php?c=user&a=newUser
 
 #NOTICIAS
 RewriteRule ^noticias$ index.php?c=news
+RewriteRule ^gestion-noticias$ index.php?c=news&a=gestion
 
-#VIDEOS
-RewriteRule ^videos$ index.php?c=videos
 
 #LOGIN
 RewriteRule ^validar-inicio-sesion$ index.php?c=auth&a=validateUser
 RewriteRule ^cerrar-sesion$ index.php?c=auth&a=singOut
 
-#TIENDA
-RewriteRule ^gestion-categoria$ index.php?c=tienda&a=gestionar
 
 #pedido
 RewriteRule ^realizar-pedido$ index.php?c=orders&a=newOrder
 
-
+#CLIENTES
 RewriteRule ^cliente$ index.php?c=customer
+RewriteRule ^mi-perfil$ index.php?c=customer&a=profile
+RewriteRule finalizar-sesion$ index.php?c=customer&a=logout
 
 #CATEGORIAS
+RewriteRule ^gestion-categoria$ index.php?c=tienda&a=gestionar
 RewriteRule ^nueva-categoria$ index.php?c=category&a=newCategory
 RewriteRule ^ver-categoria-(\w+)$ index.php?c=category&a=view&data=$1
 RewriteRule ^eliminar-categoria-(\w+)$ index.php?c=category&a=delete&data=$1

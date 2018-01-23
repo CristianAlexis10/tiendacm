@@ -5,7 +5,7 @@
   <ul>
     <a href="gestion-categoria"><li>Gestionar categoria</li></a>
     <a href="gestion-producto"><li>Gestionar producto</li></a>
-    <a href="#"><li>Gestion noticias</li></a>
-    <a href="#"><li>Gestion videos</li></a>
+    <a href="gestion-noticias"><li>Gestion noticias</li></a>
+    <a href="gestion-videos"><li>Gestion videos</li></a>
   </ul>
 </nav>

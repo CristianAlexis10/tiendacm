@@ -8,8 +8,8 @@ class ProductsController{
 	 	}
 	function mainPage(){
 		 require_once("views/include/dashboard/header.php");
-     		require_once("views/modules/dashboard/store/products/new.productos.php");
-     		require_once("views/include/dashboard/footer.php");
+     require_once("views/modules/admin/products/new.productos.php");
+     require_once("views/include/dashboard/footer.php");
 	}
 	function readByCod(){
 		$data = $_POST['data'];
@@ -75,8 +75,8 @@ class ProductsController{
 	}
 
 	function colores(){
-		require_once("views/include/dashboard/header.php");
-     		require_once("views/modules/dashboard/store/products/product-color.php");
+				require_once("views/include/dashboard/header.php");
+     		require_once("views/modules/admin/products/product-color.php");
      		require_once("views/include/dashboard/footer.php");
 	}
 	function coloresTallas(){
@@ -138,12 +138,12 @@ class ProductsController{
 	}
 	function viewUpdate(){
 		require_once("views/include/dashboard/header.php");
-     		require_once("views/modules/dashboard/store/products/product-update.php");
+     		require_once("views/modules/admin/products/product-update.php");
      		require_once("views/include/dashboard/footer.php");
 	}
 	function viewUpdateTalCol(){
-		require_once("views/include/dashboard/header.php");
-     		require_once("views/modules/dashboard/store/products/tal-col-update.php");
+				require_once("views/include/dashboard/header.php");
+     		require_once("views/modules/admin/products/tal-col-update.php");
      		require_once("views/include/dashboard/footer.php");
 	}
 	function update(){

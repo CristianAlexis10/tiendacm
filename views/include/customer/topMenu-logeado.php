@@ -1,7 +1,7 @@
 <header>
   <div class="menu--top">
     <div class="wrap--logo">
-     <a href="landing"><img src="views/assets/img/logo_blanco.png" class="img"></a>
+     <a href="cliente"><img src="views/assets/img/logo_blanco.png" class="img"></a>
     </div>
     <ul class="caja--menu">
       <a href="cliente" class="catalogo"><li>Catalogo</li></a>
@@ -9,31 +9,15 @@
         <div class="categorias-items">
           <h2><a href="cliente">Todos</a></h2>
         <?php foreach ($this->master->selectAll('categoria') as $row ) {?>
-          <h2><a href="catalogo--<?php echo $row['cat_codigo'] ?>"><?php echo $row['cat_nombre'] ?></a></h2>
+          <h2><a href="catalogo-<?php echo $row['cat_nombre'] ?>"><?php echo $row['cat_nombre'] ?></a></h2>
         <?php } ?>
         </div>
       </div>
       <a href="videos"><li>Videos</li></a>
       <a href="noticias"><li>Noticias</li></a>
-      <a href="#"><li><?php echo $_SESSION['USER']['NAME'] ?></li></a>
-      <li><i class="fa fa-sign-out" aria-hidden="true"></i></li>
+      <a href="#"><li><a href="mi-perfil"><?php echo $_SESSION['USER']['NAME']; ?></a></li></a>
+      <li><a href="finalizar-sesion"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
       <li id="btnCarrito"><i class="fa fa-shopping-cart" aria-hidden="true"></i></li>
     </ul>
-  </div>
-  <div class="wrapInfoUser">
-    <form class="InfoUser" action="index.html" method="post">
-      <div class="">
-
-      </div>
-      <div class="">
-
-      </div>
-      <div class="">
-
-      </div>
-      <div class="">
-
-      </div>
-    </form>
   </div>
 </header>

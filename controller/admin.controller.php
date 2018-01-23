@@ -17,9 +17,9 @@
 						echo 'vista de un cliente';
 				}
 			}else{
-				require_once("views/include/usuario/header.php");
+				require_once("views/include/user/header.php");
 	      require_once("views/modules/landing.php");
-	 		 require_once("views/include/usuario/footer.php");
+	 		 require_once("views/include/user/footer.php");
 			}
 		}
 

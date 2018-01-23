@@ -1,11 +1,11 @@
 <?php
-$result = $this->master->selectBy('categoria',array('cat_codigo',$_GET['data']));
+$result = $this->master->selectBy('categoria',array('cat_codigo',$data));
 $_SESSION['cat_mod']=$result['cat_codigo'];
 ?>
-
+<div class="contenido" id="cat-conte">
 <form action="actualizar-cat" method="post" enctype="multipart/form-data">
 
-	Nombre:<input type="text" name="nombre" value="<?php echo $result['cat_categ'] ?>" required>
+	Nombre:<input type="text" name="nombre" value="<?php echo $result['cat_nombre'] ?>" required>
 
 	Estado: <select name="estado" required>
 		<?php
@@ -23,3 +23,4 @@ $_SESSION['cat_mod']=$result['cat_codigo'];
 
 	<input type="submit" value="Actualizar">
 </form>
+</div>
