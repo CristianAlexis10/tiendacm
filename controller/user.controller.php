@@ -3,7 +3,7 @@
 		private $master;
 		private $doizer;
 	 	function __CONSTRUCT(){
-	 		$this->master = new MasterModel;
+	 		$this->master =  MasterModel();
 	 		$this->doizer = new DoizerController;
 	 	}
 		function readByEmail(){
@@ -41,9 +41,9 @@
 					}
 					$password = $this->doizer->validateSecurityPassword($data[3]);
 					if (is_array($password)) {
-						$a = $this->master->crearUsuario(array($data[0],$data[1],$data[2],2,1,1));
-						$result = $this->master->consultaUsuarioByCorreo($data[2]);
-						$result = $this->master->crearAcceso(array(md5($data[2].date('y-m')),$result['usu_codigo'],$password[1]));
+						$a = $this->master->user->crearUsuario(array($data[0],$data[1],$data[2],2,1,1));
+						$result = $this->master->user->consultaUsuarioByCorreo($data[2]);
+						$result = $this->master->login->crearAcceso(array(md5($data[2].date('y-m')),$result['usu_codigo'],$password[1]));
 						// die(json_encode($a));
 						if ($a==true) {
 							echo json_encode('Registardo con exito');

@@ -216,5 +216,6 @@ $("#frmNew").submit(function(e) {
 
 
 $(".añadirCarro").click(function(){
-	console.log(this);
+	var hermanos = $(this).siblings();
+	console.log(hermanos[0].innerText);
 });

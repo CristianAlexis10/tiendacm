@@ -3,7 +3,7 @@ Class OrdersController{
      private $master;
     private $doizer;
     function __CONSTRUCT(){
-      $this->master = new MasterModel;
+      $this->master =  MasterModel();
       $this->doizer = new DoizerController;
     }
 
@@ -25,9 +25,9 @@ Class OrdersController{
   $this->master->insert('pedidos',array('1','DIR',date('Y-m-d')),array('ped_codigo'));
   //obtener la id del pedidos
   $cod_ped = $this->master->selectMaxBy('pedidos','ped_codigo',array('usu_id',1));
-  
+
       while( $inicio <= $num_pro){
-        //obtener el codigo de cada producto 
+        //obtener el codigo de cada producto
                $pro_cod_insert =  $pedido[$inicio]['pro_codigo'];
                 //entrar en los detalles de cada producto
             foreach ($pedido[$inicio]['detalles'] as $row) {
@@ -42,7 +42,7 @@ Class OrdersController{
       }
       echo json_encode($result);
 
-    
+
   }
 
 

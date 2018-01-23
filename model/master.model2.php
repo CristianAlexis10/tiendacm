@@ -43,31 +43,17 @@
 @dataUpdate:
 @userUpdate:
 */
-//requerir otros modelos
-require_once "conn.model.php";
-require_once "login.model.php";
-require_once "product.model.php";
-require_once "user.model.php";
-
-//añadir todas las clases a la variable main
-function masterModel(){
-  $main = new MasterModel();
-  $main->login = new LoginModel;
-  $main->product = new ProductModel;
-  $main->user = new UserModel;
-  return $main;
-}
 class MasterModel{
-    protected $pdo;
-    protected $sql;
+    private $pdo;
+    private $sql;
     //acceso a conexion de base de datos
-    public  function __CONSTRUCT(){
-      try {
-          $this->pdo=DataBase::openDB();
-          $this->pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-      } catch (PDOException $e) {
-          die($e->getMessage());
-      }
+    public function __CONSTRUCT(){
+        try {
+            $this->pdo=DataBase::openDB();
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
     }
     function columnsOfTable($table,$skip = null){
          try {
@@ -140,9 +126,12 @@ class MasterModel{
             // die($this->sql);
             $query=$this->pdo->prepare($this->sql);
             $query->execute($vals);
-            $result = true;
+           $result =  $query->errorInfo()[1];
+           if ($result==null) {
+              $result = true;
+           }
         } catch (PDOException $e) {
-            $result = $query->errorInfo()[1];
+            $result =  $query->errorInfo()[1];
         }
        return $result;
     }
@@ -159,25 +148,12 @@ class MasterModel{
 
         return $result;
     }
-
-    public function selectAllLimit($table,$inicio,$fin){
-     try {
-         $this->sql="SELECT * FROM $table LIMIT $inicio,$fin";
-         $query=$this->pdo->prepare($this->sql);
-         $query->execute();
-         $result = $query->fetchAll(PDO::FETCH_BOTH);
-     } catch (PDOException $e) {
-         $result = $e->getMessage();
-     }
-
-     return $result;
-    }
-    public function selectAllCount($table){
+    public function selectAllLi($table){
         try {
-            $this->sql="SELECT count(*) FROM $table ";
+            $this->sql="SELECT * FROM $table LIMIT 4 ";
             $query=$this->pdo->prepare($this->sql);
             $query->execute();
-            $result = $query->fetch(PDO::FETCH_BOTH);
+            $result = $query->fetchAll(PDO::FETCH_BOTH);
         } catch (PDOException $e) {
             $result = $e->getMessage();
         }
@@ -185,6 +161,42 @@ class MasterModel{
         return $result;
     }
 
+       public function selectAllLimit($table,$inicio,$fin){
+        try {
+            $this->sql="SELECT * FROM $table LIMIT $inicio,$fin";
+            $query=$this->pdo->prepare($this->sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_BOTH);
+        } catch (PDOException $e) {
+            $result = $e->getMessage();
+        }
+
+        return $result;
+    }
+        public function selectAllLimitWhere($table,$inicio,$fin,$wh){
+        try {
+            $this->sql="SELECT * FROM $table  WHERE cat_codigo = ? LIMIT $inicio,$fin";
+            $query=$this->pdo->prepare($this->sql);
+            $query->execute(array($wh));
+            $result = $query->fetchAll(PDO::FETCH_BOTH);
+        } catch (PDOException $e) {
+            $result = $e->getMessage();
+        }
+
+        return $result;
+    }
+    public function selectAllLi6($table){
+        try {
+            $this->sql="SELECT * FROM $table LIMIT 6 ";
+            $query=$this->pdo->prepare($this->sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_BOTH);
+        } catch (PDOException $e) {
+            $result = $e->getMessage();
+        }
+
+        return $result;
+    }
     public function selectAllBy($table,$condition){
         try {
             $this->sql="SELECT * FROM $table WHERE $condition[0] = ?";
@@ -223,12 +235,37 @@ class MasterModel{
 
         return $result;
     }
+
+    public function selectAllCount($table){
+        try {
+            $this->sql="SELECT count(*) FROM $table ";
+            $query=$this->pdo->prepare($this->sql);
+            $query->execute();
+            $result = $query->fetch(PDO::FETCH_BOTH);
+        } catch (PDOException $e) {
+            $result = $e->getMessage();
+        }
+
+        return $result;
+    }
     //MAXIMO REGISTRO
     public function selectMax($table,$colum){
         try {
             $this->sql="SELECT max($colum) FROM $table";
             $query=$this->pdo->prepare($this->sql);
             $query->execute();
+            $result = $query->fetch(PDO::FETCH_BOTH);
+        } catch (PDOException $e) {
+            $result = $e->getMessage();
+        }
+
+        return $result;
+    }
+      public function selectMaxBy($table,$colum,$condition){
+        try {
+            $this->sql="SELECT max($colum) FROM $table WHERE $condition[0] = ? ";
+            $query=$this->pdo->prepare($this->sql);
+            $query->execute(array($condition[1]));
             $result = $query->fetch(PDO::FETCH_BOTH);
         } catch (PDOException $e) {
             $result = $e->getMessage();
@@ -299,7 +336,7 @@ class MasterModel{
             $query->execute(array($vals[1]));
             $result = true;
         } catch (Exception $e) {
-            $result = $query->errorInfo()[1];
+            $result = $e->getMessage();
         }
         return $result;
     }
@@ -315,7 +352,31 @@ class MasterModel{
         }
         return $result;
     }
-}
+     public function innerJoinAllBy3($tables,$equals,$condition){
+        try {
+            $this->sql="SELECT  $tables[0].*,$tables[1].*,$tables[2].* FROM $tables[0] INNER JOIN $tables[1] ON $tables[0].$equals[0]=$tables[1].$equals[1] INNER JOIN $tables[2] ON $tables[2].$equals[2] =$tables[1].$equals[2]  WHERE $condition[0] = $condition[1] ";
+            $query=$this->pdo->prepare($this->sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_BOTH);;
+        } catch (Exception $e) {
+            $result = $e->getMessage();
+        }
+        return $result;
+    }
 
+      public function moduleSecurity($condition){
+        try {
+            $this->sql="SELECT  tipo_usuario.*,permiso.*,modulos.* FROM tipo_usuario INNER JOIN permiso ON tipo_usuario.tip_usu_codigo=permiso.tip_usu_codigo INNER JOIN modulos ON permiso.id_modulo =modulos.id_modulo WHERE permiso.tip_usu_codigo=?";
+            $query=$this->pdo->prepare($this->sql);
+            $query->execute(array($condition));
+            $result = $query->fetchAll(PDO::FETCH_BOTH);;
+        } catch (Exception $e) {
+            $result = $e->getMessage();
+        }
+        return $result;
+    }
+
+
+}
 
  ?>

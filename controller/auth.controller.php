@@ -3,7 +3,7 @@
 		private $master;
 		private $doizer;
 	 	function __CONSTRUCT(){
-	 		$this->master = new MasterModel;
+	 		$this->master =  MasterModel();
 	 		$this->doizer = new DoizerController;
 	 	}
 		function validateUser(){
@@ -11,9 +11,9 @@
 			$result = $this->master->selectCount('usuario','usu_correo',$data[0]);
 			if ($result[0]==1) {
 
-				$resultData = $this->master->consultaUsuarioAcceso($data[0]);
+				$resultData = $this->master->login->consultaUsuarioAcceso($data[0]);
 				if (password_verify($data[1], $resultData['acc_contra'])) {
-				    $_SESSION['USER']['NAME']=$resultData['usu_nombre1']; 
+				    $_SESSION['USER']['NAME']=$resultData['usu_nombre1'];
 				    $_SESSION['USER']['ADDRESS']=$resultData['usu_direccion'];
 				    $_SESSION['USER']['ROL']=$resultData['rol_codigo'];
 				    $_SESSION['USER']['CODE']=$resultData['usu_codigo'];

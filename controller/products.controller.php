@@ -3,7 +3,7 @@ class ProductsController{
 	private $master;
 		private $doizer;
 	 	function __CONSTRUCT(){
-	 		$this->master = new MasterModel;
+	 		$this->master =  MasterModel();
 	 		$this->doizer = new DoizerController;
 	 	}
 	function mainPage(){
@@ -19,12 +19,12 @@ class ProductsController{
 
 	function readByCodColor(){
 		$data = $_POST['data'];
-		$result = $this->master->colores($data);
+		$result = $this->master->product->colores($data);
 		echo json_encode($result);
 	}
 	function readByCodTalla(){
 		$data = $_POST['data'];
-		$result = $this->master->tallas($data);
+		$result = $this->master->product->tallas($data);
 		echo json_encode($result);
 	}
 	function newRegister(){
@@ -62,7 +62,7 @@ class ProductsController{
 		}
 		$data[]="activo";
 
-		$result = $this->master->crearProducto($data);
+		$result = $this->master->product->crearProducto($data);
 		if ($result==1) {
 				$result = $this->master->selectBy('producto',array('pro_nombre',$data[0]));
 				$_SESSION['producto']=$result['pro_codigo'];
@@ -89,10 +89,10 @@ class ProductsController{
 		}
 
 		foreach ($colores as $color) {
-				$result= $this->master->color_producto(array($color,$_SESSION['producto']));
+				$result= $this->master->product->color_producto(array($color,$_SESSION['producto']));
 		}
 		foreach ($tallas as $talla) {
-			$result= $this->master->talla_producto(array($_SESSION['producto'],$talla));
+			$result= $this->master->product->talla_producto(array($_SESSION['producto'],$talla));
 		}
 		if ($result==1) {
 			$_SESSION['messagge']='Registrado Exitosamente';
@@ -128,7 +128,7 @@ class ProductsController{
 
 	function delete(){
 		$data = $_POST['data'];
-		$result = $this->master->eliminarProducto($data);
+		$result = $this->master->product->eliminarProducto($data);
 		if ($result==true) {
 			$_SESSION['messagge']='Eliminado Exitosamente';
 			echo json_encode(true);
