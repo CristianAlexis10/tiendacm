@@ -3,7 +3,7 @@ class ViewsController{
 	private $master;
 	private $doizer;
 	function __CONSTRUCT(){
-		$this->master = new MasterModel;
+		$this->master =  MasterModel();
 		$this->doizer = new DoizerController;
 	}
 	function mainPage(){

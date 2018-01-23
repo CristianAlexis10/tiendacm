@@ -3,7 +3,7 @@
 		private $master;
 		private $doizer;
 	 	function __CONSTRUCT(){
-	 		$this->master = new MasterModel;
+	 		$this->master =  MasterModel();
 	 		$this->doizer = new DoizerController;
 	 	}
 
@@ -85,14 +85,14 @@
 						if (isset($_FILES['file']['tmp_name']) && $_FILES['file']['tmp_name']!= null) {
 							$profile = $this->doizer->ValidateImage($_FILES,"views/assets/img/category/");
 							if (is_array($profile)) {
-									$result = $this->master->updaCateImg(array($profile[1],$_SESSION['cat_mod']));
+									$result = $this->master->product->updaCateImg(array($profile[1],$_SESSION['cat_mod']));
 							}else{
 								$_SESSION['messagge']=$profile;
 								header("Location: gestion-categoria");
 								return ;
 							}
 						}
-						$result = $this->master->updaCate(array($_POST['nombre'],$_POST['estado'],$_SESSION['cat_mod']));
+						$result = $this->master->product->updaCate(array($_POST['nombre'],$_POST['estado'],$_SESSION['cat_mod']));
 
 
 			if ($result==1) {
