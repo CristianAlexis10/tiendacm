@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="views/assets/css/login-registro.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=lato|Anton|Roboto:300,400,700">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="views/assets/css/croppie.css"  media="screen,projection"/>
   </head>
   <body>
     <?php require_once("views/include/dashboard/topMenu.php"); ?>
     <?php require_once("views/include/dashboard/navigator.php"); ?>
-    <?php require_once("views/include/dashboard/registroCategoria.php"); ?>
     <section class="wrap--contenido">

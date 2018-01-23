@@ -9,35 +9,30 @@
 
 		function newCategory(){
 			$data = $_POST['data'];
-			$data[]=1;
-			//foto de perfil
-						if (isset($_FILES['file']['tmp_name'])) {
-							$profile = $this->doizer->ValidateImage($_FILES,"views/assets/img/category/");
-							if (is_array($profile)) {
-								$data[] = $profile[1];
-							}else{
-								$_SESSION['messagge']=$profile;
-								header("Location: gestion-categoria");
-								return ;
-							}
-						}else{
-							$data[] = 'default.jpg';
-						}
-
+			$estado=1;
+			//campos vacion
+			if ($data=="") {
+				echo json_encode("Por favor llene los campos");
+				return ;
+			}
+			// caracteres especiales
 			$result = $this->doizer->specialCharater($data[0]);
 			if ($result==false) {
-					$_SESSION['messagge']='Los campos no deben tener caracteres especiales';
-					header("Location: gestion-categoria");
+					echo json_encode('Los campos no deben tener caracteres especiales');
+					return ;
+			}
+			//existe imagen
+			if (!isset($_SESSION['new_cropp_image'])) {
+				echo json_encode("Por favor seleccione una imagen");
+				return ;
+			}
+			$result = $this->master->insert('categoria',array($data,$estado,$_SESSION['new_cropp_image']),array('cat_codigo'));
+			if ($result==true) {
+				echo json_encode(true);
+				$_SESSION['messagge']="Registrada Con Exito";
+				unset($_SESSION['new_cropp_image']);
 			}else{
-				$result = $this->master->insert('categoria',$data,array('cat_codigo'));
-				if ($result==1) {
-							$_SESSION['messagge']='Registrado  Existosamente';
-							header("Location: gestion-categoria");
-				}else{
-						$result = $this->doizer->knowError($result);
-						$_SESSION['messagge']=$result;
-						header("Location: gestion-categoria");
-				}
+				echo json_encode($this->doizer->knowError($result));
 			}
 		}
 		function delete(){

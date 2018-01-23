@@ -56,6 +56,9 @@ RewriteRule ^eliminar-categoria-(\w+)$ index.php?c=category&a=delete&data=$1
 RewriteRule ^actualizar-categoria-(\w+)$ index.php?c=category&a=viewUpdate&data=$1
 RewriteRule ^actualizar-cat$ index.php?c=category&a=update&data
 
+#IMAGENES
+RewriteRule ^cropp-(\w+)$ index.php?c=cropp&a=image&folder=$1
+
 #validar
 RewriteRule ^validar_correo$ index.php?c=user&a=readByEmail
 RewriteRule ^catalogo--(\w+)$ index.php?c=customer&data=$1
