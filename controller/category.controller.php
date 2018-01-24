@@ -77,26 +77,23 @@
 		}
 		function update(){
 			//foto de perfil
-						if (isset($_FILES['file']['tmp_name']) && $_FILES['file']['tmp_name']!= null) {
-							$profile = $this->doizer->ValidateImage($_FILES,"views/assets/img/category/");
-							if (is_array($profile)) {
-									$result = $this->master->product->updaCateImg(array($profile[1],$_SESSION['cat_mod']));
-							}else{
-								$_SESSION['messagge']=$profile;
-								header("Location: gestion-categoria");
-								return ;
-							}
+			if (isset($_SESSION['new_cropp_image'])) {
+						$result_cat = $this->master->selectBy("categoria",array('cat_codigo',$_SESSION['cat_mod']));
+						$result = $this->master->product->updaCateImg(array($_SESSION['new_cropp_image'],$_SESSION['cat_mod']));
+						if ($result==true) {
+							unlink("views/assets/img/category/".$result_cat['cat_img']);
+							unset($_SESSION['new_cropp_image']);
+						}else{
+							echo json_encode($this->doizer->knowError($result));
+							return ;
 						}
-						$result = $this->master->product->updaCate(array($_POST['nombre'],$_POST['estado'],$_SESSION['cat_mod']));
-
-
-			if ($result==1) {
-				$_SESSION['messagge']='Modificado Existosamente';
-				header("Location: gestion-categoria");
-			}else{
-				$_SESSION['messagge']=$this->doizer->knowError($result);
-				header("Location: gestion-categoria");
-			}
+				}
+			$result = $this->master->product->updaCate(array($_POST['name'],$_POST['sta'],$_SESSION['cat_mod']));
+				if ($result==1) {
+					echo json_encode(true);
+				}else{
+					echo json_encode($this->doizer->knowError($result));
+				}
 		}
 
 	}

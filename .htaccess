@@ -58,6 +58,7 @@ RewriteRule ^actualizar-cat$ index.php?c=category&a=update&data
 
 #IMAGENES
 RewriteRule ^cropp-(\w+)$ index.php?c=cropp&a=image&folder=$1
+RewriteRule ^croppProducts2$ index.php?c=cropp&a=imageProduct2
 
 #validar
 RewriteRule ^validar_correo$ index.php?c=user&a=readByEmail

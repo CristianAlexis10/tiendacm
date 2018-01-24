@@ -11,6 +11,16 @@ class CroppController{
             file_put_contents('views/assets/img/'.$folder.'/'.$imageName, $data);
             echo $imageName;
         }
+        function imageProduct2(){
+            $data = $_POST['image'];
+            list($type, $data) = explode(';', $data);
+            list(, $data)      = explode(',', $data);
+            $data = base64_decode($data);
+            $imageName = md5(time()).'.png';
+            $_SESSION['product_img2']=$imageName ;
+            file_put_contents('views/assets/img/products/'.$imageName, $data);
+            echo $imageName;
+        }
 }
 
 

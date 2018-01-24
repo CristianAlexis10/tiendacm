@@ -50,7 +50,7 @@ $('.upload-result').on('click', function (ev) {
     });
   });
 });
-//enviar
+//crear
 $("#frmNewCat").submit(function(e){
   e.preventDefault();
   $.ajax({
@@ -65,6 +65,28 @@ $("#frmNewCat").submit(function(e){
         $("#frmNewCat").after("<div class='alert'>"+result+"</div>");
         setTimeout(function(){$("div.alert").remove()},3000);
       }
+    },
+    error:function(result){
+      console.log(result);
+    }
+  });
+});
+//update
+$("#frmUpdateCat").submit(function(e){
+  e.preventDefault();
+  $.ajax({
+    url:"actualizar-cat",
+    type:"post",
+    dataType:"json",
+    data:({name:$("#name").val(), sta : $("#status").val()}),
+    success:function(result){
+      // console.log(result);
+      if (result==true) {
+        $("#frmUpdateCat").after("<div class='alert'>Modificación Exitosa</div>");
+      }else{
+        $("#frmUpdateCat").after("<div class='alert'>"+result+"</div>");
+      }
+      setTimeout(function(){$("div.alert").remove()},3000);
     },
     error:function(result){
       console.log(result);

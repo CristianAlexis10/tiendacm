@@ -7,9 +7,7 @@ class ProductsController{
 	 		$this->doizer = new DoizerController;
 	 	}
 	function mainPage(){
-		 require_once("views/include/dashboard/header.php");
      require_once("views/modules/admin/products/new.productos.php");
-     require_once("views/include/dashboard/footer.php");
 	}
 	function readByCod(){
 		$data = $_POST['data'];
@@ -48,15 +46,8 @@ class ProductsController{
 				}
 				$i++;
 			}
-		if (isset($_FILES['file']['tmp_name'])) {
-			$profile = $this->doizer->ValidateImage($_FILES,"views/assets/img/products/");
-			if (is_array($profile)) {
-				$data[] = $profile[1];
-			}else{
-				$_SESSION['messagge']=$profile;
-				header("Location: gestion-producto");
-				return ;
-			}
+		if (isset($_SESSION['new_cropp_image'])) {
+					$data[]=$_SESSION['new_cropp_image'];
 		}else{
 			$data[] = 'default.jpg';
 		}
