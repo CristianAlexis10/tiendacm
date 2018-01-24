@@ -124,20 +124,23 @@ $('.upload-result2').on('click', function (ev) {
 });
 
 
-//update
-$("#frmUpdateCat").submit(function(e){
+//crear
+$("#frmNewProduct").submit(function(e){
   e.preventDefault();
+   var jsonData = [];
+   $(".dataNewProd").each(function(){
+     jsonData.push(this.value);
+   });
   $.ajax({
-    url:"actualizar-cat",
+    url:"guardar-producto",
     type:"post",
     dataType:"json",
-    data:({name:$("#name").val(), sta : $("#status").val()}),
+    data:({data:jsonData , color : $("#selectMul2").val() , tallas: $("#selectMul").val()}),
     success:function(result){
-      // console.log(result);
       if (result==true) {
-        $("#frmUpdateCat").after("<div class='alert'>Modificación Exitosa</div>");
+        location.reload();
       }else{
-        $("#frmUpdateCat").after("<div class='alert'>"+result+"</div>");
+        $("#frmNewProduct").after("<div class='alert'>"+result+"</div>");
       }
       setTimeout(function(){$("div.alert").remove()},3000);
     },

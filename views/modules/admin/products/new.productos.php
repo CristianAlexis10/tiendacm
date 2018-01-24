@@ -6,10 +6,12 @@
     <link rel="stylesheet" href="views/assets/css/reset.css">
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="views/assets/css/dashboard.css">
-    <link rel="stylesheet" href="views/assets/css/login-registro.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=lato|Anton|Roboto:300,400,700">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
     <link type="text/css" rel="stylesheet" href="views/assets/css/croppie.css"  media="screen,projection"/>
+    <script src="views/assets/js/multiple-select.js"></script>
+    <link type="text/css" rel="stylesheet" href="views/assets/css/multiple-select.css"  media="screen,projection"/>
   </head>
   <body>
     <?php require_once("views/include/dashboard/topMenu.php"); ?>
@@ -24,26 +26,26 @@ if (isset($_SESSION['messagge'])) {
         unset($_SESSION['messagge']);
   }?>
     <div class="wrap-form" id="reg-productos">
-      <form class="form-producto" action="guardar-producto" method="post">
+      <form class="form-producto" id="frmNewProduct">
       	<div class="caja">
           <label for="">nombre: </label>
-      		<input type="text" name="data[]" required>
+      		<input type="text" class="dataNewProd" required>
       	</div>
       	<div class="caja">
           <label for="">precio: </label>
-      		<input type="number" name="data[]" required>
+      		<input type="number" class="dataNewProd" required>
       	</div>
       	<div class="caja">
           <label for="">cantidad: </label>
-      		<input type="number" name="data[]" required>
+      		<input type="number" class="dataNewProd" required>
       	</div>
       	<div class="caja">
           <label for="">descripción: </label>
-      		<input type="text" name="data[]" required>
+      		<input type="text" class="dataNewProd" required>
       	</div>
       	<div class="caja">
           <label for="">categoria: </label>
-      		<select required name="data[]">
+      		<select required class="dataNewProd">
             <option value="">seleccionar categoria</option>
       			<?php
       				foreach ($this->master->selectAll('categoria') as $row) {?>
@@ -53,6 +55,26 @@ if (isset($_SESSION['messagge'])) {
       			?>
       		</select>
       	</div>
+        <div class="">
+          Tallas: <select multiple="multiple" id="selectMul" required>
+            <?php
+              foreach ($this->master->selectAll('talla') as $row) {?>
+                <option value="<?php echo $row['tal_codigo']?>"><?php echo $row['tal_talla'] ?></option>
+              <?php
+              }
+            ?>
+          </select>
+        </div>
+        <div class="">
+          Colores: <select multiple="multiple" id="selectMul2" required>
+            <?php
+              foreach ($this->master->selectAll('color') as $row) {?>
+                <option value="<?php echo $row['col_codigo']?>"><?php echo $row['col_color'] ?></option>
+              <?php
+              }
+            ?>
+          </select>
+        </div>
 
         <div class="caja">
           <div class="form-group Cambiar--img">
@@ -65,7 +87,7 @@ if (isset($_SESSION['messagge'])) {
          </div>
         </div>
       	<div class="caja">
-      		<button type="submit">Siguiente</button>
+      		<button type="submit">Registar</button>
       	</div>
       </form>
     </div>
@@ -130,9 +152,19 @@ if (isset($_SESSION['messagge'])) {
 
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
 <script src="views/assets/js/croppie.js"></script>
+<script>
+if (document.getElementById('selectMul')) {
+   $('#selectMul').multipleSelect({
+         placeholder: "Selecciona las tallas disponibles"
+     });
+   $('#selectMul2').multipleSelect({
+         placeholder: "Selecciona las colores disponibles"
+     });
+}
+</script>
 <script src="views/assets/js/cropp-product.js"></script>
  <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="views/assets/js/main-admin.js"> </script>

@@ -27,95 +27,56 @@ class ProductsController{
 	}
 	function newRegister(){
 		$data = $_POST['data'];
-		// die(print_r($data));
 		$i = 0;
-			foreach ($data as $input) {
-				if ($data[$i]=='') {
-					$_SESSION['messagge']='Campos vacios';
-					header("Location: gestion-producto");
-					return ;
-				}
-				if ($i==13) {
-				}else{
-					$result = $this->doizer->specialCharater($data[$i]);
-					if ($result==false) {
-						$_SESSION['messagge']='los campos no deben tener caracteres especiales';
-						header("Location: gestion-producto");
-						return;
-					}
-				}
-				$i++;
+		foreach ($data as $input) {
+			if ($data[$i]=='') {
+				echo json_encode('Campos vacios');
+				return ;
 			}
+			$i++;
+		}
+
 		if (isset($_SESSION['new_cropp_image'])) {
 					$data[]=$_SESSION['new_cropp_image'];
 		}else{
-			$data[] = 'default.jpg';
+			echo json_encode('por favor selecciona una imagen');
+			return ;
 		}
 		$data[]="activo";
-
 		$result = $this->master->product->crearProducto($data);
-		if ($result==1) {
-				$result = $this->master->selectBy('producto',array('pro_nombre',$data[0]));
-				$_SESSION['producto']=$result['pro_codigo'];
-				header("Location: colores-producto");
+		if ($result==true) {
+				$pro_codigo=$this->master->selectBy("producto",array('pro_nombre',$data[0]));
+				//registrar colores
+				foreach ($_POST['color'] as $color) {
+					$result= $this->master->product->color_producto(array($color,$pro_codigo['pro_codigo']));
+				}
+				//registrar tallas
+				if ($result==true) {
+					foreach ($_POST['tallas'] as $talla) {
+						$result= $this->master->product->talla_producto(array($pro_codigo['pro_codigo'],$talla));
+					}
+				}else{
+					echo json_encode($this->doizer->knowError($result));
+				}
+				if ($result==true) {
+					//segunda imagen
+					if (isset($_SESSION['product_img2'])) {
+							$result = $this->master->insert('por_imagenes',array($pro_codigo['pro_codigo'],$_SESSION['product_img2']));
+							unset($_SESSION['product_img2']);
+							$_SESSION['message']="Registrado con exito";
+							echo json_encode(true);
+					}else{
+						echo json_encode(true);
+					}
+					unset($_SESSION['new_cropp_image']);
+				}else{
+					echo json_encode($this->doizer->knowError($result));
+				}
 			}else{
-				$_SESSION['messagge']=$this->doizer->knowError($result);
-				die('nada5');
-				header("Location: gestion-producto");
+				echo json_encode($this->doizer->knowError($result));
 			}
 	}
 
-	function colores(){
-				require_once("views/include/dashboard/header.php");
-     		require_once("views/modules/admin/products/product-color.php");
-     		require_once("views/include/dashboard/footer.php");
-	}
-	function coloresTallas(){
-		if (isset($_POST['colores'])   &&  isset($_POST['tallas'])) {
-			$colores = $_POST['colores'];
-			$tallas = $_POST['tallas'];
-		}else{
-			echo json_encode('Por favor selecciona al menos un color y una talla');
-			return;
-		}
-
-		foreach ($colores as $color) {
-				$result= $this->master->product->color_producto(array($color,$_SESSION['producto']));
-		}
-		foreach ($tallas as $talla) {
-			$result= $this->master->product->talla_producto(array($_SESSION['producto'],$talla));
-		}
-		if ($result==1) {
-			$_SESSION['messagge']='Registrado Exitosamente';
-			echo json_encode(true);
-		}else{
-			echo json_encode($this->doizer->knowError($result));
-		}
-	}
-	function updateColoresTallas(){
-		$result = $this->master->delete('talla_producto',array('pro_codigo',$_SESSION['update_pro']));
-		$result = $this->master->delete('color_producto',array('por_codigo',$_SESSION['update_pro']));
-		if (isset($_POST['colores'])   &&  isset($_POST['tallas'])) {
-			$colores = $_POST['colores'];
-			$tallas = $_POST['tallas'];
-		}else{
-			echo json_encode('Por favor selecciona al menos un color y una talla');
-			return;
-		}
-
-		foreach ($colores as $color) {
-			$result= $this->master->insert('color_producto',array($color,$_SESSION['update_pro']));
-		}
-		foreach ($tallas as $talla) {
-			$result= $this->master->insert('talla_producto',array($_SESSION['update_pro'],$talla));
-		}
-		if ($result==1) {
-			$_SESSION['messagge']='Registrado Exitosamente';
-			echo json_encode(true);
-		}else{
-			echo json_encode($this->doizer->knowError($result));
-		}
-	}
 
 	function delete(){
 		$data = $_POST['data'];
@@ -132,14 +93,16 @@ class ProductsController{
      		require_once("views/modules/admin/products/product-update.php");
      		require_once("views/include/dashboard/footer.php");
 	}
-	function viewUpdateTalCol(){
-				require_once("views/include/dashboard/header.php");
-     		require_once("views/modules/admin/products/tal-col-update.php");
-     		require_once("views/include/dashboard/footer.php");
-	}
+
 	function update(){
 		$data = $_POST['data'];
 		$result = $this->master->update('producto',array('pro_codigo',$_SESSION['update_pro']),$data,array('pro_codigo','pro_imagen'));
+		foreach ($colores as $color) {
+			$result= $this->master->insert('color_producto',array($color,$_SESSION['update_pro']));
+		}
+		foreach ($tallas as $talla) {
+			$result= $this->master->insert('talla_producto',array($_SESSION['update_pro'],$talla));
+		}
 		if ($result==true) {
 			$_SESSION['messagge']='Modificado Exitosamente';
 		}else{
