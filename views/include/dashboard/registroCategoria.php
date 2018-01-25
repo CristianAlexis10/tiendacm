@@ -5,15 +5,17 @@
         <div class="">
           <h2>Añadir categoria</h2>
         </div>
-          <form action="nueva-categoria" method="post" enctype="multipart/form-data">
-            <div class="frm-form">
+          <form action="nueva-categoria" method="post" enctype="multipart/form-data" class="">
+            <div class="">
               <label for="">categoria: </label>
               <input type="text" name="data[]">
             </div>
             <div class="frm-form">
               <input type="file" name="file" id="file">
             </div>
-          <button type="submit">guardar</button>
+            <div class="">
+              <button type="submit">guardar</button>
+            </div>
         </form>
       </div>
     </div>
