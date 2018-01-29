@@ -1,4 +1,24 @@
-  <div class="contenido">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="views/assets/css/reset.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="views/assets/css/dashboard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=lato|Anton|Roboto:300,400,700">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+    <link type="text/css" rel="stylesheet" href="views/assets/css/croppie.css"  media="screen,projection"/>
+    <script src="views/assets/js/multiple-select.js"></script>
+    <link type="text/css" rel="stylesheet" href="views/assets/css/multiple-select.css"  media="screen,projection"/>
+  </head>
+  <body>
+    <?php require_once("views/include/dashboard/topMenu.php"); ?>
+    <?php require_once("views/include/dashboard/navigator.php"); ?>
+    <section class="wrap--contenido">
+
+<div class="contenido">
     <h1>Gestion productos</h1>
 <?php
 if (isset($_SESSION['messagge'])) {
@@ -6,26 +26,26 @@ if (isset($_SESSION['messagge'])) {
         unset($_SESSION['messagge']);
   }?>
     <div class="wrap-form" id="reg-productos">
-      <form class="form-producto" action="guardar-producto" method="post" enctype="multipart/form-data">
+      <form class="form-producto" id="frmNewProduct">
       	<div class="caja">
           <label for="">nombre: </label>
-      		<input type="text" name="data[]" required>
+      		<input type="text" class="dataNewProd" required>
       	</div>
       	<div class="caja">
           <label for="">precio: </label>
-      		<input type="number" name="data[]" required>
+      		<input type="number" class="dataNewProd" required>
       	</div>
       	<div class="caja">
           <label for="">cantidad: </label>
-      		<input type="number" name="data[]" required>
+      		<input type="number" class="dataNewProd" required>
       	</div>
       	<div class="caja">
           <label for="">descripción: </label>
-      		<input type="text" name="data[]" required>
+      		<input type="text" class="dataNewProd" required>
       	</div>
       	<div class="caja">
           <label for="">categoria: </label>
-      		<select required name="data[]">
+      		<select required class="dataNewProd">
             <option value="">seleccionar categoria</option>
       			<?php
       				foreach ($this->master->selectAll('categoria') as $row) {?>
@@ -35,13 +55,39 @@ if (isset($_SESSION['messagge'])) {
       			?>
       		</select>
       	</div>
+        <div class="">
+          Tallas: <select multiple="multiple" id="selectMul" required>
+            <?php
+              foreach ($this->master->selectAll('talla') as $row) {?>
+                <option value="<?php echo $row['tal_codigo']?>"><?php echo $row['tal_talla'] ?></option>
+              <?php
+              }
+            ?>
+          </select>
+        </div>
+        <div class="">
+          Colores: <select multiple="multiple" id="selectMul2" required>
+            <?php
+              foreach ($this->master->selectAll('color') as $row) {?>
+                <option value="<?php echo $row['col_codigo']?>"><?php echo $row['col_color'] ?></option>
+              <?php
+              }
+            ?>
+          </select>
+        </div>
 
+        <div class="caja">
+          <div class="form-group Cambiar--img">
+           <div id="wrap-result"><img src="views/assets/img/defaultProfile.png" ></div>
+           <span class="" id="cropp-img">Añadir foto</span>
+         </div>
+          <div class="form-group Cambiar--img">
+           <div id="wrap-result2"><img src="views/assets/img/defaultProfile.png" ></div>
+           <span class="" id="cropp-img2">Añadir foto</span>
+         </div>
+        </div>
       	<div class="caja">
-          <label for="">imagen: </label>
-      		<input type="file" name="file">
-      	</div>
-      	<div class="caja">
-      		<button type="submit">Siguiente</button>
+      		<button type="submit">Registar</button>
       	</div>
       </form>
     </div>
@@ -81,4 +127,47 @@ if (isset($_SESSION['messagge'])) {
       </table>
     </div>
   </div>
+  <div id="img-product">
+      <div class="newMark--img">
+        <span id="closeImg">&times;</span>
+        <div id="uploadImage">
+          <div id="wrap-upload" style="width:300px"></div>
+          <input type="file" id="upload">
+          <button class="btn btn-success upload-result">Recortar Imagen</button>
+        </div>
+      </div>
+    </div>
+  <div id="img-product2">
+      <div class="newMark--img">
+        <span id="closeImg2">&times;</span>
+        <div id="uploadImage2">
+          <div id="wrap-upload2" style="width:300px"></div>
+          <input type="file" id="upload2">
+          <button class="btn btn-success upload-result2">Recortar Imagen</button>
+        </div>
+      </div>
+    </div>
+
+
+
 </div>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+<script src="views/assets/js/croppie.js"></script>
+<script>
+if (document.getElementById('selectMul')) {
+   $('#selectMul').multipleSelect({
+         placeholder: "Selecciona las tallas disponibles"
+     });
+   $('#selectMul2').multipleSelect({
+         placeholder: "Selecciona las colores disponibles"
+     });
+}
+</script>
+<script src="views/assets/js/cropp-product.js"></script>
+ <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="views/assets/js/main-admin.js"> </script>
+</section>
+</body>
+</html>

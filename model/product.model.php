@@ -12,7 +12,7 @@ class ProductModel extends MasterModel{
 
        public function updaCate($values){
            try {
-               $this->sql="UPDATE categoria SET cat_categ = ? , cat_estado = ? WHERE cat_codigo = ?";
+               $this->sql="UPDATE categoria SET cat_nombre = ? , cat_estado = ? WHERE cat_codigo = ?";
                $query=$this->pdo->prepare($this->sql);
                $query->execute($values);
                $result = true;

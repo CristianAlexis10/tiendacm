@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-12-2017 a las 20:53:19
+-- Tiempo de generación: 24-01-2018 a las 15:08:33
 -- Versión del servidor: 10.1.8-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -163,6 +163,7 @@ CREATE TABLE `acceso` (
 INSERT INTO `acceso` (`acc_token`, `usu_id`, `acc_contra`) VALUES
 ('014e4694d7376256832eff31ef3efb49', 15, '$2y$10$1o68uwEU5NFlCH3pSx7KU.z3gn567DGIJbDDiIpnf5LsMPORzVjcC'),
 ('01adb163751f819cb56e323785670957', 6, '$2y$10$Hl9HVC4KYCBQsgCSUPN0quaobvP0I/6T3l.OK1tXU.z13ToF0qX2S'),
+('4fc94a9051176d0133b76d74f6df6293', 17, '$2y$10$QcGaoFDm/giJV6hsCkQ5I.V/y6UFbNx3y49tejy6cOY2kHl0XOSqu'),
 ('665a565a47e732f7bf96e40eb2cfc226', 16, '$2y$10$WxfTypIQ1zLUcv46zyCAte6MnA3Zgv9XMIDKaIU7gA0qfcTZfmacu'),
 ('d5cf38ba4f7816b2e7a6515ecbdf9732', 9, '$2y$10$NsaGCqsAXw.5cRjOQMIvFe6xzYxL3u2KJ5w2s/sLTB9S/YbHvODX.'),
 ('f4b3cf3fc6dfec17fbdd2ac6977e7436', 3, '$2y$10$clVWgrdPMZulTJCoXlc1hu9EkB.QmuHe3Vuzmz0xTP2joDLysdzu.');
@@ -185,9 +186,10 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`cat_codigo`, `cat_nombre`, `cat_estado`, `cat_img`) VALUES
-(6, 'hola', 2, '0eef53d6dca2cb2441676e74a03b447a.jpg'),
-(8, '321', 1, '818131a0da8b1688b40e0196c1c0d967.JPG'),
-(9, 'sdf', 1, 'bb72790831f5d1cdfe130bb0ec7ef358.jpg');
+(12, 'Nada1', 1, '5379a8df871d3472f72856baf15cc94a.png'),
+(13, 'Nada2', 1, '3c5af9791f5f194319e3ae11180f6de8.png'),
+(14, 'Nada3', 1, '541c5b20154f841069f0a3e94c9ca777.png'),
+(15, 'Nada4', 1, '46bf352879e98007869cf46ace3d4c9c.png');
 
 -- --------------------------------------------------------
 
@@ -224,10 +226,8 @@ CREATE TABLE `color_producto` (
 --
 
 INSERT INTO `color_producto` (`col_codigo`, `por_codigo`) VALUES
-(2, 62),
-(2, 63),
-(2, 64),
-(1, 63);
+(1, 23),
+(2, 23);
 
 -- --------------------------------------------------------
 
@@ -318,6 +318,13 @@ CREATE TABLE `por_imagenes` (
   `img` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `por_imagenes`
+--
+
+INSERT INTO `por_imagenes` (`pro_codigo`, `img`) VALUES
+(23, '5de7b34ed89fc86e74fb567ff8b2b107.png');
+
 -- --------------------------------------------------------
 
 --
@@ -340,9 +347,7 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`pro_codigo`, `pro_nombre`, `pro_precio`, `pro_cant`, `pro_des`, `cat_codigo`, `pro_imagen`, `pro_estado`) VALUES
-(62, 'sa', 0, 12, '213', 8, '5b2d9d0bf4842cf95ce5536a4255cc6d.png', 'activo'),
-(63, '324', 234, 234, '324', 8, 'a6dfadc3b7bcf6f77f0d38b0fe8bd47d.JPG', 'activo'),
-(64, '34', 2342, 3424, '234', 6, '447a74a348ac93d8f691d760b9820e70.JPG', 'activo');
+(23, 'hola1', 876876, 6786786, '76786', 14, '035b3a5c31a974c5b8e4dce5adda873d.png', 'inactivo');
 
 -- --------------------------------------------------------
 
@@ -412,10 +417,8 @@ CREATE TABLE `talla_producto` (
 --
 
 INSERT INTO `talla_producto` (`pro_codigo`, `tal_codigo`) VALUES
-(62, 2),
-(63, 2),
-(64, 2),
-(63, 1);
+(23, 1),
+(23, 2);
 
 -- --------------------------------------------------------
 
@@ -464,7 +467,8 @@ INSERT INTO `usuario` (`usu_codigo`, `usu_nombre1`, `usu_apellido1`, `usu_apelli
 (6, 'julio', 'arias', NULL, '', 'nose@gds.com', 2, 1, 0, 1, 0),
 (9, 'jufdsgfs', 'gdsags', NULL, '', 'gsag@gsag', 2, 1, 0, 1, 0),
 (15, 'dsf', 'dsf', NULL, '', 's@s.com', 2, 1, 0, 1, 0),
-(16, 'Alexis', 'lopera', NULL, '', 'yo@yo.com', 1, 1, 0, 1, 0);
+(16, 'Alexis', 'lopera', NULL, '', 'yo@yo.com', 1, 1, 0, 1, 0),
+(17, 'cristian', 'lopera', NULL, '', 'alexis__1020@hotmail.com', 1, 1, 0, 1, 0);
 
 --
 -- Índices para tablas volcadas
@@ -541,6 +545,7 @@ ALTER TABLE `por_imagenes`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`pro_codigo`),
+  ADD UNIQUE KEY `pro_nombre` (`pro_nombre`),
   ADD KEY `cat_codigo` (`cat_codigo`);
 
 --
@@ -595,7 +600,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `cat_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `cat_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `color`
 --
@@ -610,12 +615,12 @@ ALTER TABLE `noticia`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `ped_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ped_codigo` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `pro_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `pro_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT de la tabla `talla`
 --
@@ -625,7 +630,7 @@ ALTER TABLE `talla`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `usu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `usu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- Restricciones para tablas volcadas
 --
