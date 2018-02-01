@@ -89,9 +89,7 @@ class ProductsController{
 		}
 	}
 	function viewUpdate(){
-		require_once("views/include/dashboard/header.php");
      		require_once("views/modules/admin/products/product-update.php");
-     		require_once("views/include/dashboard/footer.php");
 	}
 
 	function update(){
