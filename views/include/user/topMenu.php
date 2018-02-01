@@ -1,24 +1,29 @@
 <header>
-  <div class="menu--top">
-    <div class="wrap--logo">
-     <a href="inicio"><img src="views/assets/img/logo_blanco.png" class="img"></a>
-    </div>
-    <div class="wrap-cajaMenu" id="caja--menu">
-        <ul class="caja--menu">
-          <a href="#" class="catalogo"><li>Catalogo</li></a>
-          <div class="categoria-menu">
-            <div class="categorias-items">
-              <h2><a href="cliente">Todos</a></h2>
-            <?php foreach ($this->master->selectAll('categoria') as $row ) {?>
-                <h2><a href="catalogo-<?php echo $row['cat_nombre'] ?>"><?php echo $row['cat_nombre'] ?></a></h2>
-            <?php } ?>
-            </div>
-          </div>
-          <a href="videos"><li>Videos</li></a>
-          <a href="noticias"><li>Noticias</li></a>
-          <li id="modal-login">Iniciar Sesion / Registrarse</li>
-        </ul>
+  <nav class="wrapTopMenu">
+    <div class="wrapLogo">
+      <div class="logo">
+        <div class="ribbon">
+          <a href="inicio"><img src="views/assets/img/logo_blanco.png" class="img"></a>
+        </div>
       </div>
+    </div>
+    <ul class="topMenu">
+      <div class="itemMenu">
+        <div class="dropdown">
+          <h2 class="drop">catalogo</h2>
+          <div class="dropContent">
+            <a href="catalogo">Todos</a>
+            <?php foreach ($this->master->selectAll('categoria') as $row ) {?>
+                <a href="catalogo-<?php echo $row['cat_nombre'] ?>"><?php echo $row['cat_nombre'] ?></a>
+            <?php } ?>
+          </div>
+        </div>
+      </div>
+      <a href="videos"><li class="itemMenu">Videos</li></a>
+      <a href="noticias"><li class="itemMenu">noticias</li></a>
+      <li id="modal-login" class="itemMenu">Iniciar Sesion / Registrarse</li>
+    </ul>
+  </nav>
     <div class="menu--mobile">
       <div class="icon">
           <i class="fa fa-bars" id="menu-res"></i>
