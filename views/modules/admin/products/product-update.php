@@ -19,33 +19,41 @@
     <section class="wrap--contenido">
 <?php
 $data = $this->master->selectBy('producto',array('pro_codigo',$_GET['data']));
-$colors = $this->master->selectAllBy('color_producto',array('pro_codigo',$_GET['data']));
+//Colores
+$colors = $this->master->selectAllBy('color_producto',array('por_codigo',$_GET['data']));
 $colors_real;
 foreach ($colors as $row) {
 		$colors_real[]=$row['col_codigo'];
 }
+//Tallas
+$tallas = $this->master->selectAllBy('talla_producto',array('pro_codigo',$_GET['data']));
+$tallas_real;
+foreach ($tallas as $row) {
+		$tallas_real[]=$row['tal_codigo'];
+}
 $_SESSION['update_pro']=$_GET['data'];
 ?>
 <div class="contenido">
-	<form class="form-producto" action="guardar-modificacion-producto" method="post" >
+	<form class="form-producto" id="frmUpdatePro">
       	<div class="caja">
           <label for="">nombre: </label>
-      		<input type="text" name="data[]"  value="<?php echo $data['pro_nombre']?>" required>
+      		<input type="text" class="dataUpdate"  value="<?php echo $data['pro_nombre']?>" required>
       	</div>
       	<div class="caja">
           <label for="">precio: </label>
-      		<input type="text" name="data[]" value="<?php echo $data['pro_precio']?>" required>
+      		<input type="text" class="dataUpdate" value="<?php echo $data['pro_precio']?>" required>
       	</div>
       	<div class="caja">
           <label for="">cantidad: </label>
-      		<input type="number" name="data[]"  value="<?php echo $data['pro_cant']?>" required>
+      		<input type="number" class="dataUpdate"  value="<?php echo $data['pro_cant']?>" required>
       	</div>
       	<div class="caja">
           <label for="">descripción: </label>
-      		<input type="text" name="data[]" value="<?php echo $data['pro_des']?>" required>
+      		<input type="text" class="dataUpdate" value="<?php echo $data['pro_des']?>" required>
       	</div>
 				<div class="">
-					<select id="selectMul" multiple>
+                    Colores:
+					<select id="selectMul" multiple >
 						<?php
 							foreach ($this->master->selectAll('color') as $row) {
 								if (in_array($row['col_codigo'],$colors_real)) {?>
@@ -58,9 +66,24 @@ $_SESSION['update_pro']=$_GET['data'];
 						?>
 					</select>
 				</div>
+				<div class="">
+                    Tallas:
+					<select id="selectMul2" multiple >
+						<?php
+							foreach ($this->master->selectAll('talla') as $row) {
+								if (in_array($row['tal_codigo'],$tallas_real)) {?>
+									<option value="<?php echo $row['tal_codigo']?>" selected><?php echo $row['tal_talla'] ?></option>
+								<?php }else{ ?>
+								<option value="<?php echo $row['tal_codigo']?>"><?php echo $row['tal_talla'] ?></option>
+							<?php
+								}
+							}
+						?>
+					</select>
+				</div>
       	<div class="caja">
           <label for="">categoria: </label>
-      		<select required name="data[]">
+      		<select required class="dataUpdate">
             <option value="">seleccionar categoria</option>
       			<?php
       				foreach ($this->master->selectAll('categoria') as $row) {
@@ -75,26 +98,23 @@ $_SESSION['update_pro']=$_GET['data'];
       		</select>
       	</div>
       	<div class="caja">
-      		estado:<select name="data[]">
+      		estado:<select class="dataUpdate">
       			<?php
       				if ($data['pro_estado']=="activo") {?>
       					<option value="activo" selected>Activo</option>
       					<option value="inactivo">Inactivo</option>
       				<?php }else{?>
       					<option value="activo" >Activo</option>
-      					<option value="inactivo" >Inactivo</option>
       					<option value="inactivo" selected>Inactivo</option>
       				<?php } ?>
       		</select>
       	</div>
-
-
       	<div class="caja">
       		<button type="submit">Guardar</button>
       	</div>
       </form>
       <div class="more">
-      	<a href="modificar-col-talla">Imagenes</a>
+      	<a href="cambiar-imagenes">Imagenes</a>
       </div>
 </div>
 </div>
@@ -112,7 +132,6 @@ if (document.getElementById('selectMul')) {
      });
 }
 </script>
-<script src="views/assets/js/cropp-product.js"></script>
  <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="views/assets/js/main-admin.js"> </script>
 </section>

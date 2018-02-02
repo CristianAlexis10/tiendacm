@@ -94,19 +94,27 @@ class ProductsController{
 
 	function update(){
 		$data = $_POST['data'];
-		$result = $this->master->update('producto',array('pro_codigo',$_SESSION['update_pro']),$data,array('pro_codigo','pro_imagen'));
-		foreach ($colores as $color) {
-			$result= $this->master->insert('color_producto',array($color,$_SESSION['update_pro']));
-		}
-		foreach ($tallas as $talla) {
-			$result= $this->master->insert('talla_producto',array($_SESSION['update_pro'],$talla));
-		}
+		//modificar en la tabla producto
+		$result = $result = $this->master->update('producto',array('pro_codigo',$_SESSION['update_pro']),array($data[0],$data[1],$data[2],$data[3],$data[4],$data[5]),array('pro_codigo','pro_imagen'));
 		if ($result==true) {
-			$_SESSION['messagge']='Modificado Exitosamente';
+			//guardar colores
+			$result = $this->master->delete("color_producto",array("por_codigo",$_SESSION['update_pro']));
+			foreach ($data[6] as $color) {
+				$result= $this->master->insert('color_producto',array($color,$_SESSION['update_pro']));
+			}
+			//guardar tallas
+			$result = $this->master->delete("talla_producto",array("pro_codigo",$_SESSION['update_pro']));
+			foreach ($data[7] as $talla) {
+				$result= $this->master->insert('talla_producto',array($_SESSION['update_pro'],$talla));
+			}
+			echo json_encode("Modificación Exitosa");
 		}else{
-			$_SESSION['messagge']=$this->doizer->knowError($result);
+			echo json_encode($this->doizer->knowError($result));
 		}
-		header("Location: gestion-producto");
+
+	}
+	function viewImages(){
+		require_once "views/modules/admin/products/view-img.php";
 	}
 
 }
