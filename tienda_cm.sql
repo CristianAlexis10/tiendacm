@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-01-2018 a las 15:08:33
--- Versión del servidor: 10.1.8-MariaDB
--- Versión de PHP: 5.6.14
+-- Tiempo de generación: 08-02-2018 a las 22:45:49
+-- Versión del servidor: 10.1.19-MariaDB
+-- Versión de PHP: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -127,6 +127,16 @@ BEGIN
 UPDATE categoria SET cat_img = img WHERE cat_codigo = cod;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `paginasTodosProductos` (IN `ini` INT, IN `fin` INT)  NO SQL
+BEGIN
+SELECT * FROM producto LIMIT ini , fin ;
+end$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `productosBycategoria` (IN `cat` VARCHAR(50), IN `ini` INT, IN `fin` INT)  NO SQL
+BEGIN
+SELECT * FROM categoria INNER JOIN producto ON categoria.cat_codigo=producto.cat_codigo  WHERE categoria.cat_nombre =  cat LIMIT ini , fin;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `tallas` (IN `cod` INT(11))  NO SQL
 BEGIN 
 SELECT * FROM  talla_producto INNER JOIN talla ON talla_producto.tal_codigo = talla.tal_codigo WHERE talla_producto.pro_codigo = cod;
@@ -226,8 +236,15 @@ CREATE TABLE `color_producto` (
 --
 
 INSERT INTO `color_producto` (`col_codigo`, `por_codigo`) VALUES
-(1, 23),
-(2, 23);
+(1, 24),
+(1, 25),
+(2, 25),
+(1, 26),
+(2, 26),
+(1, 27),
+(2, 27),
+(1, 28),
+(2, 28);
 
 -- --------------------------------------------------------
 
@@ -323,7 +340,7 @@ CREATE TABLE `por_imagenes` (
 --
 
 INSERT INTO `por_imagenes` (`pro_codigo`, `img`) VALUES
-(23, '5de7b34ed89fc86e74fb567ff8b2b107.png');
+(25, 'c924e4dd444867bad12ce1db57ef2286.png');
 
 -- --------------------------------------------------------
 
@@ -347,7 +364,11 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`pro_codigo`, `pro_nombre`, `pro_precio`, `pro_cant`, `pro_des`, `cat_codigo`, `pro_imagen`, `pro_estado`) VALUES
-(23, 'hola1', 876876, 6786786, '76786', 14, '035b3a5c31a974c5b8e4dce5adda873d.png', 'inactivo');
+(24, 'camisa', 1000, 8, 'des', 14, '89f8d60ec85a9798f19c1eff02d950fb.png', 'inactivo'),
+(25, 'nada', 324, 34, '324', 13, 'a98d70f681601cf12f891f6c9a3a1878.png', 'activo'),
+(26, 'fgfd', 435, 435, '43543', 14, '64b52215dadbd283e6c17f7d31af9f28.png', 'activo'),
+(27, 'asd', 324, 2344, '342', 13, '424373a96e0df49cfac85ff2644b246c.png', 'activo'),
+(28, 'sad', 324, 34, '324', 14, '3dd90c125c50926e1cf3b51ec39712d1.png', 'activo');
 
 -- --------------------------------------------------------
 
@@ -417,8 +438,15 @@ CREATE TABLE `talla_producto` (
 --
 
 INSERT INTO `talla_producto` (`pro_codigo`, `tal_codigo`) VALUES
-(23, 1),
-(23, 2);
+(24, 1),
+(25, 1),
+(25, 2),
+(26, 1),
+(26, 2),
+(27, 1),
+(27, 2),
+(28, 1),
+(28, 2);
 
 -- --------------------------------------------------------
 
@@ -620,7 +648,7 @@ ALTER TABLE `pedidos`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `pro_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `pro_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT de la tabla `talla`
 --
