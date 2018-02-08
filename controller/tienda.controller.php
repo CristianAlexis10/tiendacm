@@ -8,10 +8,15 @@ Class TiendaController{
       $this->doizer = new DoizerController;
     }
     public function mainPage(){
-      $consulta = $this->master->selectAll('producto');
-      require_once "views/include/user/header.php";
-      require_once "views/modules/user/tienda/tienda.php";
-      require_once "views/include/user/footer.php";
+        if (isset($_GET['categoria'])) {
+            require_once "views/include/user/header.php";
+            require_once "views/modules/user/tienda/products-category.php";
+            require_once "views/include/user/footer.php";
+        }else{
+            require_once "views/include/user/header.php";
+            require_once "views/modules/user/tienda/tienda.php";
+            require_once "views/include/user/footer.php";
+        }
     }
   function gestionar(){
     if (isset($_SESSION['USER']['ROL'])) {

@@ -5,8 +5,10 @@ RewriteRule ^dashboard$ index.php?c=admin&a=dashboard
 
 #CATALOGO
 RewriteRule ^catalogo$ index.php?c=tienda
-RewriteRule ^catalogo-(\w+)$ index.php?c=tienda&categoria=$1
-#RewriteRule ^catalogo-(\w+)$ index.php?c=tienda&pagina=$1
+RewriteRule ^ver-(\w+)$ index.php?c=tienda&categoria=$1
+RewriteRule ^catalogo-pag-(\w+)$ index.php?c=tienda&pagina=$1
+
+RewriteRule ^catalogo-(\w+)-(\w+)$ index.php?c=tienda&categoria=$1&pagina=$2
 
 #VIDEOS
 RewriteRule ^videos$ index.php?c=videos

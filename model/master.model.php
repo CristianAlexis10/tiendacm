@@ -48,6 +48,7 @@ require_once "conn.model.php";
 require_once "login.model.php";
 require_once "product.model.php";
 require_once "user.model.php";
+require_once "procedure.model.php";
 
 //añadir todas las clases a la variable main
 function masterModel(){
@@ -55,6 +56,7 @@ function masterModel(){
   $main->login = new LoginModel;
   $main->product = new ProductModel;
   $main->user = new UserModel;
+  $main->procedure = new ProcedureModel;
   return $main;
 }
 class MasterModel{
