@@ -7,7 +7,7 @@
 <div class="contenido">
   <?php
        //total de elementos por cada pagina
-      $elementosPagina = 3;
+      $elementosPagina = 2;
       //saber si existe la pagina
       if (isset($_GET["pagina"])) {
         $pagina = $_GET["pagina"];
@@ -16,14 +16,9 @@
          $inicio = 0;
          $pagina = 1;
       }
-      if (isset($_GET['categoria'])) {
-          $consulta = $this->master->procedure->PRByAll("productosBycategoria",array($_GET['categoria']));
-          $categoria = $this->master->selectBy("categoria",array("cat_nombre",$_GET['categoria']));
-          $num_total_registros = $this->master->selectCount('producto','cat_codigo',$_GET['categoria'])[0];
-      }else{
-          $consulta = $this->master->procedure->PRByAll("paginasTodosProductos",array($inicio,$elementosPagina));
-          $num_total_registros = $this->master->selectAllCount('producto')[0];
-      }
+        $consulta = $this->master->procedure->PRByAll("productosBycategoria",array($_GET['categoria'],$inicio,$elementosPagina));
+        $categoria = $this->master->selectBy("categoria",array("cat_nombre",$_GET['categoria']));
+        $num_total_registros = $this->master->selectCount('producto','cat_codigo',$categoria['cat_codigo'])[0];
 
       if ($num_total_registros==0) {
          echo "No hay resultados";
@@ -55,7 +50,7 @@
              <?php
              if ($total_paginas > 1) {
                  if ($pagina != 1){
-                     echo '<a href="catalogo-pag-'.($pagina-1).'"><i class="fa fa-arrow-left"></i></a>';
+                     echo '<a href="catalogo-'.$_GET['categoria'].'-'.($pagina-1).'"><i class="fa fa-arrow-left"></i></a>';
                  }
                  for ($i=1;$i<=$total_paginas;$i++) {
                      if ($pagina == $i){
@@ -63,12 +58,12 @@
                          echo $pagina;
                      }else{
                          //si el índice no corresponde con la página mostrada actualmente,
-                         echo '  <a href="catalogo-pag-'.$i.'">'.$i.'</a>  ';
+                         echo '  <a href="catalogo-'.$_GET['categoria'].'-'.$i.'">'.$i.'</a>  ';
                          //coloco el enlace para ir a esa página
                      }
                  }
                  if ($pagina != $total_paginas){
-                     echo '<a href="catalogo-pag-'.($pagina+1).'"><i class="fa fa-arrow-right"></i></a>';
+                     echo '<a href="catalogo-'.$_GET['categoria'].'-'.($pagina+1).'"><i class="fa fa-arrow-right"></i></a>';
                  }
              }
              ?>
@@ -112,48 +107,4 @@
          </div>
      <?php }
         }
-<<<<<<< HEAD
-  ?>
-
-
-
-  <div class="fondoModal"></div>
-  <div class="wrap-modalDetalle">
-    <div class="modalDetalle">
-      <div class="wrap-image">
-        <div class="image">
-            <img src="" id="imgModal" alt="">
-        </div>
-      </div>
-      <div class="wrap-detalle">
-        <div class="nombre">
-          <h2 id="nomModal"></h2>
-        </div>
-        <div class="descripcion">
-          <span id="desModal"></span>
-        </div>
-        <div class="precio">
-          <span id="preModal">$ </span>
-        </div>
-        <div class="talla">
-          <select class="" name="" id="selectModal">
-            <option value="">selecionar talla</option>
-          </select>
-        </div>
-        <div class="color">
-          <select class="" name="" id="selectTallasModal">
-            <option value="">seleccionar color</option>
-          </select>
-        </div>
-        <div class="cantidad">
-          <span>-</span>
-          <span>0</span>
-          <span>+</span>
-        </div>
-        <button type="button" name="button" class="abrirEsaWea">añadir al carrito</button>
-      </div>
-    </div>
-  </div>
-=======
 ?>
->>>>>>> de434b7ad2111cc820ea9ac308b7493838a0b6fe
