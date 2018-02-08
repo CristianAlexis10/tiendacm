@@ -1,6 +1,6 @@
-<nav class="top_menu_dash">
-  <ul>
-    <li><a href="dashboard"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-    <li><a href="#" id="cerrar_session"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+<nav class="wrapTopMenu">
+  <ul class="topMenu">
+    <a href="dashboard"><li><i class="fas fa-home"></i></li></a>
+    <a href="#" id="cerrar_session"><li><i class="fas fa-sign-out-alt"></i></li></a>
   </ul>
 </nav>

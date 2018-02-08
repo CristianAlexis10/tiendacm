@@ -50,9 +50,7 @@ if (isset($_SESSION['messagge'])) {
         </form>
       </div>
     </div>
-
 </div>
-
 <div id="img-product">
     <div class="newMark--img">
       <span id="closeImg">&times;</span>

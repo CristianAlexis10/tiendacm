@@ -2,58 +2,66 @@
 body{
   background: #dfdfdf;
 }
-.top_menu_dash{
+.wrapTopMenu{
   position: fixed;
-  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 1;
   width: 100%;
   height: 50px;
-  /* background: #bdbdbd; */
-  background: #000;
-  left: 250px;
+  background: #2b3845;
 }
-.top_menu_dash ul{
-  position: absolute;
-  top: 7px;
-  right: 250px;
-  display: flex;
-  font-size: 20px;
-}
-.top_menu_dash ul li{
-  padding: 0px 10px;
-}
-.top_menu_dash ul li a i{
-  /* color: #000; */
-  color: #adadad;
-}
-.left_menu_dash{
-  position: fixed;
-  z-index: 2;
+.topMenu{
+  margin-right: 10px;
   height: 100%;
-  width: 250px;
-  /* background: #ffffff; */
-  background: #333333;
-  font-family: 'lato',sans-serif;;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
-.left_menu_dash ul{
-  font-size: 18px;
-  padding-top: 5px;
+.topMenu a li{
+  margin: 10px;
+  font-size: 20px;
+  color: #ffffff;
 }
-.left_menu_dash ul li{
-  padding: 20px 10px;
-  margin-bottom: 5px;
-  color: #fff;
+
+.leftMenu{
+  z-index: 2;
+  position: fixed;
+  display: grid;
+  grid-template-rows: 100px auto;
+  width: 100px;
+  height: 100vh;
+  background: #2b3845;
 }
-.imagen img{
-  width: 230px;
-  padding: 30px 7px;
+.imgLeftMenu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #35485b;
 }
-.left_menu_dash ul li:hover{
-  /* background: #dfdfdf; */
-  background: #212121;
-  transition: .3s;
+.menu a li i{
+  color: #ffffff;
+  font-size: 30px;
 }
-.top_menu_dash ul li a i:hover{
-  color:  #f1f1f1;
+.item{
+  margin: 10px;
+  color:#ffffff;
+}
+.menu a li{
+  width: 100%;
+  padding: 15px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: "Roboto";
+  color: #ffffff;
+  text-transform: capitalize;
+}
+.menu a li:hover{
+  background: #35485b;
 }
 /*modal de registro de categoria*/
 .fondo{
@@ -103,9 +111,9 @@ body{
 /*contenedores de la informacion dashboard*/
 .contenido{
   position: absolute;
-  left: 300px;
+  left: 150px;
   top: 100px;
-  width: 74%;
+  width: 86%;
   min-height: 150px;
   background: #ffffff;
   border-radius: 3px;
@@ -187,43 +195,86 @@ body{
 }
 /*gestion de los productos*/
 .wrap-form{
-  display: block;
-  position: relative;
-  width: 50%;
-  margin-left: 25%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 .form-producto{
-  margin: 10px;
-  padding: 10px;
+  width: 90%;
+  display: grid;
+  grid-template-areas:
+  "nomPro prePro"
+  "canPro desPro"
+  "catPro catPro"
+  "colPro talPro"
+  "imgPro imgPro2"
+  "regPro regPro";
+  font-family: "Lato";
+  grid-template-rows: 50px 50px 50px 50px auto 50px;
 }
-.caja label{
-  position: absolute;
-  font-size: 18px;
-  font-family: 'lato';
-  text-align: center;
+.regProdNom{
+  grid-area: nomPro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.caja input, .caja select{
-  margin: 20px 0px;
-  width: 95%;
-  outline: none;
-  height: 20px;
+.regProdPre{
+  grid-area: prePro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.caja button{
-  font-size: 18px;
-  font-family: 'lato';
-  position: relative;
-  margin: 0px 155px;
-  padding: 5px 40px;
-  background: #c6c6c6;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
+.regProdCan{
+  grid-area: canPro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.regProdDes{
+  grid-area: desPro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.regProdCat{
+  grid-area: catPro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.regProdTal{
+  grid-area: talPro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.regProdCol{
+  grid-area: colPro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.regProdImg{
+  grid-area: imgPro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.regProdImg2{
+  grid-area: imgPro2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.regProdReg{
+  grid-area: regPro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /*estilos de visualizacion de los productos */
-.wrap-produ{
-  display: block;
-  padding: 10px;
-}
+
 .wrap-produ table{
   width: 100%;
 }
@@ -238,5 +289,4 @@ table,th,tr,thead,tbody,td{
   top: 10px;
   padding: 10px 40px;
   cursor: pointer;
-  /*outline: none;*/
 }

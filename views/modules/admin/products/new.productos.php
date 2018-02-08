@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="views/assets/css/dashboard.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=lato|Anton|Roboto:300,400,700">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
     <link type="text/css" rel="stylesheet" href="views/assets/css/croppie.css"  media="screen,projection"/>
     <script src="views/assets/js/multiple-select.js"></script>
@@ -27,23 +28,23 @@ if (isset($_SESSION['messagge'])) {
   }?>
     <div class="wrap-form" id="reg-productos">
       <form class="form-producto" id="frmNewProduct">
-      	<div class="caja">
+      	<div class="regProdNom">
           <label for="">nombre: </label>
       		<input type="text" class="dataNewProd" required>
       	</div>
-      	<div class="caja">
+      	<div class="regProdPre">
           <label for="">precio: </label>
       		<input type="number" class="dataNewProd" required>
       	</div>
-      	<div class="caja">
+      	<div class="regProdCan">
           <label for="">cantidad: </label>
       		<input type="number" class="dataNewProd" required>
       	</div>
-      	<div class="caja">
+      	<div class="regProdDes">
           <label for="">descripción: </label>
       		<input type="text" class="dataNewProd" required>
       	</div>
-      	<div class="caja">
+      	<div class="regProdCat">
           <label for="">categoria: </label>
       		<select required class="dataNewProd">
             <option value="">seleccionar categoria</option>
@@ -55,8 +56,9 @@ if (isset($_SESSION['messagge'])) {
       			?>
       		</select>
       	</div>
-        <div class="">
-          Tallas: <select multiple="multiple" id="selectMul" required>
+        <div class="regProdTal">
+          <label>Tallas:</label>
+          <select multiple="multiple" id="selectMul" required>
             <?php
               foreach ($this->master->selectAll('talla') as $row) {?>
                 <option value="<?php echo $row['tal_codigo']?>"><?php echo $row['tal_talla'] ?></option>
@@ -65,8 +67,9 @@ if (isset($_SESSION['messagge'])) {
             ?>
           </select>
         </div>
-        <div class="">
-          Colores: <select multiple="multiple" id="selectMul2" required>
+        <div class="regProdCol">
+          <label>Colores: </label>
+          <select multiple="multiple" id="selectMul2" required>
             <?php
               foreach ($this->master->selectAll('color') as $row) {?>
                 <option value="<?php echo $row['col_codigo']?>"><?php echo $row['col_color'] ?></option>
@@ -76,21 +79,24 @@ if (isset($_SESSION['messagge'])) {
           </select>
         </div>
 
-        <div class="caja">
+        <div class="regProdImg">
           <div class="form-group Cambiar--img">
            <div id="wrap-result"><img src="views/assets/img/defaultProfile.png" ></div>
            <span class="" id="cropp-img">Añadir foto</span>
          </div>
+       </div>
+       <div class="regProdImg2">
           <div class="form-group Cambiar--img">
-           <div id="wrap-result2"><img src="views/assets/img/defaultProfile.png" ></div>
-           <span class="" id="cropp-img2">Añadir foto</span>
-         </div>
+            <div id="wrap-result2"><img src="views/assets/img/defaultProfile.png" ></div>
+            <span class="" id="cropp-img2">Añadir foto</span>
+          </div>
         </div>
-      	<div class="caja">
+      	<div class="regProdReg">
       		<button type="submit">Registar</button>
       	</div>
       </form>
     </div>
+
     <div class="wrap-produ" id="list-productos">
       <table class="datatable">
         <thead>
@@ -147,21 +153,16 @@ if (isset($_SESSION['messagge'])) {
         </div>
       </div>
     </div>
-
-
-
 </div>
-
-
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
 <script src="views/assets/js/croppie.js"></script>
 <script>
 if (document.getElementById('selectMul')) {
    $('#selectMul').multipleSelect({
-         placeholder: "Selecciona las tallas disponibles"
+         placeholder: "Tallas"
      });
    $('#selectMul2').multipleSelect({
-         placeholder: "Selecciona las colores disponibles"
+         placeholder: "Colores"
      });
 }
 </script>

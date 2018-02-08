@@ -1,23 +1,30 @@
 <header>
-  <div class="menu--top">
-    <div class="wrap--logo">
-     <a href="cliente"><img src="views/assets/img/logo_blanco.png" class="img"></a>
-    </div>
-    <ul class="caja--menu">
-      <a href="cliente" class="catalogo"><li>Catalogo</li></a>
-      <div class="categoria-menu">
-        <div class="categorias-items">
-          <h2><a href="cliente">Todos</a></h2>
-        <?php foreach ($this->master->selectAll('categoria') as $row ) {?>
-          <h2><a href="catalogo-<?php echo $row['cat_nombre'] ?>"><?php echo $row['cat_nombre'] ?></a></h2>
-        <?php } ?>
+  <div class="wrapTopMenu">
+    <div class="wrapLogo">
+      <div class="logo">
+        <div class="ribbon">
+          <a href="inicio"><img src="views/assets/img/logo_blanco.png" class="img"></a>
         </div>
       </div>
-      <a href="videos"><li>Videos</li></a>
-      <a href="noticias"><li>Noticias</li></a>
-      <a href="#"><li><a href="mi-perfil"><?php echo $_SESSION['USER']['NAME']; ?></a></li></a>
-      <li><a href="finalizar-sesion"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
-      <li id="btnCarrito"><i class="fa fa-shopping-cart" aria-hidden="true"></i></li>
+    </div>
+    <ul class="topMenuLogeado">
+      <div class="itemMenu">
+        <div class="dropdown">
+          <h2 class="drop">catalogo</h2>
+          <div class="dropContent">
+            <a href="catalogo">Todos</a>
+            <?php foreach ($this->master->selectAll('categoria') as $row ) {?>
+                <a href="catalogo-<?php echo $row['cat_nombre'] ?>"><?php echo $row['cat_nombre'] ?></a>
+            <?php } ?>
+          </div>
+        </div>
+      </div>
+      <a href="videos"><li  class="itemMenu">Videos</li></a>
+      <a href="noticias"><li  class="itemMenu">Noticias</li></a>
+      <li id="btnCarrito" class="itemMenu"><i class="fa fa-shopping-cart" aria-hidden="true"></i></li>
+      <li class="itemMenu"><a href="mi-perfil"><?php echo $_SESSION['USER']['NAME']; ?></a></li>
+      <li class="itemMenu"><a href="finalizar-sesion"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
     </ul>
   </div>
+</div>
 </header>
