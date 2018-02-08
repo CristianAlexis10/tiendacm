@@ -119,13 +119,13 @@ if (isset($_SESSION['messagge'])) {
                 <td><?php echo $row['pro_cant']; ?></td>
                 <td><?php echo $row['pro_des']; ?></td>
                 <td>
-                    <a href="moficar-producto-<?php echo $row['pro_codigo']; ?>"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+                    <a href="moficar-producto-<?php echo $row['pro_codigo']; ?>"><i class="fas fa-sync"></i></a>
 
                         <a href="#" onclick="return confirmDelete(
                             <?php
                                 echo $row['pro_codigo'];
                             ?>
-                            )"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                           )"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
           <?php } ?>

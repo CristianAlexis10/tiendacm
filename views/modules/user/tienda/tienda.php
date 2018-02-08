@@ -79,12 +79,7 @@
     <div class="modalDetalle">
       <div class="wrap-image">
         <div class="image">
-          <!-- <div class="img-principal"> -->
             <img src="" id="imgModal" alt="">
-          <!-- </div>
-          <div class="img-extra">
-
-          </div> -->
         </div>
       </div>
       <div class="wrap-detalle">

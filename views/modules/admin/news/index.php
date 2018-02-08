@@ -1,3 +1,3 @@
 <div class="contenido" id="cat-conte">
-
-</div>  
+  <h1>Gestion de noticias</h1>
+</div>

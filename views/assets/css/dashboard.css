@@ -52,6 +52,7 @@ body{
 .menu a li{
   width: 100%;
   padding: 15px 0px;
+  margin: 5px 0px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -157,6 +158,7 @@ body{
   border: 1px solid #c6c6c6;
   color: #000;
   border-radius: 3px;
+  box-shadow: 0px 1px 15px -5px black;
 }
 .nameCat{
   grid-area: nameCat;
@@ -274,7 +276,9 @@ body{
   align-items: center;
 }
 /*estilos de visualizacion de los productos */
-
+.wrap-produ{
+  margin: 15px;
+}
 .wrap-produ table{
   width: 100%;
 }
@@ -288,5 +292,92 @@ table,th,tr,thead,tbody,td{
   right: 10px;
   top: 10px;
   padding: 10px 40px;
+  cursor: pointer;
+}
+td a i{
+  color: #000;
+}
+/* estilo de galeria de videos dash */
+.wrapVideos{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3,378px);
+  grid-gap: 10px;
+  margin: 10px;
+}
+.itemVideo{
+  display: grid;
+  grid-template-areas:
+  "video video"
+  "namVideo btnEdit"
+  "namVideo btnDelete";
+  grid-template-rows: 300px 50px 50px;
+  grid-template-columns: auto 50px;
+  box-shadow: 0px 1px 15px -5px black;
+}
+.video{
+  grid-area: video;
+  z-index: 2;
+  height: 100%;
+  border: 1px solid #c6c6c6;
+  border-radius: 3px 3px 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  color: #888686;
+  background: black;
+  cursor: pointer;
+}
+/* .video:hover{
+  color: #535252;
+  background: #f1f1f1;
+} */
+.nameVideo h2{
+  margin: 10px;
+  font-family: "roboto";
+}
+.nameVideo{
+  grid-area: namVideo;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-left: 1px solid #c6c6c6;
+  border-bottom: 1px solid #c6c6c6;
+  border-right: 1px solid #c6c6c6;
+  border-radius: 0px 0px 0px 3px;
+}
+.btnEdit{
+  grid-area: btnEdit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #c6c6c6;
+  cursor: pointer;
+}
+.btnDelete{
+  grid-area: btnDelete;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #c6c6c6;
+  border-right: 1px solid #c6c6c6;
+  border-bottom: 1px solid #c6c6c6;
+  border-radius: 0px 0px 3px 0px;
+  cursor: pointer;
+}
+.btnEdit:hover, .btnDelete:hover{
+  background: #f1f1f1;
+}
+.itemVideo:nth-last-child(1){
+  border-radius: 3px;
+  border: 1px solid #c6c6c6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "lato";
+  text-transform: uppercase;
+  font-size: 30px;
   cursor: pointer;
 }

@@ -1,6 +1,6 @@
 <nav class="leftMenu">
   <div class="imgLeftMenu">
-    <img src="views/assets/img/logo_blanco.png">
+    <a href="dashboard"><img src="views/assets/img/logo_blanco.png"></a>
   </div>
   <div class="wrapMenu">
     <ul class="menu">
