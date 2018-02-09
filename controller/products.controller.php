@@ -38,9 +38,18 @@ class ProductsController{
 
 		if (isset($_SESSION['new_cropp_image'])) {
 					$data[]=$_SESSION['new_cropp_image'];
+					unset($_SESSION['new_cropp_image']);
 		}else{
-			echo json_encode('por favor selecciona una imagen');
-			return ;
+			//segunda imagen
+			if (isset($_SESSION['product_img2'])) {
+					$_SESSION['new_cropp_image'] = $_SESSION['product_img2'];
+					$data[]=$_SESSION['new_cropp_image'];
+					unset($_SESSION['product_img2']);
+			}else{
+				echo json_encode('por favor selecciona una imagen');
+				return ;
+			}
+
 		}
 		$data[]="activo";
 		$result = $this->master->product->crearProducto($data);
