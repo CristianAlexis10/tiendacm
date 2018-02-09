@@ -7,7 +7,7 @@
 <div class="contenido">
   <?php
        //total de elementos por cada pagina
-      $elementosPagina = 3;
+      $elementosPagina = 12;
       //saber si existe la pagina
       if (isset($_GET["pagina"])) {
         $pagina = $_GET["pagina"];
@@ -52,6 +52,8 @@
                      <?php
                  }?>
              </div>
+             <div class="wrapPaginas">
+             <div class="paginas">
              <?php
              if ($total_paginas > 1) {
                  if ($pagina != 1){
@@ -60,7 +62,7 @@
                  for ($i=1;$i<=$total_paginas;$i++) {
                      if ($pagina == $i){
                          //si muestro el índice de la página actual, no coloco enlace
-                         echo $pagina;
+                         echo '<span>'.$pagina.'</span>';
                      }else{
                          //si el índice no corresponde con la página mostrada actualmente,
                          echo '  <a href="catalogo-pag-'.$i.'">'.$i.'</a>  ';
@@ -72,6 +74,8 @@
                  }
              }
              ?>
+             </div>
+             </div>
          </div>
          <div class="fondoModal"></div>
          <div class="wrap-modalDetalle">

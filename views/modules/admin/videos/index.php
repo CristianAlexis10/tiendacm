@@ -4,7 +4,7 @@
     <div class="itemVideo">
       <div class="video">
         <!-- <i class="fas fa-play"></i> -->
-        <video width="365px" height="275px" muted controls="static" loop>
+        <video width="365px" height="275px">
           <source src="views/assets/img/videos/thresh.mp4" type="video/mp4">
         </video>
       </div>
