@@ -14,6 +14,7 @@ $('#fondo').click(function(){
 $('.abrirEsaWea').click(function(){
 	$('#modal-login-registro').toggle();
 	$('#fondo').toggle();
+	
 });
 
 //validar correo
