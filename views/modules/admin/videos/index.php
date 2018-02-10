@@ -3,7 +3,7 @@
   <section class="wrapVideos">
     <div class="itemVideo">
       <div class="video">
-        <video width="360px" id="video">
+        <video width="360px" id="video" muted>
           <source src="views/assets/img/videos/thresh.mp4" type="video/mp4">
         </video>
       </div>
