@@ -171,3 +171,26 @@ $.ajax({
             });
 
 });
+//controles videos dashboard
+var video = document.getElementById('video');
+var play = document.getElementById('play');
+var go = document.getElementById('go');
+var stop = document.getElementById('stop');
+var fullScreen = document.getElementById('fullScreen');
+
+play.onclick = function() {
+  if (video.paused) {
+    video.play();
+    go.style.display = "none";
+    stop.style.display = "block";
+  }else{
+    video.pause();
+    go.style.display = "block";
+    stop.style.display = "none";
+  }
+}
+fullScreen.addEventListener ("click", function() {
+  if (video.webkitRequestFullscreen) {
+    video.webkitRequestFullscreen ();
+  }
+});

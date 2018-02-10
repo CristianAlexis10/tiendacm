@@ -300,37 +300,31 @@ td a i{
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(3,378px);
+  grid-template-columns: repeat(3,360px);
   grid-gap: 10px;
   margin: 10px;
 }
 .itemVideo{
   display: grid;
   grid-template-areas:
-  "video video"
-  "namVideo btnEdit"
-  "namVideo btnDelete";
+  "video video video video video"
+  "namVideo namVideo namVideo namVideo namVideo"
+  "btnEdit btnPlay btnFull btnDown btnDelete";
   grid-template-rows: 300px 50px 50px;
-  grid-template-columns: auto 50px;
+  grid-template-columns: repeat(5,1fr);
+}
+#stop{
+  display: none;
 }
 .video{
   grid-area: video;
   z-index: 2;
   height: 100%;
-  border: 1px solid #c6c6c6;
-  border-radius: 3px 3px 0px 0px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 50px;
-  color: #888686;
   background: black;
-  cursor: pointer;
 }
-/* .video:hover{
-  color: #535252;
-  background: #f1f1f1;
-} */
 .nameVideo h2{
   margin: 10px;
   font-family: "roboto";
@@ -340,17 +334,12 @@ td a i{
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border-left: 1px solid #c6c6c6;
-  border-bottom: 1px solid #c6c6c6;
-  border-right: 1px solid #c6c6c6;
-  border-radius: 0px 0px 0px 3px;
 }
 .btnEdit{
   grid-area: btnEdit;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-right: 1px solid #c6c6c6;
   cursor: pointer;
 }
 .btnDelete{
@@ -358,13 +347,31 @@ td a i{
   display: flex;
   justify-content: center;
   align-items: center;
-  border-top: 1px solid #c6c6c6;
-  border-right: 1px solid #c6c6c6;
-  border-bottom: 1px solid #c6c6c6;
-  border-radius: 0px 0px 3px 0px;
   cursor: pointer;
 }
-.btnEdit:hover, .btnDelete:hover{
+.btnDown{
+  grid-area: btnDown;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #000;
+}
+.btnFull{
+  grid-area: btnFull;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.btnPlay{
+  grid-area: btnPlay;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.btnEdit:hover, .btnDelete:hover, .btnPlay:hover, .btnFull:hover, .btnDown:hover{
   background: #f1f1f1;
 }
 .itemVideo:nth-last-child(1){
