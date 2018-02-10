@@ -17,6 +17,7 @@ class ProductsController{
 
 	function readByCodColor(){
 		$data = $_POST['data'];
+		// $_SESSION['modal_pro_id'] = $data;
 		$result = $this->master->product->colores($data);
 		echo json_encode($result);
 	}

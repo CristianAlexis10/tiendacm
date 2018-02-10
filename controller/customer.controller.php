@@ -9,7 +9,7 @@
 		function mainPage(){
 			if (isset($_SESSION['USER']['CODE'])) {
 				require_once "views/include/customer/header.php";
-				require_once "views/modules/customer/index.php";
+				require_once "views/modules/customer/tienda/tienda.php";
 				require_once "views/include/customer/footer.php";
 			}else{
 				header("Location:inicio");
