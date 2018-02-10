@@ -7,7 +7,7 @@
 <div class="contenido">
   <?php
        //total de elementos por cada pagina
-      $elementosPagina = 12;
+      $elementosPagina = 2;
       //saber si existe la pagina
       if (isset($_GET["pagina"])) {
         $pagina = $_GET["pagina"];
@@ -16,14 +16,9 @@
          $inicio = 0;
          $pagina = 1;
       }
-      if (isset($_GET['categoria'])) {
-          $consulta = $this->master->procedure->PRByAll("productosBycategoria",array($_GET['categoria']));
-          $categoria = $this->master->selectBy("categoria",array("cat_nombre",$_GET['categoria']));
-          $num_total_registros = $this->master->selectCount('producto','cat_codigo',$_GET['categoria'])[0];
-      }else{
-          $consulta = $this->master->procedure->PRByAll("paginasTodosProductos",array($inicio,$elementosPagina));
-          $num_total_registros = $this->master->selectAllCount('producto')[0];
-      }
+        $consulta = $this->master->procedure->PRByAll("productosBycategoria",array($_GET['categoria'],$inicio,$elementosPagina));
+        $categoria = $this->master->selectBy("categoria",array("cat_nombre",$_GET['categoria']));
+        $num_total_registros = $this->master->selectCount('producto','cat_codigo',$categoria['cat_codigo'])[0];
 
       if ($num_total_registros==0) {
          echo "No hay resultados";
@@ -51,30 +46,26 @@
                      <?php
                  }?>
              </div>
-             <div class="wrapPaginas">
-             <div class="paginas">
              <?php
              if ($total_paginas > 1) {
                  if ($pagina != 1){
-                     echo '<a href="catalogo-pag-'.($pagina-1).'"><i class="fa fa-arrow-left"></i></a>';
+                     echo '<a href="catalogo-'.$_GET['categoria'].'-'.($pagina-1).'"><i class="fa fa-arrow-left"></i></a>';
                  }
                  for ($i=1;$i<=$total_paginas;$i++) {
                      if ($pagina == $i){
                          //si muestro el índice de la página actual, no coloco enlace
-                         echo '<span>'.$pagina.'</span>';
+                         echo $pagina;
                      }else{
                          //si el índice no corresponde con la página mostrada actualmente,
-                         echo '  <a href="catalogo-pag-'.$i.'">'.$i.'</a>  ';
+                         echo '  <a href="catalogo-'.$_GET['categoria'].'-'.$i.'">'.$i.'</a>  ';
                          //coloco el enlace para ir a esa página
                      }
                  }
                  if ($pagina != $total_paginas){
-                     echo '<a href="catalogo-pag-'.($pagina+1).'"><i class="fa fa-arrow-right"></i></a>';
+                     echo '<a href="catalogo-'.$_GET['categoria'].'-'.($pagina+1).'"><i class="fa fa-arrow-right"></i></a>';
                  }
              }
              ?>
-             </div>
-             </div>
          </div>
          <div class="fondoModal"></div>
          <div class="wrap-modalDetalle">
@@ -115,4 +106,4 @@
          </div>
      <?php }
         }
-  ?>
+?>
