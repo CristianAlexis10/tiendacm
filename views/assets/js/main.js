@@ -129,7 +129,7 @@ $('.wea').click(function() {
                                             for (var i = 0; i < result.length; i++) {
                                                 selector.options[i] = new Option(result[i].tal_talla,result[i].tal_codigo);
                                             }
-                                            console.log(result);
+                                            // console.log(result);
                                         }
                                     });
                   }
