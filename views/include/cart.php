@@ -1,3 +1,4 @@
+<div class="refresh"></div>
 <div class="carrito" id="cartCompra">
   <div class="titulo-carrito">
     <span><i class="fa fa-shopping-cart" aria-hidden="true"></i> carrito</span>
@@ -8,10 +9,11 @@
       // $_SESSION['cart_item'][]=array("producto"=>"nada","cantidad"=>111,"precio"=>121,"color"=>"azul","talla"=>"X");
       // $_SESSION['cart_item'][]=array("producto"=>"nada","cantidad"=>111,"precio"=>121,"color"=>"azul","talla"=>"X");
       $indice =0;
+      if (isset($_SESSION['cart_item'])) {
       foreach ($_SESSION['cart_item'] as $item) {?>
             <div class="item-carrito" id="<?php echo $indice; ?>">
               <div class="item-cart-img">
-                <img src="views/assets/img/img3.JPEG" alt="">
+                <img src="views/assets/img/products/<?php echo $item['image'] ?>" alt="">
               </div>
               <div class="info-item-cart">
                 <div class="item-cart" id="nombre">
@@ -40,6 +42,7 @@
       <?php
       $indice++;
     }
+  }
       // unset($_SESSION['cart_item']);
     ?>
   </div>

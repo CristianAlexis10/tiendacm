@@ -12,6 +12,7 @@ class ProductsController{
 	function readByCod(){
 		$data = $_POST['data'];
 		$result = $this->master->selectBy('producto',array('pro_codigo',$data));
+		$_SESSION['product_open']=$result['pro_codigo'];
 		echo json_encode($result);
 	}
 
