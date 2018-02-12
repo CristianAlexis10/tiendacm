@@ -47,16 +47,12 @@
     ?>
   </div>
   <div class="btn-comprar">
-<<<<<<< HEAD
     <button type="button" name="button" id="btnCartCompra">Hacer compra</button>
   </div>
 </div>
 <div class="fondoModalCart" id="fondoModalCart"></div>
 <div class="wrapModal" id="wrapCart">
   <div class="modalCart">
-
-=======
     <button type="button" name="button" onclick="realizarPedido()">Hacer compra</button>
->>>>>>> afffa383689b849aab2503e58710f285777566b6
   </div>
 </div>
