@@ -24,8 +24,12 @@
 			echo json_encode("yws");
 		}
 		function countItem(){
-			$total = count($_SESSION['cart_item']);
-			echo json_encode($total);
+			if (isset($_SESSION['cart_item'])) {
+				$total = count($_SESSION['cart_item']);
+				echo json_encode($total);
+			}else{
+				echo json_encode(0);
+			}
 		}
 	}
 ?>

@@ -64,7 +64,7 @@
           </div>
           <div class="frm-group">
             <label for="cel">Numero de celular:</label>
-            <input type="number" required placeholder="Numero de celular">
+            <input type="number" required id="cel" placeholder="Numero de celular">
           </div>
           <div class="frm-group">
             <label id="fecha">Fecha de entrega:</label>
