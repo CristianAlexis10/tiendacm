@@ -41,7 +41,7 @@ RewriteRule ^cerrar-sesion$ index.php?c=auth&a=singOut
 
 
 #pedido
-RewriteRule ^realizar-pedido$ index.php?c=orders&a=newOrder
+RewriteRule ^realizar-pedido$ index.php?c=carrito&a=newOrder
 
 #CLIENTES
 RewriteRule ^cliente$ index.php?c=customer
@@ -59,6 +59,10 @@ RewriteRule ^actualizar-cat$ index.php?c=category&a=update&data
 #IMAGENES
 RewriteRule ^cropp-(\w+)$ index.php?c=cropp&a=image&folder=$1
 RewriteRule ^croppProducts2$ index.php?c=cropp&a=imageProduct2
+
+#carrito
+RewriteRule ^eliminar-producto-carrito$ index.php?c=carrito&a=delete
+RewriteRule ^agregar-producto-carrito$ index.php?c=carrito&a=add
 
 #validar
 RewriteRule ^validar_correo$ index.php?c=user&a=readByEmail

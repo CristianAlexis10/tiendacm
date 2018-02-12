@@ -7,11 +7,16 @@ class ProductsController{
 	 		$this->doizer = new DoizerController;
 	 	}
 	function mainPage(){
-     require_once("views/modules/admin/products/new.productos.php");
-	}
+		if (isset($_SESSION['USER']['ROL']) && $_SESSION['USER']['ROL']==1) {
+	     	require_once("views/modules/admin/products/new.productos.php");
+		 }else{
+			 header("Location:inicio");
+		 }
+ }
 	function readByCod(){
 		$data = $_POST['data'];
 		$result = $this->master->selectBy('producto',array('pro_codigo',$data));
+		$_SESSION['product_open']=$result['pro_codigo'];
 		echo json_encode($result);
 	}
 
@@ -99,7 +104,11 @@ class ProductsController{
 		}
 	}
 	function viewUpdate(){
+		if (isset($_SESSION['USER']['ROL']) && $_SESSION['USER']['ROL']==1) {
      		require_once("views/modules/admin/products/product-update.php");
+		}else{
+			header("Location:inicio");
+		}
 	}
 
 	function update(){
@@ -124,7 +133,11 @@ class ProductsController{
 
 	}
 	function viewImages(){
-		require_once "views/modules/admin/products/view-img.php";
+		if (isset($_SESSION['USER']['ROL']) && $_SESSION['USER']['ROL']==1) {
+			require_once "views/modules/admin/products/view-img.php";
+		}else{
+			header("Location:inicio");
+		}
 	}
 
 }
