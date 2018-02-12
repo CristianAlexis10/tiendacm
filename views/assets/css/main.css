@@ -383,6 +383,9 @@ body{
   height: 500px;
   background: #ffffff;
   margin: 8vh auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .fondoModalCart{
   display: none;
