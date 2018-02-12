@@ -73,15 +73,13 @@
   cursor: pointer;
 }
 .wrap-text{
-  flex-wrap: wrap;
-  height: 30%;
-  width: 100%;
-  max-width: 250px;
   display: flex;
+  justify-content: flex-start;
   align-items: center;
 }
 .wrap-text label{
   padding-left: 20px;
+  padding-top: 25px;
   font-family: 'lato';
   font-weight: bolder;
   font-size: 20px;
