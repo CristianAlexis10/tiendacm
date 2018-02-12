@@ -54,5 +54,43 @@
 <div class="wrapModal" id="wrapCart">
   <div class="modalCart">
     <button type="button" name="button" onclick="datosEnvio()">Cerrar</button>
+    <form  id="confirmOrder">
+      <?php
+        $data = $this->master->selectBy("usuario",array("usu_codigo",$_SESSION['USER']['CODE']));
+        if($data['usu_dir']=="0"){?>
+          <div class="frm-group">
+            <label for="dir">Dirección de envio</label>
+            <input type="text" id="dir" placeholder="Ingresa la dirección" required>
+          </div>
+          <div class="frm-group">
+            <label for="cel">Numero de celular:</label>
+            <input type="number" required placeholder="Numero de celular">
+          </div>
+          <div class="frm-group">
+            <label id="fecha">Fecha de entrega:</label>
+            <input type="date" required id="fecha" placeholder="Ingresa la fecha de entrega">
+          </div>
+          <div class="frm-group">
+            <input type="submit" value="Confirmar">
+          </div>
+        <?php
+      }else{?>
+        <div class="frm-group">
+          <label for="dir">Dirección de envio</label>
+          <input type="text" id="dir" value="<?php echo $data['usu_dir']?>" required>
+        </div>
+        <div class="frm-group">
+          <label for="cel">Numero de celular:</label>
+          <input type="number" required value="<?php echo $data['usu_telefono']?>">
+        </div>
+        <div class="frm-group">
+          <label id="fecha">Fecha de entrega:</label>
+          <input type="date" required id="fecha">
+        </div>
+        <div class="frm-group">
+          <input type="submit" value="Confirmar">
+        </div>
+        <?php } ?>
+    </form>
   </div>
 </div>

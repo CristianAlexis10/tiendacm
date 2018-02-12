@@ -63,6 +63,7 @@ RewriteRule ^croppProducts2$ index.php?c=cropp&a=imageProduct2
 #carrito
 RewriteRule ^eliminar-producto-carrito$ index.php?c=carrito&a=delete
 RewriteRule ^agregar-producto-carrito$ index.php?c=carrito&a=add
+RewriteRule ^cantidad-items$ index.php?c=carrito&a=countItem
 
 #validar
 RewriteRule ^validar_correo$ index.php?c=user&a=readByEmail

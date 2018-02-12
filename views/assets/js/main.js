@@ -18,8 +18,23 @@ $('.abrirEsaWea').click(function(){
 //modal cart
 
 function datosEnvio(){
-	$('#wrapCart').toggle();
-	$('#fondoModalCart').toggle();
+	$.ajax({
+		url:"cantidad-items",
+		type:"post",
+		dataType:"json",
+		success:function(result){
+			if (result>=1) {
+				$('#wrapCart').toggle();
+				$('#fondoModalCart').toggle();
+			}else{
+				alert("Selecciona  al menos un producto");
+			}
+		},
+		error:function(result){
+			console.log(result);
+		}
+	});
+
 }
 //validar correo
   $('#iniciar_se').attr('disabled',true);
