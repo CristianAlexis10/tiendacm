@@ -213,65 +213,64 @@ body{
   font-family: "Lato";
   grid-template-rows: 50px 50px 50px 50px auto 50px;
 }
+.wrapInput input{
+  width: 95%;
+}
+.wrapInput select{
+  width: 98%;
+}
+.obligatorio{
+  color: red;
+}
 .regProdNom{
   grid-area: nomPro;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 100px 1fr;
 }
 .regProdPre{
   grid-area: prePro;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 100px 1fr;
 }
 .regProdCan{
   grid-area: canPro;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 100px 1fr;
 }
 .regProdDes{
   grid-area: desPro;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 100px 1fr;
 }
 .regProdCat{
   grid-area: catPro;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 100px 1fr;
 }
 .regProdTal{
   grid-area: talPro;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 100px 1fr;
 }
 .regProdCol{
   grid-area: colPro;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 100px 1fr;
 }
 .regProdImg{
   grid-area: imgPro;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 100px 1fr;
 }
 .regProdImg2{
   grid-area: imgPro2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 100px 1fr;
 }
 .regProdReg{
   grid-area: regPro;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 /*estilos de visualizacion de los productos */
 .wrap-produ{
@@ -307,10 +306,10 @@ td a i{
 .itemVideo{
   display: grid;
   grid-template-areas:
-  "video video video video video"
   "namVideo namVideo namVideo namVideo namVideo"
+  "video video video video video"
   "btnEdit btnPlay btnFull btnDown btnDelete";
-  grid-template-rows: 300px 50px 50px;
+  grid-template-rows: 50px 300px 50px;
   grid-template-columns: repeat(5,1fr);
 }
 #stop{
@@ -334,6 +333,8 @@ td a i{
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  border: 1px solid #c6c6c6;
+  border-radius: 3px;
 }
 .btnEdit{
   grid-area: btnEdit;
@@ -341,6 +342,8 @@ td a i{
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border: 1px solid #c6c6c6;
+  border-radius: 0px 0px 0px 3px;
 }
 .btnDelete{
   grid-area: btnDelete;
@@ -348,6 +351,8 @@ td a i{
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border: 1px solid #c6c6c6;
+  border-radius: 0px 0px 3px 0px;
 }
 .btnDown{
   grid-area: btnDown;
@@ -356,6 +361,7 @@ td a i{
   align-items: center;
   cursor: pointer;
   color: #000;
+  border: 1px solid #c6c6c6;
 }
 .btnFull{
   grid-area: btnFull;
@@ -363,6 +369,7 @@ td a i{
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border: 1px solid #c6c6c6;
 }
 .btnPlay{
   grid-area: btnPlay;
@@ -370,9 +377,10 @@ td a i{
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border: 1px solid #c6c6c6;
 }
 .btnEdit:hover, .btnDelete:hover, .btnPlay:hover, .btnFull:hover, .btnDown:hover{
-  background: #f1f1f1;
+  background: #ebe7e7;
 }
 .itemVideo:nth-last-child(1){
   border-radius: 3px;

@@ -29,24 +29,33 @@ if (isset($_SESSION['messagge'])) {
     <div class="wrap-form" id="reg-productos">
       <form class="form-producto" id="frmNewProduct">
       	<div class="regProdNom">
-          <label for="">nombre: </label>
-      		<input type="text" class="dataNewProd" required>
+          <label for="">nombre:<span class="obligatorio">*</span></label>
+          <div class="wrapInput">
+            <input type="text" class="dataNewProd" required>
+          </div>
       	</div>
       	<div class="regProdPre">
-          <label for="">precio: </label>
-      		<input type="number" class="dataNewProd" required>
+          <label for="">precio:<span class="obligatorio">*</span></label>
+          <div class="wrapInput">
+      		   <input type="number" class="dataNewProd" required>
+      	  </div>
       	</div>
       	<div class="regProdCan">
-          <label for="">cantidad: </label>
-      		<input type="number" class="dataNewProd" required>
+          <label for="">cantidad:<span class="obligatorio">*</span></label>
+          <div class="wrapInput">
+            <input type="number" class="dataNewProd" required>
+      	  </div>
       	</div>
       	<div class="regProdDes">
-          <label for="">descripción: </label>
-      		<input type="text" class="dataNewProd" required>
+          <label for="">descripción:<span class="obligatorio">*</span></label>
+          <div class="wrapInput">
+            <input type="text" class="dataNewProd" required>
+      	  </div>
       	</div>
       	<div class="regProdCat">
-          <label for="">categoria: </label>
-      		<select required class="dataNewProd">
+          <label for="">categoria:<span class="obligatorio">*</span></label>
+          <div class="wrapInput">
+          <select required class="dataNewProd">
             <option value="">seleccionar categoria</option>
       			<?php
       				foreach ($this->master->selectAll('categoria') as $row) {?>
@@ -55,9 +64,10 @@ if (isset($_SESSION['messagge'])) {
       				}
       			?>
       		</select>
+      	 </div>
       	</div>
         <div class="regProdTal">
-          <label>Tallas:</label>
+          <label>Tallas:<span class="obligatorio">*</span></label>
           <select multiple="multiple" id="selectMul" required>
             <?php
               foreach ($this->master->selectAll('talla') as $row) {?>
@@ -68,7 +78,7 @@ if (isset($_SESSION['messagge'])) {
           </select>
         </div>
         <div class="regProdCol">
-          <label>Colores: </label>
+          <label>Colores:<span class="obligatorio">*</span></label>
           <select multiple="multiple" id="selectMul2" required>
             <?php
               foreach ($this->master->selectAll('color') as $row) {?>
@@ -82,13 +92,13 @@ if (isset($_SESSION['messagge'])) {
         <div class="regProdImg">
           <div class="form-group Cambiar--img">
            <div id="wrap-result"><img src="views/assets/img/defaultProfile.png" ></div>
-           <span class="" id="cropp-img">Añadir foto</span>
+           <button class="" id="cropp-img">Añadir foto<span class="obligatorio">*</span></button>
          </div>
        </div>
        <div class="regProdImg2">
           <div class="form-group Cambiar--img">
             <div id="wrap-result2"><img src="views/assets/img/defaultProfile.png" ></div>
-            <span class="" id="cropp-img2">Añadir foto</span>
+            <button class="" id="cropp-img2">Añadir foto<span class="obligatorio">*</span></button>
           </div>
         </div>
       	<div class="regProdReg">
