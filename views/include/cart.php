@@ -34,7 +34,7 @@
                   <h2><span>talla:</span><?php echo $item['talla']; ?></h2>
                 </div>
                 <div class="item-cart">
-                  <button type="button" name="button" class="<?php echo $indice ; ?> restar-carrito"><i class="fa fa-times-circle" aria-hidden="true"></i>  eliminar</button>
+                  <button type="button" name="button" class="restar-carrito" onclick="eliminarItem(<?php echo $indice ; ?>)"><i class="fa fa-times-circle" aria-hidden="true"></i>  eliminar</button>
                 </div>
               </div>
             </div>

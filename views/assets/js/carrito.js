@@ -33,7 +33,10 @@ $(".addItemShop").click(function(){
       if (result==true) {
         $("#cartCompra").remove();
         $(".refresh").load("index.php?c=config&a=cart");
+
         setTimeout(function(){
+          $('.fondoModal').toggle();
+          $('.wrap-modalDetalle').toggle();
           $("#cartCompra").css({"display":"block"});
         },100);
       }
@@ -42,8 +45,8 @@ $(".addItemShop").click(function(){
   });
 });
 //eliminar item
-$(".restar-carrito").click(function(){
-  var id = $(this).attr('class')[0];
+function eliminarItem(id){
+  // var id = $(this).attr('class')[0];
   $("#"+id).remove();
   $("#"+id).remove();
   $.ajax({
@@ -56,4 +59,4 @@ $(".restar-carrito").click(function(){
     },
     error:function(result){console.log(result);}
   });
-});
+}

@@ -14,7 +14,7 @@
           <div class="dropContent">
             <a href="catalogo">Todos</a>
             <?php foreach ($this->master->selectAll('categoria') as $row ) {?>
-                <a href="catalogo-<?php echo $row['cat_nombre'] ?>"><?php echo $row['cat_nombre'] ?></a>
+                <a href="ver-<?php echo $row['cat_nombre'] ?>"><?php echo $row['cat_nombre'] ?></a>
             <?php } ?>
           </div>
         </div>

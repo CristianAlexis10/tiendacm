@@ -21,9 +21,17 @@ Class NewsController{
     }
 
     function gestion(){
-      require_once("views/include/dashboard/header.php");
-      require_once("views/modules/admin/news/index.php");
-      require_once("views/include/dashboard/footer.php");
+      if (isset($_SESSION['USER']['ROL'])) {
+				if ($_SESSION['USER']['ROL']==1) {
+          require_once("views/include/dashboard/header.php");
+          require_once("views/modules/admin/news/index.php");
+          require_once("views/include/dashboard/footer.php");
+				}else{
+					header("Location: catalogo");
+				}
+			}else{
+				header("Location: catalogo");
+			}
     }
   }
 ?>

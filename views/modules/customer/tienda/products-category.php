@@ -96,9 +96,9 @@
                          </select>
                      </div>
                      <div class="cantidad">
-                         <span>-</span>
-                         <span>0</span>
-                         <span>+</span>
+                       <span id="minusCant">-</span>
+                       <span id="cant">0</span>
+                       <span id="moreCant">+</span>
                      </div>
                      <button type="button" name="button" class="addItemShop">añadir al carrito</button>
                  </div>
