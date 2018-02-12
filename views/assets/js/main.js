@@ -14,8 +14,16 @@ $('#fondo').click(function(){
 $('.abrirEsaWea').click(function(){
 	$('#modal-login-registro').toggle();
 	$('#fondo').toggle();
-
 });
+//modal cart
+$('#btnCartCompra').click(function(){
+	$('#wrapCart').toggle();
+	$('#fondoModalCart').toggle();
+})
+$('#wrapCart').click(function(){
+	$('#wrapCart').toggle();
+	$('#fondoModalCart').toggle();
+})
 //validar correo
   $('#iniciar_se').attr('disabled',true);
 $('#login-pass').focus(function(){

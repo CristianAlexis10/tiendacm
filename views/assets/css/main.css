@@ -206,7 +206,7 @@ body{
 /*modal detalles de los articulos*/
 .fondoModal{
   display: none;
-  position: absolute;
+  position: fixed;
   z-index: 14;
   width: 100%;
   height: 100vh;
@@ -368,6 +368,33 @@ body{
 .restar-carrito:hover{
   background: #c61848;
 }
+/* modal carrito */
+.wrapModal{
+  display: none;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 15;
+}
+.modalCart{
+  width: 600px;
+  height: 500px;
+  background: #ffffff;
+  margin: 8vh auto;
+}
+.fondoModalCart{
+  display: none;
+  position: fixed;
+  z-index: 14;
+  width: 100%;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+}
 /* noticias */
 .noticias{
   width: 100%;
@@ -497,4 +524,49 @@ body{
 .copy{
   font-size: 10px;
   padding: 10px;
+}
+/* estilos de la secion videos */
+.wrapVideos{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.videos{
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: 250px;
+  grid-gap: 10px;
+  padding: 20px;
+}
+.itemsVideos{
+  display: grid;
+  grid-template-areas:
+  "video"
+  "videoTitulo";
+  border-radius: 3px;
+  box-shadow: 0 5px 20px -8px black;
+}
+.video{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid grey;
+  background: #000;
+  border-radius: 3px 3px 0px 0px;
+}
+.videoTitulo{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+  border-bottom: 1px solid grey;
+  border-radius: 0px 0px 3px 3px;
+}
+.videoTitulo h2{
+  padding: 5px;
+  font-size: 25px;
+  text-transform: capitalize;
+  font-size: "Lato";
 }

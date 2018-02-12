@@ -32,6 +32,12 @@
     </div>
   </div>
   <div class="btn-comprar">
-    <button type="button" name="button">Hacer compra</button>
+    <button type="button" name="button" id="btnCartCompra">Hacer compra</button>
+  </div>
+</div>
+<div class="fondoModalCart" id="fondoModalCart"></div>
+<div class="wrapModal" id="wrapCart">
+  <div class="modalCart">
+
   </div>
 </div>
