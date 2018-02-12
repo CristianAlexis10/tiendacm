@@ -23,6 +23,7 @@ $(".addItemShop").click(function(){
   var pro_cantidad = cantidad;
   var data = {"color":color,"talla":talla,"imagen":img,"pro_nombre":pro_nom,"cantidad":cantidad};
   cantidad = 0;
+  $("#cant").html(cantidad);
   // $(".wrap-items-carrito").append('<div class="item-carrito"> <div class="item-cart-img">  <img src="'+img+'" alt="">  </div><div class="info-item-cart">  <div class="item-cart" id="nombre"><h2><span>producto:</span>'+pro_nom+'</h2>  </div><div class="item-cart" id="cantidad"><h2><span>cantidad:</span>'+pro_cantidad+'</h2></div><div class="item-cart" id="valor"><h2><span>precio:</span></h2>  </div></div><div class="info-item-cart"><div class="item-cart" id="color"><h2><span>color:</span>'+color+'</h2></div><div class="item-cart" id="talla">  <h2><span>talla:</span>'+talla+'</h2></div>  <div class="item-cart"><button type="button" name="button" class="restar-carrito"><i class="fa fa-times-circle" aria-hidden="true"></i>  eliminar</button></div>  </div></div>');
   $.ajax({
     url:"agregar-producto-carrito",
@@ -58,5 +59,19 @@ function eliminarItem(id){
       console.log(result);
     },
     error:function(result){console.log(result);}
+  });
+}
+//realizar pedido
+function realizarPedido(){
+  $.ajax({
+    url:"realizar-pedido",
+    type:"psot",
+    dataType:"json",
+    success:function(result) {
+      console.log(result);
+    },
+    error:function(result) {
+      console.log(result);
+    }
   });
 }

@@ -41,7 +41,7 @@ RewriteRule ^cerrar-sesion$ index.php?c=auth&a=singOut
 
 
 #pedido
-RewriteRule ^realizar-pedido$ index.php?c=orders&a=newOrder
+RewriteRule ^realizar-pedido$ index.php?c=carrito&a=newOrder
 
 #CLIENTES
 RewriteRule ^cliente$ index.php?c=customer

@@ -20,5 +20,8 @@
 			unset($_SESSION['cart_item'][$data]);
 			echo json_encode($_SESSION['cart_item']);
 		}
+		function newOrder(){
+			echo json_encode("yws");
+		}
 	}
 ?>

@@ -47,6 +47,6 @@
     ?>
   </div>
   <div class="btn-comprar">
-    <button type="button" name="button">Hacer compra</button>
+    <button type="button" name="button" onclick="realizarPedido()">Hacer compra</button>
   </div>
 </div>
