@@ -70,15 +70,23 @@ function eliminarItem(id){
 //realizar pedido
 $("#confirmOrder").submit(function(e){
   e.preventDefault();
-  $.ajax({
-    url:"realizar-pedido",
-    type:"psot",
-    dataType:"json",
-    success:function(result) {
-      console.log(result);
-    },
-    error:function(result) {
-      console.log(result);
-    }
-});
+  if ($("#dir").val()!="" && $("#cel").val()!="" && $("#fecha").val()!="" ) {
+      $.ajax({
+        url:"realizar-pedido",
+        type:"psot",
+        dataType:"json",
+        data:({dir:$("#dir").val(), cel:$("#cel").val(), fecha:$("#fecha").val()}),
+        success:function(result) {
+          console.log(result);
+        },
+        error:function(result) {
+          console.log(result);
+        }
+      });
+  }else{
+    $("#confirmOrder").after("<div class='alert-message'>Campos requeridos.</div>");
+    setTimeout(function(){
+      $("div.alert-message").remove();
+    },3000);
+  }
 });
