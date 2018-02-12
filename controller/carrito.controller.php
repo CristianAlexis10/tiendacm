@@ -23,5 +23,9 @@
 		function newOrder(){
 			echo json_encode("yws");
 		}
+		function countItem(){
+			$total = count($_SESSION['cart_item']);
+			echo json_encode($total);
+		}
 	}
 ?>
