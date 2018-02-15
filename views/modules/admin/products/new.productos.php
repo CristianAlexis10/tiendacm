@@ -54,7 +54,7 @@ if (isset($_SESSION['messagge'])) {
       	</div>
       	<div class="regProdCat">
           <label for="">categoria:<span class="obligatorio">*</span></label>
-          <div class="wrapInput">
+          <div class="wrapInputCat">
           <select required class="dataNewProd">
             <option value="">seleccionar categoria</option>
       			<?php
@@ -88,17 +88,14 @@ if (isset($_SESSION['messagge'])) {
             ?>
           </select>
         </div>
-
         <div class="regProdImg">
           <div class="form-group Cambiar--img">
            <div id="wrap-result"><img src="views/assets/img/defaultProfile.png" ></div>
-           <button class="" id="cropp-img">Añadir foto<span class="obligatorio">*</span></button>
+           <h2 class="" id="cropp-img">Añadir foto<span class="obligatorio">*</span></h2>
          </div>
-       </div>
-       <div class="regProdImg2">
-          <div class="form-group Cambiar--img">
+         <div class="form-group Cambiar--img">
             <div id="wrap-result2"><img src="views/assets/img/defaultProfile.png" ></div>
-            <button class="" id="cropp-img2">Añadir foto<span class="obligatorio">*</span></button>
+            <h2 class="" id="cropp-img2">Añadir foto<span class="obligatorio">*</span></h2>
           </div>
         </div>
       	<div class="regProdReg">

@@ -21,11 +21,10 @@ body{
   align-items: center;
 }
 .topMenu a li{
-  margin: 10px;
+  margin: 0px 20px;
   font-size: 20px;
   color: #ffffff;
 }
-
 .leftMenu{
   z-index: 2;
   position: fixed;
@@ -77,7 +76,6 @@ body{
   width: 450px;
   border-radius: 3px;
   background: #f7f7f7;
-  /* background: red; */
   box-shadow: 0 2px 20px -5px black;
 }
 .reg_categoria h2{
@@ -198,26 +196,21 @@ body{
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 .form-producto{
-  width: 90%;
+  width: 95%;
   display: grid;
   grid-template-areas:
-  "nomPro prePro"
-  "canPro desPro"
-  "catPro catPro"
-  "colPro talPro"
-  "imgPro imgPro2"
-  "regPro regPro";
+  "nomPro desPro colPro"
+  "canPro prePro talPro"
+  "catPro catPro catPro"
+  "imgPro imgPro imgPro"
+  "regPro regPro regPro";
   font-family: "Lato";
-  grid-template-rows: 50px 50px 50px 50px auto 50px;
-}
-.wrapInput input{
-  width: 95%;
-}
-.wrapInput select{
-  width: 98%;
+  grid-template-rows: 50px 50px 50px auto 50px;
+  grid-row-gap: 10px;
 }
 .obligatorio{
   color: red;
@@ -225,52 +218,86 @@ body{
 .regProdNom{
   grid-area: nomPro;
   display: grid;
-  grid-template-columns: 100px 1fr;
-}
-.regProdPre{
-  grid-area: prePro;
-  display: grid;
-  grid-template-columns: 100px 1fr;
-}
-.regProdCan{
-  grid-area: canPro;
-  display: grid;
-  grid-template-columns: 100px 1fr;
-}
-.regProdDes{
-  grid-area: desPro;
-  display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 100px auto;
 }
 .regProdCat{
   grid-area: catPro;
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 100px auto;
 }
-.regProdTal{
-  grid-area: talPro;
+.wrapInputCat select{
+  width: 93%;
+  border-radius: 3px;
+}
+.wrapInputCat{
+  width: 100%;
+}
+.regProdPre{
+  grid-area: prePro;
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 100px auto;
 }
 .regProdCol{
   grid-area: colPro;
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 100px auto;
+}
+.regProdCan{
+  grid-area: canPro;
+  display: grid;
+  grid-template-columns: 100px auto;
+}
+.regProdDes{
+  grid-area: desPro;
+  display: grid;
+  grid-template-columns: 100px auto;
+}
+.regProdTal{
+  grid-area: talPro;
+  display: grid;
+  grid-template-columns: 100px auto;
 }
 .regProdImg{
   grid-area: imgPro;
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: repeat(2,1fr);
 }
-.regProdImg2{
-  grid-area: imgPro2;
-  display: grid;
-  grid-template-columns: 100px 1fr;
+.regProdImg .form-group{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.regProdImg h2{
+  cursor: pointer;
+  border: 1px solid #c6c6c6;
+  border-radius: 3px;
+  padding: 10px;
+  margin: 5px;
 }
 .regProdReg{
   grid-area: regPro;
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.regProdReg button{
+  border: 1px solid #c6c6c6;
+  background: none;
+  width: 200px;
+  height: 50px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.regProdReg button, .regProdImg h2{
+  font-family: "lato";
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.regProdReg button:hover, .regProdImg h2:hover{
+  background: #ececec;
 }
 /*estilos de visualizacion de los productos */
 .wrap-produ{
@@ -282,6 +309,10 @@ body{
 table,th,tr,thead,tbody,td{
   border: 1px solid black;
   text-align: center;
+}
+table{
+  border-radius: 3px;
+  margin: 5px 0px;
 }
 .btn-productos{
   border: none;
@@ -392,4 +423,112 @@ td a i{
   text-transform: uppercase;
   font-size: 30px;
   cursor: pointer;
+}
+/* estilos del modal registro de videos */
+.fondoModalVideo{
+  display: none;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100vh;
+  left: 0px;
+  top: 0px;
+  z-index: 14;
+}
+.wrapModalVideo{
+  z-index: 15;
+  display: none;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  justify-content: center;
+  align-items: center;
+}
+.modalVideo{
+  border-radius: 3px;
+  background: #ffffff;
+  width: 550px;
+  height: 450px;
+  margin: 12vh auto;
+}
+.modalVideo form{
+  display: grid;
+  grid-template-rows: 50px 50px 300px 50px;
+  grid-template-columns: 550px;
+}
+.wrapTitle h2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 15px 10px 15px;
+  height: 100%;
+  font-family: "lato";
+  border-bottom: 2px solid #c6c6c6;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+.wrapTitle{
+  width: 100%;
+  height: 100%;
+}
+.wrapNameVideo input{
+  width: 70%;
+  border-radius: 3px;
+  border: 1px solid #969191;
+  padding: 2px;
+}
+
+.wrapNameVideo input:valid ~ label,.wrapNameVideo input:focus ~ label{
+  transform: translateY(-22px);
+  color: #000;
+  transition: .3s;
+}
+.wrapNameVideo label{
+  position: absolute;
+  font-family: "lato";
+  padding-bottom: 3px;
+  text-transform: capitalize;
+  color: #bfbdbd;
+}
+.wrapNameVideo{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.wrapNameVideo input:focus{
+  outline: none;
+}
+.upLoad input{
+  margin: 10px;
+}
+.wrapFileVideo{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+.wrapBtnVideo{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapBtnVideo button{
+  background: none;
+  border: 1px solid #969191;
+  border-radius: 3px;
+  padding: 10px 40px;
+  cursor: pointer;
+  margin-left: 10px;
+  outline: none;
+}
+.wrapBtnVideo button:hover{
+  background: #d6d2d2;
 }

@@ -28,14 +28,36 @@
         </div>
       </a>
     </div>
-    <div class="itemVideo">
+    <div class="itemVideo" id="addVideo">
       <span>añadir video</span>
     </div>
   </section>
-  <div class="modalVideo">
-    <div class="fondo"></div>
-    <div class="">
-
+  <div class="fondoModalVideo" id="fondoModalVideo"></div>
+  <div class="wrapModalVideo" id="wrapModalVideo">
+    <div class="modalVideo">
+      <form class="" action="index.html" method="post">
+        <div class="wrapTitle">
+          <h2>Añadir video</h2>
+        </div>
+        <div class="wrapNameVideo">
+          <input type="text" name="" value="" id="cambie_esta_madre" required>
+          <label for="cambie_esta_madre">Titulo del video</label>
+        </div>
+        <div class="wrapFileVideo">
+          <div class="regVideo">
+            <video width="400px" controls>
+              <source src="" type="video/mp4">
+            </video>
+          </div>
+          <div class="upLoad">
+            <input type="file" required>
+          </div>
+        </div>
+        <div class="wrapBtnVideo">
+          <button type="submit" name="button">Guardar</button>
+          <button type="button" name="button" id="cancelarVideo">Cancelar</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

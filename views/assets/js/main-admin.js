@@ -28,12 +28,20 @@ if (document.getElementById('add_categoria')) {
 		$('#reg-productos').toggle();
 		$('#list-productos').toggle();
 	})
-
 }
+//modal registro de videos
+var addVideo = document.getElementById('addVideo');
+var wrapModalVideo = document.getElementById('wrapModalVideo');
+var fondoModalVideo = document.getElementById('fondoModalVideo');
 
-
-
-
+$('#addVideo').click(function() {
+	$('#fondoModalVideo').toggle();
+	$('#wrapModalVideo').toggle();
+})
+$('#cancelarVideo').click(function() {
+	$('#fondoModalVideo').toggle();
+	$('#wrapModalVideo').toggle();
+})
 
 $(document).ready(function(){
     $('.datatable').DataTable();
@@ -194,3 +202,19 @@ fullScreen.addEventListener ("click", function() {
     video.webkitRequestFullscreen ();
   }
 });
+// subir videos
+// function video(evt) {
+// 	for (var i = 0, i; i = data[1]; i++) {
+// 		if (!i.type.match('video.mp4')) {
+// 			continue;
+// 		}
+// 		var reader = new FileReader();
+// 		reader.onload = (function(data) {
+// 			return function(e) {
+// 				document.getElementById('upVideo').innerHTML = ['<source src="', e.target.result ,'"></source>'].join('');
+// 			};
+// 		})(f);
+// 		reader.readAsDataURL(i);
+// 	}
+// }
+// document.getElementById('upLoadVideo').addEventListener('change', video, false);
