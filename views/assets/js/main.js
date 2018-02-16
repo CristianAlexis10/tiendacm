@@ -1,20 +1,3 @@
-//menu
-$('#modal-login').click(function(){
-	$('#modal-login-registro').toggle();
-	$('#fondo').toggle();
-});
-$('#cerrar_modal').click(function(){
-	$('#modal-login-registro').toggle();
-	$('#fondo').toggle();
-});
-$('#fondo').click(function(){
-	$('#modal-login-registro').toggle();
-	$('#fondo').toggle();
-});
-$('.abrirEsaWea').click(function(){
-	$('#modal-login-registro').toggle();
-	$('#fondo').toggle();
-});
 //modal cart
 
 function datosEnvio(){
@@ -109,6 +92,26 @@ btn_login.onclick = function() {
 	registro.classList.remove('mover_registro');
 	modal.classList.remove('agrandar_modal');
 }
+$('#modal-login').click(function(){
+	$('#modal-login-registro').toggle();
+	$('#fondo').toggle();
+});
+$('#cerrar_modal').click(function(){
+	$('#modal-login-registro').toggle();
+	$('#fondo').toggle();
+	registro.classList.remove('mover_registro');
+	modal.classList.remove('agrandar_modal');
+});
+$('#fondo').click(function(){
+	$('#modal-login-registro').toggle();
+	$('#fondo').toggle();
+	registro.classList.remove('mover_registro');
+	modal.classList.remove('agrandar_modal');
+});
+$('.abrirEsaWea').click(function(){
+	$('#modal-login-registro').toggle();
+	$('#fondo').toggle();
+});
 //modales TIENDA
 $('.wea').click(function() {
 	$('.fondoModal').toggle();

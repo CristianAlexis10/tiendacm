@@ -62,12 +62,17 @@
   grid-template-columns: repeat(3,1fr);
   grid-gap: 10px;
 }
-.bloque{
+.bloqueP{
   background-color: #d5d5d5;
   height: 400px;
   box-shadow: 0 5px 20px -10px #000;
 }
-.bloque a{
+.bloqueC{
+  background-color: #d5d5d5;
+  height: 320px;
+  box-shadow: 0 5px 20px -10px #000;
+}
+.bloqueP a, .bloqueC a{
   color: #595959;
   text-transform: uppercase;
   cursor: pointer;

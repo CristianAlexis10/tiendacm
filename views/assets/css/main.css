@@ -207,7 +207,7 @@ body{
 .fondoModal{
   display: none;
   position: fixed;
-  z-index: 14;
+  z-index: 13;
   width: 100%;
   height: 100vh;
   top: 0px;
@@ -219,7 +219,7 @@ body{
   display: none;
 }
 .modalDetalle{
-  z-index: 15;
+  z-index: 14;
   position: fixed;
   display: grid;
   grid-template-columns: repeat(2,1fr);
@@ -263,8 +263,8 @@ body{
 .wrap-detalle .precio, .talla, .color, .cantidad{
   margin-top: 20px;
 }
-.wrap-detalle .cantidad{
-  font-size: 30px;
+.wrap-detalle .cantidad input{
+  width: 50px;
 }
 .wrap-detalle button{
   position: relative;

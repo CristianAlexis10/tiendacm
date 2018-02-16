@@ -106,9 +106,8 @@
                          </select>
                      </div>
                      <div class="cantidad">
-                         <span>-</span>
-                         <span>0</span>
-                         <span>+</span>
+                       <label for="">Cantidad: </label>
+                       <input type="number" name="" value="">
                      </div>
                      <button type="button" name="button" class="abrirEsaWea">añadir al carrito</button>
                  </div>
