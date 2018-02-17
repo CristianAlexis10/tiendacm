@@ -46,6 +46,7 @@
                          <div class="precio-produc">
                              <h2>$ <?php echo $row['pro_precio']; ?></h2>
                          </div>
+                         <button type="button" name="button" class="wea">añadir al carrito</button>
                      </div>
 
                      <?php
@@ -105,9 +106,11 @@
                          </select>
                      </div>
                      <div class="cantidad">
-                         <span id="minusCant">-</span>
+                         <!-- <span id="minusCant">-</span>
                          <span id="cant">0</span>
-                         <span id="moreCant">+</span>
+                         <span id="moreCant">+</span> -->
+                         <label for="">cantidad: </label>
+                         <input type="number" name="" value="" id="cant">
                      </div>
                      <button type="button" name="button" class="addItemShop">añadir al carrito</button>
                  </div>

@@ -1,5 +1,4 @@
 //modal cart
-
 function datosEnvio(){
 	$.ajax({
 		url:"cantidad-items",
@@ -173,14 +172,6 @@ $('.fondoModal').click(function() {
 $('#menu-res').click(function(){
 	$('#caja--menu').toggle();
 });
-// carrito de compras
-
-// var btnCarrito = document.getElementById('btnCart');
-// var cartCompra = document.getElementById('cartCompra');
-//
-// btnCarrito.onclick = function() {
-// 	cartCompra.style.transform = 'translateX(0%)';
-// }
 
 $('#btnCarrito').click(function() {
 	$('#cartCompra').toggle();
@@ -241,4 +232,17 @@ $("#frmNew").submit(function(e) {
 $(".añadirCarro").click(function(){
 	var hermanos = $(this).siblings();
 	console.log(hermanos[0].innerText);
+});
+
+// modal VIDEOS
+var pauseVideo = document.getElementById('pauseVideo');
+
+$("#watchVideo").click(function() {
+	$("#wrapPlayVideo").toggle();
+	$("#backgroundVideo").toggle();
+});
+$("#wrapPlayVideo").click(function() {
+	$("#wrapPlayVideo").toggle();
+	$("#backgroundVideo").toggle();
+	pauseVideo.pause();
 });

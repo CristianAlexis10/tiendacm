@@ -22,8 +22,8 @@
       <a href="videos"><li  class="itemMenu">Videos</li></a>
       <a href="noticias"><li  class="itemMenu">Noticias</li></a>
       <li id="btnCarrito" class="itemMenu"><i class="fa fa-shopping-cart" aria-hidden="true"></i></li>
-      <li class="itemMenu"><a href="mi-perfil"><?php echo $_SESSION['USER']['NAME']; ?></a></li>
-      <li class="itemMenu"><a href="finalizar-sesion"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+      <a href="mi-perfil"><li class="itemMenu"><?php echo $_SESSION['USER']['NAME']; ?></li></a>
+      <a href="finalizar-sesion"><li class="itemMenu"><i class="fa fa-sign-out" aria-hidden="true"></i></li></a>
     </ul>
   </div>
 </div>
