@@ -19,7 +19,7 @@
 			if (isset($_SESSION['USER']['CODE'])) {
 				require_once "views/include/customer/header.php";
 				require_once "views/modules/customer/profile/index.php";
-				require_once "views/include/customer/footer.php";
+				// require_once "views/include/customer/footer.php";
 			}else{
 				header("Location:inicio");
 			}

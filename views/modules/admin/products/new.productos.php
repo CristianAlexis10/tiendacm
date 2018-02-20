@@ -95,7 +95,7 @@ if (isset($_SESSION['messagge'])) {
          </div>
          <div class="form-group Cambiar--img">
             <div id="wrap-result2"><img src="views/assets/img/defaultProfile.png" ></div>
-            <h2 class="" id="cropp-img2">Añadir foto<span class="obligatorio">*</span></h2>
+            <h2 class="" id="cropp-img2">Añadir foto</h2>
           </div>
         </div>
       	<div class="regProdReg">
