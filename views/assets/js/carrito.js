@@ -1,28 +1,28 @@
-var cantidad = 0;
-//cantidad del producto
-$("#moreCant").click(function(){
-  cantidad++;
-  $("#cant").html(cantidad);
-});
-$("#minusCant").click(function(){
-  if (cantidad>0) {
-    cantidad=cantidad-1;
-    $("#cant").html(cantidad);
-  }
-});
+// var cantidad = 0;
+// //cantidad del producto
+// $("#moreCant").click(function(){
+//   cantidad++;
+//   $("#cant").html(cantidad);
+// });
+// $("#minusCant").click(function(){
+//   if (cantidad>0) {
+//     cantidad=cantidad-1;
+//     $("#cant").html(cantidad);
+//   }
+// });
 //cantidad
-$("#cant").dblclick(function(){
-
-});
+// $("#cant").dblclick(function(){
+//
+// });
 //boton de agregar
 $(".addItemShop").click(function(){
+  var pro_cantidad = $("#cant").val();
   var color = $("#selectModal").val();
   var talla = $("#selectTallasModal").val();
   var img =   $("#imgModal")[0].currentSrc;
   var pro_nom = $("#nomModal")[0].innerHTML;
-  var pro_cantidad = cantidad;
   if (pro_cantidad>0) {
-      var data = {"color":color,"talla":talla,"imagen":img,"pro_nombre":pro_nom,"cantidad":cantidad};
+      var data = {"color":color,"talla":talla,"imagen":img,"pro_nombre":pro_nom,"cantidad":pro_cantidad};
       cantidad = 0;
       $("#cant").html(cantidad);
       $.ajax({
@@ -49,6 +49,7 @@ $(".addItemShop").click(function(){
     setTimeout(function(){
       $("div.alert-message").remove();
     },3000);
+    $("#cant").val(1);
   }
 });
 //eliminar item

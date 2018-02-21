@@ -107,7 +107,7 @@
                      </div>
                      <div class="cantidad">
                        <label for="">Cantidad: </label>
-                       <input type="number" name="" value="">
+                       <input type="number" id="cantidad" value="1" min="1">
                      </div>
                      <button type="button" name="button" class="abrirEsaWea">añadir al carrito</button>
                  </div>
