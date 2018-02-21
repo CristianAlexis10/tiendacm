@@ -595,7 +595,7 @@ body{
   margin: 5vh 13vw;
 }
 /* perfil usuario */
-.wrapProfile{
+/* .wrapProfile{
   width: 100%;
   height: 100vh;
 }
@@ -604,8 +604,4 @@ body{
   height: 586px;
   padding-top: 50px;
   margin: 0px auto;
-  /* background: red; */
-  display: grid;
-  grid-template-areas:
-  ""
-}
+} */
