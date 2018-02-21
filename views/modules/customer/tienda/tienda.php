@@ -110,7 +110,7 @@
                          <span id="cant">0</span>
                          <span id="moreCant">+</span> -->
                          <label for="">cantidad: </label>
-                         <input type="number" name="" value="" id="cant">
+                         <input type="number"  value="1" min="1"  id="cant">
                      </div>
                      <button type="button" name="button" class="addItemShop">añadir al carrito</button>
                  </div>
