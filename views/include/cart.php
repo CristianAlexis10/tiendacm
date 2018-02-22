@@ -53,8 +53,7 @@
 <div class="fondoModalCart" id="fondoModalCart"></div>
 <div class="wrapModal" id="wrapCart">
   <div class="modalCart">
-    <button type="button" name="button" onclick="datosEnvio()">Cerrar</button>
-    <form  id="confirmOrder">
+    <form  id="confirmOrder" class="formCart">
       <?php
         $data = $this->master->selectBy("usuario",array("usu_codigo",$_SESSION['USER']['CODE']));
         if($data['usu_dir']=="0"){?>
@@ -72,6 +71,7 @@
           </div>
           <div class="frm-group">
             <input type="submit" value="Confirmar">
+            <button type="button" name="button" onclick="datosEnvio()">Cerrar</button>
           </div>
         <?php
       }else{?>
@@ -89,6 +89,7 @@
         </div>
         <div class="frm-group">
           <input type="submit" value="Confirmar">
+          <button type="button" name="button" onclick="datosEnvio()">Cerrar</button>
         </div>
         <?php } ?>
     </form>
