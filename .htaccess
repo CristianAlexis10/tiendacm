@@ -68,3 +68,7 @@ RewriteRule ^cantidad-items$ index.php?c=carrito&a=countItem
 #validar
 RewriteRule ^validar_correo$ index.php?c=user&a=readByEmail
 RewriteRule ^catalogo--(\w+)$ index.php?c=customer&data=$1
+
+
+#videos
+RewriteRule ^subir_video$ index.php?c=videos&a=upload

@@ -35,7 +35,7 @@
   <div class="fondoModalVideo" id="fondoModalVideo"></div>
   <div class="wrapModalVideo" id="wrapModalVideo">
     <div class="modalVideo">
-      <form class="" action="index.html" method="post">
+      <form class="" action="subir_video" method="post" enctype="multipart/form-data">
         <div class="wrapTitle">
           <h2>Añadir video</h2>
         </div>

@@ -25,5 +25,9 @@ Class VideosController{
       require_once("views/modules/admin/videos/index.php");
       require_once("views/include/dashboard/footer.php");
     }
+
+    function upload(){
+      print_r($_FILES);
+    }
   }
 ?>
