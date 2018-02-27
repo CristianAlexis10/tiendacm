@@ -35,20 +35,22 @@ foreach ($tallas as $row) {
 $_SESSION['update_pro']=$_GET['data'];
 ?>
 <div class="contenido">
+  <h1>Actualizar productos</h1>
+  <div class="wrap-form">
 	<form class="form-producto" id="frmUpdatePro">
-      	<div class="caja">
+      	<div class="wrapInput">
           <label for="">nombre: </label>
       		<input type="text" class="dataUpdate"  value="<?php echo $data['pro_nombre']?>" required>
       	</div>
-      	<div class="caja">
+      	<div class="wrapInput">
           <label for="">precio: </label>
       		<input type="text" class="dataUpdate" value="<?php echo $data['pro_precio']?>" required>
       	</div>
-      	<div class="caja">
+      	<div class="wrapInput">
           <label for="">cantidad: </label>
       		<input type="number" class="dataUpdate"  value="<?php echo $data['pro_cant']?>" required>
       	</div>
-      	<div class="caja">
+      	<div class="wrapInput">
           <label for="">descripción: </label>
       		<input type="text" class="dataUpdate" value="<?php echo $data['pro_des']?>" required>
       	</div>
@@ -82,7 +84,7 @@ $_SESSION['update_pro']=$_GET['data'];
 						?>
 					</select>
 				</div>
-      	<div class="caja">
+      	<div class="wrapInput">
           <label for="">categoria: </label>
       		<select required class="dataUpdate">
             <option value="">seleccionar categoria</option>
@@ -98,7 +100,7 @@ $_SESSION['update_pro']=$_GET['data'];
       			?>
       		</select>
       	</div>
-      	<div class="caja">
+      	<div class="wrapInput">
       		estado:<select class="dataUpdate">
       			<?php
       				if ($data['pro_estado']=="activo") {?>
@@ -110,10 +112,11 @@ $_SESSION['update_pro']=$_GET['data'];
       				<?php } ?>
       		</select>
       	</div>
-      	<div class="caja">
+      	<div class="wrapInput">
       		<button type="submit">Guardar</button>
       	</div>
       </form>
+      </div>
       <div class="more">
       	<a href="cambiar-imagenes">Imagenes</a>
       </div>

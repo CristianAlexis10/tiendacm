@@ -52,6 +52,7 @@ if (isset($_SESSION['messagge'])) {
             <input type="text" class="dataNewProd" required>
       	  </div>
       	</div>
+        <div class="wrapRegProdCat">
       	<div class="regProdCat">
           <label for="">categoria:<span class="obligatorio">*</span></label>
           <div class="wrapInputCat">
@@ -88,6 +89,7 @@ if (isset($_SESSION['messagge'])) {
             ?>
           </select>
         </div>
+      </div>
         <div class="regProdImg">
           <div class="form-group Cambiar--img">
            <div id="wrap-result"><img src="views/assets/img/defaultProfile.png" ></div>

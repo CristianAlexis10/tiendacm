@@ -409,9 +409,6 @@ body{
   justify-content: center;
   align-items: center;
 }
-.frm-group{
-
-}
 .frm-group button, .frm-group:nth-last-child(1) input{
   width: 150px;
   height: 30px;

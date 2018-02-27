@@ -87,10 +87,10 @@ btn_registro.onclick = function() {
 	registro.classList.add('mover_registro');
 	modal.classList.add('agrandar_modal');
 }
-btn_login.onclick = function() {
-	registro.classList.remove('mover_registro');
-	modal.classList.remove('agrandar_modal');
-}
+// btn_login.onclick = function() {
+// 	registro.classList.remove('mover_registro');
+// 	modal.classList.remove('agrandar_modal');
+// }
 $('#modal-login').click(function(){
 	$('#modal-login-registro').toggle();
 	$('#fondo').toggle();
@@ -221,6 +221,14 @@ $("#frmNew").submit(function(e) {
                   setTimeout(function(){
                                 $('div.message').remove();
                               }, 3000);
+															// document.getElementById('1').value = "";
+															// document.getElementById('2').value = "";
+															// document.getElementById('newEmail').value = "";
+															// document.getElementById('contrasena').value = "";
+															// document.getElementById('5').value = "";
+															// registro.classList.remove('mover_registro');
+															// modal.classList.remove('agrandar_modal');
+															// alert(result);
                },
                error: function(result){
                   console.log(result);

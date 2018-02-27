@@ -186,6 +186,8 @@ var go = document.getElementById('go');
 var stop = document.getElementById('stop');
 var fullScreen = document.getElementById('fullScreen');
 
+
+if (document.getElementById('video')) {
 play.onclick = function() {
   if (video.paused) {
     video.play();
@@ -202,19 +204,12 @@ fullScreen.addEventListener ("click", function() {
     video.webkitRequestFullscreen ();
   }
 });
-// subir videos
-// function video(evt) {
-// 	for (var i = 0, i; i = data[1]; i++) {
-// 		if (!i.type.match('video.mp4')) {
-// 			continue;
-// 		}
-// 		var reader = new FileReader();
-// 		reader.onload = (function(data) {
-// 			return function(e) {
-// 				document.getElementById('upVideo').innerHTML = ['<source src="', e.target.result ,'"></source>'].join('');
-// 			};
-// 		})(f);
-// 		reader.readAsDataURL(i);
-// 	}
-// }
-// document.getElementById('upLoadVideo').addEventListener('change', video, false);
+}
+//modal actualizacion de categoria
+
+$(".updateCatBtn").click(function() {
+	$(".modalUpdateCategory").toggle();
+});
+$(".modalUpdateCategoryBtnC").click(function() {
+	$(".modalUpdateCategory").toggle();
+})

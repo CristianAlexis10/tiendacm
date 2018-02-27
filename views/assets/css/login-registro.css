@@ -149,13 +149,13 @@
   cursor: pointer;
   width: 45%;
   height: 100%;
+  text-transform: capitalize;
 }
 .ir_registro{
   margin-left: 15px;
 }
 /*estilos del registro*/
 .registro{
-  /*display: none;*/
   z-index: 6;
   position: absolute;
   top: 0px;
@@ -202,6 +202,7 @@
   right: 22px;
   width: 90%;
   bottom: 15px;
+  text-transform: capitalize;
 }
 .btn_registro button{
   border: none;

@@ -39,10 +39,11 @@ body{
   justify-content: center;
   align-items: center;
   background: #35485b;
+  margin-bottom: 5px;
 }
+
 .menu a li i{
   color: #ffffff;
-  /* font-size: 30px; */
 }
 .item{
   margin: 10px;
@@ -191,6 +192,63 @@ body{
 .categorias_ropa:nth-last-child(1):hover{
   background: #ececec;
 }
+/* actualizar categorias */
+.modalUpdateCategory{
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.7);
+  top: 0px;
+  left: 0px;
+}
+.wrapUpdateCategory{
+  background: #fff;
+  margin: 15vh auto;
+  width: 300px;
+  border-radius: 3px;
+}
+.frmUpdateCat{
+  padding: 15px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 100%;
+  grid-template-areas:
+  "titulo"
+  "nombre"
+  "estado"
+  "imagen"
+  "confirmar";
+  grid-gap: 10px;
+  font-family: "roboto";
+}
+.modalUpdateCategoryBtn, .modalUpdateCategoryBtnC, .frm-group h2{
+  border: none;
+  outline: none;
+  padding: 5px;
+  background: #2b3845;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 15px;
+}
+.modalUpdateCategoryBtn:hover, .modalUpdateCategoryBtnC:hover, .frm-group h2:hover{
+  background: #35485b;
+}
+.frm-group h3{
+  border-bottom: 2px solid #929292;
+}
+.frm-group{
+  text-align: center;
+}
+.frm-group input{
+  width: 100%;
+  border-radius: 3px;
+  padding: 3px;
+  border: 1px solid #c6c6c6;
+}
 /*gestion de los productos*/
 .wrap-form{
   width: 100%;
@@ -203,11 +261,11 @@ body{
   width: 95%;
   display: grid;
   grid-template-areas:
-  "nomPro desPro colPro"
-  "canPro prePro talPro"
-  "catPro catPro catPro"
-  "imgPro imgPro imgPro"
-  "regPro regPro regPro";
+  "nomPro desPro"
+  "canPro prePro"
+  "catPro catPro"
+  "imgPro imgPro"
+  "regPro regPro";
   font-family: "Lato";
   grid-template-rows: 50px 50px 50px auto 50px;
   grid-row-gap: 10px;
@@ -215,47 +273,17 @@ body{
 .obligatorio{
   color: red;
 }
-.regProdNom{
-  grid-area: nomPro;
-  display: grid;
-  grid-template-columns: 100px auto;
-}
-.regProdCat{
-  grid-area: catPro;
-  display: grid;
-  grid-template-columns: 100px auto;
-}
 .wrapInputCat select{
-  width: 93%;
+  width: 198px;
+  height: 27px;
+  border-radius: 5px;
+  color: #999;
+}
+.wrapInput input{
+  width: 95%;
   border-radius: 3px;
-}
-.wrapInputCat{
-  width: 100%;
-}
-.regProdPre{
-  grid-area: prePro;
-  display: grid;
-  grid-template-columns: 100px auto;
-}
-.regProdCol{
-  grid-area: colPro;
-  display: grid;
-  grid-template-columns: 100px auto;
-}
-.regProdCan{
-  grid-area: canPro;
-  display: grid;
-  grid-template-columns: 100px auto;
-}
-.regProdDes{
-  grid-area: desPro;
-  display: grid;
-  grid-template-columns: 100px auto;
-}
-.regProdTal{
-  grid-area: talPro;
-  display: grid;
-  grid-template-columns: 100px auto;
+  border: 1px solid #c6c6c6;
+  height: 20px;
 }
 .regProdImg{
   grid-area: imgPro;
@@ -299,6 +327,16 @@ body{
 .regProdReg button:hover, .regProdImg h2:hover{
   background: #ececec;
 }
+.wrapRegProdCat{
+  grid-area: catPro;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+.regProdCat, .regProdCol, .regProdTal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /*estilos de visualizacion de los productos */
 .wrap-produ{
   margin: 15px;
@@ -307,12 +345,16 @@ body{
   width: 100%;
 }
 table,th,tr,thead,tbody,td{
-  border: 1px solid black;
+  border: 1px solid #c6c6c6;
   text-align: center;
 }
 table{
+  border: 1px solid #c6c6c6;
   border-radius: 3px;
   margin: 5px 0px;
+}
+table.dataTable.no-footer {
+  border: 1px solid #c6c6c6;
 }
 .btn-productos{
   border: none;

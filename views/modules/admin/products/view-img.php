@@ -18,6 +18,7 @@
       <?php require_once("views/include/dashboard/topMenu.php"); ?>
       <?php require_once("views/include/dashboard/navigator.php"); ?>
 <div class="contenido">
+  <h1>Actualizar imagenes</h1>
     <?php
         $data = $this->master->selectBy('producto',array('pro_codigo',$_SESSION['update_pro']));
     ?>

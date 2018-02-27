@@ -19,7 +19,7 @@
                 </div>
                 <div class="btn_inicio">
                   <button type="submit" class="ini_sesion" id="iniciar_se" >Iniciar sesion</button>
-                  <button type="button" class="ir_registro" id="btn_registro">registro</button>
+                  <button type="button" class="ir_registro" id="btn_registro">¡registrate!</button>
                 </div>
             </div>
           </form>
@@ -54,8 +54,8 @@
               </div>
             </div>
               <div class="btn_registro">
-                <button type="submit" class="btn_registrarse" id="btn_regis">Registrarse</button>
-                <button type="button" id="btn_login" class="ir_registro">Iniciar sesión</button>
+                <button type="submit" class="btn_registrarse" id="btn_regis">Registrarse!</button>
+                <!-- <button type="button" id="btn_login" class="ir_registro">Iniciar sesión</button> -->
               </div>
           </form>
         </div>
