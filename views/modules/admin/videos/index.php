@@ -44,11 +44,6 @@
           <label for="cambie_esta_madre">Titulo del video</label>
         </div>
         <div class="wrapFileVideo">
-          <div class="regVideo">
-            <video width="400px" controls>
-              <source src="" type="video/mp4">
-            </video>
-          </div>
           <div class="upLoad">
             <input type="file" required>
           </div>

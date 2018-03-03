@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
     <link type="text/css" rel="stylesheet" href="views/assets/css/croppie.css"  media="screen,projection"/>
+    <meta name="viewport"  content="width=device-width, initial-scale=1.0">
     <!-- si es este? -->
   </head>
   <body>

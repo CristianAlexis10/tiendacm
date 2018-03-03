@@ -10,25 +10,18 @@
 				}
 			});
 	});
-	//modales dashboard
-if (document.getElementById('add_categoria')) {
-	var fondo = document.getElementById('fondo');
-	var add_categoria = document.getElementById('add_categoria');
-	var categoria = document.getElementById('reg_categoria');
+//modales dashboard
 
-	add_categoria.onclick = function() {
-		fondo.style.display = "inherit";
-		categoria.style.display = "inherit";
+	if (document.getElementById('add_categoria')) {
+		$('#add_categoria').click(function() {
+			$('#background').toggle();
+			$('#reg_categoria').toggle();
+		});
+		$('#modalCategoryCancel').click(function() {
+			$('#background').toggle();
+			$('#reg_categoria').toggle();
+		});
 	}
-	fondo.onclick = function() {
-		fondo.style.display = "none";
-		categoria.style.display = "none";
-	}
-	$('#btn-productos').click(function(){
-		$('#reg-productos').toggle();
-		$('#list-productos').toggle();
-	})
-}
 //modal registro de videos
 var addVideo = document.getElementById('addVideo');
 var wrapModalVideo = document.getElementById('wrapModalVideo');

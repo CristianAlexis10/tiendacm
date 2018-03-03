@@ -29,27 +29,24 @@ if (isset($_SESSION['messagge'])) {
   </div>
 </div>
 <!-- modal -->
-<div class="fondo" id="fondo"></div>
-<div class="wrapRegCat">
-    <div class="reg_categoria" id="reg_categoria">
-      <div class="wrapGrid">
-        <div class="">
+<div class="background" id="background"></div>
+<div class="wrapModalCategory" id="reg_categoria">
+    <div class="modalCategory">
+        <div class="modalCategoryTitle">
           <h2>Añadir categoria</h2>
         </div>
-          <form id="frmNewCat">
-            <div class="frm-form">
-              <label for="name">categoria: </label>
-              <input type="text" id="name" placeholder="Nombre categoria">
-            </div>
-            <div class="">
-              <div class="form-group Cambiar--img">
-               <div id="wrap-result"><img src="views/assets/img/defaultProfile.png" ></div>
-               <span class="" id="cropp-img">Cambiar foto</span>
-             </div>
-            </div>
-          <button type="submit">guardar</button>
-        </form>
-      </div>
+        <form id="frmNewCat" class="modalCategoryForm">
+          <div class="frmCategoryName">
+            <label for="name">categoria: </label>
+            <input type="text" id="name" placeholder="Nombre categoria">
+          </div>
+          <div class="frmCategoryImg">
+           <div id="wrap-result"><img src="views/assets/img/defaultProfile.png" ></div>
+           <h2 class="" id="cropp-img">Cambiar foto</h2>
+          </div>
+        <button type="submit">guardar</button>
+        <button type="button" id="modalCategoryCancel">cancelar</button>
+      </form>
     </div>
 </div>
 <div id="img-product">
