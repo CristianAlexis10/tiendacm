@@ -30,7 +30,7 @@ Class VideosController{
       $archivo =  $_FILES["archivo1"];
       $subir = $this->doizer->validateVideo($archivo,"views/assets/video/");
       if (is_array($subir)) {
-        $result = $this->master->insert("video",array($_POST['nombre'],$subir[1]),array("id_video"));
+        $result = $this->master->insert("video",array($_POST['nombre'],$subir[1],$_SESSION['USER']['CODE']),array("id_video"));
         if ($result==true) {
             echo json_encode(true);
         }else{

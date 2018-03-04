@@ -16,7 +16,7 @@ if (isset($_SESSION['messagge'])) {
           </div>
           <div class="deleteCat">
             <!-- <a href="actualizar-categoria-<?php //echo $row['cat_codigo']?>" title="Editar"><i class="far fa-edit"></i></a> -->
-            <a title="Editar" class="updateCatBtn"><i class="far fa-edit"></i></a>
+            <a title="Editar" class="updateCatBtn" id="<?php echo $row['cat_codigo']; ?>"><i class="far fa-edit"></i></a>
           </div>
           <div class="updateCat">
             <a href="eliminar-categoria-<?php echo $row['cat_codigo']?>" title="Eliminar"><i class="fas fa-trash-alt"></i></a>
@@ -66,39 +66,34 @@ if (isset($_SESSION['messagge'])) {
             <h3>Actualizar producto</h3>
           </div>
       		<div class="frm-group">
-      			<label for="name">Nombre:</label>
-      			<input type="text" id="name" value="<?php echo $result['cat_nombre'] ?>" required>
+      			<label for="nameCategory">Nombre:</label>
+      			<input type="text" id="nameCategory"  required>
       		</div>
       		<div class="frm-group">
       			<label for="status">Estado:</label>
       			<select id="status" required>
-      				<?php
-      					if ($result['cat_estado']==1) {?>
-      						<option value="1" selected>Activa</option>
-      						<option value="2">Inactiva</option>
-      					<?php
-      					}else{?>
-      						<option value="1">Activa</option>
-      						<option value="2" selected>Inactiva</option>
-      					<?php } ?>
+              <option value="2">Inactiva</option>
+      						<option value="1" >Activa</option>
       			</select>
       		</div>
-      		<div class="frm-group Cambiar--img">
-      			<div id="wrap-result"><img src="views/assets/img/category/<?php echo $result['cat_img'] ?>" ></div>
-      			<h2 class="" id="cropp-img">Cambiar foto</h2>
-      		</div>
+
+          <div class="form-group Cambiar--img">
+             <div id="wrap-result2"><img src="views/assets/img/category/<?php echo $result['cat_img'] ?>" ></div>
+             <input type="submit" value="Cambiar foto" id="cropp-img2" class="modalUpdateCategoryBtn">
+           </div>
+
       	<input type="submit" value="Guardar" class="modalUpdateCategoryBtn">
       	<input type="button" value="Cancelar" class="modalUpdateCategoryBtnC">
       </form>
-      <div id="img-product">
-      	<div class="newMark--img">
-      		<span id="closeImg">&times;</span>
-      		<div id="uploadImage">
-      			<div id="wrap-upload" style="width:300px"></div>
-      			<input type="file" id="upload">
-      			<button class="btn btn-success upload-result">Recortar Imagen</button>
-      		</div>
-      	</div>
-      </div>
+      <div id="img-product2">
+          <div class="newMark--img">
+            <span id="closeImg2">&times;</span>
+            <div id="uploadImage2">
+              <div id="wrap-upload2" style="width:300px"></div>
+              <input type="file" id="upload2">
+              <button class="btn btn-success upload-result2">Recortar Imagen</button>
+            </div>
+          </div>
+        </div>
     </div>
   </div>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-03-2018 a las 19:37:52
+-- Tiempo de generación: 04-03-2018 a las 12:20:02
 -- Versión del servidor: 10.1.8-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -132,6 +132,11 @@ BEGIN
 SELECT * FROM producto LIMIT ini , fin ;
 end$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `paginasVideos` (IN `ini` INT, IN `fin` INT)  NO SQL
+BEGIN
+SELECT * FROM video LIMIT ini , fin ;
+end$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `productosBycategoria` (IN `cat` VARCHAR(50), IN `ini` INT, IN `fin` INT)  NO SQL
 BEGIN
 SELECT * FROM categoria INNER JOIN producto ON categoria.cat_codigo=producto.cat_codigo  WHERE categoria.cat_nombre =  cat LIMIT ini , fin;
@@ -198,10 +203,11 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`cat_codigo`, `cat_nombre`, `cat_estado`, `cat_img`) VALUES
-(12, 'Nada1', 1, '5379a8df871d3472f72856baf15cc94a.png'),
-(13, 'Nada2', 1, '3c5af9791f5f194319e3ae11180f6de8.png'),
-(14, 'Nada3', 1, '541c5b20154f841069f0a3e94c9ca777.png'),
-(15, 'Nada4', 1, '46bf352879e98007869cf46ace3d4c9c.png');
+(12, 'Nada1', 1, 'b862b02a065dc2102232cbd97327854c.png'),
+(13, 'Nada2', 1, '868da88063a663794044c9f2c58770eb.png'),
+(14, 'Nada3', 1, '4d3a94a0bd7fea363d7d4565cc9e29d9.png'),
+(16, 'Nada4', 2, 'de86fb1f418cd9e8c13a9491eb09febf.png'),
+(17, 'nada5', 1, 'ab6b56b70b4a3f97fd2766abba3cdc08.png');
 
 -- --------------------------------------------------------
 
@@ -516,18 +522,19 @@ INSERT INTO `usuario` (`usu_codigo`, `usu_nombre1`, `usu_apellido1`, `usu_apelli
 CREATE TABLE `video` (
   `id_video` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
-  `url` varchar(150) NOT NULL
+  `url` varchar(150) NOT NULL,
+  `usu_codigo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `video`
 --
 
-INSERT INTO `video` (`id_video`, `nombre`, `url`) VALUES
-(1, 'primer video', '7a48d3b3dcb32b38fce132010c9ded28.mp4'),
-(2, 'hola', '1bcce0792e2a3ba3d035eedc710a88ab.mp4'),
-(3, 'nada', '69f34f39b388843c49810c1a44ecb093.mp4'),
-(4, 'hoaa', '8b8fc056d0d9a3e0c859cf9d2aa269d8.mp4');
+INSERT INTO `video` (`id_video`, `nombre`, `url`, `usu_codigo`) VALUES
+(1, 'primer video', '7a48d3b3dcb32b38fce132010c9ded28.mp4', 3),
+(2, 'hola', '1bcce0792e2a3ba3d035eedc710a88ab.mp4', 3),
+(3, 'nada', '69f34f39b388843c49810c1a44ecb093.mp4', 3),
+(4, 'hoaa', '8b8fc056d0d9a3e0c859cf9d2aa269d8.mp4', 3);
 
 --
 -- Índices para tablas volcadas
@@ -655,7 +662,8 @@ ALTER TABLE `usuario`
 -- Indices de la tabla `video`
 --
 ALTER TABLE `video`
-  ADD PRIMARY KEY (`id_video`);
+  ADD PRIMARY KEY (`id_video`),
+  ADD KEY `usu_codigo` (`usu_codigo`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -665,7 +673,7 @@ ALTER TABLE `video`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `cat_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `cat_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT de la tabla `color`
 --
@@ -778,6 +786,12 @@ ALTER TABLE `usuario`
   ADD CONSTRAINT `usuario_ibfk_2` FOREIGN KEY (`tid_codigo`) REFERENCES `tipo_documento` (`tid_codigo`),
   ADD CONSTRAINT `usuario_ibfk_3` FOREIGN KEY (`mun_codigo`) REFERENCES `municipio` (`mun_codigo`),
   ADD CONSTRAINT `usuario_ibfk_6` FOREIGN KEY (`rol_codigo`) REFERENCES `rol` (`rol_codigo`);
+
+--
+-- Filtros para la tabla `video`
+--
+ALTER TABLE `video`
+  ADD CONSTRAINT `video_ibfk_1` FOREIGN KEY (`usu_codigo`) REFERENCES `usuario` (`usu_codigo`) ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

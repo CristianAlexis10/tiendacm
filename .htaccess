@@ -18,6 +18,7 @@ RewriteRule ^selectColor$ index.php?c=products&a=readByCodColor
 RewriteRule ^selectTalla$ index.php?c=products&a=readByCodTalla
 
 #VIDEOS
+RewriteRule ^videos-(\w+)$ index.php?c=videos&pagina=$1
 RewriteRule ^videos$ index.php?c=videos
 RewriteRule ^gestion-videos$ index.php?c=videos&a=gestion
 RewriteRule ^subir-video$ index.php?c=videos&a=upload
@@ -59,6 +60,7 @@ RewriteRule ^ver-categoria-(\w+)$ index.php?c=category&a=view&data=$1
 RewriteRule ^eliminar-categoria-(\w+)$ index.php?c=category&a=delete&data=$1
 RewriteRule ^actualizar-categoria-(\w+)$ index.php?c=category&a=viewUpdate&data=$1
 RewriteRule ^actualizar-cat$ index.php?c=category&a=update&data
+RewriteRule ^datos-categoria$ index.php?c=category&a=readBy
 
 #IMAGENES
 RewriteRule ^cropp-(\w+)$ index.php?c=cropp&a=image&folder=$1

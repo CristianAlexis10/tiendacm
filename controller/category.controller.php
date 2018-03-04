@@ -6,7 +6,12 @@
 	 		$this->master =  MasterModel();
 	 		$this->doizer = new DoizerController;
 	 	}
-
+		function readBy(){
+			$data =$_POST['data'];
+			$_SESSION['cat_mod'] = $data;
+			$result = $this->master->selectBy("categoria",array("cat_codigo",$data));
+			echo json_encode($result);
+		}
 		function newCategory(){
 			$data = $_POST['data'];
 			$estado=1;

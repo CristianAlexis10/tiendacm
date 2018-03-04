@@ -244,6 +244,20 @@ $("#formuploadajax").submit(function(e){
 
 $(".updateCatBtn").click(function() {
 	$(".modalUpdateCategory").toggle();
+		console.log(this.id);
+		$.ajax({
+			url:"datos-categoria",
+			type:"post",
+			dataType:"json",
+			data:({data:this.id}),
+			success:function(result){
+				console.log(result);
+				$("#nameCategory").val(result.cat_nombre);
+				$("#status").val(result.cat_estado);
+				$("#wrap-result2 img").attr("src","views/assets/img/category/"+result.cat_img);
+			},
+			error:function(result){console.log(result);}
+		});
 });
 $(".modalUpdateCategoryBtnC").click(function() {
 	$(".modalUpdateCategory").toggle();
