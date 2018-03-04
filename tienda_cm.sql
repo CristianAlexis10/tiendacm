@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-02-2018 a las 22:45:49
--- Versión del servidor: 10.1.19-MariaDB
--- Versión de PHP: 5.6.28
+-- Tiempo de generación: 03-03-2018 a las 19:37:52
+-- Versión del servidor: 10.1.8-MariaDB
+-- Versión de PHP: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -175,7 +175,9 @@ INSERT INTO `acceso` (`acc_token`, `usu_id`, `acc_contra`) VALUES
 ('01adb163751f819cb56e323785670957', 6, '$2y$10$Hl9HVC4KYCBQsgCSUPN0quaobvP0I/6T3l.OK1tXU.z13ToF0qX2S'),
 ('4fc94a9051176d0133b76d74f6df6293', 17, '$2y$10$QcGaoFDm/giJV6hsCkQ5I.V/y6UFbNx3y49tejy6cOY2kHl0XOSqu'),
 ('665a565a47e732f7bf96e40eb2cfc226', 16, '$2y$10$WxfTypIQ1zLUcv46zyCAte6MnA3Zgv9XMIDKaIU7gA0qfcTZfmacu'),
+('6697a149eefdae6fdec244a5215fad3c', 19, '$2y$10$Rbxw6t9dNiPrSEme3OEKGOZFHl8HQ7tQK0NRNndHhRNkl/ydClWfy'),
 ('d5cf38ba4f7816b2e7a6515ecbdf9732', 9, '$2y$10$NsaGCqsAXw.5cRjOQMIvFe6xzYxL3u2KJ5w2s/sLTB9S/YbHvODX.'),
+('d8febc48be9f3cc059c507d64e5464f6', 18, '$2y$10$Q5OhGpByLgwFilngRNE6uumxQjR.VSV7wxDF1AFZ27lSBKaB9KtAC'),
 ('f4b3cf3fc6dfec17fbdd2ac6977e7436', 3, '$2y$10$clVWgrdPMZulTJCoXlc1hu9EkB.QmuHe3Vuzmz0xTP2joDLysdzu.');
 
 -- --------------------------------------------------------
@@ -244,7 +246,9 @@ INSERT INTO `color_producto` (`col_codigo`, `por_codigo`) VALUES
 (1, 27),
 (2, 27),
 (1, 28),
-(2, 28);
+(2, 28),
+(1, 29),
+(2, 29);
 
 -- --------------------------------------------------------
 
@@ -368,7 +372,8 @@ INSERT INTO `producto` (`pro_codigo`, `pro_nombre`, `pro_precio`, `pro_cant`, `p
 (25, 'nada', 324, 34, '324', 13, 'a98d70f681601cf12f891f6c9a3a1878.png', 'activo'),
 (26, 'fgfd', 435, 435, '43543', 14, '64b52215dadbd283e6c17f7d31af9f28.png', 'activo'),
 (27, 'asd', 324, 2344, '342', 13, '424373a96e0df49cfac85ff2644b246c.png', 'activo'),
-(28, 'sad', 324, 34, '324', 14, '3dd90c125c50926e1cf3b51ec39712d1.png', 'activo');
+(28, 'sad', 324, 34, '324', 14, '3dd90c125c50926e1cf3b51ec39712d1.png', 'activo'),
+(29, 'kl', 8797, 897897, '89789', 12, 'abef16ef3720f15e5233a09b527947e2.png', 'activo');
 
 -- --------------------------------------------------------
 
@@ -446,7 +451,9 @@ INSERT INTO `talla_producto` (`pro_codigo`, `tal_codigo`) VALUES
 (27, 1),
 (27, 2),
 (28, 1),
-(28, 2);
+(28, 2),
+(29, 1),
+(29, 2);
 
 -- --------------------------------------------------------
 
@@ -481,7 +488,7 @@ CREATE TABLE `usuario` (
   `usu_correo` varchar(100) NOT NULL,
   `rol_codigo` int(11) NOT NULL,
   `tid_codigo` int(11) NOT NULL,
-  `usu_num_doc` int(15) NOT NULL,
+  `usu_dir` varchar(50) NOT NULL,
   `mun_codigo` int(11) NOT NULL,
   `usu_telefono` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -490,13 +497,37 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`usu_codigo`, `usu_nombre1`, `usu_apellido1`, `usu_apellido2`, `usu_direccion`, `usu_correo`, `rol_codigo`, `tid_codigo`, `usu_num_doc`, `mun_codigo`, `usu_telefono`) VALUES
-(3, 'julio', 'arias', NULL, '', 'algo@algo.com', 1, 1, 0, 1, 0),
-(6, 'julio', 'arias', NULL, '', 'nose@gds.com', 2, 1, 0, 1, 0),
-(9, 'jufdsgfs', 'gdsags', NULL, '', 'gsag@gsag', 2, 1, 0, 1, 0),
-(15, 'dsf', 'dsf', NULL, '', 's@s.com', 2, 1, 0, 1, 0),
-(16, 'Alexis', 'lopera', NULL, '', 'yo@yo.com', 1, 1, 0, 1, 0),
-(17, 'cristian', 'lopera', NULL, '', 'alexis__1020@hotmail.com', 1, 1, 0, 1, 0);
+INSERT INTO `usuario` (`usu_codigo`, `usu_nombre1`, `usu_apellido1`, `usu_apellido2`, `usu_direccion`, `usu_correo`, `rol_codigo`, `tid_codigo`, `usu_dir`, `mun_codigo`, `usu_telefono`) VALUES
+(3, 'julio', 'arias', NULL, '', 'algo@algo.com', 1, 1, '0rewsrdtf', 1, 0),
+(6, 'julio', 'arias', NULL, '', 'nose@gds.com', 2, 1, '0', 1, 0),
+(9, 'jufdsgfs', 'gdsags', NULL, '', 'gsag@gsag', 2, 1, '0', 1, 0),
+(15, 'dsf', 'dsf', NULL, '', 's@s.com', 2, 1, '0', 1, 0),
+(16, 'Alexis', 'lopera', NULL, '', 'yo@yo.com', 1, 1, '0', 1, 0),
+(17, 'cristian', 'lopera', NULL, '', 'alexis__1020@hotmail.com', 1, 1, '0324', 1, 0),
+(18, 'Hola', 'nada', NULL, '', 'cliente@cliente.com', 2, 1, '0', 1, 0),
+(19, 'nada', 'nada', NULL, '', 'nada@nada.com', 2, 1, '0', 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `video`
+--
+
+CREATE TABLE `video` (
+  `id_video` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `url` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `video`
+--
+
+INSERT INTO `video` (`id_video`, `nombre`, `url`) VALUES
+(1, 'primer video', '7a48d3b3dcb32b38fce132010c9ded28.mp4'),
+(2, 'hola', '1bcce0792e2a3ba3d035eedc710a88ab.mp4'),
+(3, 'nada', '69f34f39b388843c49810c1a44ecb093.mp4'),
+(4, 'hoaa', '8b8fc056d0d9a3e0c859cf9d2aa269d8.mp4');
 
 --
 -- Índices para tablas volcadas
@@ -621,6 +652,12 @@ ALTER TABLE `usuario`
   ADD KEY `rol_codigo` (`rol_codigo`);
 
 --
+-- Indices de la tabla `video`
+--
+ALTER TABLE `video`
+  ADD PRIMARY KEY (`id_video`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -648,7 +685,7 @@ ALTER TABLE `pedidos`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `pro_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `pro_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT de la tabla `talla`
 --
@@ -658,7 +695,12 @@ ALTER TABLE `talla`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `usu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `usu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT de la tabla `video`
+--
+ALTER TABLE `video`
+  MODIFY `id_video` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Restricciones para tablas volcadas
 --

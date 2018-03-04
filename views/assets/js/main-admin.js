@@ -198,6 +198,48 @@ fullScreen.addEventListener ("click", function() {
   }
 });
 }
+//subir videos
+$("#formuploadajax").submit(function(e){
+    e.preventDefault();
+    var formData = new FormData(document.getElementById("formuploadajax"));
+    //agregar mas a la variable $_POST
+    // formData.append("nada", "valor");
+      $.ajax({
+            url: "subir-video",
+            type: "post",
+            dataType: "json",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            beforeSend:function(){
+                $("#formuploadajax").after("<div class='message'>subiendo...</div>");
+            },
+            success:function(result){
+							if (result==true) {
+										$("div.message").remove();
+										$("#formuploadajax").after("<div class='message'>Subido Exitosamente</div>");
+										setTimeout(function(){
+											$("div.message").remove();
+											$("#fondoModalVideo").toggle();
+											$("#wrapModalVideo").toggle();
+											$("#formuploadajax")[0].reset();
+											location.reload();
+										},3000);
+							}else{
+								$("div.message").remove();
+								console.log(result);
+								$("#formuploadajax").after("<div class='message'>Respuesta: " + result+"</div>");
+								setTimeout(function(){$("div.message").remove();},2000);
+							}
+            },
+            error:function(result){
+              console.log(result);
+            }
+      });
+  });
+
+
 //modal actualizacion de categoria
 
 $(".updateCatBtn").click(function() {

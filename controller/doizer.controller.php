@@ -24,8 +24,16 @@
 @nameMethod: onlyNumbersDelete(string)
 @description:validateDate($dato)valida si en una cadena hay solo numeros si es asi retorna true si no retorna un  int  eliminado los otros caracteres
 
+@nameMethod: validateDate(string,string,string)
+@description:validateDate("year/month/day")valida si la fecha esta en un formato valido, retorna true en caso de que sea valida
+@description:validateDate("year/month/day","past")valida si la fecha ya paso, retorna true si la fecha ya paso
+@description:validateDate("year/month/day","difference")retorna un int con la diferencia que hay entre la fecha actual y la ingresada
+@description:validateDate("year/month/day","compare","year/month/day"9:38 p. m. 2/02/2018)retorna un int con la diferencia que hay entre la primer fecha y la segunda
+
+
 @nameMethod: deleteSpaces(string)
 @description:deleteSpaces($dato)valida si existen espacios en blaco en una cadena retorna true si no tiene espacios y false si tiene
+
 */
 class DoizerController{
 //CONTRASEÑAS
@@ -74,7 +82,7 @@ class DoizerController{
 //ARCHIVOS
 	public function ValidateImage($image,$folder){
 	        if (isset($image['file']) && $image['file']['error'] == 0) {
-	            $allowed = array('jpg'=>'image/jpg','png'=>'image/png','gif'=>'image/gif','jpeg'=>'image/jpeg','JPG'=>'image/jpg','PNG'=>'image/png','GIF'=>'image/gif','JPEG'=>'image/jpeg');
+	            $allowed = array('jpg'=>'image/jpg','png'=>'image/png','gif'=>'image/gif','jpeg'=>'image/jpeg');
 	            $filetype=$image['file']['type'];
 	            $filesize=$image['file']['size'];
 	            $extention = pathinfo($image['file']['name']);
@@ -105,6 +113,36 @@ class DoizerController{
 	            return "Ha ocurrido un error  con la imagen ";
 	        }
             }
+
+			function validateVideo($archivo,$path){
+				$archivo =  $_FILES["archivo1"];
+				$folder =$path;
+				$allowed = array('mp4'=>'video/mp4','mp4'=>'application/mp4');
+				$filetype=$archivo['type'];
+				$filesize=$archivo['size'];
+				$extention = pathinfo($archivo['name']);
+				$extention=".".$extention['extension'];
+				$rand = rand(10000,999999)*rand(10000,999999);
+				$tmp_name=md5($rand.$archivo['name']);
+				$filename=$tmp_name.$extention;
+				$extention=pathinfo($filename,PATHINFO_EXTENSION);
+				if (!array_key_exists($extention,$allowed)) {
+				    echo  json_encode("Error: Seleccione un formato valido(mp4) ");
+				    return;
+				}
+				$maxsize=60000000;
+				if ($filesize>$maxsize) {
+				    return "Error: el tamaño del archivo debe ser menor o igual a 60 MB";
+				    return ;
+				}
+				if (file_exists($folder.$filename)) {
+				    return "El archivo ya existe";
+				}else{
+					$result = array(true,$filename);
+				    move_uploaded_file($archivo['tmp_name'],$folder.$result[1]);
+				   return $result ;
+				  }
+			}
 //FECHAS
 	function validateDate($date,$acction = 'no',$date2 = '0000/00/00'){
 		$valores = explode('/', $date);
@@ -123,7 +161,7 @@ class DoizerController{
 				}
 			}
 			if ($acction=='difference') {
-				$date=$valores[1]."/".($valores[2]+1)."/".$valores[0];
+				$date=$valores[1]."/".($valores[2])."/".$valores[0];
 				$current_date=new DateTime( date('Y/m/d'));
 				$date_born = new DateTime($date);
 				$interval = $current_date->diff($date_born);
@@ -141,8 +179,9 @@ class DoizerController{
 				}
 			}
 			return true;
-	   	 }
-		return false;
+		}else{
+			return "fecha no valida";
+		}
 	}
 	//RETORNAR FECHAS EN UN RANGO
 	public function DateInRange($date1,$date2){
@@ -170,8 +209,19 @@ class DoizerController{
 		return  filter_var($number, FILTER_SANITIZE_NUMBER_INT);
 	}
 //TEXTO
+	function validateSpacesBlank($txt){
+		$caracteres = strlen($txt);
+			$i = 0;
+			while ($caracteres > $i) {
+			 if (ctype_space($txt[$i])==true) {
+			        return true;
+			    }
+			    $i++;
+			 }
+			 return false;
+	}
 	function specialCharater($string){
-		$pattern = '/[\'\/~`\!\%\^&\*\(\)_\-\+=\{\}\[\]\|;:"\<\>,\\\]/';
+		$pattern = '/[\'\/~`\!\%\^&\*\(\)\+=\{\}\[\]\|;:"\<\>,\\\]/';
 	    if (preg_match($pattern,$string)){
 	      	return false;
 	  	}else{
@@ -223,9 +273,6 @@ class DoizerController{
 			case 'HY093':
 				return 'los parametos a modificar no coinciden';
 				break;
-			case '1062':
-				return 'no';
-				break;
 			default:
 				'ocurrio un error';
 				break;
@@ -234,25 +281,4 @@ class DoizerController{
 
 }
 
-
-// //pass
-// $pass = 'asaasa5A';
-// $real_pass = '$2y$10$zbj9d7MYBWXH.k4SlR4KDOevRV56sVoGxlgHXvv31fZRh3UfcjWmG';
-
-// if (password_verify($pass , $real_pass)) {
-//     echo '¡La contraseña es válida!';
-// } else {
-//     echo 'La contraseña no es válida.';
-// }
-
-
-
-// $doizer = new DoizerController;
-// $2y$10$BRvvYPs./RIJrCd2ymoOWOqmSLaqQAUXStB2oNknTYGfTAB77n6Wu
-// print_r($doizer->DateInRange('2017-05-20','2017-05-21'));
-// echo $doizer->onlyNumbersDelete('25555');
-// echo $doizer->validateSecurityPassword("Dompi123");
-// $fecha = '2017/10/18';
-// echo $doizer->validateDate($fecha,'difference');
-// echo $doizer->deleteSpaces("d ");
 ?>

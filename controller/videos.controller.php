@@ -27,7 +27,18 @@ Class VideosController{
     }
 
     function upload(){
-      print_r($_FILES);
+      $archivo =  $_FILES["archivo1"];
+      $subir = $this->doizer->validateVideo($archivo,"views/assets/video/");
+      if (is_array($subir)) {
+        $result = $this->master->insert("video",array($_POST['nombre'],$subir[1]),array("id_video"));
+        if ($result==true) {
+            echo json_encode(true);
+        }else{
+          echo json_encode($this->doizer->knowError($result));
+        }
+      }else{
+        echo json_encode("no");
+      }
     }
   }
 ?>
