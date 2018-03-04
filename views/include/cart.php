@@ -56,9 +56,17 @@
     <form  id="confirmOrder" class="formCart">
       <?php
         $data = $this->master->selectBy("usuario",array("usu_codigo",$_SESSION['USER']['CODE']));
-        if($data['usu_dir']=="0"){?>
+        if($data['usu_dir']==""){?>
           <div class="frm-group">
-            <label for="dir">Dirección de envio</label>
+            <label for="ciudad">Ciudad: </label>
+            <select  id="ciudad">
+              <?php foreach ($this->master->selectAll("municipio") as $row) {?>
+              <option value="<?php echo $row['mun_codigo']?>"><?php echo $row['mun_nombre']?></option>
+              <?php } ?>
+            </select>
+          </div>
+          <div class="frm-group">
+            <label for="dir">Dirección de envio: </label>
             <input type="text" id="dir" placeholder="Ingresa la dirección" required>
           </div>
           <div class="frm-group">
@@ -66,8 +74,8 @@
             <input type="number" required id="cel" placeholder="Numero de celular">
           </div>
           <div class="frm-group">
-            <label id="fecha">Fecha de entrega:</label>
-            <input type="date" required id="fecha" placeholder="Ingresa la fecha de entrega">
+            <label for="fecha">Fecha de entrega:</label>
+            <input type="date"  id="fecha" placeholder="Ingresa la fecha de entrega" required>
           </div>
           <div class="frm-group">
             <input type="submit" value="Confirmar">
@@ -76,12 +84,23 @@
         <?php
       }else{?>
         <div class="frm-group">
-          <label for="dir">Dirección de envio</label>
+          <label for="ciudad">Ciudad: </label>
+          <select  id="ciudad">
+            <?php foreach ($this->master->selectAll("municipio") as $row) {
+                if ($data['mun_codigo']==$row['mun_codigo']) {?>
+                    <option value="<?php echo $row['mun_codigo']?>" selected><?php echo $row['mun_nombre']?></option>
+                <?php }else{  ?>
+            <option value="<?php echo $row['mun_codigo']?>"><?php echo $row['mun_nombre']?></option>
+          <?php } } ?>
+          </select>
+        </div>
+        <div class="frm-group">
+          <label for="dir">Dirección de envio: </label>
           <input type="text" id="dir" value="<?php echo $data['usu_dir']?>" required>
         </div>
         <div class="frm-group">
           <label for="cel">Numero de celular:</label>
-          <input type="number" required value="<?php echo $data['usu_telefono']?>">
+          <input type="number" required id="cel" value="<?php echo $data['usu_telefono']?>">
         </div>
         <div class="frm-group">
           <label id="fecha">Fecha de entrega:</label>

@@ -144,45 +144,45 @@ class DoizerController{
 				  }
 			}
 //FECHAS
-	function validateDate($date,$acction = 'no',$date2 = '0000/00/00'){
-		$valores = explode('/', $date);
-		if(count($valores) == 3 && checkdate($valores[1], $valores[2], $valores[0])){
-			if ($acction=='past') {
-				$date=$valores[1]."/".($valores[2]+1)."/".$valores[0];
-				$current_date=new DateTime( date('Y/m/d'));
-				$date_born = new DateTime($date);
-				$interval = $current_date->diff($date_born);
-				$interval =$interval->format('%R%a dias');
-				if ($interval>0) {
-				 return false;
-				}
-				if ($interval<=0) {
-				 return true;
-				}
+function validateDate($date,$acction = 'no',$date2 = '0000-00-00'){
+	$valores = explode('-', $date);
+	if(count($valores) == 3 && checkdate($valores[1], $valores[2], $valores[0])){
+		if ($acction=='past') {
+			$date=$valores[1]."/".($valores[2])."/".$valores[0];
+			$current_date=new DateTime( date('Y/m/d'));
+			$date_born = new DateTime($date);
+			$interval = $current_date->diff($date_born);
+			$interval =$interval->format('%R%a dias');
+			if ($interval>0) {
+			 return false;
 			}
-			if ($acction=='difference') {
-				$date=$valores[1]."/".($valores[2])."/".$valores[0];
-				$current_date=new DateTime( date('Y/m/d'));
-				$date_born = new DateTime($date);
-				$interval = $current_date->diff($date_born);
-				$interval =$interval->format('%R%a dias');
-				return $interval;
+			if ($interval<=0) {
+			 return true;
 			}
-			if ($acction=='compare') {
-				$valores2 = explode('/', $date2);
-				if (count($valores2) == 3 && checkdate($valores2[1], $valores2[2], $valores2[0])) {
-				$date1 = new DateTime($date);
-				$date2 = new DateTime($date2);
-				$interval = $date1->diff($date2);
-				$interval =$interval->format('%R%a dias');
-				return $interval;
-				}
-			}
-			return true;
-		}else{
-			return "fecha no valida";
 		}
+		if ($acction=='difference') {
+			$date=$valores[1]."/".($valores[2])."/".$valores[0];
+			$current_date=new DateTime( date('Y/m/d'));
+			$date_born = new DateTime($date);
+			$interval = $current_date->diff($date_born);
+			$interval =$interval->format('%R%a dias');
+			return $interval;
+		}
+		if ($acction=='compare') {
+			$valores2 = explode('/', $date2);
+			if (count($valores2) == 3 && checkdate($valores2[1], $valores2[2], $valores2[0])) {
+			$date1 = new DateTime($date);
+			$date2 = new DateTime($date2);
+			$interval = $date1->diff($date2);
+			$interval =$interval->format('%R%a dias');
+			return $interval;
+			}
+		}
+		return true;
+	}else{
+		return "fecha no valida";
 	}
+}
 	//RETORNAR FECHAS EN UN RANGO
 	public function DateInRange($date1,$date2){
 		$date_begin = new DateTime($date1);

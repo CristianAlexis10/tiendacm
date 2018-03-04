@@ -71,23 +71,21 @@ function eliminarItem(id){
 //realizar pedido
 $("#confirmOrder").submit(function(e){
   e.preventDefault();
-  if ($("#dir").val()!="" && $("#cel").val()!="" && $("#fecha").val()!="" ) {
-      $.ajax({
+    $.ajax({
         url:"realizar-pedido",
-        type:"psot",
+        type:"post",
         dataType:"json",
-        data:({dir:$("#dir").val(), cel:$("#cel").val(), fecha:$("#fecha").val()}),
+        data:({dir:$("#dir").val(), cel:$("#cel").val(), fecha:$("#fecha").val() , ciudad:$("#ciudad").val()}),
         success:function(result) {
           console.log(result);
+          // $("#confirmOrder").after("<div class='alert-message'>Campos requeridos.</div>");
+          // setTimeout(function(){
+          //   $("div.alert-message").remove();
+          // },3000);
         },
         error:function(result) {
           console.log(result);
         }
-      });
-  }else{
-    $("#confirmOrder").after("<div class='alert-message'>Campos requeridos.</div>");
-    setTimeout(function(){
-      $("div.alert-message").remove();
-    },3000);
-  }
+    });
+
 });

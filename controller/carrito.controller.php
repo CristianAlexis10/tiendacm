@@ -21,7 +21,20 @@
 			echo json_encode($_SESSION['cart_item']);
 		}
 		function newOrder(){
-			echo json_encode("yws");
+				$dir=$_POST['dir'];
+				$cel=$_POST['cel'];
+				$fecha=$_POST['fecha'];
+				if ($dir!= "" && $cel !="" ) {
+					if ($this->doizer->validateDate($fecha,"past")==true) {
+						echo json_encode("Selecciona una fecha valida");
+						return ;
+					}else{
+						echo json_encode("si");
+					}
+				}else{
+					echo json_encode("Por favor llenar los campos");
+				}
+
 		}
 		function countItem(){
 			if (isset($_SESSION['cart_item'])) {

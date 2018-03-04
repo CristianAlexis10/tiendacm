@@ -217,7 +217,12 @@ $("#frmNew").submit(function(e) {
                data: ({data: dataJson}),
                success: function(result){
                   console.log(result);
-                  $('#5').after('<div class="message">'+result+'</div>');
+									if (result=="Registardo con exito") {
+										$('#5').after('<div class="message">Registardo con exito</div>');
+										$("#frmNew")[0].reset();
+									}else{
+										$('#5').after('<div class="message">'+result+'</div>');
+									}
                   setTimeout(function(){
                                 $('div.message').remove();
                               }, 3000);
