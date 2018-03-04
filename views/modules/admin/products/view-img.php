@@ -21,23 +21,26 @@
   <h1>Actualizar imagenes</h1>
     <?php
         $data = $this->master->selectBy('producto',array('pro_codigo',$_SESSION['update_pro']));
+        $allImage = $this->master->selectAllBy('por_imagenes',array('pro_codigo',$_SESSION['update_pro']));
     ?>
-    <div class="wrapp-img">
+    <div class="wrapp-img" style="display:flex;flex-direction:row;">
         <div class="img-product">
             <img src="<?php echo "views/assets/img/products/".$data['pro_imagen'] ?>">
             <p class="deleteImgProduct" id="<?php echo $data['pro_imagen']?>">Eliminar</p>
         </div>
-        <div class="img-product">
-            <img src="<?php echo "views/assets/img/products/".$data['pro_imagen'] ?>">
-            <p class="deleteImgProduct">Eliminar</p>
+        <?php foreach ($allImage as $row) {?>
+          <div class="img-product">
+            <img src="<?php echo "views/assets/img/products/".$row['img'] ?>">
+            <p class="deleteImgProduct" id="<?php echo $row['img']?>">Eliminar</p>
+          </div>
+        <?php } ?>
+        <div class="form-group Cambiar--img">
+          <div id="wrap-result"><img src="views/assets/img/defaultProfile.png" ></div>
+          <span class="" id="cropp-img">Añadir foto</span>
         </div>
 
     </div>
 
-    <div class="form-group Cambiar--img">
-     <div id="wrap-result"><img src="views/assets/img/defaultProfile.png" ></div>
-     <span class="" id="cropp-img">Añadir foto</span>
-   </div>
    <!-- MODAL -->
    <div id="img-product">
        <div class="newMark--img">
@@ -45,7 +48,7 @@
          <div id="uploadImage">
            <div id="wrap-upload" style="width:300px"></div>
            <input type="file" id="upload">
-           <button class="btn btn-success upload-result">Recortar Imagen</button>
+           <button class="btn btn-success upload-result" id="addImage">Agregar Imagen</button>
          </div>
        </div>
      </div>

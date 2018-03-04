@@ -139,6 +139,46 @@ class ProductsController{
 			header("Location:inicio");
 		}
 	}
-
+	function addImage(){
+		if (isset($_SESSION['new_cropp_image'])) {
+			$result = $this->master->insert("por_imagenes",array($_SESSION['update_pro'],$_SESSION['new_cropp_image']));
+			if ($result==true) {
+				echo json_encode(true);
+			}else{
+				echo json_encode($this->doizer->knowError($result));
+			}
+		}else{
+			echo json_encode("ocurrio un error");
+		}
+		// unset($_SESSION['new_cropp_image']);
+	}
+	function deleteImage(){
+		$img = $_POST['data'];
+		$data = $this->master->selectBy('producto',array('pro_codigo',$_SESSION['update_pro']));
+		if ($data['pro_imagen']==$img) {
+			$allImage = $this->master->selectAllBy('por_imagenes',array('pro_codigo',$_SESSION['update_pro']));
+			if ($allImage!=array()) {
+					$result = $this->master->delete("por_imagenes",array("img",$allImage[0]['img']));
+					if ($result==true) {
+						$this->master->procedure->NRP("cambiar_imagen",array($allImage[0]['img'],$_SESSION['update_pro']));
+						unlink("views/assets/img/products/".$data['pro_imagen']);
+						echo json_encode(true);
+					}else{
+						echo json_encode($this->doizer->knowError($result));
+					}
+			}else{
+				echo json_encode("No se puede eliminar esta imagen debido a que es la unica para este producto.");
+			}
+		}else{
+			$result = $this->master->delete("por_imagenes",array("img",$img));
+			if ($result==true) {
+				unlink("views/assets/img/products/".$img);
+				echo json_encode(true);
+			}else{
+				echo json_encode($this->doizer->knowError($result));
+			}
+		}
+		// unset($_SESSION['new_cropp_image']);
+	}
 }
 ?>

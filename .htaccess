@@ -31,6 +31,8 @@ RewriteRule ^moficar-producto-(\w+)$ index.php?c=products&a=viewUpdate&data=$1
 RewriteRule ^guardar-modificacion-producto$ index.php?c=products&a=update&data=$1
 RewriteRule ^dataModal$ index.php?c=products&a=readByCod
 RewriteRule ^cambiar-imagenes$ index.php?c=products&a=viewImages
+RewriteRule ^eliminar-imagen$ index.php?c=products&a=deleteImage
+RewriteRule ^agregar-imagen$ index.php?c=products&a=addImage
 
 #USUARIOS
 RewriteRule ^guardar-usuario$ index.php?c=user&a=newUser
