@@ -78,11 +78,15 @@ $("#confirmOrder").submit(function(e){
         dataType:"json",
         data:({dir:$("#dir").val(), cel:$("#cel").val(), fecha:$(".fecha")[0].value , ciudad:$("#ciudad").val()}),
         success:function(result) {
-          console.log(result);
-          $("#confirmOrder").append("<div class='alert-message'>"+result+"</div>");
-          setTimeout(function(){
-            $("div.alert-message").remove();
-          },3000);
+          if (result==true) {
+            $("#confirmOrder")[0].reset();
+              location.href= "mi-perfil";
+          }else{
+              $("#confirmOrder").append("<div class='alert-message'>"+result+"</div>");
+              setTimeout(function(){
+                $("div.alert-message").remove();
+              },3000);
+          }
         },
         error:function(result) {
           console.log(result);
