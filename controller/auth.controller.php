@@ -14,7 +14,7 @@
 				$resultData = $this->master->login->consultaUsuarioAcceso($data[0]);
 				if (password_verify($data[1], $resultData['acc_contra'])) {
 				    $_SESSION['USER']['NAME']=$resultData['usu_nombre1'];
-				    $_SESSION['USER']['ADDRESS']=$resultData['usu_direccion'];
+				    $_SESSION['USER']['ADDRESS']=$resultData['usu_dir'];
 				    $_SESSION['USER']['ROL']=$resultData['rol_codigo'];
 				    $_SESSION['USER']['CODE']=$resultData['usu_codigo'];
 				    if ($_SESSION['USER']['ROL']==1) {

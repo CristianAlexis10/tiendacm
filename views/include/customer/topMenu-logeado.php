@@ -13,7 +13,9 @@
           <h2 class="drop">catalogo</h2>
           <div class="dropContent">
             <a href="catalogo">Todos</a>
-            <?php foreach ($this->master->selectAll('categoria') as $row ) {?>
+            <?php foreach ($this->master->selectAll('categoria') as $row ) {
+              $row['cat_nombre']=str_replace(" ","_",$row['cat_nombre']);
+              ?>
                 <a href="ver-<?php echo $row['cat_nombre'] ?>"><?php echo $row['cat_nombre'] ?></a>
             <?php } ?>
           </div>

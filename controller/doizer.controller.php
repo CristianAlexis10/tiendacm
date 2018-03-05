@@ -152,13 +152,9 @@ function validateDate($date,$acction = 'no',$date2 = '0000-00-00'){
 			$current_date=new DateTime( date('Y/m/d'));
 			$date_born = new DateTime($date);
 			$interval = $current_date->diff($date_born);
-			$interval =$interval->format('%R%a dias');
-			if ($interval>0) {
-			 return false;
-			}
-			if ($interval<=0) {
-			 return true;
-			}
+			$interval =$interval->format('%R%a');
+			$interval = intval($interval);
+			return $interval;
 		}
 		if ($acction=='difference') {
 			$date=$valores[1]."/".($valores[2])."/".$valores[0];
