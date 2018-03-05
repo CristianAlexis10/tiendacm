@@ -174,28 +174,23 @@ $.ajax({
 });
 //controles videos dashboard
 var video = document.getElementById('video');
-var play = document.getElementById('play');
-var go = document.getElementById('go');
-var stop = document.getElementById('stop');
-var fullScreen = document.getElementById('fullScreen');
-
 
 if (document.getElementById('video')) {
-play.onclick = function() {
-  if (video.paused) {
-    video.play();
-    go.style.display = "none";
-    stop.style.display = "block";
-  }else{
-    video.pause();
-    go.style.display = "block";
-    stop.style.display = "none";
-  }
-}
-fullScreen.addEventListener ("click", function() {
-  if (video.webkitRequestFullscreen) {
-    video.webkitRequestFullscreen ();
-  }
+$(".btnPlay").click(function() {
+	if (video.paused) {
+		video.play();
+		$(".fa-play").css("display","none");
+		$(".fa-pause").css("display","block");
+	}else{
+		video.pause();
+		$(".fa-play").css("display","block");
+		$(".fa-pause").css("display","none");
+	}
+});
+$(".btnFull").click(function() {
+	if (video.webkitRequestFullscreen) {
+		video.webkitRequestFullscreen ();
+	}
 });
 }
 //subir videos
@@ -244,20 +239,6 @@ $("#formuploadajax").submit(function(e){
 
 $(".updateCatBtn").click(function() {
 	$(".modalUpdateCategory").toggle();
-		console.log(this.id);
-		$.ajax({
-			url:"datos-categoria",
-			type:"post",
-			dataType:"json",
-			data:({data:this.id}),
-			success:function(result){
-				console.log(result);
-				$("#nameCategory").val(result.cat_nombre);
-				$("#status").val(result.cat_estado);
-				$("#wrap-result2 img").attr("src","views/assets/img/category/"+result.cat_img);
-			},
-			error:function(result){console.log(result);}
-		});
 });
 $(".modalUpdateCategoryBtnC").click(function() {
 	$(".modalUpdateCategory").toggle();

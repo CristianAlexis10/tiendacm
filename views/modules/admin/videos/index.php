@@ -5,7 +5,7 @@
      foreach ($this->master->selectAll("video") as $row) {?>
     <div class="itemVideo">
       <div class="video">
-        <video width="360px" id="video" muted>
+        <video width="347px" id="video" class="videos" muted>
           <source src="views/assets/video/<?php echo $row['url'] ?>" type="video/mp4">
         </video>
       </div>
