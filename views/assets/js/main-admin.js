@@ -172,27 +172,57 @@ $.ajax({
             });
 
 });
+var nada= 1;
 //controles videos dashboard
-var video = document.getElementById('video');
-
-if (document.getElementById('video')) {
+// $("#id0").attr("autoplay",true);
+// $('video').trigger('play');
+// setTimeout(function(){
+// 	//
+//
+//
+// },3000);
+$(".play").css("display","block");
+$(".stop").css("display","none");
 $(".btnPlay").click(function() {
-	if (video.paused) {
-		video.play();
-		$(".fa-play").css("display","none");
-		$(".fa-pause").css("display","block");
-	}else{
-		video.pause();
-		$(".fa-play").css("display","block");
-		$(".fa-pause").css("display","none");
-	}
+	//comensar
+	var Padrevideo = $(this).siblings()[0];
+	var video = $(Padrevideo).children()[0].id;
+	$('#'+video).trigger('play');
+	// ocultar boton
+	var play = $(this).children()[0].id;
+	var padreStop = $(this).siblings()[4];
+	var stop = $(padreStop).children()[0].id;
+	$("#"+play).css("display","none");
+	$("#"+stop).css("display","block");
 });
-$(".btnFull").click(function() {
-	if (video.webkitRequestFullscreen) {
-		video.webkitRequestFullscreen ();
-	}
+
+
+$(".btnStop").click(function() {
+	var Padrevideo = $(this).siblings()[0];
+	var video = $(Padrevideo).children()[0].id;
+	$('#'+video).trigger('pause');
+	// ocultar boton
+	var stop = $(this).children()[0].id;
+	var padreStop = $(this).siblings()[4];
+	var play = $(padreStop).children()[0].id;
+	$("#"+play).css("display","block");
+	$("#"+stop).css("display","none");
 });
-}
+// $(".btnPlay").click(function() {
+// 	if (video.paused) {
+// 		video.play();
+//
+// 	}else{
+// 		video.pause();
+// 		$(".fa-play").css("display","block");
+// 		$(".fa-pause").css("display","none");
+// 	}
+// });
+// $(".btnFull").click(function() {
+// 	if (video.webkitRequestFullscreen) {
+// 		video.webkitRequestFullscreen ();
+// 	}
+// });
 //subir videos
 $("#formuploadajax").submit(function(e){
     e.preventDefault();

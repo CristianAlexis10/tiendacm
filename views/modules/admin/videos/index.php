@@ -1,11 +1,14 @@
 <div class="contenido" id="cat-conte">
   <h1>Gestion de videos</h1>
   <section class="wrapVideos">
+
     <?php
-     foreach ($this->master->selectAll("video") as $row) {?>
+    $id = 0;
+     foreach ($this->master->selectAll("video") as $row) {
+       ?>
     <div class="itemVideo">
       <div class="video">
-        <video width="347px" id="video" class="videos" muted>
+        <video width="347px" class="videos" muted  id="id<?php echo $id ?>" >
           <source src="views/assets/video/<?php echo $row['url'] ?>" type="video/mp4">
         </video>
       </div>
@@ -18,8 +21,11 @@
       <div class="btnDelete">
         <i class="fas fa-trash-alt"></i>
       </div>
-      <div class="btnPlay" id="play">
-        <i class="fas fa-play" id="go"></i><i class="fas fa-pause" id="stop"></i>
+      <div class="btnPlay" >
+        <i class="fas fa-play play" id="go<?php echo $id ?>"></i>
+      </div>
+      <div class="btnStop" >
+        <i class="fas fa-pause stop " id="stop<?php echo $id?>"></i>
       </div>
       <div class="btnFull" id="fullScreen">
         <i class="fas fa-expand"></i>
@@ -30,7 +36,9 @@
         </div>
       </a>
     </div>
-<?php } ?>
+<?php
+$id++;
+} ?>
 
     <div class="itemVideo" id="addVideo">
       <span>añadir video</span>
