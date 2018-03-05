@@ -44,6 +44,7 @@
 											$color = $this->master->selectBy("color",array("col_color",$row['color']))['col_codigo'];
 											$result = $this->master->insert("producto_pedido",array($orderCode,$dataPro,$row['cantidad'],$color,$talla));
 											$_SESSION['new_ped_token'] = $token;
+											unset($_SESSION['cart_item']);
 											echo json_encode($result);
 										}
 										// echo json_encode($_SESSION['cart_item']);
