@@ -78,10 +78,10 @@ $("#confirmOrder").submit(function(e){
         data:({dir:$("#dir").val(), cel:$("#cel").val(), fecha:$("#fecha").val() , ciudad:$("#ciudad").val()}),
         success:function(result) {
           console.log(result);
-          // $("#confirmOrder").after("<div class='alert-message'>Campos requeridos.</div>");
-          // setTimeout(function(){
-          //   $("div.alert-message").remove();
-          // },3000);
+          $("#confirmOrder").append("<div class='alert-message'>"+result+"</div>");
+          setTimeout(function(){
+            $("div.alert-message").remove();
+          },3000);
         },
         error:function(result) {
           console.log(result);

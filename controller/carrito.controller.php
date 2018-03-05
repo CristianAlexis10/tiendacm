@@ -24,12 +24,36 @@
 				$dir=$_POST['dir'];
 				$cel=$_POST['cel'];
 				$fecha=$_POST['fecha'];
+				$ciudad=$_POST['ciudad'];
+				$token = $this->doizer->randAlphanum(7)."-".$this->doizer->randAlphanum(7);
 				if ($dir!= "" && $cel !="" ) {
 					if ($this->doizer->validateDate($fecha,"past")==true) {
-						echo json_encode("Selecciona una fecha valida");
+						echo json_encode("Selecciona una fecha valida.");
 						return ;
 					}else{
-						echo json_encode("si");
+						if ($this->doizer->onlyNumbers($cel)==false) {
+							$result = $this->master->procedure->NRP("modificarDatosContacto",array($dir,$ciudad,$cel,$_SESSION['USER']['CODE']));
+							if ($result==true) {
+									$result= $this->master->insert("pedidos",array($_SESSION['USER']['CODE'],$ciudad,$dir,date("Y-m-d"),$fecha,$token),array("ped_codigo"));
+									if ($result==true) {
+										$orderCode = $this->master->selectBy("pedidos",array("token",$token))['ped_codigo'];
+										foreach ($_SESSION['cart_item'] as $row) {
+											$dataPro = $this->master->selectBy("producto",array("pro_nombre",$row['producto']))['pro_codigo'];
+											$talla = $this->master->selectBy("talla",array("tal_talla",$row['talla']))['tal_codigo'];
+											$color = $this->master->selectBy("color",array("col_color",$row['color']))['col_codigo'];
+											$result = $this->master->insert("producto_pedido",array($orderCode,$dataPro,$row['cantidad'],$color,$talla));
+											echo json_encode($result);
+										}
+										// echo json_encode($_SESSION['cart_item']);
+									}else{
+										echo json_encode($this->doizer->knowError($result));
+									}
+							}else{
+								echo json_encode($this->doizer->knowError($result));
+							}
+						}else{
+							echo json_encode("Carcateres no validos en el numero de telefono.");
+						}
 					}
 				}else{
 					echo json_encode("Por favor llenar los campos");
