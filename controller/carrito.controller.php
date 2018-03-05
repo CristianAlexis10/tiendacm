@@ -27,8 +27,9 @@
 				$ciudad=$_POST['ciudad'];
 				$token = $this->doizer->randAlphanum(7)."-".$this->doizer->randAlphanum(7);
 				if ($dir!= "" && $cel !="" ) {
-					if ($this->doizer->validateDate($fecha,"past")==true) {
-						echo json_encode("Selecciona una fecha valida.");
+					$diasDiferencia = $this->doizer->validateDate($fecha,"past");
+					if ($diasDiferencia<=0) {
+						echo json_encode("Por favor seleciona una fecha valida.");
 						return ;
 					}else{
 						if ($this->doizer->onlyNumbers($cel)==false) {

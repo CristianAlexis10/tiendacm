@@ -16,8 +16,8 @@
          $inicio = 0;
          $pagina = 1;
       }
-        $consulta = $this->master->procedure->PRByAll("productosBycategoria",array($_GET['categoria'],$inicio,$elementosPagina));
-        $categoria = $this->master->selectBy("categoria",array("cat_nombre",$_GET['categoria']));
+        $consulta = $this->master->procedure->PRByAll("productosBycategoria",array(str_replace("_"," ",$_GET['categoria']),$inicio,$elementosPagina));
+        $categoria = $this->master->selectBy("categoria",array("cat_nombre",str_replace("_"," ",$_GET['categoria'])));
         $num_total_registros = $this->master->selectCount('producto','cat_codigo',$categoria['cat_codigo'])[0];
 
       if ($num_total_registros==0) {

@@ -56,7 +56,7 @@
     <form  id="confirmOrder" class="formCart">
       <?php
         $data = $this->master->selectBy("usuario",array("usu_codigo",$_SESSION['USER']['CODE']));
-        if($data['usu_dir']==""){?>
+        if($data['usu_dir']==""){ ?>
           <div class="frm-group">
             <label for="ciudad">Ciudad: </label>
             <select  id="ciudad">
@@ -75,7 +75,7 @@
           </div>
           <div class="frm-group">
             <label for="fecha">Fecha de entrega:</label>
-            <input type="date"  id="fecha" placeholder="Ingresa la fecha de entrega" required>
+            <input type="date"  class="fecha" placeholder="Ingresa la fecha de entrega" required>
           </div>
           <div class="frm-group">
             <input type="submit" value="Confirmar">
@@ -104,7 +104,7 @@
         </div>
         <div class="frm-group">
           <label id="fecha">Fecha de entrega:</label>
-          <input type="date" required id="fecha">
+          <input type="date" required class="fecha">
         </div>
         <div class="frm-group">
           <input type="submit" value="Confirmar">

@@ -69,13 +69,14 @@ function eliminarItem(id){
   });
 }
 //realizar pedido
+
 $("#confirmOrder").submit(function(e){
   e.preventDefault();
     $.ajax({
         url:"realizar-pedido",
         type:"post",
         dataType:"json",
-        data:({dir:$("#dir").val(), cel:$("#cel").val(), fecha:$("#fecha").val() , ciudad:$("#ciudad").val()}),
+        data:({dir:$("#dir").val(), cel:$("#cel").val(), fecha:$(".fecha")[0].value , ciudad:$("#ciudad").val()}),
         success:function(result) {
           console.log(result);
           $("#confirmOrder").append("<div class='alert-message'>"+result+"</div>");
