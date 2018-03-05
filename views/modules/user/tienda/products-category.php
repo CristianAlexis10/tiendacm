@@ -7,7 +7,7 @@
 <div class="contenido">
   <?php
        //total de elementos por cada pagina
-      $elementosPagina = 2;
+      $elementosPagina = 12;
       //saber si existe la pagina
       if (isset($_GET["pagina"])) {
         $pagina = $_GET["pagina"];

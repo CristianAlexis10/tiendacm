@@ -82,7 +82,21 @@
              <div class="modalDetalle">
                  <div class="wrap-image">
                      <div class="image">
-                         <img src="" id="imgModal" alt="">
+                       <div class="imgP">
+                         <!-- <img src="" id="imgModal" alt=""> -->
+                       </div>
+                       <div class="img1">
+
+                       </div>
+                       <div class="img2">
+
+                       </div>
+                       <div class="img3">
+
+                       </div>
+                       <div class="img4">
+
+                       </div>
                      </div>
                  </div>
                  <div class="wrap-detalle">
