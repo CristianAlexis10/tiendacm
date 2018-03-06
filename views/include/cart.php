@@ -56,7 +56,7 @@
     <form  id="confirmOrder" class="formCart">
       <?php
         $data = $this->master->selectBy("usuario",array("usu_codigo",$_SESSION['USER']['CODE']));
-        if($data['usu_dir']==""){ ?>
+        if($data['usu_dir']=="0"){ ?>
           <div class="frm-group">
             <label for="ciudad">Ciudad: </label>
             <select  id="ciudad">

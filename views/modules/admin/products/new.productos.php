@@ -178,6 +178,7 @@ if (document.getElementById('selectMul')) {
 <script src="views/assets/js/cropp-product.js"></script>
  <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="views/assets/js/main-admin.js"> </script>
+<script src="views/assets/js/security.js"></script>
 </section>
 </body>
 </html>
