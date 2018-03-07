@@ -246,13 +246,15 @@ $(".añadirCarro").click(function(){
 // modal VIDEOS
 var pauseVideo = document.getElementById('pauseVideo');
 
-$("#watchVideo").click(function() {
+$(".watchVideo").click(function() {
 	$("#wrapPlayVideo").toggle();
 	$("#backgroundVideo").toggle();
+	var url = $($($($(this).children()[0])[0]).children()[0]).children()[0].src;
+	 pauseVideo.src = url;
+	pauseVideo.play();
 });
 $("#wrapPlayVideo").click(function() {
 	$("#wrapPlayVideo").toggle();
 	$("#backgroundVideo").toggle();
 	pauseVideo.pause();
 });
- 

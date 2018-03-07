@@ -26,7 +26,7 @@
          }else{
   foreach ($consulta as $row) { ?>
     <div class="videos">
-      <div class="itemsVideos" id="watchVideo">
+      <div class="itemsVideos watchVideo">
         <div class="video">
           <video width="360px" muted>
             <source src="views/assets/video/<?php echo $row['url'] ?>" type="video/mp4">
@@ -37,14 +37,14 @@
         </div>
       </div>
     </div>
-    <div class="backgroundVideo" id="backgroundVideo"></div>
-    <div class="wrapPlayVideo" id="wrapPlayVideo">
-      <video width="1000px" controls id="pauseVideo" class="pauseVideo">
-        <source src="views/assets/video/<?php echo $row['url'] ?>" type="video/mp4">
-      </video>
-    </div>
 <?php } } } ?>
 
+<div class="backgroundVideo" id="backgroundVideo"></div>
+<div class="wrapPlayVideo" id="wrapPlayVideo">
+  <video width="1000px" controls id="pauseVideo" class="pauseVideo">
+    <source src="views/assets/video/<?php echo $row['url'] ?>" type="video/mp4" id="srcVideo">
+  </video>
+</div>
 </section>
 
 <div class="wrapPaginas">
