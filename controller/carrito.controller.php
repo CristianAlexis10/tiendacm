@@ -32,10 +32,10 @@
 						echo json_encode("Por favor seleciona una fecha valida.");
 						return ;
 					}else{
-						if ($this->doizer->onlyNumbers($cel)==false) {
+						if ($this->doizer->onlyNumbers($cel)==true) {
 							$result = $this->master->procedure->NRP("modificarDatosContacto",array($dir,$ciudad,$cel,$_SESSION['USER']['CODE']));
 							if ($result==true) {
-									$result= $this->master->insert("pedidos",array($_SESSION['USER']['CODE'],$ciudad,$dir,date("Y-m-d"),$fecha,$token),array("ped_codigo"));
+									$result= $this->master->insert("pedidos",array($_SESSION['USER']['CODE'],$ciudad,$dir,date("Y-m-d"),$fecha,$token,"Bodega"),array("ped_codigo"));
 									if ($result==true) {
 										$orderCode = $this->master->selectBy("pedidos",array("token",$token))['ped_codigo'];
 										foreach ($_SESSION['cart_item'] as $row) {

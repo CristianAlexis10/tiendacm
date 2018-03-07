@@ -18,6 +18,13 @@ function datosEnvio(){
 	});
 
 }
+if (document.getElementById("accordion")) {
+	$('.datatable').DataTable();
+	$( "#accordion" ).accordion({
+		// heightStyle: "content"
+	});
+
+}
 //validar correo
   $('#iniciar_se').attr('disabled',true);
 $('#login-pass').focus(function(){

@@ -4,6 +4,7 @@
     <title>CM</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="views/assets/css/reset.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="views/assets/css/style.hola.css">
     <link rel="stylesheet" href="views/assets/css/login-registro.css">
     <link rel="stylesheet" type="text/css" href="views/assets/css/style.css">
