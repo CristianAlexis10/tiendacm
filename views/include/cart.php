@@ -78,7 +78,7 @@
             <input type="date"  class="fecha" placeholder="Ingresa la fecha de entrega" required>
           </div>
           <div class="frm-group">
-            <input type="submit" value="Confirmar">
+            <button type="button" name="button" onclick="RealizarPedido()">Confirmar</button>
             <button type="button" name="button" onclick="datosEnvio()">Cerrar</button>
           </div>
         <?php
@@ -107,7 +107,7 @@
           <input type="date" required class="fecha">
         </div>
         <div class="frm-group">
-          <input type="submit" value="Confirmar">
+          <button type="button" name="button" onclick="RealizarPedido()">Confirmar</button>
           <button type="button" name="button" onclick="datosEnvio()">Cerrar</button>
         </div>
         <?php } ?>

@@ -70,8 +70,7 @@ function eliminarItem(id){
 }
 //realizar pedido
 
-$("#confirmOrder").submit(function(e){
-  e.preventDefault();
+function RealizarPedido(){
     $.ajax({
         url:"realizar-pedido",
         type:"post",
@@ -92,5 +91,4 @@ $("#confirmOrder").submit(function(e){
           console.log(result);
         }
     });
-
-});
+}
