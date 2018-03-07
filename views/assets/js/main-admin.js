@@ -209,11 +209,14 @@ $(".btnStop").click(function() {
 	$("#"+stop).css("display","none");
 });
 // este es el codigo para pantalla completa
-$(".btnFull").click(function() {
-	if (video.webkitRequestFullscreen) {
-		video.webkitRequestFullscreen ();
-	}
-});
+	$(".btnFull").click(function() {
+		var video = $($(this).siblings()[0]).children()[0].id;
+	var video = document.getElementById(video);
+		if (video.webkitRequestFullscreen) {
+
+			video.webkitRequestFullscreen();
+		}
+	});
 // ---------------------------------------
 // $(".btnPlay").click(function() {
 // 	if (video.paused) {

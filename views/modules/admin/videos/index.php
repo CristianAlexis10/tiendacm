@@ -9,7 +9,7 @@
     <div class="itemVideo">
       <div class="video">
         <video width="347px" class="videos" muted  id="id<?php echo $id ?>" >
-          <source src="views/assets/video/<?php echo $row['url'] ?>" type="video/mp4">
+          <source src="views/assets/video/<?php echo $row['url'] ?>" id="hola<?php echo $id ?>" type="video/mp4">
         </video>
       </div>
       <div class="nameVideo">
