@@ -293,9 +293,19 @@ $(".modalUpdateCategoryBtnC").click(function() {
 })
 //modales talla y colores
 $("#modalColor").click(function() {
-	$(".backgroundModalColorTalla").toggle();
+	$(".backgroundModalColor").toggle();
 	$(".wrapModalColor").toggle();
 });
-$(".backgroundModalColorTalla").click(function() {
+$("#cancelarColor").click(function() {
+	$(".backgroundModalColor").toggle();
+	$(".wrapModalColor").toggle();
+});
 
-})
+$("#modalTalla").click(function() {
+	$(".backgroundModalTalla").toggle();
+	$(".wrapModalTalla").toggle();
+});
+$("#cancelarTalla").click(function() {
+	$(".backgroundModalTalla").toggle();
+	$(".wrapModalTalla").toggle();
+});
