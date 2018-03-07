@@ -23,15 +23,33 @@
   <div class="titleProduct">
     <h1>Gestion productos</h1>
     <h2 id="modalColor"><i class="fas fa-plus-circle"></i> nuevo color</h2>
-    <h2><i class="fas fa-plus-circle"></i> nueva talla</h2>
+    <h2 id="modalTalla"><i class="fas fa-plus-circle"></i> nueva talla</h2>
   </div>
-  <div class="backgroundModalColorTalla"></div>
+  <div class="backgroundModalColor"></div>
   <div class="wrapModalColor">
     <div class="modalColor">
+      <h2>agregar nuevo color</h2>
+      <form class="" action="index.html" method="post">
+        <label for="">color nuevo:</label>
+        <input type="text" name="" value="">
+        <button type="button" id="cancelarColor">cancelar</button>
+        <button type="submit" name="button">guardar</button>
+      </form>
     </div>
   </div>
+  <div class="backgroundModalTalla"></div>
   <div class="wrapModalTalla">
     <div class="modalTalla">
+      <h2>agregar nuevo color</h2>
+        <form class="" action="index.html" method="post">
+          <label for="">color nuevo:</label>
+          <input type="text" name="" value="">
+          <div class="">
+
+            <button type="button" id="cancelarTalla">cancelar</button>
+            <button type="submit" name="button">guardar</button>
+          </div>
+        </form>
     </div>
   </div>
 <?php
