@@ -217,6 +217,20 @@ $(".btnStop").click(function() {
 			video.webkitRequestFullscreen();
 		}
 	});
+//eliminar videos
+$(".btnDelete").click(function(){
+	var id = this.id;
+	$.ajax({
+		url:"",
+		type:"",
+		dataType:"",
+		data:({}),
+		success:function(result){
+			
+		},
+		error:function(result){console.log(result);}
+	});
+});
 // ---------------------------------------
 // $(".btnPlay").click(function() {
 // 	if (video.paused) {

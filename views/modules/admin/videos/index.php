@@ -18,7 +18,7 @@
       <div class="btnEdit">
         <i class="far fa-edit"></i>
       </div>
-      <div class="btnDelete">
+      <div class="btnDelete" id="<?php echo $row['id_video'] ?>">
         <i class="fas fa-trash-alt"></i>
       </div>
       <div class="btnPlay" >
