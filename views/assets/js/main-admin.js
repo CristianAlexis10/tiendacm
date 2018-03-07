@@ -208,6 +208,13 @@ $(".btnStop").click(function() {
 	$("#"+play).css("display","block");
 	$("#"+stop).css("display","none");
 });
+// este es el codigo para pantalla completa
+$(".btnFull").click(function() {
+	if (video.webkitRequestFullscreen) {
+		video.webkitRequestFullscreen ();
+	}
+});
+// ---------------------------------------
 // $(".btnPlay").click(function() {
 // 	if (video.paused) {
 // 		video.play();
@@ -216,11 +223,6 @@ $(".btnStop").click(function() {
 // 		video.pause();
 // 		$(".fa-play").css("display","block");
 // 		$(".fa-pause").css("display","none");
-// 	}
-// });
-// $(".btnFull").click(function() {
-// 	if (video.webkitRequestFullscreen) {
-// 		video.webkitRequestFullscreen ();
 // 	}
 // });
 //subir videos
