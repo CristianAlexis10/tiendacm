@@ -79,7 +79,7 @@ if (isset($_SESSION['messagge'])) {
 
           <div class="form-group Cambiar--img">
              <div id="wrap-result2"><img src="views/assets/img/category/<?php echo $result['cat_img'] ?>" ></div>
-             <input type="submit" value="Cambiar foto" id="cropp-img2" class="modalUpdateCategoryBtn">
+             <input type="button" value="Cambiar foto" id="cropp-img2" class="modalUpdateCategoryBtn">
            </div>
 
       	<input type="submit" value="Guardar" class="modalUpdateCategoryBtn">
