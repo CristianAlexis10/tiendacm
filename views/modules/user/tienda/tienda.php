@@ -83,19 +83,19 @@
                  <div class="wrap-image">
                      <div class="image">
                        <div class="imgP">
-                         <!-- <img src="" id="imgModal" alt=""> -->
+                         <img src="" id="imgModal" alt="">
                        </div>
                        <div class="img1">
-
+                         1
                        </div>
                        <div class="img2">
-
+                         2
                        </div>
                        <div class="img3">
-
+                         3
                        </div>
                        <div class="img4">
-
+                         4
                        </div>
                      </div>
                  </div>

@@ -6,7 +6,7 @@
 </div>
 <section class="wrapVideos">
   <?php
-    $elementosPagina = 2;
+    $elementosPagina = 4;
     if (isset($_GET["pagina"])) {
         $pagina = $_GET["pagina"];
         $inicio = ($pagina - 1) * $elementosPagina;

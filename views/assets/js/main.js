@@ -87,10 +87,6 @@ btn_registro.onclick = function() {
 	registro.classList.add('mover_registro');
 	modal.classList.add('agrandar_modal');
 }
-// btn_login.onclick = function() {
-// 	registro.classList.remove('mover_registro');
-// 	modal.classList.remove('agrandar_modal');
-// }
 $('#modal-login').click(function(){
 	$('#modal-login-registro').toggle();
 	$('#fondo').toggle();
