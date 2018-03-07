@@ -50,7 +50,7 @@ $pro = $this->master->selectAllLi6('producto');
                 <div class="precio-produc">
                     <h2>$ <?php echo $row['pro_precio']; ?></h2>
                 </div>
-                <!-- <button type="button" name="button" class="añadirCarro">añadir al carrito</button> -->
+                <button type="button" name="button" class="wea " id="<?php echo $row['pro_codigo']?>">añadir al carrito</button>
             </div>
         </div>
 
@@ -90,7 +90,7 @@ $pro = $this->master->selectAllLi6('producto');
                 <label for="">cantidad: </label>
                 <input type="number" name="" value="" id="cant">
               </div>
-              <button type="button" name="button" class="addItemShop">añadir al carrito</button>
+              <button type="button" name="button" class="addItemShop ">añadir al carrito</button>
           </div>
       </div>
   </div>

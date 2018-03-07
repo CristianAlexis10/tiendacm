@@ -158,6 +158,7 @@ $('.wea').click(function() {
             });
 })
 
+
 $('.fondoModal').click(function() {
      $('#selectModal').empty();
      $('#selectTallasModal').empty();
