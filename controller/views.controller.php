@@ -14,7 +14,7 @@ class ViewsController{
 				require_once("views/include/dashboard/footer.php");
 			}else{
 				require_once "views/include/customer/header.php";
-				require_once "views/modules/landing.php";
+				require_once "views/modules/customer/landing.php";
 				require_once "views/include/customer/footer.php";
 			}
 		}else{

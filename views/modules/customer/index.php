@@ -77,43 +77,40 @@
 
   <div class="fondoModal"></div>
   <div class="wrap-modalDetalle">
-    <div class="modalDetalle">
-      <div class="wrap-image">
-        <div class="image">
-          <!-- <div class="img-principal"> -->
-            <img src="" id="imgModal" alt="">
-          <!-- </div>
-          <div class="img-extra">
-
-          </div> -->
-        </div>
+      <div class="modalDetalle">
+          <div class="wrap-image">
+              <div class="image">
+                  <img src="" id="imgModal" alt="">
+              </div>
+          </div>
+          <div class="wrap-detalle">
+              <div class="nombre">
+                  <h2 id="nomModal"></h2>
+              </div>
+              <div class="descripcion">
+                  <span id="desModal"></span>
+              </div>
+              <div class="precio">
+                  <span id="preModal">$ </span>
+              </div>
+              <div class="talla">
+                  <select class="" name="" id="selectModal">
+                      <option value="">selecionar talla</option>
+                  </select>
+              </div>
+              <div class="color">
+                  <select class="" name="" id="selectTallasModal">
+                      <option value="">seleccionar color</option>
+                  </select>
+              </div>
+              <div class="cantidad">
+                <!-- <span id="minusCant">-</span>
+                <span id="cant">0</span>
+                <span id="moreCant">+</span> -->
+                <label for="">cantidad: </label>
+                <input type="number" name="" value="" id="cant">
+              </div>
+              <button type="button" name="button" class="addItemShop">añadir al carrito</button>
+          </div>
       </div>
-      <div class="wrap-detalle">
-        <div class="nombre">
-          <h2 id="nomModal"></h2>
-        </div>
-        <div class="descripcion">
-          <span id="desModal"></span>
-        </div>
-        <div class="precio">
-          <span id="preModal">$ </span>
-        </div>
-        <div class="talla">
-          <select class="" name="" id="selectModal">
-            <option value="">selecionar talla</option>
-          </select>
-        </div>
-        <div class="color">
-          <select class="" name="" id="selectTallasModal">
-            <option value="">seleccionar color</option>
-          </select>
-        </div>
-        <div class="cantidad">
-          <span>-</span>
-          <span>0</span>
-          <span>+</span>
-        </div>
-        <button type="button" name="button" class="añadirCarro">añadir al carrito</button>
-      </div>
-    </div>
   </div>

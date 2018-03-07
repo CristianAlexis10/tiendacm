@@ -71,7 +71,7 @@
           </div>
           <div class="frm-group">
             <label for="cel">Numero de celular:</label>
-            <input type="number" required id="cel" placeholder="Numero de celular">
+            <input type="number" required id="cel" placeholder="Numero de celular"  onkeypress="return valida(event)">
           </div>
           <div class="frm-group">
             <label for="fecha">Fecha de entrega:</label>
@@ -100,7 +100,7 @@
         </div>
         <div class="frm-group">
           <label for="cel">Numero de celular:</label>
-          <input type="number" required id="cel" value="<?php echo $data['usu_telefono']?>">
+          <input type="number" required id="cel" value="<?php echo $data['usu_telefono']?>"  onkeypress="return eliminarLetras(event)">
         </div>
         <div class="frm-group">
           <label id="fecha">Fecha de entrega:</label>
