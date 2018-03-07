@@ -82,7 +82,7 @@
              <div class="modalDetalle">
                  <div class="wrap-image">
                      <div class="image">
-                         <img src="" id="imgModal" alt="" class="">
+                         <img src="" id="imgModal" alt="">
                      </div>
                  </div>
                  <div class="wrap-detalle">
@@ -93,7 +93,7 @@
                          <span id="desModal"></span>
                      </div>
                      <div class="precio">
-                         <span id="preModal"></span>
+                         <span id="preModal">$ </span>
                      </div>
                      <div class="talla">
                          <select class="" name="" id="selectModal">
@@ -106,11 +106,11 @@
                          </select>
                      </div>
                      <div class="cantidad">
-                         <!-- <span id="minusCant">-</span>
-                         <span id="cant">0</span>
-                         <span id="moreCant">+</span> -->
-                         <label for="">cantidad: </label>
-                         <input type="number"  value="1" min="1"  id="cant">
+                       <!-- <span id="minusCant">-</span>
+                       <span id="cant">0</span>
+                       <span id="moreCant">+</span> -->
+                       <label for="">cantidad: </label>
+                       <input type="number" name="" value="" id="cant">
                      </div>
                      <button type="button" name="button" class="addItemShop">añadir al carrito</button>
                  </div>
