@@ -291,3 +291,11 @@ $(".updateCatBtn").click(function() {
 $(".modalUpdateCategoryBtnC").click(function() {
 	$(".modalUpdateCategory").toggle();
 })
+//modales talla y colores
+$("#modalColor").click(function() {
+	$(".backgroundModalColorTalla").toggle();
+	$(".wrapModalColor").toggle();
+});
+$(".backgroundModalColorTalla").click(function() {
+
+})

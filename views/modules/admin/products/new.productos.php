@@ -19,8 +19,21 @@
     <?php require_once("views/include/dashboard/navigator.php"); ?>
     <section class="wrap--contenido">
 
-<div class="contenido">
+<div class="contenidoProduct">
+  <div class="titleProduct">
     <h1>Gestion productos</h1>
+    <h2 id="modalColor"><i class="fas fa-plus-circle"></i> nuevo color</h2>
+    <h2><i class="fas fa-plus-circle"></i> nueva talla</h2>
+  </div>
+  <div class="backgroundModalColorTalla"></div>
+  <div class="wrapModalColor">
+    <div class="modalColor">
+    </div>
+  </div>
+  <div class="wrapModalTalla">
+    <div class="modalTalla">
+    </div>
+  </div>
 <?php
 if (isset($_SESSION['messagge'])) {
         echo "<div class='message'>".$_SESSION['messagge']."</div>";
