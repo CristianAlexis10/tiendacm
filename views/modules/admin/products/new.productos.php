@@ -28,28 +28,33 @@
   <div class="backgroundModalColor"></div>
   <div class="wrapModalColor">
     <div class="modalColor">
-      <h2>agregar nuevo color</h2>
+      <h3>agregar nuevo color</h3>
       <form class="" action="index.html" method="post">
-        <label for="">color nuevo:</label>
-        <input type="text" name="" value="">
-        <button type="button" id="cancelarColor">cancelar</button>
-        <button type="submit" name="button">guardar</button>
+        <div class="inputForm">
+          <label for="">color nuevo:</label>
+          <input type="text" name="" value="">
+        </div>
+        <div class="btnForm">
+          <button type="button" id="cancelarColor">cancelar</button>
+          <button type="submit" name="button">guardar</button>
+        </div>
       </form>
     </div>
   </div>
   <div class="backgroundModalTalla"></div>
   <div class="wrapModalTalla">
     <div class="modalTalla">
-      <h2>agregar nuevo color</h2>
-        <form class="" action="index.html" method="post">
+      <h3>agregar nueva talla</h3>
+      <form class="" action="index.html" method="post">
+        <div class="inputForm">
           <label for="">color nuevo:</label>
           <input type="text" name="" value="">
-          <div class="">
-
-            <button type="button" id="cancelarTalla">cancelar</button>
-            <button type="submit" name="button">guardar</button>
-          </div>
-        </form>
+        </div>
+        <div class="btnForm">
+          <button type="button" id="cancelarTalla">cancelar</button>
+          <button type="submit" name="button">guardar</button>
+        </div>
+      </form>
     </div>
   </div>
 <?php

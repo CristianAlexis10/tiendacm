@@ -143,11 +143,20 @@
 }
 .modalColor, .modalTalla{
   width: 400px;
-  height: 300px;
+  height: 200px;
   background: #fff;
   z-index: 11;
-  margin: 10vh auto;
+  margin: 15vh auto;
   border-radius: 3px;
+  padding: 10px;
+}
+.modalColor h3, .modalTalla h3{
+  border-bottom: 2px solid #c6c6c6;
+  margin-bottom: 10px;
+  font-size: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "roboto";
 }
 /*gestion de las categorias*/
 .gestion-categoria{
