@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-03-2018 a las 12:20:02
+-- Tiempo de generación: 06-03-2018 a las 23:24:55
 -- Versión del servidor: 10.1.8-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -24,6 +24,11 @@ DELIMITER $$
 --
 -- Procedimientos
 --
+CREATE DEFINER=`root`@`localhost` PROCEDURE `cambiar_imagen` (IN `img` VARCHAR(150), IN `pro` INT)  NO SQL
+BEGIN 
+UPDATE producto SET producto.pro_imagen = img WHERE producto.pro_codigo = pro;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `colores` (IN `cod` INT(11))  NO SQL
 BEGIN 
 SELECT * FROM color_producto INNER JOIN color ON color_producto.col_codigo=color.col_codigo WHERE color_producto.por_codigo = cod;
@@ -122,6 +127,11 @@ BEGIN
 UPDATE categoria set cat_nombre = nombre  , cat_estado = estado WHERE cat_codigo = cod;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarDatosContacto` (IN `dir` VARCHAR(50), IN `ciu` INT, IN `cel` BIGINT, IN `usu` INT)  NO SQL
+BEGIN 
+UPDATE usuario SET usuario.usu_dir = dir , usuario.mun_codigo = ciu , usuario.usu_telefono = cel WHERE  usu_codigo = usu;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarImagenCategoria` (IN `cod` INT(11), IN `img` VARCHAR(150))  NO SQL
 BEGIN
 UPDATE categoria SET cat_img = img WHERE cat_codigo = cod;
@@ -178,9 +188,11 @@ CREATE TABLE `acceso` (
 INSERT INTO `acceso` (`acc_token`, `usu_id`, `acc_contra`) VALUES
 ('014e4694d7376256832eff31ef3efb49', 15, '$2y$10$1o68uwEU5NFlCH3pSx7KU.z3gn567DGIJbDDiIpnf5LsMPORzVjcC'),
 ('01adb163751f819cb56e323785670957', 6, '$2y$10$Hl9HVC4KYCBQsgCSUPN0quaobvP0I/6T3l.OK1tXU.z13ToF0qX2S'),
+('2b2e20abb22842e39c39e7c82fd23750', 22, '$2y$10$8FjyoCjFx.NNY8VZm9iseOEuTq8pYUA.p/05UcYxwKzEq5pTuyKRm'),
 ('4fc94a9051176d0133b76d74f6df6293', 17, '$2y$10$QcGaoFDm/giJV6hsCkQ5I.V/y6UFbNx3y49tejy6cOY2kHl0XOSqu'),
 ('665a565a47e732f7bf96e40eb2cfc226', 16, '$2y$10$WxfTypIQ1zLUcv46zyCAte6MnA3Zgv9XMIDKaIU7gA0qfcTZfmacu'),
 ('6697a149eefdae6fdec244a5215fad3c', 19, '$2y$10$Rbxw6t9dNiPrSEme3OEKGOZFHl8HQ7tQK0NRNndHhRNkl/ydClWfy'),
+('98196083e10dd13ff159d30678f1a8c2', 20, '$2y$10$pPQOCCr9BoSrkLyG7hmxgO1HVU8cAHSnsnvZPKKoisvfLleN.JDey'),
 ('d5cf38ba4f7816b2e7a6515ecbdf9732', 9, '$2y$10$NsaGCqsAXw.5cRjOQMIvFe6xzYxL3u2KJ5w2s/sLTB9S/YbHvODX.'),
 ('d8febc48be9f3cc059c507d64e5464f6', 18, '$2y$10$Q5OhGpByLgwFilngRNE6uumxQjR.VSV7wxDF1AFZ27lSBKaB9KtAC'),
 ('f4b3cf3fc6dfec17fbdd2ac6977e7436', 3, '$2y$10$clVWgrdPMZulTJCoXlc1hu9EkB.QmuHe3Vuzmz0xTP2joDLysdzu.');
@@ -206,8 +218,8 @@ INSERT INTO `categoria` (`cat_codigo`, `cat_nombre`, `cat_estado`, `cat_img`) VA
 (12, 'Nada1', 1, 'b862b02a065dc2102232cbd97327854c.png'),
 (13, 'Nada2', 1, '868da88063a663794044c9f2c58770eb.png'),
 (14, 'Nada3', 1, '4d3a94a0bd7fea363d7d4565cc9e29d9.png'),
-(16, 'Nada4', 2, 'de86fb1f418cd9e8c13a9491eb09febf.png'),
-(17, 'nada5', 1, 'ab6b56b70b4a3f97fd2766abba3cdc08.png');
+(16, 'Nada4', 1, 'de86fb1f418cd9e8c13a9491eb09febf.png'),
+(17, 'tanga narizonaa', 1, 'fe0c433969c9f0b18cc7096bf7fd5e77.png');
 
 -- --------------------------------------------------------
 
@@ -244,7 +256,6 @@ CREATE TABLE `color_producto` (
 --
 
 INSERT INTO `color_producto` (`col_codigo`, `por_codigo`) VALUES
-(1, 24),
 (1, 25),
 (2, 25),
 (1, 26),
@@ -254,7 +265,10 @@ INSERT INTO `color_producto` (`col_codigo`, `por_codigo`) VALUES
 (1, 28),
 (2, 28),
 (1, 29),
-(2, 29);
+(2, 29),
+(1, 24),
+(1, 30),
+(2, 30);
 
 -- --------------------------------------------------------
 
@@ -331,8 +345,47 @@ CREATE TABLE `pedidos` (
   `mun_codigo` int(11) NOT NULL,
   `ped_direccion` varchar(100) NOT NULL,
   `ped_fecha_realizacion` date NOT NULL,
-  `ped_fecha_entrega` date NOT NULL
+  `ped_fecha_entrega` date NOT NULL,
+  `token` varchar(20) NOT NULL,
+  `ped_estado` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `pedidos`
+--
+
+INSERT INTO `pedidos` (`ped_codigo`, `usu_id`, `mun_codigo`, `ped_direccion`, `ped_fecha_realizacion`, `ped_fecha_entrega`, `token`, `ped_estado`) VALUES
+(3, 20, 1, 'calle 95 b', '2018-03-05', '2018-08-02', 'vsfT3ZJ-RcSbm2l', ''),
+(4, 20, 1, 'calle 95 b', '2018-03-05', '2018-08-02', 'XP1CnlZ-8aFiLEh', ''),
+(5, 20, 1, 'calle 95 b', '2018-03-05', '2018-08-02', 'RIEHMZk-Xre6nUG', ''),
+(6, 20, 1, 'calle 95 b', '2018-03-05', '2018-08-02', '8UWwGRP-cTZfIRw', ''),
+(7, 20, 1, 'calle 95 b', '2018-03-05', '2018-08-02', '2b9xEW6-zvJ6w4E', ''),
+(8, 20, 1, 'calle 95 b', '2018-03-05', '2018-08-02', 'mckjBYK-M3FhFqD', ''),
+(9, 20, 1, 'calle 95 b', '2018-03-05', '2018-08-02', 'p3VI6xh-fOdI6wG', ''),
+(10, 20, 1, 'calle 95 b', '2018-03-05', '2018-08-02', '2MQ4elN-lNrKykL', ''),
+(11, 20, 1, 'calle 95 b', '2018-03-05', '0000-00-00', 'GzMAJxK-hHlLJdG', ''),
+(12, 20, 1, 'calle 95 b', '2018-03-05', '0000-00-00', 'aomMPfJ-n4KpFJS', ''),
+(13, 20, 1, 'calle 95 b', '2018-03-05', '0000-00-00', 'YmZwEQl-4nwMU5Z', ''),
+(14, 20, 1, 'calle 95 b', '2018-03-05', '2018-01-28', 'EqWXBvj-ARUQauO', ''),
+(15, 20, 1, 'calle 95 b', '2018-03-05', '2018-01-28', 'lH5WcCL-wdV5hL4', ''),
+(16, 20, 1, 'calle 95 b', '2018-03-05', '2018-01-28', 'bqF1CGi-fvgsJqT', ''),
+(17, 20, 1, 'calle 95 b', '2018-03-05', '2018-01-28', 'POOJAms-L8qo5Qr', ''),
+(18, 20, 1, 'calle 95 b', '2018-03-05', '2018-03-16', 'D8NAVVB-Q5JTwIh', ''),
+(19, 20, 1, 'calle 95 b', '2018-03-05', '2018-03-06', 'nEfmN8c-ZKayQkX', ''),
+(20, 20, 1, 'calle 95 b', '2018-03-05', '2018-03-22', 'usS0aaW-QQ7m5zw', ''),
+(21, 20, 1, 'calle 95 b', '2018-03-05', '2018-03-04', 'WHY5397-2wpD6HX', ''),
+(22, 20, 1, 'calle 95 b', '2018-03-05', '2018-03-06', 'XJYLhZ5-qDj5O8S', ''),
+(23, 20, 1, 'calle 95 b', '2018-03-05', '2018-03-06', 'cL1gilQ-RdZq0G1', ''),
+(24, 20, 1, 'calle 95 b', '2018-03-05', '2018-03-20', '6lbxCwU-FuXwGEe', ''),
+(25, 20, 1, 'calle 95 b', '2018-03-05', '2018-03-06', 'ATOmcq3-76X5FEW', ''),
+(26, 18, 1, 'calle 95 b', '2018-03-06', '2018-03-07', 'nE9Bh0Z-G8aSvwT', 'oiyt'),
+(27, 18, 1, 'calle 95 b', '2018-03-06', '2018-03-21', 'bVkipYA-ZazfUzV', 'Bodega'),
+(28, 18, 1, 'calle 95 b', '2018-03-06', '2018-03-07', 'PRx9hPN-dqmRLRb', 'Bodega'),
+(29, 18, 1, 'calle 95 b', '2018-03-06', '2018-03-07', 'ng370cA-xrDoe12', 'Bodega'),
+(30, 18, 1, 'calle 95 b', '2018-03-06', '2018-03-07', 'ZSJPulj-cFF3fRl', 'Bodega'),
+(31, 18, 1, 'calle 95 b', '2018-03-06', '2018-03-07', 'glYDdf9-MLOEDK0', 'Bodega'),
+(32, 18, 1, 'calle 95 b', '2018-03-06', '2018-03-07', '8h8mL1X-l5uLqzL', 'Bodega'),
+(33, 18, 1, 'calle 95 b', '2018-03-06', '2018-03-07', 'AsBnKTv-7ZNBeSR', 'Bodega');
 
 -- --------------------------------------------------------
 
@@ -344,13 +397,6 @@ CREATE TABLE `por_imagenes` (
   `pro_codigo` int(11) NOT NULL,
   `img` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `por_imagenes`
---
-
-INSERT INTO `por_imagenes` (`pro_codigo`, `img`) VALUES
-(25, 'c924e4dd444867bad12ce1db57ef2286.png');
 
 -- --------------------------------------------------------
 
@@ -374,12 +420,13 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`pro_codigo`, `pro_nombre`, `pro_precio`, `pro_cant`, `pro_des`, `cat_codigo`, `pro_imagen`, `pro_estado`) VALUES
-(24, 'camisa', 1000, 8, 'des', 14, '89f8d60ec85a9798f19c1eff02d950fb.png', 'inactivo'),
-(25, 'nada', 324, 34, '324', 13, 'a98d70f681601cf12f891f6c9a3a1878.png', 'activo'),
+(24, 'camisa', 10001, 8, 'des', 14, '89f8d60ec85a9798f19c1eff02d950fb.png', 'inactivo'),
+(25, 'nada', 324, 34, '324', 13, '', 'activo'),
 (26, 'fgfd', 435, 435, '43543', 14, '64b52215dadbd283e6c17f7d31af9f28.png', 'activo'),
 (27, 'asd', 324, 2344, '342', 13, '424373a96e0df49cfac85ff2644b246c.png', 'activo'),
 (28, 'sad', 324, 34, '324', 14, '3dd90c125c50926e1cf3b51ec39712d1.png', 'activo'),
-(29, 'kl', 8797, 897897, '89789', 12, 'abef16ef3720f15e5233a09b527947e2.png', 'activo');
+(29, 'kl', 8797, 897897, '89789', 12, '1e2177f6c87211da60aa42e011fd47a7.png', 'activo'),
+(30, 'yes', 2134312, 214324, '13241234', 17, '39eacb2c4b4e978c8513f08c10b133ed.png', 'activo');
 
 -- --------------------------------------------------------
 
@@ -394,6 +441,22 @@ CREATE TABLE `producto_pedido` (
   `col_codigo` int(11) NOT NULL,
   `tal_codigo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `producto_pedido`
+--
+
+INSERT INTO `producto_pedido` (`ped_codigo`, `pro_codigo`, `cantidad`, `col_codigo`, `tal_codigo`) VALUES
+(23, 24, 1, 1, 1),
+(24, 24, 1, 1, 1),
+(25, 24, 1, 1, 1),
+(26, 26, 1, 1, 1),
+(27, 29, 1, 1, 1),
+(28, 29, 1, 1, 1),
+(29, 29, 1, 1, 1),
+(30, 29, 1, 1, 1),
+(31, 26, 1, 1, 1),
+(32, 24, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -449,7 +512,6 @@ CREATE TABLE `talla_producto` (
 --
 
 INSERT INTO `talla_producto` (`pro_codigo`, `tal_codigo`) VALUES
-(24, 1),
 (25, 1),
 (25, 2),
 (26, 1),
@@ -459,7 +521,10 @@ INSERT INTO `talla_producto` (`pro_codigo`, `tal_codigo`) VALUES
 (28, 1),
 (28, 2),
 (29, 1),
-(29, 2);
+(29, 2),
+(24, 1),
+(30, 1),
+(30, 2);
 
 -- --------------------------------------------------------
 
@@ -490,28 +555,29 @@ CREATE TABLE `usuario` (
   `usu_nombre1` varchar(30) NOT NULL,
   `usu_apellido1` varchar(25) NOT NULL,
   `usu_apellido2` varchar(25) DEFAULT NULL,
-  `usu_direccion` varchar(40) NOT NULL,
   `usu_correo` varchar(100) NOT NULL,
   `rol_codigo` int(11) NOT NULL,
   `tid_codigo` int(11) NOT NULL,
   `usu_dir` varchar(50) NOT NULL,
   `mun_codigo` int(11) NOT NULL,
-  `usu_telefono` int(11) NOT NULL
+  `usu_telefono` bigint(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`usu_codigo`, `usu_nombre1`, `usu_apellido1`, `usu_apellido2`, `usu_direccion`, `usu_correo`, `rol_codigo`, `tid_codigo`, `usu_dir`, `mun_codigo`, `usu_telefono`) VALUES
-(3, 'julio', 'arias', NULL, '', 'algo@algo.com', 1, 1, '0rewsrdtf', 1, 0),
-(6, 'julio', 'arias', NULL, '', 'nose@gds.com', 2, 1, '0', 1, 0),
-(9, 'jufdsgfs', 'gdsags', NULL, '', 'gsag@gsag', 2, 1, '0', 1, 0),
-(15, 'dsf', 'dsf', NULL, '', 's@s.com', 2, 1, '0', 1, 0),
-(16, 'Alexis', 'lopera', NULL, '', 'yo@yo.com', 1, 1, '0', 1, 0),
-(17, 'cristian', 'lopera', NULL, '', 'alexis__1020@hotmail.com', 1, 1, '0324', 1, 0),
-(18, 'Hola', 'nada', NULL, '', 'cliente@cliente.com', 2, 1, '0', 1, 0),
-(19, 'nada', 'nada', NULL, '', 'nada@nada.com', 2, 1, '0', 1, 0);
+INSERT INTO `usuario` (`usu_codigo`, `usu_nombre1`, `usu_apellido1`, `usu_apellido2`, `usu_correo`, `rol_codigo`, `tid_codigo`, `usu_dir`, `mun_codigo`, `usu_telefono`) VALUES
+(3, 'julio', 'arias', NULL, 'algo@algo.com', 1, 1, '0rewsrdtf', 1, 0),
+(6, 'julio', 'arias', NULL, 'nose@gds.com', 2, 1, '0', 1, 0),
+(9, 'jufdsgfs', 'gdsags', NULL, 'gsag@gsag', 2, 1, '0', 1, 0),
+(15, 'dsf', 'dsf', NULL, 's@s.com', 2, 1, '0', 1, 0),
+(16, 'Alexis', 'lopera', NULL, 'yo@yo.com', 1, 1, '0', 1, 0),
+(17, 'cristian', 'lopera', NULL, 'alexis__1020@hotmail.com', 1, 1, '0324', 1, 0),
+(18, 'Hola', 'nada', NULL, 'cliente@cliente.com', 2, 1, 'calle 95 b', 1, 89765),
+(19, 'nada', 'nada', NULL, 'nada@nada.com', 2, 1, '0', 1, 0),
+(20, 'Dompi', 'Lopera', NULL, 'dompi@gmail.com', 2, 1, 'calle 95 b', 1, 3233557660),
+(22, 'nada', 'todo', NULL, 'aaa@aa.a', 2, 1, 'sadsa', 1, 32333);
 
 -- --------------------------------------------------------
 
@@ -688,12 +754,12 @@ ALTER TABLE `noticia`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `ped_codigo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ped_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `pro_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `pro_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT de la tabla `talla`
 --
@@ -703,7 +769,7 @@ ALTER TABLE `talla`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `usu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `usu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT de la tabla `video`
 --
