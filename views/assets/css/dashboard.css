@@ -107,14 +107,17 @@
   font-weight: 900;
   text-transform: uppercase;
 }
-.contenidoProduct h2{
-  font-size: 12px;
+.contenidoProduct h4{
+  font-size: 15px;
   text-align: center;
   margin: auto;
   cursor: pointer;
+  color: #878787;
+  text-transform: uppercase;
+  font-family: "roboto";
 }
-.contenidoProduct h2:hover i{
-  color: #168a2c;
+.contenidoProduct h4:hover{
+  color: #000;
 }
 .titleProduct{
   display: grid;
@@ -143,10 +146,10 @@
 }
 .modalColor, .modalTalla{
   width: 400px;
-  height: 200px;
+  height: 145px;
   background: #fff;
   z-index: 11;
-  margin: 15vh auto;
+  margin: 37vh auto;
   border-radius: 3px;
   padding: 10px;
 }
@@ -157,6 +160,35 @@
   text-align: center;
   text-transform: uppercase;
   font-family: "roboto";
+}
+.inputForm label{
+  text-transform: uppercase;
+  font-size: 15px;
+  width: 100%;
+}
+.inputForm input{
+  width: 98%;
+  padding: 2px;
+}
+.inputForm{
+  font-family: "roboto";
+  text-align: center;
+  width: 80%;
+  margin: 10px auto;
+}
+.btnForm{
+  text-align: center;
+}
+.btnForm button{
+  text-transform: uppercase;
+  border: 2px solid #c6c6c6;
+  background: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.btnForm button:hover{
+  background: #ececec;
 }
 /*gestion de las categorias*/
 .gestion-categoria{
@@ -326,7 +358,7 @@
   border-radius: 3px;
 }
 .frmUpdateCat{
-  padding: 15px;
+  padding: 5px;
   display: grid;
   grid-template-columns: 100%;
   grid-template-areas:
@@ -365,7 +397,7 @@
   text-align: center;
 }
 .frm-group input{
-  width: 100%;
+  width: 98%;
   border-radius: 3px;
   padding: 3px;
   border: 1px solid #c6c6c6;

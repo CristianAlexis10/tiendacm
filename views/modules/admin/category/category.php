@@ -63,7 +63,7 @@ if (isset($_SESSION['messagge'])) {
     <div class="wrapUpdateCategory">
       <form id="frmUpdateCat" class="frmUpdateCat">
           <div class="frm-group">
-            <h3>Actualizar producto</h3>
+            <h3>Actualizar categoria</h3>
           </div>
       		<div class="frm-group">
       			<label for="nameCategory">Nombre:</label>

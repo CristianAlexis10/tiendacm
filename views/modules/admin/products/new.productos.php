@@ -22,8 +22,8 @@
 <div class="contenidoProduct">
   <div class="titleProduct">
     <h1>Gestion productos</h1>
-    <h2 id="modalColor"><i class="fas fa-plus-circle"></i> nuevo color</h2>
-    <h2 id="modalTalla"><i class="fas fa-plus-circle"></i> nueva talla</h2>
+    <h4 id="modalColor"><i class="fas fa-plus-circle"></i> nuevo color</h4>
+    <h4 id="modalTalla"><i class="fas fa-plus-circle"></i> nueva talla</h4>
   </div>
   <div class="backgroundModalColor"></div>
   <div class="wrapModalColor">
@@ -35,8 +35,8 @@
           <input type="text" name="" value="">
         </div>
         <div class="btnForm">
-          <button type="button" id="cancelarColor">cancelar</button>
           <button type="submit" name="button">guardar</button>
+          <button type="button" id="cancelarColor">cancelar</button>
         </div>
       </form>
     </div>
@@ -47,12 +47,12 @@
       <h3>agregar nueva talla</h3>
       <form class="" action="index.html" method="post">
         <div class="inputForm">
-          <label for="">color nuevo:</label>
+          <label for="">talla nueva:</label>
           <input type="text" name="" value="">
         </div>
         <div class="btnForm">
-          <button type="button" id="cancelarTalla">cancelar</button>
           <button type="submit" name="button">guardar</button>
+          <button type="button" id="cancelarTalla">cancelar</button>
         </div>
       </form>
     </div>
