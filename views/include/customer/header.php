@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CM</title>
+    <title>Tienda Catalina Molano</title>
     <meta charset="utf-8">
+    <link rel="icon" href="views/assets/img/logo_blanco.ico" type="image/ico" >
     <link rel="stylesheet" href="views/assets/css/reset.css">
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="views/assets/css/style.hola.css">

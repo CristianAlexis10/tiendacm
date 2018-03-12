@@ -90,6 +90,41 @@
   margin: 10px;
   text-transform: uppercase;
 }
+/* estilo pagina principal dashboard */
+.table{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: 450px;
+  grid-gap: 10px;
+  padding: 0px 10px 10px 10px;
+}
+.column{
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  border: 1px solid #c6c6c6;
+}
+.result{
+  width: 100%;
+  height: 70%;
+  border-bottom: 1px solid #c6c6c6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  font-family: "roboto";
+  font-weight: bold;
+}
+.titleResult{
+  width: 100%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-family: "lato";
+  text-transform: capitalize;
+}
 /* estilo producto */
 .contenidoProduct{
   margin-left: 200px;
@@ -379,6 +414,7 @@
   cursor: pointer;
   border-radius: 3px;
   font-size: 15px;
+  width: 100%;
 }
 .modalUpdateCategoryBtn:hover, .modalUpdateCategoryBtnC:hover, .frm-group h2:hover{
   background: #35485b;
@@ -443,11 +479,9 @@
   display: grid;
   grid-template-columns: repeat(2,1fr);
 }
-.regProdImg .form-group{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+.Cambiar--img{
+  width: 100%;
+  text-align: center;
 }
 .regProdImg h2{
   cursor: pointer;

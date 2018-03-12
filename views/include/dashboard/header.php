@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Dashboard</title>
     <link rel="stylesheet" href="views/assets/css/reset.css">
+    <link rel="icon" href="views/assets/img/logo_blanco.ico" type="image/ico">
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="views/assets/css/dashboard.css">
     <link rel="stylesheet" href="views/assets/css/login-registro.css">
@@ -12,7 +13,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
     <link type="text/css" rel="stylesheet" href="views/assets/css/croppie.css"  media="screen,projection"/>
     <meta name="viewport"  content="width=device-width, initial-scale=1.0">
-    <!-- si es este? -->
   </head>
   <body>
     <?php require_once("views/include/dashboard/topMenu.php"); ?>
