@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Dashboard</title>
+    <link rel="icon" href="views/assets/img/logo_blanco.ico" type="image/ico">
     <link rel="stylesheet" href="views/assets/css/reset.css">
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="views/assets/css/dashboard.css">
@@ -23,7 +24,8 @@
         $data = $this->master->selectBy('producto',array('pro_codigo',$_SESSION['update_pro']));
         $allImage = $this->master->selectAllBy('por_imagenes',array('pro_codigo',$_SESSION['update_pro']));
     ?>
-    <div class="wrapp-img" style="display:flex;flex-direction:row;">
+    <div class="wrapp-img">
+      <div class="wrapImgGrid">
         <div class="img-product">
             <img src="<?php echo "views/assets/img/products/".$data['pro_imagen'] ?>">
             <p class="deleteImgProduct" id="<?php echo $data['pro_imagen']?>">Eliminar</p>
@@ -31,14 +33,14 @@
         <?php foreach ($allImage as $row) {?>
           <div class="img-product">
             <img src="<?php echo "views/assets/img/products/".$row['img'] ?>">
-            <p class="deleteImgProduct" id="<?php echo $row['img']?>">Eliminar</p>
+            <h2 class="deleteImgProduct" id="<?php echo $row['img']?>">Eliminar</h2>
           </div>
         <?php } ?>
-        <div class="form-group Cambiar--img">
-          <div id="wrap-result"><img src="views/assets/img/defaultProfile.png" ></div>
-          <span class="" id="cropp-img">Añadir foto</span>
-        </div>
-
+      </div>
+      <div class="forma-group Cambiar--img">
+        <div id="wrap-result"><img src="views/assets/img/defaultProfile.png"></div>
+        <h2 class="" id="cropp-img">Añadir foto</h2>
+      </div>
     </div>
 
    <!-- MODAL -->

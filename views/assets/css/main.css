@@ -161,7 +161,7 @@ body{
   display: grid;
   grid-template-columns: repeat(3,1fr);
   grid-gap: 20px;
-  width: 75%;
+  width: 72%;
   margin: 20px auto;
 }
 .item{

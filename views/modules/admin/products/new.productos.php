@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Dashboard</title>
+    <link rel="icon" href="views/assets/img/logo_blanco.ico" type="image/ico">
     <link rel="stylesheet" href="views/assets/css/reset.css">
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="views/assets/css/dashboard.css">
@@ -137,7 +138,7 @@ if (isset($_SESSION['messagge'])) {
           </div>
         </div>
       	<div class="regProdReg">
-      		<button type="submit">Registar</button>
+      		<button type="submit">Registrar</button>
       	</div>
       </form>
     </div>

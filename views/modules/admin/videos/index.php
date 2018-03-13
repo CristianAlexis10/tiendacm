@@ -44,10 +44,10 @@ $id++;
       <span>añadir video</span>
     </div>
   </section>
+
   <div class="fondoModalVideo" id="fondoModalVideo"></div>
   <div class="wrapModalVideo" id="wrapModalVideo">
     <div class="modalVideo">
-
       <form enctype="multipart/form-data" id="formuploadajax" >
         <div class="wrapTitle">
           <h2>Añadir video</h2>
@@ -66,7 +66,29 @@ $id++;
           <button type="button" name="button" id="cancelarVideo">Cancelar</button>
         </div>
       </form>
-
+    </div>
+  </div>
+  <div class="fondoModalVideoEdit"></div>
+  <div class="wrapVideoEdit">
+    <div class="videoEdit">
+      <form class="" action="index.html" method="post">
+        <div class="wrapTitle">
+          <h2>Editar video</h2>
+        </div>
+        <div class="wrapNameVideo">
+          <input type="text" name="nombre" value="" id="cambie_esta_madre" required>
+          <label for="cambie_esta_madre">Titulo del video</label>
+        </div>
+        <div class="wrapFileVideo">
+          <div class="upLoad">
+            <input type="file" name="archivo1" required>
+          </div>
+        </div>
+        <div class="wrapBtnVideo">
+          <button type="submit" name="button">Guardar</button>
+          <button type="button" name="button" class="cancelarVideo">Cancelar</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
