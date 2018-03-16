@@ -69,6 +69,8 @@ RewriteRule ^datos-categoria$ index.php?c=category&a=readBy
 RewriteRule ^cropp-(\w+)$ index.php?c=cropp&a=image&folder=$1
 RewriteRule ^croppProducts2$ index.php?c=cropp&a=imageProduct2
 
+RewriteRule ^croppProduct$ index.php?c=cropp&a=newImage
+
 #carrito
 RewriteRule ^eliminar-producto-carrito$ index.php?c=carrito&a=delete
 RewriteRule ^agregar-producto-carrito$ index.php?c=carrito&a=add

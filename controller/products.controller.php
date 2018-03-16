@@ -150,7 +150,7 @@ class ProductsController{
 		}else{
 			echo json_encode("ocurrio un error");
 		}
-		// unset($_SESSION['new_cropp_image']);
+		unset($_SESSION['new_cropp_image']);
 	}
 	function deleteImage(){
 		$img = $_POST['data'];
@@ -178,7 +178,7 @@ class ProductsController{
 				echo json_encode($this->doizer->knowError($result));
 			}
 		}
-		// unset($_SESSION['new_cropp_image']);
+		unset($_SESSION['new_cropp_image']);
 	}
 }
 ?>

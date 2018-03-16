@@ -20,8 +20,10 @@ $uploadCrop = $('#wrap-upload').croppie({
         height: 350
     }
 });
+$('#addImage').attr("disabled",true);
 //cada que se selecione un archivo carga
 $('#upload').on('change', function () {
+    $('#addImage').attr("disabled",false);
   var reader = new FileReader();
     reader.onload = function (e) {
       $uploadCrop.croppie('bind', {
@@ -34,7 +36,7 @@ $('#upload').on('change', function () {
     reader.readAsDataURL(this.files[0]);
 });
 //recortar
-$('.upload-result').on('click', function (ev) {
+$('#addImage').on('click', function (ev) {
   $uploadCrop.croppie('result', {
     type: 'canvas',
     size: 'viewport'
@@ -51,6 +53,25 @@ $('.upload-result').on('click', function (ev) {
       }
     });
   });
+
+  if (confirm("¿agregar esta imagen?")) {
+      setTimeout(function(){
+          $.ajax({
+              url:"agregar-imagen",
+              type:"post",
+              dataType:"json",
+              success:function(result){
+                  if (result==true) {
+                      location.reload();
+                  }else{
+                      console.log(result);
+                  }
+              },
+              error:function(result){console.log(result);}
+          });
+
+      },200);
+  }
 });
 
 
@@ -92,25 +113,6 @@ $(".deleteImgProduct").click(function(){
           }else{
             $(".wrapp-img").after("<div class='message'>"+result+"</div>");
             setTimeout(function(){$("div.message").remove()},5000);
-          }
-        },
-        error:function(result){console.log(result);}
-      });
-  }
-});
-
-//agregar
-$("#addImage").click(function() {
-  if (confirm("¿agregar esta imagen?")) {
-      $.ajax({
-        url:"agregar-imagen",
-        type:"post",
-        dataType:"json",
-        success:function(result){
-          if (result==true) {
-            location.reload();
-          }else{
-            console.log(result);
           }
         },
         error:function(result){console.log(result);}
