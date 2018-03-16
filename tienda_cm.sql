@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-03-2018 a las 23:24:55
--- Versión del servidor: 10.1.8-MariaDB
--- Versión de PHP: 5.6.14
+-- Tiempo de generación: 16-03-2018 a las 20:50:30
+-- Versión del servidor: 10.1.19-MariaDB
+-- Versión de PHP: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -137,6 +137,11 @@ BEGIN
 UPDATE categoria SET cat_img = img WHERE cat_codigo = cod;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarVideo` (IN `id` INT, IN `nombre` VARCHAR(50))  NO SQL
+BEGIN 
+UPDATE video SET video.nombre = nombre WHERE video.id_video = id;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `paginasTodosProductos` (IN `ini` INT, IN `fin` INT)  NO SQL
 BEGIN
 SELECT * FROM producto LIMIT ini , fin ;
@@ -238,7 +243,14 @@ CREATE TABLE `color` (
 
 INSERT INTO `color` (`col_codigo`, `col_color`) VALUES
 (1, 'Rojo'),
-(2, 'Azul');
+(2, 'Azul'),
+(3, 'sadsad'),
+(4, 'naranja'),
+(5, 'negro'),
+(6, ''),
+(7, ' '),
+(8, 'Gris'),
+(9, 'XL');
 
 -- --------------------------------------------------------
 
@@ -385,7 +397,36 @@ INSERT INTO `pedidos` (`ped_codigo`, `usu_id`, `mun_codigo`, `ped_direccion`, `p
 (30, 18, 1, 'calle 95 b', '2018-03-06', '2018-03-07', 'ZSJPulj-cFF3fRl', 'Bodega'),
 (31, 18, 1, 'calle 95 b', '2018-03-06', '2018-03-07', 'glYDdf9-MLOEDK0', 'Bodega'),
 (32, 18, 1, 'calle 95 b', '2018-03-06', '2018-03-07', '8h8mL1X-l5uLqzL', 'Bodega'),
-(33, 18, 1, 'calle 95 b', '2018-03-06', '2018-03-07', 'AsBnKTv-7ZNBeSR', 'Bodega');
+(33, 18, 1, 'calle 95 b', '2018-03-06', '2018-03-07', 'AsBnKTv-7ZNBeSR', 'Bodega'),
+(34, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'xisNmvY-CIHrphe', 'Bodega'),
+(35, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'lN2rtCX-eeliN44', 'Bodega'),
+(36, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'gYZoB6q-qv2mJH7', 'Bodega'),
+(37, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'fqqc55m-BkPLbWd', 'Bodega'),
+(38, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'kioniLF-SmXdPKG', 'Bodega'),
+(39, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', '0ObjvVT-GHLz83p', 'Bodega'),
+(40, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'swwugaA-3cWdJ0a', 'Bodega'),
+(41, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'SBSHwfx-SDNeycN', 'Bodega'),
+(42, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'E3En1eZ-73qF7Yu', 'Bodega'),
+(43, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'EXvLpKS-6V4MOE2', 'Bodega'),
+(44, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'rMzdBk8-Isjk8J3', 'Bodega'),
+(45, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'ByDqWzU-KPhKRch', 'Bodega'),
+(46, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'ns9fTFT-gAot2Gu', 'Bodega'),
+(47, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', '5X6Sfo0-Cui6Jnm', 'Bodega'),
+(48, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'HG2PFr2-omuthAM', 'Bodega'),
+(49, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'XdINzqA-uUBxk4Z', 'Bodega'),
+(50, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'qjDiASI-JQ0T2z9', 'Bodega'),
+(51, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'gpBjpzh-VrLsYXG', 'Bodega'),
+(52, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'sW2y8Lh-5PWMvoq', 'Bodega'),
+(53, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', '7xaGpp0-HeOeVHY', 'Bodega'),
+(54, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'GlnDJpn-Zd6hKsT', 'Bodega'),
+(55, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'cakJIW9-6WhLYqV', 'Bodega'),
+(56, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'xOj4iAa-soL5iFj', 'Bodega'),
+(57, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'EMVBWry-feIMY7m', 'Bodega'),
+(58, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', '4oJnm6n-OkYy42f', 'Bodega'),
+(59, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', '596DkvB-k7795Or', 'Bodega'),
+(60, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'P5fre5L-BshdT5p', 'Bodega'),
+(61, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'LUoyzZS-PAZtwwh', 'Bodega'),
+(62, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'FIAFp1v-wbwvGYN', 'Bodega');
 
 -- --------------------------------------------------------
 
@@ -397,6 +438,25 @@ CREATE TABLE `por_imagenes` (
   `pro_codigo` int(11) NOT NULL,
   `img` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `por_imagenes`
+--
+
+INSERT INTO `por_imagenes` (`pro_codigo`, `img`) VALUES
+(24, 'ffa32a14ca2e3810e06c5563634d8ce5.png'),
+(24, 'b36f0f90a3a69580acc66667cb5646d3.png'),
+(24, '09a536418220e2af6587cfc063ba5cd0.png'),
+(30, '03a92389ac59971b89b705f7b3007922.png'),
+(30, '30a612ba054c18a65ddb81a5b0e79cd1.png'),
+(30, '65d52063769223bf43c08ada878492f9.png'),
+(30, 'acdd2ea9715f0131d015fe304414b2a6.png'),
+(28, 'd67fdba84f3d363ec3248093c2ad1ab7.png'),
+(28, '38021298cbeea5a73b1474a134b01a02.png'),
+(28, '628e4807ff0867733a13876833b0c10f.png'),
+(28, '7165b73fdde729eaa47d2074dbb35118.png'),
+(28, '426bf70d4e92eb4c98f1c0aa53fe1d8f.png'),
+(28, '3095480386e31e2483ecbf63befe7961.png');
 
 -- --------------------------------------------------------
 
@@ -456,7 +516,25 @@ INSERT INTO `producto_pedido` (`ped_codigo`, `pro_codigo`, `cantidad`, `col_codi
 (29, 29, 1, 1, 1),
 (30, 29, 1, 1, 1),
 (31, 26, 1, 1, 1),
-(32, 24, 1, 1, 1);
+(32, 24, 1, 1, 1),
+(34, 24, 1, 1, 1),
+(35, 26, 1, 1, 1),
+(35, 26, 1, 1, 1),
+(35, 26, 1, 1, 1),
+(35, 24, 1, 1, 1),
+(35, 24, 1, 1, 1),
+(35, 24, 1, 1, 1),
+(46, 24, 1, 1, 1),
+(47, 28, 1, 1, 1),
+(47, 27, 1, 1, 1),
+(57, 26, 1, 1, 1),
+(58, 30, 1, 1, 1),
+(58, 30, 1, 1, 1),
+(58, 28, 1, 1, 1),
+(61, 27, 1, 1, 1),
+(61, 25, 1, 1, 1),
+(61, 27, 1, 1, 1),
+(62, 28, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -494,7 +572,8 @@ CREATE TABLE `talla` (
 
 INSERT INTO `talla` (`tal_codigo`, `tal_talla`) VALUES
 (1, 'X'),
-(2, 'M');
+(2, 'M'),
+(3, 'XXL');
 
 -- --------------------------------------------------------
 
@@ -598,9 +677,7 @@ CREATE TABLE `video` (
 
 INSERT INTO `video` (`id_video`, `nombre`, `url`, `usu_codigo`) VALUES
 (1, 'primer video', '7a48d3b3dcb32b38fce132010c9ded28.mp4', 3),
-(2, 'hola', '1bcce0792e2a3ba3d035eedc710a88ab.mp4', 3),
-(3, 'nada', '69f34f39b388843c49810c1a44ecb093.mp4', 3),
-(4, 'hoaa', '8b8fc056d0d9a3e0c859cf9d2aa269d8.mp4', 3);
+(5, 'hola', '589cd171e050121958b6ab6800805bc8.mp4', 17);
 
 --
 -- Índices para tablas volcadas
@@ -744,7 +821,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `color`
 --
 ALTER TABLE `color`
-  MODIFY `col_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `col_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT de la tabla `noticia`
 --
@@ -754,7 +831,7 @@ ALTER TABLE `noticia`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `ped_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `ped_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
@@ -764,7 +841,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `talla`
 --
 ALTER TABLE `talla`
-  MODIFY `tal_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `tal_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
@@ -774,7 +851,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `video`
 --
 ALTER TABLE `video`
-  MODIFY `id_video` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_video` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Restricciones para tablas volcadas
 --
