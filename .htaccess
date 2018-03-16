@@ -22,6 +22,7 @@ RewriteRule ^videos-(\w+)$ index.php?c=videos&pagina=$1
 RewriteRule ^videos$ index.php?c=videos
 RewriteRule ^gestion-videos$ index.php?c=videos&a=gestion
 RewriteRule ^subir-video$ index.php?c=videos&a=upload
+RewriteRule ^eliminar-video$ index.php?c=videos&a=delete
 
 #PRODUCTOS
 RewriteRule ^gestion-producto$ index.php?c=products

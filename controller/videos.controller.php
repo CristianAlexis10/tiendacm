@@ -40,5 +40,15 @@ Class VideosController{
         echo json_encode("no");
       }
     }
+    function delete(){
+        $data = $this->master->selectBy("video",array("id_video",$_POST['data']));
+        $result = $this->master->delete("video",array("id_video",$_POST['data']));
+        if ($result==true) {
+            unlink("views/assets/video/".$data['url']);
+            echo json_encode($result);
+        }else{
+            echo json_encode($this->doizer->knowError($result));
+        }
+    }
   }
 ?>

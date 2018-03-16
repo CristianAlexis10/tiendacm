@@ -223,17 +223,23 @@ $(".cancelarVideo").click(function() {
 
 //eliminar videos
 $(".btnDelete").click(function(){
-	var id = this.id;
-	$.ajax({
-		url:"",
-		type:"",
-		dataType:"",
-		data:({}),
-		success:function(result){
-
-		},
-		error:function(result){console.log(result);}
-	});
+	if (confirm("¿eliminar este video?")) {
+		var id = this.id;
+		$.ajax({
+			url:"eliminar-video",
+			type:"post",
+			dataType:"json",
+			data:({data:id}),
+			success:function(result){
+				if (result==true) {
+					location.reload();
+				}else{
+					alert(result);
+				}
+			},
+			error:function(result){console.log(result);}
+		});
+	}
 });
 //subir videos
 $("#formuploadajax").submit(function(e){
