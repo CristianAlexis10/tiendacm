@@ -24,7 +24,7 @@
       <a href="noticias"><li  class="itemMenu">Noticias</li></a>
       <li id="btnCarrito" class="itemMenu"><i class="fa fa-shopping-cart" aria-hidden="true"></i></li>
       <a href="mi-perfil"><li class="itemMenu"><?php echo $_SESSION['USER']['NAME']; ?></li></a>
-      <a href="finalizar-sesion"><li class="itemMenu"><i class="fa fa-sign-out" aria-hidden="true"></i></li></a>
+      <a href="finalizar-sesion"><li class="itemMenu"><i class="fas fa-sign-out-alt"></i></li></a>
     </ul>
   </div>
 </div>

@@ -82,21 +82,11 @@
              <div class="modalDetalle">
                  <div class="wrap-image">
                      <div class="image">
-                       <div class="imgP">
-                         <img src="" id="imgModal" alt="">
-                       </div>
-                       <div class="img1">
-                         1
-                       </div>
-                       <div class="img2">
-                         2
-                       </div>
-                       <div class="img3">
-                         3
-                       </div>
-                       <div class="img4">
-                         4
-                       </div>
+                       <img class="mySlides" src="" id="imgModal" alt="">
+                     </div>
+                     <div class="btnImg">
+                      <button class="left" onclick="plusDivs(-1)"><i class="fas fa-angle-left"></i></button>
+                      <button class="right" onclick="plusDivs(1)"><i class="fas fa-angle-right"></i></button>
                      </div>
                  </div>
                  <div class="wrap-detalle">

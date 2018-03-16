@@ -71,11 +71,15 @@
          <div class="fondoModal"></div>
          <div class="wrap-modalDetalle">
              <div class="modalDetalle">
-                 <div class="wrap-image">
-                     <div class="image">
-                         <img src="" id="imgModal" alt="">
-                     </div>
-                 </div>
+               <div class="wrap-image">
+                   <div class="image">
+                     <img class="mySlides" src="" id="imgModal" alt="">
+                   </div>
+                   <div class="btnImg">
+                    <button class="left" onclick="plusDivs(-1)"><i class="fas fa-angle-left"></i></button>
+                    <button class="right" onclick="plusDivs(1)"><i class="fas fa-angle-right"></i></button>
+                   </div>
+               </div>
                  <div class="wrap-detalle">
                      <div class="nombre">
                          <h2 id="nomModal"></h2>
@@ -97,9 +101,6 @@
                          </select>
                      </div>
                      <div class="cantidad">
-                       <!-- <span id="minusCant">-</span>
-                       <span id="cant">0</span>
-                       <span id="moreCant">+</span> -->
                        <label for="">cantidad: </label>
                        <input type="number" name="" value="" id="cant">
                      </div>
