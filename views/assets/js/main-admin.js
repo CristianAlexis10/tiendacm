@@ -268,7 +268,7 @@ $("#formuploadajax").submit(function(e){
 											$("#wrapModalVideo").toggle();
 											$("#formuploadajax")[0].reset();
 											location.reload();
-										},3000);
+										},1000);
 							}else{
 								$("div.message").remove();
 								console.log(result);
@@ -364,3 +364,39 @@ $("#newTal").submit(function(e){
 	});
 });
 //modal noticias editar/crear
+var actualizarvideo ;
+function editarVideo(id){
+	actualizarvideo = id;
+	$.ajax({
+		url:"saber-video",
+		type:"post",
+		dataType:"json",
+		data:({data:id}),
+		success:function(result) {
+			$("#nombre_video").val(result.nombre);
+		},
+		error:function(result) {console.log(result);}
+	});
+}
+
+$("#updateVideo").submit(function(e){
+	e.preventDefault();
+	if ($("#nombre_video").val!="") {
+		$.ajax({
+			url:"actualizar-video",
+			type:"post",
+			dataType:"json",
+			data:({id:actualizarvideo,data:$("#nombre_video").val()}),
+			success:function(result) {
+				if (result==true) {
+					location.reload();
+				}else{
+					alert(result);
+				}
+			},
+			error:function(result) {console.log(result);}
+		});
+	}else{
+		alert("llenar campos");
+	}
+});

@@ -15,7 +15,7 @@
       <div class="nameVideo">
         <h2><?php echo $row['nombre'] ?></h2>
       </div>
-      <div class="btnEdit">
+      <div class="btnEdit" onclick="editarVideo(<?php echo $row['id_video']?>)">
         <i class="far fa-edit"></i>
       </div>
       <div class="btnDelete" id="<?php echo $row['id_video'] ?>">
@@ -71,18 +71,13 @@ $id++;
   <div class="fondoModalVideoEdit"></div>
   <div class="wrapVideoEdit">
     <div class="videoEdit">
-      <form class="" action="index.html" method="post">
+      <form id="updateVideo">
         <div class="wrapTitle">
           <h2>Editar video</h2>
         </div>
         <div class="wrapNameVideo">
-          <input type="text" name="nombre" value="" id="cambie_esta_madre" required>
+          <input type="text" name="nombre" value="" id="nombre_video" required>
           <label for="cambie_esta_madre">Titulo del video</label>
-        </div>
-        <div class="wrapFileVideo">
-          <div class="upLoad">
-            <input type="file" name="archivo1" required>
-          </div>
         </div>
         <div class="wrapBtnVideo">
           <button type="submit" name="button">Guardar</button>

@@ -50,5 +50,23 @@ Class VideosController{
             echo json_encode($this->doizer->knowError($result));
         }
     }
+    function readBy(){
+        $data = $_POST['data'];
+        $result = $this->master->selectBy("video",array("id_video",$data));
+        if ($result==true){
+            echo json_encode($result);
+        }else{
+            echo json_encode($this->doizer->knowError($result));
+        }
+    }
+    function uptade(){
+        $data = $_POST['data'];
+        $result = $this->master->procedure->NRP("modificarVideo",array($_POST['id'],$data));
+        if ($result==true){
+            echo json_encode($result);
+        }else{
+            echo json_encode($this->doizer->knowError($result));
+        }
+    }
   }
 ?>

@@ -47,6 +47,17 @@ class ProcedureModel extends MasterModel{
           }
           return $result;
       }
+      public function noParams($procedureName){
+          try {
+              $this->sql="call $procedureName()";
+              $query=$this->pdo->prepare($this->sql);
+              $query->execute();
+              $result = true;
+          } catch (PDOException $e) {
+              $result = $query->errorInfo()[1];
+          }
+          return $result;
+      }
 }
 
 ?>
