@@ -30,10 +30,10 @@
   <div class="wrapModalColor">
     <div class="modalColor">
       <h3>agregar nuevo color</h3>
-      <form class="" action="index.html" method="post">
+      <form id="newColor">
         <div class="inputForm">
-          <label for="">color nuevo:</label>
-          <input type="text" name="" value="">
+          <label for="Ncolor">color nuevo:</label>
+          <input type="text" id="Ncolor">
         </div>
         <div class="btnForm">
           <button type="submit" name="button">guardar</button>
@@ -46,10 +46,10 @@
   <div class="wrapModalTalla">
     <div class="modalTalla">
       <h3>agregar nueva talla</h3>
-      <form class="" action="index.html" method="post">
+      <form id="newTal">
         <div class="inputForm">
-          <label for="">talla nueva:</label>
-          <input type="text" name="" value="">
+          <label for="Ntal">talla nueva:</label>
+          <input type="text" id="Ntal" value="">
         </div>
         <div class="btnForm">
           <button type="submit" name="button">guardar</button>

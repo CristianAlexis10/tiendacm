@@ -322,4 +322,45 @@ $("#cancelarTalla").click(function() {
 	$(".backgroundModalTalla").toggle();
 	$(".wrapModalTalla").toggle();
 });
+//agregar colores
+$("#newColor").submit(function(e){
+	e.preventDefault();
+	$.ajax({
+		url:"nuevo-color",
+		type:"post",
+		dataType:"json",
+		data:({data:$("#Ncolor").val()}),
+		success:function(result){
+			console.log(result);
+			if (result==true) {
+				$("#Ncolor").val("");
+				$("#cancelarColor").click();
+				location.reload();
+			}else{
+				alert(result);
+			}
+		},
+		error:function(result){console.log(result);}
+	});
+});
+$("#newTal").submit(function(e){
+	e.preventDefault();
+	$.ajax({
+		url:"nueva-talla",
+		type:"post",
+		dataType:"json",
+		data:({data:$("#Ntal").val()}),
+		success:function(result){
+			console.log(result);
+			if (result==true) {
+				$("#Ntal").val("");
+				$("#cancelarTalla").click();
+				location.reload();
+			}else{
+				alert(result);
+			}
+		},
+		error:function(result){console.log(result);}
+	});
+});
 //modal noticias editar/crear

@@ -78,6 +78,9 @@ RewriteRule ^cantidad-items$ index.php?c=carrito&a=countItem
 RewriteRule ^validar_correo$ index.php?c=user&a=readByEmail
 RewriteRule ^catalogo--(\w+)$ index.php?c=customer&data=$1
 
+#colores y tallas
+RewriteRule ^nuevo-color$ index.php?c=colors&a=newRegister
+RewriteRule ^nueva-talla$ index.php?c=colors&a=newRegisterTalla
 
 #videos
 RewriteRule ^subir_video$ index.php?c=videos&a=upload
