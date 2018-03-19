@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-03-2018 a las 20:50:30
--- Versión del servidor: 10.1.19-MariaDB
--- Versión de PHP: 5.6.28
+-- Tiempo de generación: 19-03-2018 a las 14:14:31
+-- Versión del servidor: 10.1.8-MariaDB
+-- Versión de PHP: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -132,6 +132,11 @@ BEGIN
 UPDATE usuario SET usuario.usu_dir = dir , usuario.mun_codigo = ciu , usuario.usu_telefono = cel WHERE  usu_codigo = usu;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarDatosUsuario` (IN `nombre` VARCHAR(50), IN `ape` VARCHAR(25), IN `ape2` VARCHAR(25), IN `correo` VARCHAR(100), IN `dir` VARCHAR(50), IN `ciudad` INT, IN `cel` BIGINT, IN `usu` INT)  NO SQL
+BEGIN 
+UPDATE usuario u SET u.usu_nombre1 = nombre ,u.usu_apellido1 = ape ,u.usu_apellido2 = ape2, u.usu_correo = correo, u.usu_dir = dir , u.mun_codigo = ciudad, u.usu_telefono = cel WHERE u.usu_codigo = usu;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarImagenCategoria` (IN `cod` INT(11), IN `img` VARCHAR(150))  NO SQL
 BEGIN
 UPDATE categoria SET cat_img = img WHERE cat_codigo = cod;
@@ -170,6 +175,11 @@ END$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `updatePro` (IN `nom` VARCHAR(30), IN `precio` INT(11), IN `cantidad` INT(11), IN `des` LONGTEXT, IN `cat` INT(11), IN `est` VARCHAR(20), IN `cod` INT(11))  NO SQL
 BEGIN 
 UPDATE producto set pro_nombre = nom , pro_precio = precio , pro_cant= cantidad , pro_des = des , cat_codigo = cat , pro_estado = est WHERE pro_codigo = cod;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `verPedido` (IN `usu` INT)  NO SQL
+BEGIN 
+SELECT ped.ped_codigo,ped.token,ped.ped_fecha_entrega,ped.ped_direccion,ped.ped_estado  FROM pedidos ped INNER JOIN usuario usu ON usu.usu_codigo = ped.usu_id  WHERE ped.usu_id = usu;
 END$$
 
 DELIMITER ;
@@ -653,7 +663,7 @@ INSERT INTO `usuario` (`usu_codigo`, `usu_nombre1`, `usu_apellido1`, `usu_apelli
 (15, 'dsf', 'dsf', NULL, 's@s.com', 2, 1, '0', 1, 0),
 (16, 'Alexis', 'lopera', NULL, 'yo@yo.com', 1, 1, '0', 1, 0),
 (17, 'cristian', 'lopera', NULL, 'alexis__1020@hotmail.com', 1, 1, '0324', 1, 0),
-(18, 'Hola', 'nada', NULL, 'cliente@cliente.com', 2, 1, 'calle 95 b', 1, 89765),
+(18, 'Andress', 'nada', 'ew', 'cliente@cliente.com', 2, 1, 'calle 95 b', 1, 89765),
 (19, 'nada', 'nada', NULL, 'nada@nada.com', 2, 1, '0', 1, 0),
 (20, 'Dompi', 'Lopera', NULL, 'dompi@gmail.com', 2, 1, 'calle 95 b', 1, 3233557660),
 (22, 'nada', 'todo', NULL, 'aaa@aa.a', 2, 1, 'sadsa', 1, 32333);

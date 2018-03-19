@@ -1,4 +1,8 @@
 //modal cart
+if (document.getElementById("accordion")) {
+	$( "#accordion" ).accordion();
+	$('.datatable').DataTable();
+}
 function datosEnvio(){
 	$.ajax({
 		url:"cantidad-items",
@@ -260,20 +264,51 @@ $("#wrapPlayVideo").click(function() {
 	pauseVideo.pause();
 });
 // galeria
-var slideIndex = 1;
-showDivs(slideIndex);
+if (document.getElementById("imgModal")) {
+	var slideIndex = 1;
+	showDivs(slideIndex);
 
-function plusDivs(n) {
-  showDivs(slideIndex += n);
+	function plusDivs(n) {
+		showDivs(slideIndex += n);
+	}
+	function showDivs(n) {
+		var i;
+		var x = document.getElementsByClassName("mySlides");
+		if (n > x.length) {slideIndex = 1}
+		if (n < 1) {slideIndex = x.length}
+		for (i = 0; i < x.length; i++) {
+			x[i].style.display = "none";
+		}
+		x[slideIndex-1].style.display = "block";
+	}
 }
 
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";
-  }
-  x[slideIndex-1].style.display = "block";
-}
+$("#datosPersonales").submit(function(e){
+	e.preventDefault();
+	var data = [];
+	if ($("#nombre").val() != "" && $("#ape1").val() != "" && $("#ape2").val() != "" && $("#correo").val() != "" && $("#direccion").val() != ""  && $("#celular").val() != "") {
+			data.push($("#nombre").val());
+			data.push($("#ape1").val());
+			data.push($("#ape2").val());
+			data.push($("#correo").val());
+			data.push($("#direccion").val());
+			data.push($("#ciu").val());
+			data.push($("#celular").val());
+		$.ajax({
+			url:"actualizar-datos-personales",
+			type:"post",
+			dataType:"json",
+			data:({data:data}),
+			success:function(result){
+				if (result==true) {
+						location.reload();
+				}else{
+					alert(result);
+				}
+			},
+			error:function(result){console.log(result);}
+		});
+	}else{
+		alert("Por favor completar todos los campos.");
+	}
+});

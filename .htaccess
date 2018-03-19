@@ -53,6 +53,7 @@ RewriteRule ^realizar-pedido$ index.php?c=carrito&a=newOrder
 
 #CLIENTES
 RewriteRule ^cliente$ index.php?c=customer
+RewriteRule ^actualizar-datos-personales$ index.php?c=customer&a=update
 RewriteRule ^mi-perfil$ index.php?c=customer&a=profile
 RewriteRule finalizar-sesion$ index.php?c=customer&a=logout
 

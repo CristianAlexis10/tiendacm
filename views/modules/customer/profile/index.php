@@ -5,6 +5,7 @@
 </div>
 <div class="contenido">
   <?php
+  $data_user = $this->master->selectBy("usuario",array('usu_codigo',$_SESSION['USER']['CODE']));
     if (isset($_SESSION['new_ped_token'])) {
       echo "<div class='messageNewOreder'>El codigo de tu pedido es: ".$_SESSION['new_ped_token']."</div>";
       unset($_SESSION['new_ped_token']);
@@ -33,11 +34,11 @@
                     <td><?php echo $row['ped_direccion']; ?></td>
                     <td><?php echo $row['ped_estado']; ?></td>
                     <td>
-                        <a href="moficar-producto-<?php echo $row['pro_codigo']; ?>">ver productos</a>
+                        <a href="moficar-producto-<?php echo $row['ped_codigo']; ?>">ver productos</a>
 
                             <a href="#" onclick="return confirmDelete(
                                 <?php
-                                    echo $row['pro_codigo'];
+                                    echo $row['ped_codigo'];
                                 ?>
                                )">Eliminar</a>
                     </td>
@@ -51,31 +52,41 @@
       <form id="datosPersonales">
           <div class="frm-group">
               <label for="nombre">Nombre</label>
-              <input type="text" id="nombre" placeholder="Ingresa tu nombre" required>
+              <input type="text" id="nombre" placeholder="Ingresa tu nombre" value="<?php echo $data_user['usu_nombre1'];?>" required>
           </div>
           <div class="frm-group">
               <label for="ape1">Primer Apellido</label>
-              <input type="text" id="ape1" placeholder="Ingresa tu Apellido" required>
+              <input type="text" id="ape1" placeholder="Ingresa tu Apellido" value="<?php echo $data_user['usu_apellido1'];?>" required>
           </div>
           <div class="frm-group">
               <label for="ape2">Segundo Apellido</label>
-              <input type="text" id="ape2" placeholder="Ingresa tu segundo apellido" required>
+              <input type="text" id="ape2" placeholder="Ingresa tu segundo apellido" value="<?php echo $data_user['usu_apellido2'];?>" required>
           </div>
           <div class="frm-group">
               <label for="correo">Correo</label>
-              <input type="email" id="correo" placeholder="Ingresa tu correo" required>
+              <input type="email" id="correo" placeholder="Ingresa tu correo" value="<?php echo $data_user['usu_correo'];?>" required>
           </div>
           <div class="frm-group">
               <label for="dir">Dirección</label>
-              <input type="text" id="dir" placeholder="Ingresa tu dirección" required>
+              <input type="text" id="direccion" placeholder="Ingresa tu dirección" value="<?php echo $data_user['usu_dir'];?>" required>
           </div>
           <div class="frm-group">
-              <label for="ciudad">Ciudad</label>
-              <input type="text" id="ciudad" placeholder="Ingresa tu ciudad de residencia" required>
+              <label for="ciu">Ciudad</label>
+            <select id="ciu">
+              <?php
+                foreach ($this->master->selectAll("municipio") as $row) {
+                if ($row['mun_codigo']==$data_user['mun_codigo']) {
+                  echo "<option value='".$row['mun_codigo']."' selected>".$row['mun_nombre']."</option>";
+                }else{
+                  echo "<option value='".$row['mun_codigo']."'>".$row['mun_nombre']."</option>";
+                }
+                }
+              ?>
+            </select>
           </div>
           <div class="frm-group">
               <label for="cel">Celular</label>
-              <input type="number" id="cel" placeholder="Ingresa tu telefono" required>
+              <input type="number" id="celular" placeholder="Ingresa tu celular" value="<?php echo $data_user['usu_telefono'];?>" required>
           </div>
           <div class="frm-group">
             <input type="submit" value="Actualizar datos de contacto">

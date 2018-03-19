@@ -28,6 +28,21 @@
 			session_destroy();
 			header("Location: inicio");
 		}
-
+		function update(){
+			$data = $_POST['data'];
+			$data[]=$_SESSION['USER']['CODE'];
+			if (!$this->doizer->validateEmail($data[3])==true) {
+				echo json_encode('El correo no es valido');
+				return;
+			}
+			$result = $this->master->procedure->NRP("modificarDatosUsuario",$data);
+			if ($result==true) {
+				$_SESSION['USER']['NAME']=$data[0];
+				$_SESSION['USER']['ADDRESS']=$data[4];
+			 	echo json_encode($result);
+			}else{
+				echo json_encode($this->doizer->knowError($result));
+			}
+		}
 	}
 ?>
