@@ -439,91 +439,69 @@
   border: 1px solid #c6c6c6;
 }
 /*gestion de los productos*/
+.obligatorio{
+  color: red;
+}
 .wrap-form{
-  width: 100%;
+  width: 90%;
   display: flex;
   justify-content: center;
   margin-top: 20px;
   margin-bottom: 10px;
+  margin: 0px auto;
+  font-family: "Lato";
+}
+.regProdCat select, .regProdCat .ms-parent{
+  width: 200px;
+  height: 24px;
+  margin-top: 1px;
+  border-radius: 4px;
 }
 .form-producto{
-  width: 95%;
   display: grid;
-  grid-template-areas:
-  "nomPro desPro"
-  "canPro prePro"
-  "catPro catPro"
-  "imgPro imgPro"
-  "regPro regPro";
-  font-family: "Lato";
-  grid-template-rows: 50px 50px 50px auto 50px;
-  grid-row-gap: 10px;
+  grid-template-rows: repeat(4,50px) auto 50px;
 }
-.obligatorio{
-  color: red;
+.wrapRegProdCat{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
 }
-.wrapInputCat select{
-  width: 198px;
-  height: 27px;
-  border-radius: 5px;
-  color: #999;
-}
-.wrapInput input{
-  width: 95%;
-  border-radius: 3px;
-  border: 1px solid #c6c6c6;
-  height: 20px;
+.regProdCol, .regProdTal{
+  padding-left: 15px;
 }
 .regProdImg{
-  grid-area: imgPro;
   display: grid;
   grid-template-columns: repeat(2,1fr);
 }
 .Cambiar--img{
-  width: 100%;
-  text-align: center;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
-.regProdImg h2{
-  cursor: pointer;
+.btnImg{
+  text-align: center;
+  margin: 10px;
+  padding: 15px;
   border: 1px solid #c6c6c6;
   border-radius: 3px;
-  padding: 10px;
-  margin: 5px;
+  cursor: pointer;
+}
+.btnImg:hover{
+  background: #d4d4d4;
 }
 .regProdReg{
-  grid-area: regPro;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
+  text-align: center;
+}
+.regProdReg button:hover{
+  background: #d4d4d4;
 }
 .regProdReg button{
+  height: 100%;
+  width: 40%;
   border: 1px solid #c6c6c6;
-  background: none;
-  width: 200px;
-  height: 50px;
   border-radius: 3px;
+  background: none;
+  outline: none;
   cursor: pointer;
-  margin: 0px 5px;
-}
-.regProdReg button, .regProdImg h2{
-  font-family: "lato";
-  text-transform: uppercase;
-  font-size: 14px;
-}
-.regProdReg button:hover, .regProdImg h2:hover{
-  background: #ececec;
-}
-.wrapRegProdCat{
-  grid-area: catPro;
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-}
-.regProdCat, .regProdCol, .regProdTal{
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 /*estilos de los productos */
 .wrap-produ{

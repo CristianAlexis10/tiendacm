@@ -66,44 +66,22 @@ if (isset($_SESSION['messagge'])) {
     <div class="wrap-form" id="reg-productos">
       <form class="form-producto" id="frmNewProduct">
       	<div class="regProdNom">
-          <label for="">nombre:<span class="obligatorio">*</span></label>
-          <div class="wrapInput">
-            <input type="text" class="dataNewProd" required>
-          </div>
+          <label for="" class="label">nombre:<span class="obligatorio">*</span></label>
+          <input type="text" class="dataNewProd input" required>
       	</div>
       	<div class="regProdPre">
-          <label for="">precio:<span class="obligatorio">*</span></label>
-          <div class="wrapInput">
-      		   <input type="number" class="dataNewProd" required>
-      	  </div>
+          <label for="" class="label">precio:<span class="obligatorio">*</span></label>
+    		  <input type="number" class="dataNewProd input" required>
       	</div>
-      	<div class="regProdCan">
-          <label for="">cantidad:<span class="obligatorio">*</span></label>
-          <div class="wrapInput">
-            <input type="number" class="dataNewProd" required>
-      	  </div>
-      	</div>
+      	<!-- <div class="regProdCan">
+          <label for="" class="label">cantidad:<span class="obligatorio">*</span></label>
+          <input type="number" class="dataNewProd input" required>
+      	</div> -->
       	<div class="regProdDes">
-          <label for="">descripción:<span class="obligatorio">*</span></label>
-          <div class="wrapInput">
-            <input type="text" class="dataNewProd" required>
-      	  </div>
+          <label for="" class="label">descripción:<span class="obligatorio">*</span></label>
+          <input type="text" class="dataNewProd input" required>
       	</div>
         <div class="wrapRegProdCat">
-      	<div class="regProdCat">
-          <label for="">categoria:<span class="obligatorio">*</span></label>
-          <div class="wrapInputCat">
-          <select required class="dataNewProd">
-            <option value="">seleccionar categoria</option>
-      			<?php
-      				foreach ($this->master->selectAll('categoria') as $row) {?>
-      					<option value="<?php echo $row['cat_codigo']?>"><?php echo $row['cat_nombre'] ?></option>
-      				<?php
-      				}
-      			?>
-      		</select>
-      	 </div>
-      	</div>
         <div class="regProdTal">
           <label>Tallas:<span class="obligatorio">*</span></label>
           <select multiple="multiple" id="selectMul" required>
@@ -115,6 +93,18 @@ if (isset($_SESSION['messagge'])) {
             ?>
           </select>
         </div>
+        <div class="regProdCat">
+          <label for="">categoria:<span class="obligatorio">*</span></label>
+          <select required class="dataNewProd">
+            <option value="">seleccionar categoria</option>
+      			<?php
+      				foreach ($this->master->selectAll('categoria') as $row) {?>
+      					<option value="<?php echo $row['cat_codigo']?>"><?php echo $row['cat_nombre'] ?></option>
+      				<?php
+      				}
+      			?>
+      		</select>
+      	</div>
         <div class="regProdCol">
           <label>Colores:<span class="obligatorio">*</span></label>
           <select multiple="multiple" id="selectMul2" required>
@@ -130,11 +120,13 @@ if (isset($_SESSION['messagge'])) {
         <div class="regProdImg">
           <div class="form-group Cambiar--img">
            <div id="wrap-result"><img src="views/assets/img/defaultProfile.png" ></div>
-           <h2 class="" id="cropp-img">Añadir foto<span class="obligatorio">*</span></h2>
+           <div class="wrapBtnImg">
+             <h3 class="btnImg" id="cropp-img">Añadir foto<span class="obligatorio">*</span></h3>
+           </div>
          </div>
          <div class="form-group Cambiar--img">
             <div id="wrap-result2"><img src="views/assets/img/defaultProfile.png" ></div>
-            <h2 class="" id="cropp-img2">Añadir foto</h2>
+            <h3 class="btnImg" id="cropp-img2">Añadir foto</h3>
           </div>
         </div>
       	<div class="regProdReg">
