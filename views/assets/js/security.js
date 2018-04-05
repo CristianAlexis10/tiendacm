@@ -18,7 +18,7 @@ $('input[type=text]').keydown(function(e){
     if (tecla==8){
         return true;
     }
-    patron =/[a-zA-Z0-9ñÑ\s#]/;
+    patron =/[a-zA-Z0-9ñÑ\s#@.,-_]/;
     return patron.test(tecla);
 });
 function eliminarLetras(e){
