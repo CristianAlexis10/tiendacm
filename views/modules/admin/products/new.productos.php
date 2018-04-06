@@ -73,10 +73,10 @@ if (isset($_SESSION['messagge'])) {
           <label for="" class="label">precio:<span class="obligatorio">*</span></label>
     		  <input type="number" class="dataNewProd input" required>
       	</div>
-      	<!-- <div class="regProdCan">
-          <label for="" class="label">cantidad:<span class="obligatorio">*</span></label>
-          <input type="number" class="dataNewProd input" required>
-      	</div> -->
+      	<!-- <div class="regProdCan"> -->
+          <!-- <label for="" class="label">cantidad:<span class="obligatorio">*</span></label> -->
+          <input type="hidden" class="dataNewProd input" value="0" required>
+      	<!-- </div> -->
       	<div class="regProdDes">
           <label for="" class="label">descripción:<span class="obligatorio">*</span></label>
           <input type="text" class="dataNewProd input" required>
