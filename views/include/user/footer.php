@@ -7,7 +7,7 @@
         <a href="#"><i class="fab fa-instagram"></i><span> catalina molano</span></a>
       </div>
       <div class="contacto-numero">
-        <span>+57 123 45 6 78 90</span>
+        <span>+57 320 681 03 91</span>
       </div>
       <div class="copy">
         <span class="copy">© Copyright 2017 by Catalina Molano. All Rights Reserved.</span>

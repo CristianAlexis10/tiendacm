@@ -30,11 +30,11 @@
       <div class="btnFull" id="fullScreen">
         <i class="fas fa-expand"></i>
       </div>
-      <a href="views/assets/img/video/<?php echo $row['url'] ?>" download class="btnDown">
+      <!-- <a href="views/assets/img/video/<?php //echo $row['url'] ?>" download class="btnDown">
         <div>
           <i class="fas fa-cloud-download-alt"></i>
         </div>
-      </a>
+      </a> -->
     </div>
 <?php
 $id++;

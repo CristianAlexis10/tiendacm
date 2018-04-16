@@ -533,6 +533,14 @@ table.dataTable.no-footer {
 td a i{
   color: #000;
 }
+/* TODO: solicion a error */
+.btn.btn-success.upload-result{
+  background: #d0d0d0;
+  color: #000;
+  border: 1px solid #c6c6c6;
+  border-radius: 3px;
+}
+/*------------------------*/
 /* estilo de galeria de videos dash */
 .wrapVideos{
   width: 100%;
@@ -545,11 +553,15 @@ td a i{
 .itemVideo{
   display: grid;
   grid-template-areas:
+  "namVideo namVideo namVideo namVideo"
+  "video video video video"
+  "btnEdit btnPlay btnFull btnDelete";
+  /* grid-template-areas:
   "namVideo namVideo namVideo namVideo namVideo"
   "video video video video video"
-  "btnEdit btnPlay btnFull btnDown btnDelete";
+  "btnEdit btnPlay btnFull btnDown btnDelete"; */
   grid-template-rows: 50px 300px 50px;
-  grid-template-columns: repeat(5,1fr);
+  grid-template-columns: repeat(4,1fr);
   margin: 10px 0px;
 }
 #stop{

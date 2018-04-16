@@ -142,7 +142,7 @@ if (isset($_SESSION['messagge'])) {
                 <th>#</th>
                 <th>nombre</th>
                 <th>precio</th>
-                <th>cantidad</th>
+                <!-- <th>cantidad</th> -->
                 <th>descripcion</th>
                 <th>Acciones</th>
             </tr>
@@ -154,7 +154,7 @@ if (isset($_SESSION['messagge'])) {
                 <td><?php echo $row['pro_codigo']; ?></td>
                 <td><?php echo $row['pro_nombre']; ?></td>
                 <td><?php echo $row['pro_precio']; ?></td>
-                <td><?php echo $row['pro_cant']; ?></td>
+                <!-- <td><?php //echo $row['pro_cant']; ?></td> -->
                 <td><?php echo $row['pro_des']; ?></td>
                 <td>
                     <a href="moficar-producto-<?php echo $row['pro_codigo']; ?>"><i class="fas fa-sync"></i></a>

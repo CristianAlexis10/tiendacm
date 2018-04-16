@@ -15,7 +15,7 @@
                 <div class="caja_contra">
                   <input type="password" name="data-login" id="login-pass" class="input" required>
                   <label for="login-pass" class="label" >Contraseña</label>
-                  <span class="olvi_contra"><a href="#">¿Olvidaste la contraseña?</a></span>
+                  <!-- <span class="olvi_contra"><a href="#">¿Olvidaste la contraseña?</a></span> -->
                 </div>
                 <div class="btn_inicio">
                   <button type="submit" class="ini_sesion" id="iniciar_se" >Iniciar sesion</button>
