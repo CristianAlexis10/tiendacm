@@ -411,8 +411,7 @@ if ($("#frmNewProduct")) {
 	});
 }
 //modales blog / noticias
-var weas = 1;
-if (weas == 1) {
+if ($("#newEntry")) {
 	$("#entry1").click(function() {
 		$("#editEntry1").css("display","flex")
 	});
