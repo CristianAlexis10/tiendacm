@@ -312,3 +312,13 @@ $("#datosPersonales").submit(function(e){
 		alert("Por favor completar todos los campos.");
 	}
 });
+
+//modales noticias
+if ($("#new1")) {	
+	$("#closeNew1").click(function() {
+		$("#modalNew1").css("display","none");
+	});
+	$("#new1").click(function() {
+		$("#modalNew1").css("display","flex");
+	});
+}
