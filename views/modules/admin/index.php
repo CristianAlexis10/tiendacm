@@ -6,7 +6,7 @@
         <span>0</span>
       </div>
       <div class="titleResult">
-        <h2>pedidos</h2>
+        <h2><a href="ver-pedidos">Pedidos</a></h2>
       </div>
     </div>
     <div class="column">
