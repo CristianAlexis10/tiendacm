@@ -3,7 +3,7 @@
     <div class="wrapLogo">
       <div class="logo">
         <div class="ribbon">
-          <a href="inicio"><img src="views/assets/img/logo_blanco.png" class="img"></a>
+          <a href="inicio"><img src="views/assets/img/logo.ico" class="img"></a>
         </div>
       </div>
     </div>
@@ -20,7 +20,7 @@
         </div>
       </div>
       <a href="videos"><li class="itemMenu">Videos</li></a>
-      <a href="noticias"><li class="itemMenu">noticias</li></a>
+      <a href="noticias"><li class="itemMenu">blog</li></a>
       <li id="modal-login" class="itemMenu">Iniciar Sesion / Registrarse</li>
     </ul>
   </nav>

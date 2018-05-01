@@ -2,7 +2,7 @@
   position: absolute;
   top: 300px;
   right: 100px;
-  font-family: 'lato';
+  font-family: arial;
   font-size: 30px;
   text-transform: uppercase;
   color: #ffffff;
@@ -84,7 +84,7 @@
 .wrap-text label{
   padding-left: 20px;
   padding-top: 25px;
-  font-family: 'lato';
+  font-family: arial;
   font-weight: bolder;
   font-size: 20px;
   cursor: pointer;

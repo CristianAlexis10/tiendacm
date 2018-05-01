@@ -3,7 +3,7 @@
     <div class="wrapLogo">
       <div class="logo">
         <div class="ribbon">
-          <a href="inicio"><img src="views/assets/img/logo_blanco.png" class="img"></a>
+          <a href="inicio"><img src="views/assets/img/logo.ico" class="img"></a>
         </div>
       </div>
     </div>
@@ -21,7 +21,7 @@
         </div>
       </div>
       <a href="videos"><li  class="itemMenu">Videos</li></a>
-      <a href="noticias"><li  class="itemMenu">Noticias</li></a>
+      <a href="noticias"><li  class="itemMenu">blog</li></a>
       <li id="btnCarrito" class="itemMenu"><i class="fa fa-shopping-cart" aria-hidden="true"></i></li>
       <a href="mi-perfil"><li class="itemMenu"><?php echo $_SESSION['USER']['NAME']; ?></li></a>
       <a href="finalizar-sesion"><li class="itemMenu"><i class="fas fa-sign-out-alt"></i></li></a>

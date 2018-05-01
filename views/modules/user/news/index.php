@@ -2,7 +2,7 @@
     <div class="seccion1">
       <div class="slider">
         <div class="wrap--text">
-          <h2>NOTICIAS</h2>
+          <h2>BLOG</h2>
           <h3>Mantente informado con Catalina Molano</h3>
         </div>
       </div>

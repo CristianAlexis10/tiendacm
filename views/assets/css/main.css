@@ -30,26 +30,14 @@ body{
   justify-content: flex-end;
   background: #000000;
 }
-.wrapLogo{
-  width: 55%;
-}
-.logo{
-  width: 100px;
-  height: 100px;
-  margin-left: 13%;
-}
 .img{
   position: absolute;
-  top: 10px;
   left: 110px;
+  width: 100px;
+  height: 100px;
+  border: 2px solid #ea0086;
 }
-.ribbon {
-  width: 0px;
-  height: 65px;
-  border-left: 50px solid #ea0086;
-  border-right: 50px solid #ea0086;
-  border-bottom: 35px solid transparent;
-}
+
 .topMenu{
   font-family: "Roboto";
   display: grid;
@@ -128,7 +116,7 @@ body{
 .slider{
   z-index: 1;
   position: relative;
-  background-image: url("../img/fototienda.jpg");
+  background-image: url("../img/fondotienda.jpg");
   height: 70vh;
   width: 100%;
   background-size: cover;
@@ -140,7 +128,7 @@ body{
   min-width:600px;
 }
 .wrap--text h2{
-  font-family: "Lato";
+  font-family: arial;
   font-weight: 300;
   font-size: 140px;
   color: white;
@@ -280,7 +268,7 @@ body{
 .wrap-detalle{
   grid-area: detalles;
   font-size: 20px;
-  font-family: 'lato';
+  font-family: arial;
   text-transform: capitalize;
 }
 .wrap-detalle .nombre{
@@ -322,7 +310,7 @@ body{
   right: 0px;
   background: #ecf0f1;
   height: 93vh;
-  font-family: 'lato';
+  font-family: arial;
   font-weight: lighter;
   box-shadow: -5px 0px 20px -10px black;
 }
@@ -384,7 +372,7 @@ body{
   margin-right: 10px;
 }
 .item-cart{
-  font-family: 'lato';
+  font-family: arial;
   padding: 10px 0px;
 }
 .restar-carrito{
@@ -541,7 +529,7 @@ body{
 .summaryNew{
   grid-area: summaryNew;
   width: 98%;
-  font-family: "Lato";
+  font-family: arial;
 }
 .summaryNew span:hover{
   color: #ea0086;
@@ -598,7 +586,7 @@ body{
   padding: 5px;
   font-size: 25px;
   text-transform: capitalize;
-  font-size: "Lato";
+  font-size: arial;
 }
 /* modal reproducir videos */
 .backgroundVideo{
@@ -641,7 +629,7 @@ body{
   margin-bottom: 0px;
   color: #fff;
   text-align: center;
-  font-family: 'lato';
+  font-family: arial;
 }
 .contacto-titulo{
   font-size: 20px;
@@ -655,7 +643,7 @@ body{
 .iconos-social{
   padding: 5px 0px 5px 0px;
   font-size: 25px;
-  font-family: 'lato';
+  font-family: arial;
   text-transform: uppercase;
 }
 .iconos-social a{
