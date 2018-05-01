@@ -402,10 +402,27 @@ $("#updateVideo").submit(function(e){
 });
 
 // modal de nuevo productos
-
-$("#modalProducto").click(function() {
-	$(".wrapForm").css("display","flex");
-})
-$("#closeModal").click(function() {
-	$(".wrapForm").css("display","none");
-})
+if ($("#frmNewProduct")) {
+	$("#modalProducto").click(function() {
+		$(".wrapForm").css("display","flex");
+	});
+	$("#closeModal").click(function() {
+		$(".wrapForm").css("display","none");
+	});
+}
+//modales blog / noticias
+var weas = 1;
+if (weas == 1) {
+	$("#entry1").click(function() {
+		$("#editEntry1").css("display","flex")
+	});
+	$("#closeEntry1").click(function () {
+		$("#editEntry1").css("display","none")
+	});
+	$("#newEntry").click(function() {
+		$("#modalNewEntry").css("display","flex");
+	});
+	$("#closeNewEntry").click(function() {
+		$("#modalNewEntry").css("display","none");
+	});
+}

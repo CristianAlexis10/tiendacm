@@ -122,7 +122,7 @@
   justify-content: center;
   align-items: center;
   font-size: 25px;
-  font-family: "lato";
+  font-family: arial;
   text-transform: capitalize;
 }
 /* estilo producto */
@@ -232,7 +232,7 @@
   grid-gap: 10px;
   padding: 10px;
   font-size: 18px;
-  font-family: 'lato';
+  font-family: arial;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -338,7 +338,7 @@
  }
  .alert{
    text-align: center;
-   font-family: "lato";
+   font-family: arial;
  }
  .modalCategoryForm{
    display: grid;
@@ -346,7 +346,7 @@
    align-items: center;
    grid-gap: 5px;
    margin-bottom: 5px;
-   font-family: "lato";
+   font-family: arial;
    text-transform: capitalize;
  }
  .frmCategoryName input{
@@ -366,7 +366,7 @@
    text-align: center;
    color: #fff;
    border-radius: 3px;
-   font-family: "lato";
+   font-family: arial;
    font-size: 15px;
    text-transform: capitalize;
    cursor: pointer;
@@ -723,7 +723,7 @@ td a i{
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "lato";
+  font-family: arial;
   text-transform: uppercase;
   font-size: 30px;
   cursor: pointer;
@@ -769,7 +769,7 @@ td a i{
   align-items: center;
   margin: 0px 15px 10px 15px;
   height: 100%;
-  font-family: "lato";
+  font-family: arial;
   border-bottom: 2px solid #c6c6c6;
   text-transform: uppercase;
   font-size: 20px;
@@ -791,7 +791,7 @@ td a i{
 }
 .wrapNameVideo label{
   position: absolute;
-  font-family: "lato";
+  font-family: arial;
   padding-bottom: 3px;
   text-transform: capitalize;
   color: #bfbdbd;
@@ -889,7 +889,7 @@ td a i{
 }
 .itemNews{
   display: grid;
-  grid-template-rows: 50px 200px 200px 50px;
+  grid-template-rows: 50px 200px 50px 50px;
   border: 1px solid #c6c6c6;
   border-radius: 3px;
 }
@@ -916,7 +916,7 @@ td a i{
 }
 .newsDesc{
   padding: 10px;
-  font-family: "lato";
+  font-family: arial;
   border-bottom: 1px solid #c6c6c6;
 }
 .text{
@@ -955,4 +955,23 @@ td a i{
   border: none;
   font-size: 30px;
   font-weight: normal;
+}
+.backgroundModalBlog{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+.modalBlog{
+  width: 500px;
+  height: 500px;
+  background: #fff;
+  border-radius: 3px;
+  padding: 10px;
 }
