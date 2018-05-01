@@ -400,3 +400,12 @@ $("#updateVideo").submit(function(e){
 		alert("llenar campos");
 	}
 });
+
+// modal de nuevo productos
+
+$("#modalProducto").click(function() {
+	$(".wrapForm").css("display","flex");
+})
+$("#closeModal").click(function() {
+	$(".wrapForm").css("display","none");
+})

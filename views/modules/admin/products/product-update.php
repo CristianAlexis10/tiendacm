@@ -38,25 +38,37 @@ $_SESSION['update_pro']=$_GET['data'];
 <div class="contenido">
   <h1>Actualizar productos</h1>
   <div class="wrap-form">
-	<form class="form-producto" id="frmUpdatePro">
-      	<div class="wrapInput">
+	<form class="formProducto" id="frmUpdatePro">
+      	<div class="item1">
           <label for="">nombre: </label>
-      		<input type="text" class="dataUpdate"  value="<?php echo $data['pro_nombre']?>" required>
+      		<input type="text" class="dataUpdate input"  value="<?php echo $data['pro_nombre']?>" required>
       	</div>
-      	<div class="wrapInput">
+      	<div class="item2">
           <label for="">precio: </label>
-      		<input type="text" class="dataUpdate" value="<?php echo $data['pro_precio']?>" required>
+      		<input type="text" class="dataUpdate input" value="<?php echo $data['pro_precio']?>" required>
       	</div>
-      	<div class="wrapInput">
+      	<!-- <div class="item">
           <label for="">cantidad: </label>
-      		<input type="number" class="dataUpdate"  value="<?php echo $data['pro_cant']?>" required>
-      	</div>
-      	<div class="wrapInput">
+      		<input type="number" class="dataUpdate"  value="<?php //echo $data['pro_cant']?>" required>
+      	</div> -->
+      	<div class="item3">
           <label for="">descripción: </label>
-      		<input type="text" class="dataUpdate" value="<?php echo $data['pro_des']?>" required>
+      		<input type="text" class="dataUpdate input" value="<?php echo $data['pro_des']?>" required>
       	</div>
-				<div class="">
-                    Colores:
+        <div class="item4">
+          <label for="">estado:</label>
+      		<select class="dataUpdate input">
+      			<?php	if ($data['pro_estado']=="activo") {?>
+      					<option value="activo" selected>Activo</option>
+      					<option value="inactivo">Inactivo</option>
+      				<?php }else{?>
+                <option value="inactivo" selected>Inactivo</option>
+      					<option value="activo" >Activo</option>
+      				<?php } ?>
+      		</select>
+      	</div>
+				<div class="item5">
+          <label for="">Colores:</label>
 					<select id="selectMul" multiple >
 						<?php
 							foreach ($this->master->selectAll('color') as $row) {
@@ -70,8 +82,8 @@ $_SESSION['update_pro']=$_GET['data'];
 						?>
 					</select>
 				</div>
-				<div class="">
-                    Tallas:
+				<div class="item6">
+          <label for="">Tallas:</label>
 					<select id="selectMul2" multiple >
 						<?php
 							foreach ($this->master->selectAll('talla') as $row) {
@@ -85,9 +97,9 @@ $_SESSION['update_pro']=$_GET['data'];
 						?>
 					</select>
 				</div>
-      	<div class="wrapInput">
+      	<div class="item7">
           <label for="">categoria: </label>
-      		<select required class="dataUpdate">
+      		<select required class="dataUpdate input">
             <option value="">seleccionar categoria</option>
       			<?php
       				foreach ($this->master->selectAll('categoria') as $row) {
@@ -101,27 +113,15 @@ $_SESSION['update_pro']=$_GET['data'];
       			?>
       		</select>
       	</div>
-      	<div class="wrapInput">
-      		estado:<select class="dataUpdate">
-      			<?php
-      				if ($data['pro_estado']=="activo") {?>
-      					<option value="activo" selected>Activo</option>
-      					<option value="inactivo">Inactivo</option>
-      				<?php }else{?>
-      					<option value="activo" >Activo</option>
-      					<option value="inactivo" selected>Inactivo</option>
-      				<?php } ?>
-      		</select>
-      	</div>
-      	<div class="wrapInput">
-      		<button type="submit">Guardar</button>
+        <div class="item8">
+          <a href="cambiar-imagenes"><button type="button" class="btnUpdateImg">Imagenes</button></a>
+        </div>
+      	<div class="item9">
+      		<button type="submit" class="btnUpdatePro">Guardar</button>
       	</div>
       </form>
-      </div>
-      <div class="more">
-      	<a href="cambiar-imagenes">Imagenes</a>
-      </div>
-</div>
+    </div>
+  </div>
 </div>
 
 

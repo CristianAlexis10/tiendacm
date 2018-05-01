@@ -25,6 +25,7 @@
     <h1>Gestion productos</h1>
     <h4 id="modalColor"><i class="fas fa-plus-circle"></i> nuevo color</h4>
     <h4 id="modalTalla"><i class="fas fa-plus-circle"></i> nueva talla</h4>
+    <h4 id="modalProducto"><i class="fas fa-plus-circle"></i> nuevo producto</h4>
   </div>
   <div class="backgroundModalColor"></div>
   <div class="wrapModalColor">
@@ -63,26 +64,31 @@ if (isset($_SESSION['messagge'])) {
         echo "<div class='message'>".$_SESSION['messagge']."</div>";
         unset($_SESSION['messagge']);
   }?>
-    <div class="wrap-form" id="reg-productos">
+    <div class="wrapForm" id="reg-productos">
       <form class="form-producto" id="frmNewProduct">
-      	<div class="regProdNom">
-          <label for="" class="label">nombre:<span class="obligatorio">*</span></label>
-          <input type="text" class="dataNewProd input" required>
-      	</div>
-      	<div class="regProdPre">
-          <label for="" class="label">precio:<span class="obligatorio">*</span></label>
-    		  <input type="number" class="dataNewProd input" required>
-      	</div>
-      	<!-- <div class="regProdCan"> -->
-          <!-- <label for="" class="label">cantidad:<span class="obligatorio">*</span></label> -->
-          <input type="hidden" class="dataNewProd input" value="0" required>
-      	<!-- </div> -->
-      	<div class="regProdDes">
-          <label for="" class="label">descripción:<span class="obligatorio">*</span></label>
-          <input type="text" class="dataNewProd input" required>
-      	</div>
+        <div class="wrapTitlePro">
+          <h2>nuevo producto</h2>
+        </div>
         <div class="wrapRegProdCat">
-        <div class="regProdTal">
+        	<div class="regPro">
+            <label for="" class="label">nombre:<span class="obligatorio">*</span></label>
+            <input type="text" class="dataNewProd input" required>
+        	</div>
+        	<div class="regPro">
+            <label for="" class="label">precio:<span class="obligatorio">*</span></label>
+      		  <input type="number" class="dataNewProd input" required>
+        	</div>
+        	<!-- <div class="regProdCan"> -->
+            <!-- <label for="" class="label">cantidad:<span class="obligatorio">*</span></label> -->
+            <input type="hidden" class="dataNewProd input" value="0" required>
+        	<!-- </div> -->
+        	<div class="regPro">
+            <label for="" class="label">descripción:<span class="obligatorio">*</span></label>
+            <input type="text" class="dataNewProd input" required>
+        	</div>
+        </div>
+        <div class="wrapRegProdCat">
+          <div class="regProdTal">
           <label>Tallas:<span class="obligatorio">*</span></label>
           <select multiple="multiple" id="selectMul" required>
             <?php
@@ -93,7 +99,7 @@ if (isset($_SESSION['messagge'])) {
             ?>
           </select>
         </div>
-        <div class="regProdCat">
+          <div class="regProdCat">
           <label for="">categoria:<span class="obligatorio">*</span></label>
           <select required class="dataNewProd">
             <option value="">seleccionar categoria</option>
@@ -105,7 +111,7 @@ if (isset($_SESSION['messagge'])) {
       			?>
       		</select>
       	</div>
-        <div class="regProdCol">
+          <div class="regProdCol">
           <label>Colores:<span class="obligatorio">*</span></label>
           <select multiple="multiple" id="selectMul2" required>
             <?php
@@ -116,7 +122,7 @@ if (isset($_SESSION['messagge'])) {
             ?>
           </select>
         </div>
-      </div>
+        </div>
         <div class="regProdImg">
           <div class="form-group Cambiar--img">
            <div id="wrap-result"><img src="views/assets/img/defaultProfile.png" ></div>
@@ -131,6 +137,7 @@ if (isset($_SESSION['messagge'])) {
         </div>
       	<div class="regProdReg">
       		<button type="submit">Registrar</button>
+      		<button type="button" id="closeModal">cancelar</button>
       	</div>
       </form>
     </div>
