@@ -277,7 +277,10 @@ $("#formuploadajax").submit(function(e){
 							}
             },
             error:function(result){
-              console.log(result);
+							$("div.message").remove();
+							console.log(result);
+							$("#formuploadajax").after("<div class='message'>" + result+"</div>");
+							setTimeout(function(){$("div.message").remove();},4000);
             }
       });
   });

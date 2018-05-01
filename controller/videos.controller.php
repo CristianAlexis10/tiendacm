@@ -36,8 +36,6 @@ Class VideosController{
         }else{
           echo json_encode($this->doizer->knowError($result));
         }
-      }else{
-        echo json_encode("no");
       }
     }
     function delete(){
