@@ -34,7 +34,7 @@ Class NewsController{
 			}
     }
 
-    function newRegister(){
+    function newRegister(){ 
       $img = $_POST['img'];
       $title = $_POST['title'];
       $des = $_POST['des'];
