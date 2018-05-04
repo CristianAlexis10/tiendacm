@@ -89,3 +89,8 @@ RewriteRule ^nueva-talla$ index.php?c=colors&a=newRegisterTalla
 RewriteRule ^subir_video$ index.php?c=videos&a=upload
 RewriteRule ^saber-video$ index.php?c=videos&a=readBy
 RewriteRule ^actualizar-video$ index.php?c=videos&a=uptade
+
+#NOTICIAS
+RewriteRule ^nueva-noticia$ index.php?c=news&a=newRegister
+RewriteRule ^crear-noticia$ index.php?c=news&a=createStructure
+RewriteRule ^subir-noticia$ index.php?c=news&a=upload

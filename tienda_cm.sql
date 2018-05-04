@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-03-2018 a las 14:14:31
--- Versión del servidor: 10.1.8-MariaDB
--- Versión de PHP: 5.6.14
+-- Tiempo de generación: 04-05-2018 a las 04:06:03
+-- Versión del servidor: 10.1.21-MariaDB
+-- Versión de PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -205,6 +205,7 @@ INSERT INTO `acceso` (`acc_token`, `usu_id`, `acc_contra`) VALUES
 ('01adb163751f819cb56e323785670957', 6, '$2y$10$Hl9HVC4KYCBQsgCSUPN0quaobvP0I/6T3l.OK1tXU.z13ToF0qX2S'),
 ('2b2e20abb22842e39c39e7c82fd23750', 22, '$2y$10$8FjyoCjFx.NNY8VZm9iseOEuTq8pYUA.p/05UcYxwKzEq5pTuyKRm'),
 ('4fc94a9051176d0133b76d74f6df6293', 17, '$2y$10$QcGaoFDm/giJV6hsCkQ5I.V/y6UFbNx3y49tejy6cOY2kHl0XOSqu'),
+('54da05c46b595b86b23f02667e06b706', 23, '$2y$10$wU9ICr4Hv4HhWD7rjXoh4e6JGzS.xkbETfYvh6pZ/mMdrzauPFDGe'),
 ('665a565a47e732f7bf96e40eb2cfc226', 16, '$2y$10$WxfTypIQ1zLUcv46zyCAte6MnA3Zgv9XMIDKaIU7gA0qfcTZfmacu'),
 ('6697a149eefdae6fdec244a5215fad3c', 19, '$2y$10$Rbxw6t9dNiPrSEme3OEKGOZFHl8HQ7tQK0NRNndHhRNkl/ydClWfy'),
 ('98196083e10dd13ff159d30678f1a8c2', 20, '$2y$10$pPQOCCr9BoSrkLyG7hmxgO1HVU8cAHSnsnvZPKKoisvfLleN.JDey'),
@@ -317,7 +318,7 @@ INSERT INTO `departamento` (`dep_codigo`, `dep_nombre`) VALUES
 --
 
 CREATE TABLE `img_noticia` (
-  `not_codigo` int(11) NOT NULL,
+  `not_codigo` varchar(20) NOT NULL,
   `img` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -347,13 +348,22 @@ INSERT INTO `municipio` (`mun_codigo`, `mun_nombre`, `dep_codigo`) VALUES
 --
 
 CREATE TABLE `noticia` (
-  `not_codigo` int(11) NOT NULL,
+  `not_codigo` varchar(20) NOT NULL,
   `usu_id` int(11) NOT NULL,
   `not_titulo` varchar(100) NOT NULL,
-  `not_sub_title` varchar(50) NOT NULL,
-  `not_contenido` longtext NOT NULL,
+  `not_preview` longtext NOT NULL,
+  `not_poster` varchar(150) NOT NULL,
   `art_fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `noticia`
+--
+
+INSERT INTO `noticia` (`not_codigo`, `usu_id`, `not_titulo`, `not_preview`, `not_poster`, `art_fecha`) VALUES
+('', 17, 'ljkjhlkh', 'hklhk', '43c6a047e5f41313371231fbfb8eb8d3.png', '2018-05-04'),
+('2kjwdeEQmFFKiBZXnvFF', 17, 'sadas', 'asdas', '4fe4e3825797f80e92158e2ceaa802f0.png', '2018-05-04'),
+('o64EsarTPF9GqdTnKTUO', 17, 'ljkjhlkh', 'hklhk', '43c6a047e5f41313371231fbfb8eb8d3.png', '2018-05-04');
 
 -- --------------------------------------------------------
 
@@ -666,7 +676,8 @@ INSERT INTO `usuario` (`usu_codigo`, `usu_nombre1`, `usu_apellido1`, `usu_apelli
 (18, 'Andress', 'nada', 'ew', 'cliente@cliente.com', 2, 1, 'calle 95 b', 1, 89765),
 (19, 'nada', 'nada', NULL, 'nada@nada.com', 2, 1, '0', 1, 0),
 (20, 'Dompi', 'Lopera', NULL, 'dompi@gmail.com', 2, 1, 'calle 95 b', 1, 3233557660),
-(22, 'nada', 'todo', NULL, 'aaa@aa.a', 2, 1, 'sadsa', 1, 32333);
+(22, 'nada', 'todo', NULL, 'aaa@aa.a', 2, 1, 'sadsa', 1, 32333),
+(23, 'julio', 'wasasa', NULL, 'darckbladex2@gmail.com', 2, 1, '', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -686,8 +697,9 @@ CREATE TABLE `video` (
 --
 
 INSERT INTO `video` (`id_video`, `nombre`, `url`, `usu_codigo`) VALUES
-(1, 'primer video', '7a48d3b3dcb32b38fce132010c9ded28.mp4', 3),
-(5, 'hola', '589cd171e050121958b6ab6800805bc8.mp4', 17);
+(1, '', '105439862312365027559c2ee5295efa.mp4', 17),
+(2, '', 'f47a57fbb554b911d2aee7c55d30e00a.mp4', 17),
+(3, '', 'e1026bb11c3287bffeff698e9de6e168.mp4', 17);
 
 --
 -- Índices para tablas volcadas
@@ -833,11 +845,6 @@ ALTER TABLE `categoria`
 ALTER TABLE `color`
   MODIFY `col_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT de la tabla `noticia`
---
-ALTER TABLE `noticia`
-  MODIFY `not_codigo` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
@@ -856,12 +863,12 @@ ALTER TABLE `talla`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `usu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `usu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT de la tabla `video`
 --
 ALTER TABLE `video`
-  MODIFY `id_video` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_video` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Restricciones para tablas volcadas
 --
