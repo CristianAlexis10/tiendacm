@@ -143,6 +143,35 @@ class DoizerController{
 				   return $result ;
 				  }
 			}
+			function validateNoticia($archivo,$path){
+				$archivo =  $_FILES["archivo1"];
+				$folder =$path;
+				$allowed = array('jpg'=>'image/jpg','png'=>'image/png','gif'=>'image/gif','jpeg'=>'image/jpeg');
+				$filetype=$archivo['type'];
+				$filesize=$archivo['size'];
+				$extention = pathinfo($archivo['name']);
+				$extention=".".$extention['extension'];
+				$rand = rand(10000,999999)*rand(10000,999999);
+				$tmp_name=md5($rand.$archivo['name']);
+				$filename=$tmp_name.$extention;
+				$extention=pathinfo($filename,PATHINFO_EXTENSION);
+				if (!array_key_exists($extention,$allowed)) {
+				    echo  json_encode("Error: Seleccione un formato valido(mp4) ");
+				    return;
+				}
+				$maxsize=60000000;
+				if ($filesize>$maxsize) {
+				    return "Error: el tamaño del archivo debe ser menor o igual a 60 MB";
+				    return ;
+				}
+				if (file_exists($folder.$filename)) {
+				    return "El archivo ya existe";
+				}else{
+					$result = array(true,$filename);
+				    move_uploaded_file($archivo['tmp_name'],$folder.$result[1]);
+				   return $result ;
+				  }
+			}
 //FECHAS
 function validateDate($date,$acction = 'no',$date2 = '0000-00-00'){
 	$valores = explode('-', $date);
