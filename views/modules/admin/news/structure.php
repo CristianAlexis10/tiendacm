@@ -1,20 +1,20 @@
 <section class="contenido" id="cat-conte">
-  <div id="NOTICIA"></div>
-
+<div class="wrapStructure">
   <div class="opciones-de-agregar">
-    <input type="button" id="crearTitulo" value="Crear Titulo">
-    <input type="button" id="crearParrafo" value="Crear Parrafo">
-    <input type="button" id="crearParrafo2" value="Crear parrafo 2 columnas">
-    <input type="button" id="crearImagen" value="Crear imagen">
-    <input type="button" id="fin" value="Guardar Noticia">
+    <input class="newContent" type="button" id="crearTitulo" value="Crear Titulo">
+    <input class="newContent" type="button" id="crearParrafo" value="Crear Parrafo">
+    <input class="newContent" type="button" id="crearParrafo2" value="Crear parrafo 2 columnas">
+    <input class="newContent" type="button" id="crearImagen" value="Crear imagen">
+    <input class="newContent" type="button" id="fin" value="Guardar Noticia">
   </div>
+  <div id="NOTICIA"></div>
   <!-- modales -->
   <!-- nuevo titulo -->
   <div class="backgroundModalBlog" id="modalNewEntry">
     <form class="modalBlog" id="nuevoTitulo">
             <div class="newNew">
               <label for="addTitle">Titulo:<span class="obligatorio">*</span></label>
-              <input type="text" class="input" id="addTitle" required>
+              <input maxlength="45" type="text" class="input" id="addTitle" required>
             </div>
            <input type="submit"  value="Agregar">
             <button type="button" name="button" id="closeNewEntry">cancelar</button>
@@ -55,8 +55,8 @@
         <button type="button" name="button" id="closeParrafo">cancelar</button>
       </div>
     </form>
-
   </div>
+</div>
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
@@ -64,7 +64,6 @@
 <script src="views/assets/js/new.js"></script>
 <script src="views/assets/js/main-admin.js"> </script>
 <script src="views/assets/js/shortcut.js"></script>
-<script src="views/assets/js/security.js"></script>
-</section>
+<!-- <script src="views/assets/js/security.js"></script> -->
 </body>
 </html>
