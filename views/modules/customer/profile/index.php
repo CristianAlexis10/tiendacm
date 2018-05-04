@@ -34,8 +34,8 @@
                     <td><?php echo $row['ped_direccion']; ?></td>
                     <td><?php echo $row['ped_estado']; ?></td>
                     <td>
-                      <a href="moficar-producto-<?php echo $row['ped_codigo']; ?>">ver productos</a>
-                      <a href="#" onclick="return confirmDelete( <?php echo $row['ped_codigo']; ?> )">Eliminar</a>
+                      <a href="#"><i class="far fa-eye" id="opneModalPedido"></i></a>
+                      <a href="#" onclick="return confirmDelete( <?php echo $row['ped_codigo']; ?> )"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
               <?php } ?>
@@ -90,21 +90,40 @@
     </div>
   </div>
 </div>
+<div class="wrapModalPedido">
+  <div class="modalPedido">
+    <div class="">
+      <table class="datatable">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Fecha De entrega</th>
+                <th>Dirección</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+          <?php $result = $this->master->selectAllBy('pedidos',array('usu_id',$_SESSION['USER']['CODE']));
+           foreach ($result as $row) {?>
+            <tr>
+                <td><?php echo $row['token']; ?></td>
+                <td><?php echo $row['ped_fecha_entrega']; ?></td>
+                <td><?php echo $row['ped_direccion']; ?></td>
+                <td><?php echo $row['ped_estado']; ?></td>
+                <td>
+                  <a href="moficar-producto-<?php echo $row['ped_codigo']; ?>"><i class="far fa-eye"></i></a>
+                  <a href="#" onclick="return confirmDelete( <?php echo $row['ped_codigo']; ?> )"><i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+          <?php } ?>
+        </tbody>
+      </table>
+    </div>
+    <button type="button" name="button" id="closePedido">cancelar</button>
+  </div>
+</div>
 </section>
-<!-- <footer class="footer">
-  <div class="contacto-titulo">
-    <span>¡contactanos!</span>
-  </div>
-  <div class="iconos-social">
-    <a href="#"><i class="fab fa-instagram"></i><span> catalina molano</span></a>
-  </div>
-  <div class="contacto-numero">
-    <span>+57 320 681 03 91</span>
-  </div>
-  <div class="copy">
-    <span class="copy">© Copyright 2018 by Catalina Molano. All Rights Reserved.</span>
-  </div>
-</footer> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>

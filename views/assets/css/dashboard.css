@@ -945,10 +945,10 @@ td a i{
 }
 .itemNews:nth-last-child(1) .newsTitle{
   width: 100%;
-  height: 100%;
   border: none;
   font-size: 30px;
   font-weight: normal;
+  height: 350px;
 }
 .backgroundModalBlog{
   position: fixed;
@@ -973,7 +973,7 @@ td a i{
 .wrapStructure{
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 50px auto;
+  grid-template-rows: auto 50px;
   grid-column-gap: 5px;
   padding: 10px;
   margin: 0px auto;

@@ -94,3 +94,4 @@ RewriteRule ^actualizar-video$ index.php?c=videos&a=uptade
 RewriteRule ^nueva-noticia$ index.php?c=news&a=newRegister
 RewriteRule ^crear-noticia$ index.php?c=news&a=createStructure
 RewriteRule ^subir-noticia$ index.php?c=news&a=upload
+RewriteRule ^ver-noticia-$ index.php?c=news&a=view

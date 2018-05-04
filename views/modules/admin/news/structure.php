@@ -1,5 +1,6 @@
 <section class="contenido" id="cat-conte">
 <div class="wrapStructure">
+  <div id="NOTICIA"></div>
   <div class="opciones-de-agregar">
     <input class="newContent" type="button" id="crearTitulo" value="Crear Titulo">
     <input class="newContent" type="button" id="crearParrafo" value="Crear Parrafo">
@@ -7,7 +8,6 @@
     <input class="newContent" type="button" id="crearImagen" value="Crear imagen">
     <input class="newContent" type="button" id="fin" value="Guardar Noticia">
   </div>
-  <div id="NOTICIA"></div>
   <!-- modales -->
   <!-- nuevo titulo -->
   <div class="backgroundModalBlog" id="modalNewEntry">

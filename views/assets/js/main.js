@@ -313,12 +313,11 @@ $("#datosPersonales").submit(function(e){
 	}
 });
 
-//modales noticias
-if ($("#new1")) {	
-	$("#closeNew1").click(function() {
-		$("#modalNew1").css("display","none");
-	});
-	$("#new1").click(function() {
-		$("#modalNew1").css("display","flex");
-	});
-}
+// modal detalle pedido
+
+$("#opneModalPedido").click(function() {
+	$(".wrapModalPedido").css("display","flex");
+})
+$("#closePedido").click(function() {
+	$(".wrapModalPedido").css("display","none");
+})

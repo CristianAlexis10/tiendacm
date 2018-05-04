@@ -12,14 +12,14 @@
   <div class="wrapNews">
     <div class="new" id="new1">
       <div class="imgNew">
-        <img src="views/assets/img/defaultProfile.png" alt="">
+        <a href="ver-noticia-"><img src="views/assets/img/defaultProfile.png" alt=""></a>
       </div>
       <div class="wrapSummaryNew">
         <div class="wrapTitle">
-          <h2>title hola</h2>
+          <a href="ver-noticia-"><h2>title hola</h2></a>
         </div>
         <div class="wrapSummary">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <a href="ver-noticia-"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></a>
         </div>
       </div>
     </div>

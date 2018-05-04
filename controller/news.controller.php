@@ -34,7 +34,7 @@ Class NewsController{
 			}
     }
 
-    function newRegister(){ 
+    function newRegister(){
       $img = $_POST['img'];
       $title = $_POST['title'];
       $des = $_POST['des'];
@@ -62,6 +62,11 @@ Class NewsController{
         $_SESSION['ar'] =$subir[1];
         echo json_encode(array(true,$_SESSION['ar']));
       }else{echo josn_encodo("no");}
+    }
+    function view(){
+      require_once("views/include/user/header.php");
+      require_once("views/modules/user/news/detail.php");
+      require_once("views/include/user/footer.php");
     }
   }
 ?>

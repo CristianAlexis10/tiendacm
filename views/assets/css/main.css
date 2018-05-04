@@ -639,3 +639,60 @@
 .inputProfile:nth-last-child(1) input:hover{
   background: #e0dcdc;
 }
+table{
+  text-align: center;
+}
+/* noticias detalle */
+.wrapStructure{
+  margin: 0px auto;
+  width: 80%;
+  padding-top: 50px;
+}
+.noticia-parrafo{
+  font-family: arial;
+  margin-bottom: 10px;
+}
+.noticia-titulo{
+  text-transform: capitalize;
+  font-weight: bold;
+  font-family: "Roboto";
+  font-size: 30px;
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.container-parrafo{
+  font-family: arial;
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+/* modal detalle pedido */
+.wrapModalPedido{
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+.modalPedido{
+  width: 800px;
+  height: 500px;
+  background: #fff;
+  border-radius: 3px;
+  padding: 10px;
+  display: grid;
+  grid-template-rows: auto 25px;
+}
+#closePedido{
+  width: 50%;
+  border: 1px solid #c6c6c6;
+  border-radius: 3px;
+  margin: 0px auto;
+  cursor: pointer;
+}
