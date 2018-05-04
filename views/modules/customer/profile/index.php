@@ -34,44 +34,39 @@
                     <td><?php echo $row['ped_direccion']; ?></td>
                     <td><?php echo $row['ped_estado']; ?></td>
                     <td>
-                        <a href="moficar-producto-<?php echo $row['ped_codigo']; ?>">ver productos</a>
-
-                            <a href="#" onclick="return confirmDelete(
-                                <?php
-                                    echo $row['ped_codigo'];
-                                ?>
-                               )">Eliminar</a>
+                      <a href="moficar-producto-<?php echo $row['ped_codigo']; ?>">ver productos</a>
+                      <a href="#" onclick="return confirmDelete( <?php echo $row['ped_codigo']; ?> )">Eliminar</a>
                     </td>
                 </tr>
               <?php } ?>
             </tbody>
           </table>
     </div>
-    <h3>Datos Personales</h3>
+    <h3>Datos personales</h3>
     <div>
-      <form id="datosPersonales">
-          <div class="frm-group">
-              <label for="nombre">Nombre</label>
+      <form id="datosPersonales" class="formProfile">
+          <div class="inputProfile">
+              <label for="nombre">Nombre: </label>
               <input type="text" id="nombre" placeholder="Ingresa tu nombre" value="<?php echo $data_user['usu_nombre1'];?>" required>
           </div>
-          <div class="frm-group">
-              <label for="ape1">Primer Apellido</label>
+          <div class="inputProfile">
+              <label for="ape1">Primer Apellido: </label>
               <input type="text" id="ape1" placeholder="Ingresa tu Apellido" value="<?php echo $data_user['usu_apellido1'];?>" required>
           </div>
-          <div class="frm-group">
-              <label for="ape2">Segundo Apellido</label>
+          <div class="inputProfile">
+              <label for="ape2">Segundo Apellido: </label>
               <input type="text" id="ape2" placeholder="Ingresa tu segundo apellido" value="<?php echo $data_user['usu_apellido2'];?>" required>
           </div>
-          <div class="frm-group">
-              <label for="correo">Correo</label>
+          <div class="inputProfile">
+              <label for="correo">Correo: </label>
               <input type="email" id="correo" placeholder="Ingresa tu correo" value="<?php echo $data_user['usu_correo'];?>" required>
           </div>
-          <div class="frm-group">
-              <label for="dir">Dirección</label>
+          <div class="inputProfile">
+              <label for="dir">Dirección: </label>
               <input type="text" id="direccion" placeholder="Ingresa tu dirección" value="<?php echo $data_user['usu_dir'];?>" required>
           </div>
-          <div class="frm-group">
-              <label for="ciu">Ciudad</label>
+          <div class="inputProfile">
+              <label for="ciu">Ciudad: </label>
             <select id="ciu">
               <?php
                 foreach ($this->master->selectAll("municipio") as $row) {
@@ -84,35 +79,32 @@
               ?>
             </select>
           </div>
-          <div class="frm-group">
-              <label for="cel">Celular</label>
+          <div class="inputProfile">
+              <label for="cel">Celular: </label>
               <input type="number" id="celular" placeholder="Ingresa tu celular" value="<?php echo $data_user['usu_telefono'];?>" required>
           </div>
-          <div class="frm-group">
+          <div class="inputProfile">
             <input type="submit" value="Actualizar datos de contacto">
           </div>
-
       </form>
     </div>
-
-
   </div>
 </div>
 </section>
-<footer class="footer">
+<!-- <footer class="footer">
   <div class="contacto-titulo">
     <span>¡contactanos!</span>
   </div>
   <div class="iconos-social">
-    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i><span> catalina molano</span></a>
+    <a href="#"><i class="fab fa-instagram"></i><span> catalina molano</span></a>
   </div>
   <div class="contacto-numero">
-    <span>+57 123 45 6 78 90</span>
+    <span>+57 320 681 03 91</span>
   </div>
   <div class="copy">
-    <span class="copy">© Copyright 2017 by Catalina Molano. All Rights Reserved.</span>
+    <span class="copy">© Copyright 2018 by Catalina Molano. All Rights Reserved.</span>
   </div>
-</footer>
+</footer> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>

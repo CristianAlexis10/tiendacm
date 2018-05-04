@@ -1,7 +1,4 @@
 /*menu superior*/
-body{
-  background: #ecf0f1;
-}
 .wrapPaginas{
   width: 100%;
   display: flex;
@@ -37,7 +34,6 @@ body{
   height: 100px;
   border: 2px solid #ea0086;
 }
-
 .topMenu{
   font-family: "Roboto";
   display: grid;
@@ -117,13 +113,13 @@ body{
   z-index: 1;
   position: relative;
   background-image: url("../img/fondotienda.jpg");
-  height: 70vh;
+  height: 35vh;
   width: 100%;
   background-size: cover;
 }
 .slider .wrap--text{
   position: absolute;
-  bottom: 70px;
+  bottom: 0px;
   left: 50px;
   min-width:600px;
 }
@@ -472,7 +468,6 @@ body{
 }
 .wrapSummary{
   font-family: arial;
-  font-size: 20px;
   margin-top: 20px;
 }
 .imgNew{
@@ -573,18 +568,6 @@ body{
 .wrapPlayVideo video{
   margin: 5vh 13vw;
 }
-/* perfil usuario */
-/* .wrapProfile{
-  width: 100%;
-  height: 100vh;
-}
-.profile{
-  width: 80%;
-  height: 586px;
-  padding-top: 50px;
-  margin: 0px auto;
-} */
-/*footer usuario*/
 .footer{
   background: #000;
   width: 100%;
@@ -614,4 +597,45 @@ body{
 .copy{
   font-size: 10px;
   padding: 10px;
+}
+/* estilos perfil */
+.ui-accordion .ui-accordion-content{
+  height: 315px;
+}
+.ui-accordion .ui-accordion-header-active{
+  background: #c61848;
+  color: #fff;
+  border: none;
+  border-radius: 0px;
+}
+.formProfile{
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: repeat(4,1fr);
+  padding-left: 150px;
+}
+.inputProfile{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.inputProfile input, .inputProfile select{
+  width: 70%;
+  outline: none;
+  padding: 5px;
+  margin-left: 5px;
+  border-radius: 3px;
+  border: 1px solid #c6c6c6;
+}
+.inputProfile select{
+  cursor: pointer;
+}
+.inputProfile:nth-last-child(1) input{
+  padding: 15px 20px;
+  cursor: pointer;
+  background: none;
+}
+.inputProfile:nth-last-child(1) input:hover{
+  background: #e0dcdc;
 }

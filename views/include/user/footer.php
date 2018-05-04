@@ -10,7 +10,7 @@
         <span>+57 320 681 03 91</span>
       </div>
       <div class="copy">
-        <span class="copy">© Copyright 2017 by Catalina Molano. All Rights Reserved.</span>
+        <span class="copy">© Copyright 2018 by Catalina Molano. All Rights Reserved.</span>
       </div>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

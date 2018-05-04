@@ -100,11 +100,13 @@
                          <span id="preModal">$ </span>
                      </div>
                      <div class="talla">
+                       <span>color: </span>
                          <select class="" name="" id="selectModal">
                              <option value="">selecionar talla</option>
                          </select>
                      </div>
                      <div class="color">
+                       <span>talla: </span>
                          <select class="" name="" id="selectTallasModal">
                              <option value="">seleccionar color</option>
                          </select>
