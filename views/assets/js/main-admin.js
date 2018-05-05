@@ -256,7 +256,8 @@ $("#formuploadajax").submit(function(e){
             contentType: false,
             processData: false,
             beforeSend:function(){
-                $("#formuploadajax").after("<div class='message'>subiendo...</div>");
+                // $("#formuploadajax").after("<div class='message'>subiendo...</div>");
+								alerta("subiendo...");
             },
             success:function(result){
 							if (result==true) {
@@ -270,10 +271,11 @@ $("#formuploadajax").submit(function(e){
 											location.reload();
 										},1000);
 							}else{
-								$("div.message").remove();
-								console.log(result);
-								$("#formuploadajax").after("<div class='message'>Respuesta: " + result+"</div>");
-								setTimeout(function(){$("div.message").remove();},2000);
+								alerta(result);
+								// $("div.message").remove();
+								// console.log(result);
+								// $("#formuploadajax").after("<div class='message'>Respuesta: " + result+"</div>");
+								// setTimeout(function(){$("div.message").remove();},2000);
 							}
             },
             error:function(result){
@@ -445,3 +447,17 @@ $(".newsDelete").click(function(){
 		});
 }
 });
+
+function cerrarAlerta() {
+  $(".wrapAlert").css("transform","translateX(-100%)");
+}
+function alerta(msn){
+  $("body").append('<div class="wrapAlert" style="width: 350px;height: 150px;  position: fixed;  left: 0px;bottom: 50px;background: #fff;transform: translateX(-100%);transition: .3s;display: grid;grid-template-rows: 25px 125px;box-shadow: 0px 0px 20px -8px black;  padding: 10px;"><button class="alert" style="  width: 25px;  margin-left: 325px;  border: none;  cursor: pointer;  background: #fff;  outline: none;  font-weight: bold;" onclick="cerrarAlerta()">X</button></div>');
+  $("p").remove();
+  $("<p>"+ msn +"</p>").insertAfter(".alert");
+  $(".wrapAlert").css("transform","translateX(0px)");
+  setTimeout(function() {
+    $(".wrapAlert").css("transform","translateX(-100%)");
+    $("p").remove();
+  },2000);
+}
