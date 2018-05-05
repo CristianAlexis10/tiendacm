@@ -120,17 +120,18 @@ Class NewsController{
       }else{echo json_encode("Por favor seleciona una  imagen");  }
     }
     function viewAll(){
-      if ($_SESSION['USER']['ROL']==1) {
+      if (isset($_SESSION['USER']['ROL']) && $_SESSION['USER']['ROL']==1) {
         require_once("views/include/dashboard/header.php");
         require_once("views/modules/admin/news/detail.php");
         require_once("views/include/dashboard/footer.php");
-      }elseif($_SESSION['USER']['ROL']==2) {
-        require_once("views/include/dashboard/header.php");
-        require_once("views/modules/admin/news/detail.php");
-        require_once("views/include/dashboard/footer.php");
+      }elseif(isset($_SESSION['USER']['ROL']) && $_SESSION['USER']['ROL']==2) {
+        require_once("views/include/customer/header.php");
+        require_once("views/modules/customer/news/detail.php");
+        require_once("views/include/customer/footer.php");
       }else{
-          session_destroy();
-          header("Location:inicio");
+        require_once("views/include/user/header.php");
+        require_once("views/modules/user/news/detail.php");
+        require_once("views/include/user/footer.php");
       }
     }
   }

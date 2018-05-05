@@ -1,8 +1,17 @@
 <section class="wrapStructure">
-  <h2 class="noticia-titulo">hola chato</h2>
-  <p class="noticia-parrafo">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <div class="container-parrafo">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
+        <?php
+          $data=$this->master->selectAllBy("estructura_noticia",array("not_codigo",$_GET['data']));
+          foreach ($data as $item ) {
+              if ($item['tipo']=="titulo") {
+                    echo "<h2 class='noticia-titulo'>".$item['title']."</h2>";
+              }elseif($item['tipo']=="parrafo"){
+                  echo "<p class='noticia-parrafo'>".$item['parrafo1']."</p>";
+              }elseif($item['tipo']=="parrafo2"){
+                  echo "<div class='container-parrafo'><p class='parrafo-izq'>".$item['parrafo1']."</p><p class='parrafo-der'>".$item['parrafo2']."</p></div>";
+              }elseif($item['tipo']=="img"){
+                echo "<div class='noticia-img'><img class='img-no' src='views/assets/img/news/".$item['img']."'></div>" ;
+              }
+          }
+        ?>
+
 </section>
