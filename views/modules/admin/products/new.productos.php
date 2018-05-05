@@ -104,7 +104,7 @@ if (isset($_SESSION['messagge'])) {
           <select required class="dataNewProd">
             <option value="">seleccionar categoria</option>
       			<?php
-      				foreach ($this->master->selectAll('categoria') as $row) {?>
+      				foreach ($this->master->selectAllBy('categoria',array("cat_estado",1)) as $row) {?>
       					<option value="<?php echo $row['cat_codigo']?>"><?php echo $row['cat_nombre'] ?></option>
       				<?php
       				}
