@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-05-2018 a las 04:06:03
+-- Tiempo de generación: 05-05-2018 a las 05:25:35
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -82,6 +82,21 @@ BEGIN
 INSERT INTO por_imagenes VALUES(producto,img);
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `crearImg` (IN `orde` INT, IN `codigo` VARCHAR(20), IN `con` VARCHAR(100), IN `tipo` VARCHAR(15))  NO SQL
+BEGIN 
+INSERT INTO estructura_noticia(tipo,orden,not_codigo,img) VALUES (tipo,orde,codigo,con);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `crearParrafo` (IN `con` LONGTEXT, IN `orde` INT, IN `codigo` VARCHAR(20), IN `tipo` VARCHAR(15))  NO SQL
+BEGIN 
+INSERT INTO estructura_noticia(tipo,orden,not_codigo,parrafo1) VALUES (tipo,orde,codigo,con);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `crearParrafo2` (IN `tipo` VARCHAR(15), IN `p1` LONGTEXT, IN `p2` LONGTEXT, IN `orde` INT, IN `codigo` VARCHAR(20))  NO SQL
+BEGIN 
+INSERT INTO estructura_noticia(tipo,orden,not_codigo,parrafo1,parrafo2) VALUES (tipo,orde,codigo,p1,p2);
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `crearPedido` (IN `usuario` INT(11), IN `municipio` INT(11), IN `direccion` VARCHAR(100), IN `fecha_re` DATE, IN `fecha_ent` DATE)  NO SQL
 BEGIN 
 INSERT INTO pedidos(usu_id,mun_codigo,ped_direccion,ped_fecha_realizacion,ped_fecha_entrega)VALUES
@@ -100,11 +115,26 @@ INSERT INTO producto_pedido
 VALUES (pedido,producto,cantidad,color,talla);
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `crearTitulo` (IN `title` VARCHAR(100), IN `orde` INT, IN `codigo` VARCHAR(20), IN `tipo` VARCHAR(15))  NO SQL
+BEGIN 
+INSERT INTO estructura_noticia(tipo,orden,not_codigo,title) VALUES (tipo,orde,codigo,title);
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `crearUsuario` (IN `pri_nom` VARCHAR(30), IN `pri_ape` VARCHAR(25), IN `correo` VARCHAR(100), IN `rol` INT(11), IN `tip_doc` INT(11), IN `ciudad` INT(11))  NO SQL
 BEGIN
 INSERT INTO usuario (usu_nombre1,usu_apellido1,usu_correo,rol_codigo,tid_codigo,mun_codigo)
 VALUES
 (pri_nom,pri_ape,correo,rol,tip_doc,ciudad);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `editarNoticia` (IN `codigo` VARCHAR(20), IN `ti` VARCHAR(100), IN `des` LONGTEXT, IN `fe` DATE)  NO SQL
+BEGIN 
+UPDATE noticia SET  noticia.not_titulo = ti ,noticia.not_preview= des, noticia.art_fecha = fe WHERE noticia.not_codigo=codigo;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `editarNoticiaImg` (IN `codigo` VARCHAR(20), IN `ti` VARCHAR(100), IN `des` LONGTEXT, IN `im` VARCHAR(100), IN `fe` DATE)  NO SQL
+BEGIN 
+UPDATE noticia SET  noticia.not_titulo = ti ,noticia.not_preview= des,noticia.not_poster=im , noticia.art_fecha = fe WHERE noticia.not_codigo=codigo;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `eliminarCategoria` (IN `cod` INT(11))  NO SQL
@@ -291,7 +321,8 @@ INSERT INTO `color_producto` (`col_codigo`, `por_codigo`) VALUES
 (2, 29),
 (1, 24),
 (1, 30),
-(2, 30);
+(2, 30),
+(1, 31);
 
 -- --------------------------------------------------------
 
@@ -314,12 +345,18 @@ INSERT INTO `departamento` (`dep_codigo`, `dep_nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `img_noticia`
+-- Estructura de tabla para la tabla `estructura_noticia`
 --
 
-CREATE TABLE `img_noticia` (
+CREATE TABLE `estructura_noticia` (
+  `id` int(11) NOT NULL,
+  `tipo` varchar(15) NOT NULL,
+  `orden` int(11) NOT NULL,
   `not_codigo` varchar(20) NOT NULL,
-  `img` varchar(100) NOT NULL
+  `title` varchar(100) NOT NULL,
+  `img` varchar(100) NOT NULL,
+  `parrafo1` longtext NOT NULL,
+  `parrafo2` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -361,9 +398,8 @@ CREATE TABLE `noticia` (
 --
 
 INSERT INTO `noticia` (`not_codigo`, `usu_id`, `not_titulo`, `not_preview`, `not_poster`, `art_fecha`) VALUES
-('', 17, 'ljkjhlkh', 'hklhk', '43c6a047e5f41313371231fbfb8eb8d3.png', '2018-05-04'),
-('2kjwdeEQmFFKiBZXnvFF', 17, 'sadas', 'asdas', '4fe4e3825797f80e92158e2ceaa802f0.png', '2018-05-04'),
-('o64EsarTPF9GqdTnKTUO', 17, 'ljkjhlkh', 'hklhk', '43c6a047e5f41313371231fbfb8eb8d3.png', '2018-05-04');
+('97QVXCIU2RiC5c19lsR6', 17, 'asd', 'asd', '7d4b4784a7908b9940be2dc4c322d314.png', '2018-05-05'),
+('GXTFizF7hQB66RWrKfnv', 17, 'holaa', 'SAD', '00c907a4b190b8b6f37003f823d5be16.png', '2018-05-05');
 
 -- --------------------------------------------------------
 
@@ -506,7 +542,8 @@ INSERT INTO `producto` (`pro_codigo`, `pro_nombre`, `pro_precio`, `pro_cant`, `p
 (27, 'asd', 324, 2344, '342', 13, '424373a96e0df49cfac85ff2644b246c.png', 'activo'),
 (28, 'sad', 324, 34, '324', 14, '3dd90c125c50926e1cf3b51ec39712d1.png', 'activo'),
 (29, 'kl', 8797, 897897, '89789', 12, '1e2177f6c87211da60aa42e011fd47a7.png', 'activo'),
-(30, 'yes', 2134312, 214324, '13241234', 17, '39eacb2c4b4e978c8513f08c10b133ed.png', 'activo');
+(30, 'yes', 2134312, 214324, '13241234', 17, '39eacb2c4b4e978c8513f08c10b133ed.png', 'activo'),
+(31, 'kjhk', 433, 0, '324', 13, 'ffd4380f0d34ad1dd39519b55f5c4789.png', 'activo');
 
 -- --------------------------------------------------------
 
@@ -623,7 +660,8 @@ INSERT INTO `talla_producto` (`pro_codigo`, `tal_codigo`) VALUES
 (29, 2),
 (24, 1),
 (30, 1),
-(30, 2);
+(30, 2),
+(31, 1);
 
 -- --------------------------------------------------------
 
@@ -697,9 +735,7 @@ CREATE TABLE `video` (
 --
 
 INSERT INTO `video` (`id_video`, `nombre`, `url`, `usu_codigo`) VALUES
-(1, '', '105439862312365027559c2ee5295efa.mp4', 17),
-(2, '', 'f47a57fbb554b911d2aee7c55d30e00a.mp4', 17),
-(3, '', 'e1026bb11c3287bffeff698e9de6e168.mp4', 17);
+(2, '', 'f47a57fbb554b911d2aee7c55d30e00a.mp4', 17);
 
 --
 -- Índices para tablas volcadas
@@ -738,10 +774,11 @@ ALTER TABLE `departamento`
   ADD PRIMARY KEY (`dep_codigo`);
 
 --
--- Indices de la tabla `img_noticia`
+-- Indices de la tabla `estructura_noticia`
 --
-ALTER TABLE `img_noticia`
-  ADD KEY `id_noticia` (`not_codigo`);
+ALTER TABLE `estructura_noticia`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `not_codigo` (`not_codigo`);
 
 --
 -- Indices de la tabla `municipio`
@@ -845,6 +882,11 @@ ALTER TABLE `categoria`
 ALTER TABLE `color`
   MODIFY `col_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
+-- AUTO_INCREMENT de la tabla `estructura_noticia`
+--
+ALTER TABLE `estructura_noticia`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
@@ -853,7 +895,7 @@ ALTER TABLE `pedidos`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `pro_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `pro_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT de la tabla `talla`
 --
@@ -887,10 +929,10 @@ ALTER TABLE `color_producto`
   ADD CONSTRAINT `color_producto_ibfk_4` FOREIGN KEY (`por_codigo`) REFERENCES `producto` (`pro_codigo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `img_noticia`
+-- Filtros para la tabla `estructura_noticia`
 --
-ALTER TABLE `img_noticia`
-  ADD CONSTRAINT `img_noticia_ibfk_1` FOREIGN KEY (`not_codigo`) REFERENCES `noticia` (`not_codigo`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `estructura_noticia`
+  ADD CONSTRAINT `estructura_noticia_ibfk_1` FOREIGN KEY (`not_codigo`) REFERENCES `noticia` (`not_codigo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `municipio`

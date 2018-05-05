@@ -93,5 +93,31 @@ Class NewsController{
       $result = $this->master->delete("noticia",array("not_codigo",$_POST['data']));
       echo json_encode($result);
     }
+    function readNew(){
+      $result = $this->master->selectBy("noticia",array("not_codigo",$_POST['data']));
+      echo json_encode($result);
+    }
+    function update(){
+      $img = $_POST['img'];
+      $title = $_POST['title'];
+      $des = $_POST['des'];
+      $codigo= $_POST['codigo'];
+      if ($img!="default") {
+        if ($title!="") {
+          if($des!=""){
+            $data= $this->master->selectBy("noticia",array("not_codigo",$codigo));
+            if ($img==$data['not_poster']) {
+              $result = $this->master->procedure->NRP("editarNoticia",array($codigo,$title,$des,date("y-m-d")));
+            }else{
+              unlink("views/assets/img/news/".$data['not_poster']);
+              $result = $this->master->procedure->NRP("editarNoticiaImg",array($codigo,$title,$des,$img,date("y-m-d")));
+            }
+              if ($result==true) {
+                echo json_encode($result);
+              }else{json_encode($this->doizer->knowError($result));}
+          }else{echo json_encode("por favor inserta un pequeño resumen");}
+        }else{echo json_encode("Por favor inserta el titulo de la noticia");}
+      }else{echo json_encode("Por favor seleciona una  imagen");  }
+    }
   }
 ?>

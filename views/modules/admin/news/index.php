@@ -22,7 +22,7 @@
             </div>
           </div>
           <div class="newsBtn">
-            <div class="newsEdit" id="entry1">
+            <div class="newsEdit" id="E<?php echo $row['not_codigo']?>">
               <i class="far fa-edit"></i>
             </div>
             <div class="newsDelete" id="<?php echo $row['not_codigo']?>">
@@ -59,9 +59,26 @@
             <button type="button" name="button" id="closeNewEntry">cancelar</button>
     </form>
   </div>
+
+
   <div class="backgroundModalBlog" id="editEntry1">
-    <form class="modalBlog" action="index.html" method="post">
-        esta es la wea de editar
+    <form class="modalBlog" id="uptadeNews">
+          <div class="newNew">
+            <label for="title">Titulo:<span class="obligatorio">*</span></label>
+            <input type="text" class="input" id="titleEdi" required>
+          </div>
+          <div class="newNew">
+              <label for="des">Resumen:<span class="obligatorio">*</span></label>
+              <textarea name="name" rows="8" cols="65" id="previewEdit" required placeholder="Ingresa un pequeño resumen sobre lo  que tratara este blog"></textarea>
+          </div>
+          <div class="form-group Cambiar--img">
+             <div id="wrap-result2"><img  id="imgVal" ></div>
+             <div class="wrapBtnImg">
+               <h3 class="btnImg" id="cropp-img2">Foto de vista previa<span class="obligatorio">*</span></h3>
+             </div>
+         </div>
+         <input type="hidden" id="img2" value="default" disabled>
+         <input type="submit"  value="Editar">
       <button type="button" name="button" id="closeEntry1">cancelar</button>
     </form>
   </div>
@@ -75,6 +92,16 @@
         <div id="wrap-upload" style="width:300px"></div>
         <input type="file" id="upload">
         <button class="btn btn-success upload-result">Recortar Imagen</button>
+      </div>
+    </div>
+  </div>
+<div id="img-product2">
+    <div class="newMark--img">
+      <span id="closeImg2">&times;</span>
+      <div id="uploadImage2">
+        <div id="wrap-upload2" style="width:300px"></div>
+        <input type="file" id="upload2">
+        <button class="btn btn-success upload-result2">Recortar Imagen</button>
       </div>
     </div>
   </div>

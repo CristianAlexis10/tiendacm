@@ -416,8 +416,23 @@ if ($("#frmNewProduct")) {
 	});
 }
 //modales blog / noticias
-if ($("#newEntry")) {
-	$("#entry1").click(function() {
+var actual_noticia;
+if ($(".newsEdit")) {
+	$(".newsEdit").click(function() {
+		actual_noticia =this.id.substr(1,20);
+		$.ajax({
+			url:"ver-datos-noticia",
+			type:"post",
+			dataType:"json",
+			data:({data:this.id.substr(1,20)}),
+			success:function(result){
+				$("#titleEdi").val(result.not_titulo);
+				$("#previewEdit").val(result.not_preview);
+				$("#img2").val(result.not_poster);
+				$("#imgVal").attr("src","views/assets/img/news/"+result.not_poster);
+			},
+			error:function(result){console.log(result);}
+		});
 		$("#editEntry1").css("display","flex")
 	});
 	$("#closeEntry1").click(function () {
@@ -447,7 +462,27 @@ $(".newsDelete").click(function(){
 		});
 }
 });
-
+// editar
+$("#uptadeNews").submit(function(e){
+  e.preventDefault();
+  $.ajax({
+    url:"editar-noticia",
+    type:"post",
+    dataType:"json",
+    data:({title:$("#titleEdi").val(),des:$("#previewEdit").val(),img:$("#img2").val(),codigo :actual_noticia}),
+    success:function(result){
+      console.log(result);
+      if (result==true) {
+        location.reload();
+      }else{
+        alerta(result);
+      }
+    },
+    error:function(result){
+      console.log(result);
+    }
+  });
+});
 function cerrarAlerta() {
   $(".wrapAlert").css("transform","translateX(-100%)");
 }
