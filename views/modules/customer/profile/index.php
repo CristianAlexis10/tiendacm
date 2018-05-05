@@ -1,4 +1,4 @@
-<div class="slider">
+<div class="sliderProfile">
   <div class="wrap--text">
     <h2>PERFIL</h2>
   </div>
