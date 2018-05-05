@@ -12,12 +12,14 @@
   <!-- nuevo titulo -->
   <div class="backgroundModalBlog" id="modalNewEntry">
     <form class="modalBlog" id="nuevoTitulo">
-            <div class="newNew">
-              <label for="addTitle">Titulo:<span class="obligatorio">*</span></label>
-              <input maxlength="45" type="text" class="input" id="addTitle" required>
-            </div>
-           <input type="submit"  value="Agregar">
-            <button type="button" name="button" id="closeNewEntry">cancelar</button>
+      <div class="newNew">
+        <label for="addTitle">Titulo:<span class="obligatorio">*</span></label>
+        <input maxlength="45" type="text" class="newInput" id="addTitle" required>
+      </div>
+      <div class="wrapBtnNewNew">
+       <input type="submit"  value="Agregar" class="btnNewNew">
+       <button type="button" name="button" id="closeNewEntry" class="btnNewNew">cancelar</button>
+      </div>
     </form>
   </div>
   <!-- nuevo parrafo 1 columna -->
@@ -27,8 +29,10 @@
               <label for="parrafo">Contenido:<span class="obligatorio">*</span></label>
               <textarea id="parrafo" rows="8" cols="60" required></textarea>
             </div>
-           <input type="submit"  value="Agregar">
-            <button type="button" name="button" id="closeParrafo">cancelar</button>
+            <div class="wrapBtnNewNew">
+           <input type="submit"  value="Agregar" class="btnNewNew">
+            <button type="button" name="button" id="closeParrafo" class="btnNewNew">cancelar</button>
+            </div>
     </form>
   </div>
   <!-- nuevo parrafo 2 columna -->
@@ -40,8 +44,10 @@
               <label for="parrafo22">Contenido columna 2:<span class="obligatorio">*</span></label>
               <textarea id="parrafo22" rows="8" cols="60" required></textarea>
             </div>
-           <input type="submit"  value="Agregar">
-            <button type="button" name="button" id="closeParrafo2">cancelar</button>
+            <div class="wrapBtnNewNew">
+           <input type="submit"  value="Agregar" class="btnNewNew">
+            <button type="button" name="button" id="closeParrafo2" class="btnNewNew">cancelar</button>
+          </div>
     </form>
   </div>
   <!-- nuevo imagen-->

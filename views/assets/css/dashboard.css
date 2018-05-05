@@ -886,7 +886,7 @@ td a i{
 }
 .itemNews{
   display: grid;
-  grid-template-rows: 50px 200px 50px 50px;
+  grid-template-rows: 50px auto 50px 50px;
   border: 1px solid #c6c6c6;
   border-radius: 3px;
 }
@@ -907,6 +907,7 @@ td a i{
   border-bottom: 1px solid #c6c6c6;
 }
 .wrapImg{
+  text-align: center;
   background: #000;
   width: 100%;
   height: 100%;
@@ -971,6 +972,39 @@ td a i{
   background: #fff;
   border-radius: 3px;
   padding: 10px;
+}
+.newNew{
+  text-align: center;
+  font-family: arial;
+  margin-bottom: 10px;
+}
+.newInput{
+  width: 98%;
+  margin-top: 10px;
+  outline: none;
+  font-family: arial;
+}
+.imgSummary{
+  text-align: center;
+  font-family: arial;
+}
+.wrapBtnNewNew{
+  width: 100%;
+  height: 51px;
+  text-align: center;
+}
+.btnNewNew{
+  padding: 16px 40px;
+  margin-left: 20px;
+  border-radius: 3px;
+  border: 1px solid #c6c6c6;
+  cursor: pointer;
+  background: none;
+  outline: none;
+  text-transform: capitalize;
+}
+.btnNewNew:hover{
+  background: #d6d2d2;
 }
 /* ------------------------------------------ */
 .wrapStructure{

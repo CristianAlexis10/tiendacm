@@ -42,21 +42,23 @@
     <form class="modalBlog" id="registrarNew">
             <div class="newNew">
               <label for="title">Titulo:<span class="obligatorio">*</span></label>
-              <input type="text" class="input" id="title" required>
+              <input type="text" class="newInput" id="title" required>
             </div>
             <div class="newNew">
                 <label for="des">Resumen:<span class="obligatorio">*</span></label>
-                <textarea name="name" rows="8" cols="65" id="preview" required placeholder="Ingresa un pequeño resumen sobre lo  que tratara este blog"></textarea>
+                <textarea name="name" class="newInput" rows="8" cols="65" id="preview" required placeholder="Ingresa un pequeño resumen sobre lo  que tratara esta entrada"></textarea>
             </div>
-            <div class="form-group Cambiar--img">
+            <div class="imgSummary Cambiar--img">
                <div id="wrap-result"><img src="views/assets/img/defaultProfile.png" ></div>
                <div class="wrapBtnImg">
                  <h3 class="btnImg" id="cropp-img">Foto de vista previa<span class="obligatorio">*</span></h3>
                </div>
            </div>
            <input type="hidden" id="img" value="default" disabled>
-           <input type="submit"  value="Continuar">
-            <button type="button" name="button" id="closeNewEntry">cancelar</button>
+           <div class="wrapBtnNewNew">
+            <input type="submit"  value="Continuar" class="btnNewNew">
+            <button type="button" name="button" id="closeNewEntry" class="btnNewNew">cancelar</button>
+           </div>
     </form>
   </div>
 
@@ -65,7 +67,7 @@
     <form class="modalBlog" id="uptadeNews">
           <div class="newNew">
             <label for="title">Titulo:<span class="obligatorio">*</span></label>
-            <input type="text" class="input" id="titleEdi" required>
+            <input type="text" class="newInput" id="titleEdi" required>
           </div>
           <div class="newNew">
               <label for="des">Resumen:<span class="obligatorio">*</span></label>
