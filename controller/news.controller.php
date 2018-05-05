@@ -44,6 +44,7 @@ Class NewsController{
             $codigo = $this->doizer->randAlphanum(20);
               $result = $this->master->insert("noticia",array($codigo,$_SESSION['USER']['CODE'],$title,$des,$img,date("y-m-d")));
               if ($result==true) {
+                $_SESSION['blog']=$codigo;
                 echo json_encode($result);
               }else{json_encode($this->doizer->knowError($result));}
           }else{echo json_encode("por favor inserta un pequeño resumen");}
@@ -67,6 +68,25 @@ Class NewsController{
       require_once("views/include/user/header.php");
       require_once("views/modules/user/news/detail.php");
       require_once("views/include/user/footer.php");
+    }
+    function save(){
+      $data = $_POST['data'];
+      $i=1;
+      foreach ($data as $item ) {
+        if (isset($item['type'])) {
+          if ($item['type']=="title") {
+                $result=$this->master->procedure->NRP("crearTitulo",array($item['conten'],$i,$_SESSION['blog'],"titulo"));
+          }elseif($item['type']=="parrafo"){
+              $result=$this->master->procedure->NRP("crearParrafo",array($item['conten'],$i,$_SESSION['blog'],"parrafo"));
+          }elseif($item['type']=="parrafo2"){
+              $result=$this->master->procedure->NRP("crearParrafo2",array("parrafo2",$item['conten1'],$item['conten2'],$i,$_SESSION['blog']));
+          }elseif($item['type']=="img"){
+            $result=$this->master->procedure->NRP("crearImg",array($i,$_SESSION['blog'],$item['conten'],"img"));
+          }
+          $i++;
+        }
+      }
+      echo json_encode($result);
     }
   }
 ?>

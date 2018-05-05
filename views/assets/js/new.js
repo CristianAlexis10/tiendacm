@@ -92,3 +92,13 @@ function eliminarAdd(id){
   delete  news[id];
   console.log(news);
 }
+ $("#fin").click(function(){
+    $.ajax({
+      url:"guardar-noticia",
+      type:"post",
+      dataType:"json",
+      data:({data:news}),
+      success:function(result){console.log(result);},
+      error:function(result){console.log(result);}
+    });
+ });
