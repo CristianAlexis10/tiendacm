@@ -86,6 +86,7 @@ Class NewsController{
           $i++;
         }
       }
+      unset($_SESSION['blog']);
       echo json_encode($result);
     }
     function delete(){

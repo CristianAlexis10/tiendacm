@@ -98,7 +98,11 @@ function eliminarAdd(id){
       type:"post",
       dataType:"json",
       data:({data:news}),
-      success:function(result){console.log(result);},
+      success:function(result){
+        if (result==true) {
+          location.href="gestion-noticias";
+        }
+      },
       error:function(result){console.log(result);}
     });
  });
