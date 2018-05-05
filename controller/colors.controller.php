@@ -14,7 +14,7 @@ Class ColorsController{
           return;
       }
       $result = $this->master->insert("color",array($_POST['data']),array('col_codigo'));
-      if ($result==true) {
+      if ($result==1) {
           echo json_encode($result);
       }else{
           echo json_encode($this->doizer->knowError($result));
@@ -26,7 +26,7 @@ Class ColorsController{
           return;
       }
       $result = $this->master->insert("talla",array($_POST['data']),array('tal_codigo'));
-      if ($result==true) {
+      if ($result==1) {
           echo json_encode($result);
       }else{
           echo json_encode($this->doizer->knowError($result));
