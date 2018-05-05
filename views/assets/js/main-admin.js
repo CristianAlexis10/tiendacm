@@ -430,16 +430,18 @@ if ($("#newEntry")) {
 }
 
 $(".newsDelete").click(function(){
-	$.ajax({
-		url:"eliminar-noticia",
-		type:"post",
-		dataType:"json",
-		data:({data:this.id}),
-		success:function(result){
-			if (result==true) {
-				location.reload();
-			}
-		},
-		error:function(result){console.log(result);}
-	});
+	if (confirm("¿Eliminar este Blog?")) {
+		$.ajax({
+			url:"eliminar-noticia",
+			type:"post",
+			dataType:"json",
+			data:({data:this.id}),
+			success:function(result){
+				if (result==true) {
+					location.reload();
+				}
+			},
+			error:function(result){console.log(result);}
+		});
+}
 });
