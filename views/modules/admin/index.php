@@ -6,7 +6,7 @@
         <span>0</span>
       </div>
       <div class="titleResult">
-        <h2><a href="ver-pedidos">Pedidos</a></h2>
+        <h2><a href="ver-pedidos-hechos">Pedidos</a></h2>
       </div>
     </div>
     <div class="column">
@@ -14,7 +14,7 @@
         <span>0</span>
       </div>
       <div class="titleResult">
-        <h2>producto mas vendido</h2>
+        <h2><a href="ver-usuario">Usuarios Registrados</a></h2>
       </div>
     </div>
     <div class="column">
@@ -22,7 +22,7 @@
         <span>0</span>
       </div>
       <div class="titleResult">
-        <h2>total productos registrados</h2>
+        <h2><a href="gestion-producto">total productos registrados</a></h2>
       </div>
     </div>
   </div>
