@@ -76,7 +76,7 @@ if (isset($_SESSION['messagge'])) {
         	</div>
         	<div class="regPro">
             <label for="" class="label">precio:<span class="obligatorio">*</span></label>
-      		  <input type="number" class="dataNewProd input" required>
+      		  <input type="number" class="dataNewProd input" id="precio" required>
         	</div>
         	<!-- <div class="regProdCan"> -->
             <!-- <label for="" class="label">cantidad:<span class="obligatorio">*</span></label> -->
@@ -160,7 +160,7 @@ if (isset($_SESSION['messagge'])) {
             <tr>
                 <td><?php echo $row['pro_codigo']; ?></td>
                 <td><?php echo $row['pro_nombre']; ?></td>
-                <td><?php echo $row['pro_precio']; ?></td>
+                <td><?php echo number_format($row['pro_precio']);; ?></td>
                 <!-- <td><?php //echo $row['pro_cant']; ?></td> -->
                 <td><?php echo $row['pro_des']; ?></td>
                 <td>
