@@ -72,11 +72,11 @@ $.ajax({
                    location.href = 'gestion-producto';
                     return;
                  }else{
-	                  $('#frmCT').after('<div class="message-red">'+result+'</div>');
-	                  setTimeout(function(){
-	                     $('div.message-red').remove();
-	                   }, 2000);
-
+	                  // $('#frmCT').after('<div class="message-red">'+result+'</div>');
+	                  // setTimeout(function(){
+	                  //    $('div.message-red').remove();
+	                  //  }, 2000);
+										alerta(result);
                  }
                },
                error: function(result){
@@ -102,10 +102,11 @@ $.ajax({
               if (response==true) {
               	location.reload();
               }else{
-	              $("#list-productos").after("<div class='message'>"+response+"</div>");
-	              setTimeout(function(){
-	                 $('div.message').remove();
-	               }, 2000);
+	              // $("#list-productos").after("<div class='message'>"+response+"</div>");
+	              // setTimeout(function(){
+	              //    $('div.message').remove();
+	              //  }, 2000);
+								alerta(result);
               }
     	  });
     		return true;
@@ -134,17 +135,19 @@ $("#update-tallas").submit(function(e) {
         }
     });
 if (col==false) {
-	$('#update-tallas').after('<div class="message-red">Seleccione al menos una color</div>');
-    setTimeout(function(){
-  	 $('div.message-red').remove();
-     }, 2000);
+	// $('#update-tallas').after('<div class="message-red">Seleccione al menos una color</div>');
+  //   setTimeout(function(){
+  // 	 $('div.message-red').remove();
+  //    }, 2000);
+	alerta("Seleccione al menos una color");
 	 return;
 }
 if (tal==false) {
-	$('#update-tallas').after('<div class="message-red">Seleccione al menos una talla</div>');
-    setTimeout(function(){
-  	 $('div.message-red').remove();
-     }, 2000);
+	// $('#update-tallas').after('<div class="message-red">Seleccione al menos una talla</div>');
+  //   setTimeout(function(){
+  // 	 $('div.message-red').remove();
+  //    }, 2000);
+	alerta("Seleccione al menos una talla");
 	  return;
 }
 $.ajax({
@@ -159,10 +162,7 @@ $.ajax({
                    location.href = 'gestion-producto';
                     return;
                  }else{
-	                  $('#update-tallas').after('<div class="message-red">'+result+'</div>');
-	                  setTimeout(function(){
-	                     $('div.message-red').remove();
-	                   }, 2000);
+	                  alerta(result);
 
                  }
                },
@@ -342,7 +342,7 @@ $("#newColor").submit(function(e){
 				$("#cancelarColor").click();
 				location.reload();
 			}else{
-				alert(result);
+				alerta(result);
 			}
 		},
 		error:function(result){console.log(result);}
@@ -362,7 +362,7 @@ $("#newTal").submit(function(e){
 				$("#cancelarTalla").click();
 				location.reload();
 			}else{
-				alert(result);
+				alerta(result);
 			}
 		},
 		error:function(result){console.log(result);}
@@ -396,7 +396,7 @@ $("#updateVideo").submit(function(e){
 				if (result==true) {
 					location.reload();
 				}else{
-					alert(result);
+					alerta(result);
 				}
 			},
 			error:function(result) {console.log(result);}
