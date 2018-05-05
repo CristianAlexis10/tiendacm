@@ -109,7 +109,7 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
   <script src="views/assets/js/croppie.js"></script>
   <script src="views/assets/js/cropp-news.js"></script>
-   <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
   <script src="views/assets/js/main-admin.js"> </script>
   <script src="views/assets/js/shortcut.js"></script>
   <script src="views/assets/js/security.js"></script>
