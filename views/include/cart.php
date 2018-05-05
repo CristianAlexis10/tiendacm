@@ -23,7 +23,7 @@
                   <h2><span>cantidad:</span><?php echo $item['cantidad']; ?></h2>
                 </div>
                 <div class="item-cart" id="valor">
-                  <h2><span>precio:</span><?php echo $item['precio']; ?></h2>
+                  <h2><span>precio:</span><?php echo number_format($item['precio']); ?></h2>
                 </div>
               </div>
               <div class="info-item-cart">

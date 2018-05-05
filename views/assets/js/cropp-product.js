@@ -131,21 +131,23 @@ $("#frmNewProduct").submit(function(e){
    $(".dataNewProd").each(function(){
      jsonData.push(this.value);
    });
-  $.ajax({
-    url:"guardar-producto",
-    type:"post",
-    dataType:"json",
-    data:({data:jsonData , color : $("#selectMul2").val() , tallas: $("#selectMul").val()}),
-    success:function(result){
-      if (result==true) {
-        location.reload();
-      }else{
-        $("#frmNewProduct").after("<div class='alert'>"+result+"</div>");
-      }
-      setTimeout(function(){$("div.alert").remove()},3000);
-    },
-    error:function(result){
-      console.log(result);
+   if (confirm("¿Registrar el producto con un valor de "+new Intl.NumberFormat().format(jsonData[1]))) {
+      $.ajax({
+        url:"guardar-producto",
+        type:"post",
+        dataType:"json",
+        data:({data:jsonData , color : $("#selectMul2").val() , tallas: $("#selectMul").val()}),
+        success:function(result){
+          if (result==true) {
+            location.reload();
+          }else{
+            $("#frmNewProduct").after("<div class='alert'>"+result+"</div>");
+          }
+          setTimeout(function(){$("div.alert").remove()},3000);
+        },
+        error:function(result){
+          console.log(result);
+        }
+      });
     }
-  });
 });
