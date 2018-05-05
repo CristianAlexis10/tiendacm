@@ -88,5 +88,10 @@ Class NewsController{
       }
       echo json_encode($result);
     }
+    function delete(){
+      $result = $this->master->delete("estructura_noticia",array("not_codigo",$_POST['data']));
+      $result = $this->master->delete("noticia",array("not_codigo",$_POST['data']));
+      echo json_encode($result);
+    }
   }
 ?>

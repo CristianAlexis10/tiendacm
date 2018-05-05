@@ -25,7 +25,7 @@
             <div class="newsEdit" id="entry1">
               <i class="far fa-edit"></i>
             </div>
-            <div class="newsDelete">
+            <div class="newsDelete" id="<?php echo $row['not_codigo']?>">
               <i class="fas fa-trash-alt"></i>
             </div>
           </div>
