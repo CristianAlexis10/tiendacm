@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-05-2018 a las 05:55:09
+-- Tiempo de generación: 05-05-2018 a las 22:30:11
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -179,7 +179,7 @@ END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `paginasTodosProductos` (IN `ini` INT, IN `fin` INT)  NO SQL
 BEGIN
-SELECT * FROM producto LIMIT ini , fin ;
+SELECT * FROM producto WHERE producto.pro_estado = "activo" LIMIT ini , fin ;
 end$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `paginasVideos` (IN `ini` INT, IN `fin` INT)  NO SQL
@@ -189,7 +189,7 @@ end$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `productosBycategoria` (IN `cat` VARCHAR(50), IN `ini` INT, IN `fin` INT)  NO SQL
 BEGIN
-SELECT * FROM categoria INNER JOIN producto ON categoria.cat_codigo=producto.cat_codigo  WHERE categoria.cat_nombre =  cat LIMIT ini , fin;
+SELECT * FROM categoria INNER JOIN producto ON categoria.cat_codigo=producto.cat_codigo  WHERE categoria.cat_nombre =  cat  AND producto.pro_estado = "activo" LIMIT ini , fin;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `tallas` (IN `cod` INT(11))  NO SQL
@@ -283,15 +283,12 @@ CREATE TABLE `color` (
 --
 
 INSERT INTO `color` (`col_codigo`, `col_color`) VALUES
-(1, 'Rojo'),
 (2, 'Azul'),
-(3, 'sadsad'),
+(8, 'Gris'),
 (4, 'naranja'),
 (5, 'negro'),
-(6, ''),
-(7, ' '),
-(8, 'Gris'),
-(9, 'XL');
+(1, 'Rojo'),
+(3, 'sadsad');
 
 -- --------------------------------------------------------
 
@@ -322,7 +319,8 @@ INSERT INTO `color_producto` (`col_codigo`, `por_codigo`) VALUES
 (1, 24),
 (1, 30),
 (2, 30),
-(1, 31);
+(1, 31),
+(1, 32);
 
 -- --------------------------------------------------------
 
@@ -367,7 +365,8 @@ INSERT INTO `estructura_noticia` (`id`, `tipo`, `orden`, `not_codigo`, `title`, 
 (13, 'titulo', 1, 'ifUXeeJZzznn0DibMes3', 'hola', '', '', ''),
 (14, 'parrafo', 2, 'ifUXeeJZzznn0DibMes3', '', '', 'Ã±oiuygh', ''),
 (15, 'parrafo2', 3, 'ifUXeeJZzznn0DibMes3', '', '', 'ppÃ±oiuygfghjklÃ±ouigj', 'rfghjklÃ±{'),
-(16, 'img', 4, 'ifUXeeJZzznn0DibMes3', '', '09902fb876a52d9bf4460bb83cd18098.jpg', '', '');
+(16, 'img', 4, 'ifUXeeJZzznn0DibMes3', '', '09902fb876a52d9bf4460bb83cd18098.jpg', '', ''),
+(17, 'titulo', 1, 'YiyQCi61JkQh8mnjbRMn', 'hola', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -408,7 +407,8 @@ CREATE TABLE `noticia` (
 --
 
 INSERT INTO `noticia` (`not_codigo`, `usu_id`, `not_titulo`, `not_preview`, `not_poster`, `art_fecha`) VALUES
-('ifUXeeJZzznn0DibMes3', 17, 'uno', 'esta', '558d8c3036c1091f4ac31c8fa8e08fa0.png', '2018-05-05');
+('ifUXeeJZzznn0DibMes3', 17, 'uno', 'esta', '558d8c3036c1091f4ac31c8fa8e08fa0.png', '2018-05-05'),
+('YiyQCi61JkQh8mnjbRMn', 17, 'kjh', 'liou', '163f065f67ab5aa1d687874906fc02a2.png', '2018-05-05');
 
 -- --------------------------------------------------------
 
@@ -521,7 +521,8 @@ INSERT INTO `por_imagenes` (`pro_codigo`, `img`) VALUES
 (28, '628e4807ff0867733a13876833b0c10f.png'),
 (28, '7165b73fdde729eaa47d2074dbb35118.png'),
 (28, '426bf70d4e92eb4c98f1c0aa53fe1d8f.png'),
-(28, '3095480386e31e2483ecbf63befe7961.png');
+(28, '3095480386e31e2483ecbf63befe7961.png'),
+(32, '99cf43ba41f57d632e772c959ee433ab.png');
 
 -- --------------------------------------------------------
 
@@ -552,7 +553,8 @@ INSERT INTO `producto` (`pro_codigo`, `pro_nombre`, `pro_precio`, `pro_cant`, `p
 (28, 'sad', 324, 34, '324', 14, '3dd90c125c50926e1cf3b51ec39712d1.png', 'activo'),
 (29, 'kl', 8797, 897897, '89789', 12, '1e2177f6c87211da60aa42e011fd47a7.png', 'activo'),
 (30, 'yes', 2134312, 214324, '13241234', 17, '39eacb2c4b4e978c8513f08c10b133ed.png', 'activo'),
-(31, 'kjhk', 433, 0, '324', 13, 'ffd4380f0d34ad1dd39519b55f5c4789.png', 'activo');
+(31, 'kjhk', 433, 0, '324', 13, 'ffd4380f0d34ad1dd39519b55f5c4789.png', 'activo'),
+(32, 'dsaf', 21321, 0, 'saad', 13, 'e8226ab3b3017047942c5f372674b264.png', 'activo');
 
 -- --------------------------------------------------------
 
@@ -637,8 +639,8 @@ CREATE TABLE `talla` (
 --
 
 INSERT INTO `talla` (`tal_codigo`, `tal_talla`) VALUES
-(1, 'X'),
 (2, 'M'),
+(1, 'X'),
 (3, 'XXL');
 
 -- --------------------------------------------------------
@@ -670,7 +672,8 @@ INSERT INTO `talla_producto` (`pro_codigo`, `tal_codigo`) VALUES
 (24, 1),
 (30, 1),
 (30, 2),
-(31, 1);
+(31, 1),
+(32, 2);
 
 -- --------------------------------------------------------
 
@@ -767,7 +770,8 @@ ALTER TABLE `categoria`
 -- Indices de la tabla `color`
 --
 ALTER TABLE `color`
-  ADD PRIMARY KEY (`col_codigo`);
+  ADD PRIMARY KEY (`col_codigo`),
+  ADD UNIQUE KEY `col_color` (`col_color`);
 
 --
 -- Indices de la tabla `color_producto`
@@ -844,7 +848,8 @@ ALTER TABLE `rol`
 -- Indices de la tabla `talla`
 --
 ALTER TABLE `talla`
-  ADD PRIMARY KEY (`tal_codigo`);
+  ADD PRIMARY KEY (`tal_codigo`),
+  ADD UNIQUE KEY `tal_talla` (`tal_talla`);
 
 --
 -- Indices de la tabla `talla_producto`
@@ -889,12 +894,12 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `color`
 --
 ALTER TABLE `color`
-  MODIFY `col_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `col_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de la tabla `estructura_noticia`
 --
 ALTER TABLE `estructura_noticia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
@@ -904,7 +909,7 @@ ALTER TABLE `pedidos`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `pro_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `pro_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT de la tabla `talla`
 --

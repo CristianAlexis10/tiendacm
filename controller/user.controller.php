@@ -59,5 +59,15 @@
 
 
 		}
+		function viewAllUser(){
+			if ($_SESSION['USER']['ROL']==1) {
+				require_once("views/include/dashboard/header.php");
+				require_once("views/modules/admin/users/index.php");
+				require_once("views/include/dashboard/footer.php");
+			}else{
+					session_destroy();
+					header("Location:inicio");
+			}
+		}
 	}
 ?>
