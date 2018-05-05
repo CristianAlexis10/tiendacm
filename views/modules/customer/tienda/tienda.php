@@ -44,7 +44,7 @@
                              <h2><?php echo $row['pro_nombre']; ?></h2>
                          </div>
                          <div class="precio-produc">
-                             <h2>$ <?php echo $row['pro_precio']; ?></h2>
+                             <h2>$ <?php echo number_format($row['pro_precio']);; ?></h2>
                          </div>
                          <button type="button" name="button" class="wea " id="<?php echo $row['pro_codigo']?>">añadir al carrito</button>
                      </div>
