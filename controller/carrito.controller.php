@@ -11,6 +11,12 @@
 			$result = $this->master->selectBy("producto",array('pro_codigo',$_SESSION['product_open']));
 			$color = $this->master->selectBy("color",array('col_codigo',$data['color']));
 			$talla = $this->master->selectBy("talla",array('tal_codigo',$data['talla']));
+			foreach ($_SESSION['cart_item'] as $item) {
+				if ($item['producto']==$result['pro_nombre'] && $item['color']==$color['col_color'] && $item['talla']==$talla['tal_talla'] ) {
+					echo json_encode("Ya registraste este producto.");
+					return;
+				}
+			}
 			$_SESSION['cart_item'][]=array("producto"=>$result['pro_nombre'],"cantidad"=>$data['cantidad'],"precio"=>($result['pro_precio']*$data['cantidad']),"color"=>$color['col_color'],"talla"=>$talla['tal_talla'],"image"=>$result['pro_imagen']);
 			echo json_encode(true);
 
