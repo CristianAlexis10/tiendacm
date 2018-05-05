@@ -13,7 +13,7 @@ function datosEnvio(){
 				$('#wrapCart').toggle();
 				$('#fondoModalCart').toggle();
 			}else{
-				alert("Selecciona  al menos un producto");
+				alerta("Selecciona  al menos un producto");
 			}
 		},
 		error:function(result){
@@ -39,7 +39,8 @@ $('#login-pass').focus(function(){
 	     }else{
 	     	$(".message").remove();
 		// $("#login-email").after("<div class='message'>Correo no valido</div>");
-		$(".caja_contra").after("<div class='message'>Correo no valido</div>");
+		// $(".caja_contra").after("<div class='message'>Correo no valido</div>");
+		alerta("Correo no valido");
 		$('#iniciar_se').attr('disabled',true);
 	     }
 
@@ -68,12 +69,7 @@ $("#formulario-login").submit(function(e) {
                   }else if(result=='customer'){
                       location.href = 'cliente';
                   }else{
-                 	 // $('#login-pass').after('<div class="message">contraseña incorrecta</div>');
-                 	 $('.caja_contra').after('<div class="message">contraseña incorrecta</div>');
-                  setTimeout(function(){
-                                $('div.message').remove();
-                              }, 3000);
-									// alert('Error en el usuario o contraseña');
+                 			alerta("contraseña incorrecta");
                   }
                },
                error: function(result){
@@ -219,10 +215,12 @@ $("#frmNew").submit(function(e) {
                success: function(result){
                   console.log(result);
 									if (result=="Registardo con exito") {
-										$('#5').after('<div class="message">Registardo con exito</div>');
+										// $('#5').after('<div class="message">Registardo con exito</div>');
+										alerta("Registardo con exito");
 										$("#frmNew")[0].reset();
 									}else{
-										$('#5').after('<div class="message">'+result+'</div>');
+										// $('#5').after('<div class="message">'+result+'</div>');
+										alerta(result);
 									}
                   setTimeout(function(){
                                 $('div.message').remove();
@@ -303,13 +301,13 @@ $("#datosPersonales").submit(function(e){
 				if (result==true) {
 						location.reload();
 				}else{
-					alert(result);
+					alerta(result);
 				}
 			},
 			error:function(result){console.log(result);}
 		});
 	}else{
-		alert("Por favor completar todos los campos.");
+		alerta("Por favor completar todos los campos.");
 	}
 });
 
@@ -321,3 +319,16 @@ $("#opneModalPedido").click(function() {
 $("#closePedido").click(function() {
 	$(".wrapModalPedido").css("display","none");
 })
+function cerrarAlerta() {
+  $(".wrapAlert").css("transform","translateX(-100%)");
+}
+function alerta(msn){
+  $("body").append('<div class="wrapAlert" style="width: 350px;height: 150px;  position: fixed;  left: 0px;bottom: 50px;background: #fff;transform: translateX(-100%);transition: .3s;display: grid;grid-template-rows: 25px 125px;box-shadow: 0px 0px 20px -8px black;  padding: 10px;"><button class="alert" style="  width: 25px;  margin-left: 325px;  border: none;  cursor: pointer;  background: #fff;  outline: none;  font-weight: bold;" onclick="cerrarAlerta()">X</button></div>');
+  $("p").remove();
+  $("<p>"+ msn +"</p>").insertAfter(".alert");
+  $(".wrapAlert").css("transform","translateX(0px)");
+  setTimeout(function() {
+    $(".wrapAlert").css("transform","translateX(-100%)");
+    $("p").remove();
+  },2000);
+}
