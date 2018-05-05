@@ -1,3 +1,6 @@
+.wrapAlert{
+  z-index: 1000;
+}
 /*estilos de la dashboard*/
 .wrap--contenido{
   min-width: 100%;
