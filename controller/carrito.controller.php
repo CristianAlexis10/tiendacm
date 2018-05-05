@@ -81,5 +81,12 @@
 				echo json_encode(0);
 			}
 		}
+		function viewAllOrder(){
+			if (isset($_SESSION['USER']['ROL']) && $_SESSION['USER']['ROL']==1) {
+		     	require_once("views/modules/admin/tienda/index.php");
+			 }else{
+				 header("Location:inicio");
+			 }
+		}
 	}
 ?>
