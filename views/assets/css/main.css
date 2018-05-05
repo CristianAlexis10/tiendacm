@@ -112,17 +112,55 @@
   color: #ffffff;
 }
 /*slider / primera seccion*/
-.slider{
+/* .slider{
   z-index: 1;
   position: relative;
-  background-image: url("../img/fondotienda.jpg");
+  background-image: url("../img/slider/fondoBlog.jpg");
+  height: 70vh;
+  width: 100%;
+  background-size: cover;
+} */
+.sliderProfile{
+  z-index: 1;
+  position: relative;
+  background-image: url("../img/slider/fondoBlog.jpg");
   height: 35vh;
   width: 100%;
   background-size: cover;
 }
-.slider .wrap--text{
+.sliderBlog{
+  z-index: 1;
+  position: relative;
+  background-image: url("../img/slider/fondoBlog.jpg");
+  height: 70vh;
+  width: 100%;
+  background-size: cover;
+}
+.sliderTienda{
+  z-index: 1;
+  position: relative;
+  background-image: url("../img/slider/fondoTienda.jpg");
+  height: 70vh;
+  width: 100%;
+  background-size: cover;
+}
+.sliderVideo{
+  z-index: 1;
+  position: relative;
+  background-image: url("../img/slider/fondoVideos.jpg");
+  height: 70vh;
+  width: 100%;
+  background-size: cover;
+}
+.sliderProfile .wrap--text{
   position: absolute;
   bottom: 0px;
+  left: 50px;
+  min-width:600px;
+}
+.sliderBlog .wrap--text, .sliderTienda .wrap--text, .sliderVideo .wrap--text{
+  position: absolute;
+  bottom: 70px;
   left: 50px;
   min-width:600px;
 }

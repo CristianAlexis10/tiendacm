@@ -1,4 +1,4 @@
-<div class="slider">
+<div class="sliderVideo">
   <div class="wrap--text">
     <h2>VIDEOS</h2>
     <h3>Mira los ultimos videos con Catalina Molano</h3>
