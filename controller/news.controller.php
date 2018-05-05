@@ -119,5 +119,19 @@ Class NewsController{
         }else{echo json_encode("Por favor inserta el titulo de la noticia");}
       }else{echo json_encode("Por favor seleciona una  imagen");  }
     }
+    function viewAll(){
+      if ($_SESSION['USER']['ROL']==1) {
+        require_once("views/include/dashboard/header.php");
+        require_once("views/modules/admin/news/detail.php");
+        require_once("views/include/dashboard/footer.php");
+      }elseif($_SESSION['USER']['ROL']==2) {
+        require_once("views/include/dashboard/header.php");
+        require_once("views/modules/admin/news/detail.php");
+        require_once("views/include/dashboard/footer.php");
+      }else{
+          session_destroy();
+          header("Location:inicio");
+      }
+    }
   }
 ?>

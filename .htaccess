@@ -98,4 +98,4 @@ RewriteRule ^guardar-noticia$ index.php?c=news&a=save
 RewriteRule ^eliminar-noticia$ index.php?c=news&a=delete
 RewriteRule ^ver-datos-noticia$ index.php?c=news&a=readNew
 RewriteRule ^editar-noticia$ index.php?c=news&a=update
-RewriteRule ^ver-noticia-$ index.php?c=news&a=view
+RewriteRule ^ver-noticia-(\w+)$ index.php?c=news&a=viewAll&data=$1

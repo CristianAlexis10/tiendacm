@@ -13,7 +13,7 @@
           </div>
           <div class="newsImg">
             <div class="wrapImg">
-              <img src="views/assets/img/news/<?php echo $row['not_poster']?>" alt="">
+              <a href="ver-noticia-<?php echo $row['not_codigo']?>"><img src="views/assets/img/news/<?php echo $row['not_poster']?>" alt=""></a>
             </div>
           </div>
           <div class="newsDesc">
