@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-05-2018 a las 05:25:35
+-- Tiempo de generación: 05-05-2018 a las 05:55:09
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -261,7 +261,7 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`cat_codigo`, `cat_nombre`, `cat_estado`, `cat_img`) VALUES
-(12, 'Nada1', 1, 'b862b02a065dc2102232cbd97327854c.png'),
+(12, 'Nada1', 1, '00c907a4b190b8b6f37003f823d5be16.png'),
 (13, 'Nada2', 1, '868da88063a663794044c9f2c58770eb.png'),
 (14, 'Nada3', 1, '4d3a94a0bd7fea363d7d4565cc9e29d9.png'),
 (16, 'Nada4', 1, 'de86fb1f418cd9e8c13a9491eb09febf.png'),
@@ -359,6 +359,16 @@ CREATE TABLE `estructura_noticia` (
   `parrafo2` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `estructura_noticia`
+--
+
+INSERT INTO `estructura_noticia` (`id`, `tipo`, `orden`, `not_codigo`, `title`, `img`, `parrafo1`, `parrafo2`) VALUES
+(13, 'titulo', 1, 'ifUXeeJZzznn0DibMes3', 'hola', '', '', ''),
+(14, 'parrafo', 2, 'ifUXeeJZzznn0DibMes3', '', '', 'Ã±oiuygh', ''),
+(15, 'parrafo2', 3, 'ifUXeeJZzznn0DibMes3', '', '', 'ppÃ±oiuygfghjklÃ±ouigj', 'rfghjklÃ±{'),
+(16, 'img', 4, 'ifUXeeJZzznn0DibMes3', '', '09902fb876a52d9bf4460bb83cd18098.jpg', '', '');
+
 -- --------------------------------------------------------
 
 --
@@ -398,8 +408,7 @@ CREATE TABLE `noticia` (
 --
 
 INSERT INTO `noticia` (`not_codigo`, `usu_id`, `not_titulo`, `not_preview`, `not_poster`, `art_fecha`) VALUES
-('97QVXCIU2RiC5c19lsR6', 17, 'asd', 'asd', '7d4b4784a7908b9940be2dc4c322d314.png', '2018-05-05'),
-('GXTFizF7hQB66RWrKfnv', 17, 'holaa', 'SAD', '00c907a4b190b8b6f37003f823d5be16.png', '2018-05-05');
+('ifUXeeJZzznn0DibMes3', 17, 'uno', 'esta', '558d8c3036c1091f4ac31c8fa8e08fa0.png', '2018-05-05');
 
 -- --------------------------------------------------------
 
@@ -735,7 +744,7 @@ CREATE TABLE `video` (
 --
 
 INSERT INTO `video` (`id_video`, `nombre`, `url`, `usu_codigo`) VALUES
-(2, '', 'f47a57fbb554b911d2aee7c55d30e00a.mp4', 17);
+(4, 'lkj', 'fca20a3b61d26489e4c58a9668b265bd.mp4', 17);
 
 --
 -- Índices para tablas volcadas
@@ -885,7 +894,7 @@ ALTER TABLE `color`
 -- AUTO_INCREMENT de la tabla `estructura_noticia`
 --
 ALTER TABLE `estructura_noticia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
@@ -910,7 +919,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `video`
 --
 ALTER TABLE `video`
-  MODIFY `id_video` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_video` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Restricciones para tablas volcadas
 --
