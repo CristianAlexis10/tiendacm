@@ -81,7 +81,7 @@
          <div class="wrap-modalDetalle">
              <div class="modalDetalle">
                  <div class="wrap-image">
-                     <div class="image">
+                     <div class="image imagesPro">
                        <img class="mySlides" src="" id="imgModal" alt="">
                      </div>
                      <div class="btnImg">

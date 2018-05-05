@@ -1,6 +1,6 @@
 <section class="contenido" id="cat-conte">
 <div class="wrapStructure">
-  <div id="NOTICIA"></div>
+  <div id="NOTICIA" class="newStructure"></div>
   <div class="opciones-de-agregar">
     <input class="newContent" type="button" id="crearTitulo" value="Crear Titulo">
     <input class="newContent" type="button" id="crearParrafo" value="Crear Parrafo">

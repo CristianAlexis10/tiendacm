@@ -72,8 +72,8 @@
          <div class="wrap-modalDetalle">
              <div class="modalDetalle">
                <div class="wrap-image">
-                   <div class="image">
-                     <img class="mySlides" src="" id="imgModal" alt="">
+                   <div class="image imagesPro">
+                     <img class="mySlides primerSlider" src="" id="imgModal" alt="">
                    </div>
                    <div class="btnImg">
                     <button class="left" onclick="plusDivs(-1)"><i class="fas fa-angle-left"></i></button>

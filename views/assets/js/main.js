@@ -150,14 +150,27 @@ $('.wea').click(function() {
                                             // console.log(result);
                                         }
                                     });
+                                    $.ajax({
+                                        url: "selectImagenes",
+                                        type: "POST",
+                                        dataType:'json',
+                                        data: ({data:cod}),
+                                        success: function(result){
+                                            for (var i = 0; i < result.length; i++) {
+																							$(".imagesPro").append("<img class='mySlides' src='views/assets/img/products/"+result[i][1]+"'>");
+                                            }
+																						$(".mySlides").hide();
+																						$(".primerSlider").show();
+                                            console.log(result);
+                                        }
+                                    });
                   }
                ,
                error: function(result){
                   console.log(result);
                }
             });
-})
-
+});
 
 $('.fondoModal').click(function() {
      $('#selectModal').empty();
