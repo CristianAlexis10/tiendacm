@@ -51,5 +51,10 @@ Class TiendaController{
       header("Location:inicio");
     }
   }
+
+  function readImg(){
+    $imgs = $this->master->selectAllBy("por_imagenes",array("pro_codigo",$_POST['data']));
+    echo json_encode($imgs);
+  }
 }
 ?>

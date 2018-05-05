@@ -10,6 +10,7 @@ RewriteRule ^dashboard$ index.php?c=admin&a=dashboard
 RewriteRule ^catalogo$ index.php?c=tienda
 RewriteRule ^ver-(\w+)$ index.php?c=tienda&categoria=$1
 RewriteRule ^catalogo-pag-(\w+)$ index.php?c=tienda&pagina=$1
+RewriteRule ^selectImagenes$ index.php?c=tienda&a=readImg
 
 RewriteRule ^catalogo-(\w+)-(\w+)$ index.php?c=tienda&categoria=$1&pagina=$2
 
