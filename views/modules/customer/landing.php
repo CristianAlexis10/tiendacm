@@ -6,8 +6,6 @@ $pro = $this->master->selectAllLi6('producto');
 <section class="home">
   <img src="views/assets/img/IMG_2764.JPG">
   <div class="wrap-frase">
-    <!-- <span>siempre en <span class="fra1"> instagram </span> con</span>
-    <span class="font">catalina molano</span> -->
     <span>siempre a la <span class="fra1"> moda </span> con</span>
     <span class="font">catalina molano</span>
   </div>
@@ -35,7 +33,7 @@ $pro = $this->master->selectAllLi6('producto');
 <section class="productos-recomendados">
   <h2>productos sugeridos</h2>
 </section>
-<div class="wrap-items">
+<div class="contenido-productos">
     <?php
     $i = 0;
     foreach ($pro as $row) {?>
@@ -50,7 +48,7 @@ $pro = $this->master->selectAllLi6('producto');
                 <div class="precio-produc">
                     <h2>$ <?php echo $row['pro_precio']; ?></h2>
                 </div>
-                <button type="button" name="button" class="wea " id="<?php echo $row['pro_codigo']?>">añadir al carrito</button>
+                <!-- <button type="button" name="button" class="añadirCarro">añadir al carrito</button> -->
             </div>
         </div>
 
@@ -77,11 +75,13 @@ $pro = $this->master->selectAllLi6('producto');
                   <span id="preModal">$ </span>
               </div>
               <div class="talla">
+                <label for="">color: </label>
                   <select class="" name="" id="selectModal">
                       <option value="">selecionar talla</option>
                   </select>
               </div>
               <div class="color">
+                <label for="">talla: </label>
                   <select class="" name="" id="selectTallasModal">
                       <option value="">seleccionar color</option>
                   </select>
@@ -90,7 +90,7 @@ $pro = $this->master->selectAllLi6('producto');
                 <label for="">cantidad: </label>
                 <input type="number" name="" value="" id="cant">
               </div>
-              <button type="button" name="button" class="addItemShop ">añadir al carrito</button>
+               <button type="button" name="button" class="abrirEsaWea">añadir al carrito</button>
           </div>
       </div>
   </div>

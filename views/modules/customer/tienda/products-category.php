@@ -1,4 +1,5 @@
-<div class="sliderTienda">
+<div class="slider">
+  <img src="views/assets/img/slider/fondoTienda.jpg" alt="">
   <div class="wrap--text">
     <h2>TIENDA</h2>
     <h3>Cambia tu estilo con Catalina Molano</h3>
