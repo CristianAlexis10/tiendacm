@@ -10,7 +10,10 @@
       // $_SESSION['cart_item'][]=array("producto"=>"nada","cantidad"=>111,"precio"=>121,"color"=>"azul","talla"=>"X");
       $indice =0;
       if (isset($_SESSION['cart_item'])) {
-      foreach ($_SESSION['cart_item'] as $item) {?>
+        $totalPedido =0 ;
+      foreach ($_SESSION['cart_item'] as $item) {
+        $totalPedido = $totalPedido+$item['precio'];
+        ?>
             <div class="item-carrito" id="<?php echo $indice; ?>">
               <div class="item-cart-img">
                 <img src="views/assets/img/products/<?php echo $item['image'] ?>" alt="">
@@ -22,9 +25,15 @@
                 <div class="item-cart" id="cantidad">
                   <h2><span>cantidad:</span><?php echo $item['cantidad']; ?></h2>
                 </div>
+                <?php if($item['cantidad']>=10){?>
+                  <div class="item-cart" id="valor">
+                    <h2><span>precio(Por mayor):</span><?php echo number_format($item['precio']); ?></h2>
+                  </div>
+                <?php }else{?>
                 <div class="item-cart" id="valor">
                   <h2><span>precio:</span><?php echo number_format($item['precio']); ?></h2>
                 </div>
+                <?php }?>
               </div>
               <div class="info-item-cart">
                 <div class="item-cart" id="color">
@@ -47,7 +56,7 @@
     ?>
   </div>
   <div class="btn-comprar">
-    <button type="button" name="button" id="btnCartCompra" onclick="datosEnvio()">Hacer compra</button>
+    <button type="button" name="button" id="btnCartCompra" onclick="datosEnvio()">Hacer compra (<?php echo number_format($totalPedido); ?>)</button>
   </div>
 </div>
 <div class="fondoModalCart" id="fondoModalCart"></div>

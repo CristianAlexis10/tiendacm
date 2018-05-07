@@ -12,7 +12,12 @@
 			$color = $this->master->selectBy("color",array('col_codigo',$data['color']));
 			$talla = $this->master->selectBy("talla",array('tal_codigo',$data['talla']));
 			if (!isset($_SESSION['cart_item'])) {
-				$_SESSION['cart_item'][]=array("producto"=>$result['pro_nombre'],"cantidad"=>$data['cantidad'],"precio"=>($result['pro_precio']*$data['cantidad']),"color"=>$color['col_color'],"talla"=>$talla['tal_talla'],"image"=>$result['pro_imagen']);
+				if ($data['cantidad']>=10) {
+					$precio = 9999;
+				}else{
+					$precio = ($result['pro_precio']*$data['cantidad']);
+				}
+				$_SESSION['cart_item'][]=array("producto"=>$result['pro_nombre'],"cantidad"=>$data['cantidad'],"precio"=>$precio,"color"=>$color['col_color'],"talla"=>$talla['tal_talla'],"image"=>$result['pro_imagen']);
 				echo json_encode(true);
 			}else{
 				foreach ($_SESSION['cart_item'] as $item) {
@@ -21,7 +26,12 @@
 						return;
 					}
 				}
-				$_SESSION['cart_item'][]=array("producto"=>$result['pro_nombre'],"cantidad"=>$data['cantidad'],"precio"=>($result['pro_precio']*$data['cantidad']),"color"=>$color['col_color'],"talla"=>$talla['tal_talla'],"image"=>$result['pro_imagen']);
+				if ($data['cantidad']>=10) {
+					$precio = 9999;
+				}else{
+					$precio = ($result['pro_precio']*$data['cantidad']);
+				}
+				$_SESSION['cart_item'][]=array("producto"=>$result['pro_nombre'],"cantidad"=>$data['cantidad'],"precio"=>$precio,"color"=>$color['col_color'],"talla"=>$talla['tal_talla'],"image"=>$result['pro_imagen']);
 				echo json_encode(true);
 			}
 
@@ -46,7 +56,11 @@
 						if ($this->doizer->onlyNumbers($cel)==true) {
 							$result = $this->master->procedure->NRP("modificarDatosContacto",array($dir,$ciudad,$cel,$_SESSION['USER']['CODE']));
 							if ($result==true) {
-									$result= $this->master->insert("pedidos",array($_SESSION['USER']['CODE'],$ciudad,$dir,date("Y-m-d"),$fecha,$token,"Bodega"),array("ped_codigo"));
+								$totalPedido =0 ;
+								foreach ($_SESSION['cart_item'] as $row) {
+										$totalPedido = $totalPedido+$row['precio'];
+								}
+									$result= $this->master->insert("pedidos",array($_SESSION['USER']['CODE'],$ciudad,$dir,date("Y-m-d"),$fecha,$token,"Bodega",$totalPedido),array("ped_codigo"));
 									if ($result==true) {
 										$orderCode = $this->master->selectBy("pedidos",array("token",$token))['ped_codigo'];
 										foreach ($_SESSION['cart_item'] as $row) {

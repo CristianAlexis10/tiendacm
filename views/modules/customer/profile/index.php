@@ -22,6 +22,7 @@
                     <th>Estado</th>
                     <th>Fecha De entrega</th>
                     <th>Dirección</th>
+                    <th>Total</th>
                     <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
@@ -34,6 +35,7 @@
                     <td><?php echo $row['ped_estado']; ?></td>
                     <td><?php echo $row['ped_fecha_entrega']; ?></td>
                     <td><?php echo $row['ped_direccion']; ?></td>
+                    <td><?php echo number_format($row['ped_total']); ?></td>
                     <td><?php echo $row['ped_estado']; ?></td>
                     <td>
                       <a href="#"><i class="far fa-eye" id="opneModalPedido"></i></a>

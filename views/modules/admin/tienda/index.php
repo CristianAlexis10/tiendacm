@@ -41,6 +41,7 @@ if (isset($_SESSION['messagge'])) {
                 <th>Cliente</th>
                 <th>Fecha Realizacion</th>
                 <th>Direccion</th>
+                <th>Total</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -57,6 +58,7 @@ if (isset($_SESSION['messagge'])) {
                 <td><?php echo $row['ped_fecha_realizacion']; ?></td>
                 <!-- <td><?php //echo $row['pro_cant']; ?></td> -->
                 <td><?php echo $dataMun['mun_nombre'].",".$row['ped_direccion']; ?></td>
+                <td><?php echo number_format($row['ped_total']); ?></td>
                 <td>
                     <a href="ver-pedido-<?php echo $row['token']; ?>"><i class="far fa-eye"></i></a>
 
@@ -104,7 +106,7 @@ $("#ter").click(function(){
   $("input[type='search']").val("Terminado");
   $("input[type='search']").keyup();
 });
-$("#En Proceso").click(function(){
+$("#pro").click(function(){
   $("input[type='search']").val("En Proceso");
   $("input[type='search']").keyup();
 });

@@ -22,6 +22,9 @@
     <div class="infoDetail">
       <span>Estado: <?php echo $data[0]['ped_estado'];?></span>
     </div>
+    <div class="infoDetail">
+      <span>Total a Pagar: <td><?php echo number_format($data[0]['ped_total']); ?></td></span>
+    </div>
     <div class="">
     <table class="datatable">
       <thead>

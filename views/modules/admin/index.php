@@ -1,5 +1,6 @@
 <?php
   $num_total_registros = $this->master->selectCount('pedidos','ped_estado','Bodega')[0];
+  $num_total_registros = $this->master->selectCount('pedidos','ped_estado','En Proceso')[0]+$num_total_registros;
   $num_total_usuarios = $this->master->selectAllCount('usuario')[0];
   $num_total_pro = $this->master->selectAllCount('producto')[0];
 ?>
