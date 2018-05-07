@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-05-2018 a las 20:38:48
+-- Tiempo de generación: 07-05-2018 a las 22:28:06
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -190,6 +190,11 @@ BEGIN
 UPDATE pedidos SET pedidos.ped_estado = est WHERE pedidos.ped_codigo = id;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarProducto` (IN `id` INT, IN `nombre` VARCHAR(70), IN `precio` BIGINT, IN `des` LONGTEXT, IN `est` VARCHAR(10), IN `cate` INT)  NO SQL
+BEGIN 
+UPDATE producto  SET  producto.pro_nombre = nombre , producto.pro_precio = precio, producto.pro_des = des , producto.cat_codigo = cate,producto.pro_estado = est WHERE producto.pro_codigo = id;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarVideo` (IN `id` INT, IN `nombre` VARCHAR(50))  NO SQL
 BEGIN 
 UPDATE video SET video.nombre = nombre WHERE video.id_video = id;
@@ -346,7 +351,9 @@ INSERT INTO `color_producto` (`col_codigo`, `por_codigo`) VALUES
 (1, 30),
 (2, 30),
 (1, 31),
-(1, 32);
+(1, 32),
+(8, 34),
+(8, 35);
 
 -- --------------------------------------------------------
 
@@ -523,7 +530,10 @@ INSERT INTO `producto` (`pro_codigo`, `pro_nombre`, `pro_precio`, `pro_cant`, `p
 (29, 'kl', 8797, 897897, '89789', 12, '1e2177f6c87211da60aa42e011fd47a7.png', 'activo'),
 (30, 'yes', 2134312, 214324, '13241234', 17, '39eacb2c4b4e978c8513f08c10b133ed.png', 'activo'),
 (31, 'kjhk', 433, 0, '324', 13, 'ffd4380f0d34ad1dd39519b55f5c4789.png', 'activo'),
-(32, 'dsaf', 21321, 0, 'saad', 13, 'e8226ab3b3017047942c5f372674b264.png', 'activo');
+(32, 'dsaf', 21321, 0, 'saad', 13, 'e8226ab3b3017047942c5f372674b264.png', 'activo'),
+(33, 'wqeqe', 123, 0, 'activo', 13, '8a3dc2279692bf2982bfdcb18353ee65.png', ''),
+(34, 'dompi', 213213, 123, '213', 14, 'ab59b60d7b0eb02fe9b344f5f50a07d6.png', 'activo'),
+(35, 's', 13, 0, 'sdfsdf', 12, 'e95bc036253ccaa5a8d7ef1eaf5b3fc6.png', 'activo');
 
 -- --------------------------------------------------------
 
@@ -616,7 +626,10 @@ INSERT INTO `talla_producto` (`pro_codigo`, `tal_codigo`) VALUES
 (30, 1),
 (30, 2),
 (31, 1),
-(32, 2);
+(32, 2),
+(34, 1),
+(34, 3),
+(35, 3);
 
 -- --------------------------------------------------------
 
@@ -854,7 +867,7 @@ ALTER TABLE `pedidos`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `pro_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `pro_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `talla`

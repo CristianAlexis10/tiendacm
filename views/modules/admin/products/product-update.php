@@ -47,10 +47,6 @@ $_SESSION['update_pro']=$_GET['data'];
           <label for="">precio: </label>
       		<input type="text" class="dataUpdate input" value="<?php echo $data['pro_precio']?>" required>
       	</div>
-      	<!-- <div class="item">
-          <label for="">cantidad: </label>
-      		<input type="number" class="dataUpdate"  value="<?php //echo $data['pro_cant']?>" required>
-      	</div> -->
       	<div class="item3">
           <label for="">descripción: </label>
       		<input type="text" class="dataUpdate input" value="<?php echo $data['pro_des']?>" required>

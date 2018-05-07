@@ -84,14 +84,14 @@ $("#frmUpdatePro").submit(function(e){
 	});
 	data.push($("#selectMul").val());
 	data.push($("#selectMul2").val());
+  console.log(data);
 	$.ajax({
 		url:"guardar-modificacion-producto",
 		type:"post",
 		dataType:"json",
 		data:({data : data}),
 		success:function(result) {
-			$("#frmUpdatePro").after("<div class='message'>"+result+"<div>");
-			setTimeout(function(){$("div.message").remove()},3000)
+			alerta(result);
       console.log(result);
 		},
 		error:function(result){
@@ -119,3 +119,16 @@ $(".deleteImgProduct").click(function(){
       });
   }
 });
+function cerrarAlerta() {
+  $(".wrapAlert").css("transform","translateX(-100%)");
+}
+function alerta(msn){
+  $("body").append('<div class="wrapAlert" style="width: 350px;height: 150px;  position: fixed;  left: 0px;bottom: 50px;background: #fff;transform: translateX(-100%);transition: .3s;display: grid;grid-template-rows: 25px 125px;box-shadow: 0px 0px 20px -8px black;  padding: 10px;"><button class="alert" style="  width: 25px;  margin-left: 325px;  border: none;  cursor: pointer;  background: #fff;  outline: none;  font-weight: bold;" onclick="cerrarAlerta()">X</button></div>');
+  $("p").remove();
+  $("<p>"+ msn +"</p>").insertAfter(".alert");
+  $(".wrapAlert").css("transform","translateX(0px)");
+  setTimeout(function() {
+    $(".wrapAlert").css("transform","translateX(-100%)");
+    $("p").remove();
+  },2000);
+}
