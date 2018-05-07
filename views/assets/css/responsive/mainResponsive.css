@@ -1,0 +1,54 @@
+@media (max-width: 768px) {
+  /* TODO: estilos "slider" 768 */
+  .wrap--text h2{
+    font-size: 70px;
+  }
+  .wrap--text h3{
+    font-size: 18px;
+    text-align: left;
+  }
+  /* ---------------------- */
+  /* TODO: responsive de la tienda 768 */
+  .wrap-items{
+    grid-template-columns: repeat(2,1fr);
+  }
+  .btnImg{
+    grid-column-gap: 222px;
+  }
+  /* ------------------------------ */
+  /* TODO: responsive de los videos 768 */
+  .wrapVideos{
+    grid-template-columns: repeat(1,1fr);
+    width: auto;
+  }
+  .wrapPlayVideo video{
+    width: 650px;
+    margin: 10vh 9vw;
+  }
+  /* ------------------------------ */
+  /* TODO: responsive del blog */
+}
+@media (max-width: 425px) {
+  /* TODO: estilos "slider" 425 */
+  .wrap--text{
+    bottom: 25px;
+    left: 15px;
+  }
+  .wrap--text h2{
+    font-size: 70px;
+  }
+  .wrap--text h3{
+    font-size: 18px;
+    text-align: left;
+  }
+  /* ------------------------------ */
+  /* TODO: estilos tienda 425 */
+  .wrap-items{
+    grid-template-columns: repeat(1,1fr);
+  }
+  .modalDetalle{
+    grid-template-rows: repeat(2,1fr);
+    grid-template-columns: repeat(1,1fr);
+  }
+  /* ------------------------------ */
+}

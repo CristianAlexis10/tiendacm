@@ -24,10 +24,5 @@
       <li id="modal-login" class="itemMenu">Iniciar Sesion / Registrarse</li>
     </ul>
   </nav>
-    <div class="menu--mobile">
-      <div class="icon">
-          <i class="fa fa-bars" id="menu-res"></i>
-      </div>
-    </div>
   </div>
 </header>

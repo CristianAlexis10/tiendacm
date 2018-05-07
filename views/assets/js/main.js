@@ -78,35 +78,24 @@ $("#formulario-login").submit(function(e) {
             });
 });
 // animaciones login
-var registro = document.getElementById('registro');
-var modal = document.getElementById('modal-login-registro');
-var btn_registro = document.getElementById('btn_registro');
-var btn_login = document.getElementById('btn_login');
 
-btn_registro.onclick = function() {
-	registro.classList.add('mover_registro');
-	modal.classList.add('agrandar_modal');
-}
 $('#modal-login').click(function(){
-	$('#modal-login-registro').toggle();
-	$('#fondo').toggle();
+	$('#modal-login-registro').css("display","grid");
+	$("#login").css("display","grid");
+	$("#registro").css("display","none");
 });
 $('#cerrar_modal').click(function(){
 	$('#modal-login-registro').toggle();
 	$('#fondo').toggle();
-	registro.classList.remove('mover_registro');
-	modal.classList.remove('agrandar_modal');
 });
-$('#fondo').click(function(){
-	$('#modal-login-registro').toggle();
-	$('#fondo').toggle();
-	registro.classList.remove('mover_registro');
-	modal.classList.remove('agrandar_modal');
+$('#btn_registro').click(function(){
+	$("#login").css("display","none");
+	$("#registro").css("display","grid");
 });
-$('.abrirEsaWea').click(function(){
-	$('#modal-login-registro').toggle();
-	$('#fondo').toggle();
-});
+$("#btn_login").click(function() {
+	$("#login").css("display","grid");
+	$("#registro").css("display","none");
+})
 //modales TIENDA
 $('.wea').click(function() {
 	$('.fondoModal').toggle();
@@ -345,3 +334,4 @@ function alerta(msn){
     $("p").remove();
   },2000);
 }
+// responsive menu

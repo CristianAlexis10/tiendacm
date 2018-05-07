@@ -1,0 +1,62 @@
+@media (max-width: 768px) {
+  .contenido-categorias{
+    grid-template-columns: repeat(2,1fr);
+  }
+  .contenido-productos{
+    grid-template-columns: repeat(2,1fr);
+  }
+  .img{
+    left: 50px;
+  }
+  .topMenu{
+    width: 70%;
+    grid-template-columns: repeat(4,1fr);
+    margin-right: 10px;
+  }
+  .itemMenu, .itemMenu h2, .itemMenu a{
+    text-align: center;
+  }
+  .modalDetalle{
+    width: 80%;
+    margin: 15vh 10%;
+  }
+  .wrap-content-form-registro{
+    margin-top: 0px;
+  }
+}
+@media (max-width: 425px) {
+  .img{
+    display: none;
+  }
+  .topMenu{
+    display: none;
+  }
+  .home{
+    min-height: 55vh;
+  }
+  .wrap-frase{
+    top: 150px;
+    right: 25px;
+    font-size: 15px;
+  }
+  .fra1{
+    font-size: 30px;
+  }
+  .font{
+    font-size: 30px;
+  }
+  .contenido-categorias{
+    grid-template-columns: repeat(1,1fr);
+  }
+  .contenido-productos{
+    grid-template-columns: repeat(1,1fr);
+  }
+}
+@media (max-width:320px) {
+  .wrapTopMenu{
+    height: 40px;
+  }
+  .home{
+    min-height: 42vh;
+  }
+}

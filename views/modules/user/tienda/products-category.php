@@ -1,4 +1,5 @@
-<div class="sliderTienda">
+<div class="slider">
+  <img src="views/assets/img/slider/fondoTienda.jpg" alt="">
   <div class="wrap--text">
     <h2>TIENDA</h2>
     <h3>Cambia tu estilo con Catalina Molano</h3>
@@ -81,32 +82,34 @@
                    </div>
                  </div>
                  <div class="wrap-detalle">
-                     <div class="nombre">
+                     <div class="wrapIDetail">
                          <h2 id="nomModal"></h2>
                      </div>
-                     <div class="descripcion">
+                     <div class="wrapIDetail">
                          <span id="desModal"></span>
                      </div>
-                     <div class="precio">
+                     <div class="wrapIDetail">
                          <span id="preModal">$ </span>
                      </div>
-                     <div class="talla">
+                     <div class="wrapIDetail">
                        <span>color: </span>
                          <select class="" name="" id="selectModal">
                              <option value="">selecionar talla</option>
                          </select>
                      </div>
-                     <div class="color">
+                     <div class="wrapIDetail">
                        <span>talla: </span>
                          <select class="" name="" id="selectTallasModal">
                              <option value="">seleccionar color</option>
                          </select>
                      </div>
-                     <div class="cantidad">
+                     <div class="wrapIDetail">
                        <label for="">Cantidad: </label>
                        <input type="number" name="" value="">
                      </div>
-                     <button type="button" name="button" class="abrirEsaWea">añadir al carrito</button>
+                     <div class="wrapIDetail">
+                       <button type="button" name="button" class="abrirEsaWea">añadir al carrito</button>
+                     </div>
                  </div>
              </div>
          </div>
