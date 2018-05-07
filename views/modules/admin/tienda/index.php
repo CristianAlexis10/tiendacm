@@ -23,8 +23,9 @@
 <div class="contenidoProduct">
   <div class="titleProductTable">
     <h1>Gestion de Pedidos</h1>
-    <h4><i class="fas fa-plus-circle"></i>En proceso</h4>
-    <h4><i class="fas fa-plus-circle"></i> Terminados</h4>
+    <h4 id="bodega"><i class="fas fa-plus-circle" ></i>En Bodega</h4>
+    <h4 id="pro"><i class="fas fa-plus-circle" ></i>En proceso</h4>
+    <h4 id="ter"><i class="fas fa-plus-circle" ></i> Terminados</h4>
   </div>
 <?php
 if (isset($_SESSION['messagge'])) {
@@ -57,11 +58,11 @@ if (isset($_SESSION['messagge'])) {
                 <!-- <td><?php //echo $row['pro_cant']; ?></td> -->
                 <td><?php echo $dataMun['mun_nombre'].",".$row['ped_direccion']; ?></td>
                 <td>
-                    <a href="moficar-producto-<?php echo $row['pro_codigo']; ?>"><i class="fas fa-sync"></i></a>
+                    <a href="ver-pedido-<?php echo $row['token']; ?>">ver</a>
 
-                        <a href="#" onclick="return confirmDelete(
+                        <a href="#" onclick="return confirmDeletePedido(
                             <?php
-                                echo $row['pro_codigo'];
+                                echo $row['ped_codigo'];
                             ?>
                            )"><i class="fas fa-trash-alt"></i></a>
                 </td>
@@ -95,6 +96,18 @@ if (isset($_SESSION['messagge'])) {
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
 <script src="views/assets/js/croppie.js"></script>
 <script>
+$("#bodega").click(function(){
+  $("input[type='search']").val("En Bodega");
+  $("input[type='search']").keyup();
+});
+$("#ter").click(function(){
+  $("input[type='search']").val("Terminado");
+  $("input[type='search']").keyup();
+});
+$("#En Proceso").click(function(){
+  $("input[type='search']").val("En Proceso");
+  $("input[type='search']").keyup();
+});
 if (document.getElementById('selectMul')) {
    $('#selectMul').multipleSelect({
          placeholder: "Tallas"
