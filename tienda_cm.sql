@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-05-2018 a las 03:15:32
+-- Tiempo de generación: 07-05-2018 a las 17:33:28
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -440,15 +440,17 @@ CREATE TABLE `pedidos` (
   `ped_fecha_realizacion` date NOT NULL,
   `ped_fecha_entrega` date NOT NULL,
   `token` varchar(20) NOT NULL,
-  `ped_estado` varchar(20) NOT NULL
+  `ped_estado` varchar(20) NOT NULL,
+  `ped_total` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `pedidos`
 --
 
-INSERT INTO `pedidos` (`ped_codigo`, `usu_id`, `mun_codigo`, `ped_direccion`, `ped_fecha_realizacion`, `ped_fecha_entrega`, `token`, `ped_estado`) VALUES
-(66, 18, 1, 'calle 95 b', '2018-05-07', '2018-05-24', 'bFBvkb9-8lRnLHN', 'Bodega');
+INSERT INTO `pedidos` (`ped_codigo`, `usu_id`, `mun_codigo`, `ped_direccion`, `ped_fecha_realizacion`, `ped_fecha_entrega`, `token`, `ped_estado`, `ped_total`) VALUES
+(66, 18, 1, 'calle 95 b', '2018-05-07', '2018-05-24', 'bFBvkb9-8lRnLHN', 'En Proceso', 1909),
+(67, 18, 1, 'calle 95 b', '2018-05-07', '2018-05-24', 'q2jOzN5-FXTgANa', 'Bodega', 18796);
 
 -- --------------------------------------------------------
 
@@ -533,7 +535,9 @@ CREATE TABLE `producto_pedido` (
 
 INSERT INTO `producto_pedido` (`ped_codigo`, `pro_codigo`, `cantidad`, `col_codigo`, `tal_codigo`) VALUES
 (66, 30, 1, 1, 1),
-(66, 28, 1, 1, 1);
+(66, 28, 1, 1, 1),
+(67, 29, 1, 1, 1),
+(67, 29, 20, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -835,7 +839,7 @@ ALTER TABLE `estructura_noticia`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `ped_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `ped_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
