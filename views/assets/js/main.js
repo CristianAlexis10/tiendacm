@@ -315,7 +315,36 @@ $("#datosPersonales").submit(function(e){
 
 // modal detalle pedido
 
-$("#opneModalPedido").click(function() {
+$(".opneModalPedido").click(function() {
+	$.ajax({
+    url:"ver-pedido-vista",
+    type:"post",
+    dataType:"json",
+    data:({data:this.id}),
+    success:function(result){
+      if (result.length>0) {
+				$(".dataTables_empty").remove();
+            //añadir tds
+            var i = 0;
+            $.each(result,function(){
+              var tds=$("#tabla tr:first td").length;
+              var trs=$("#tabla tr").length;
+              var nuevaFila="<tr class='itemResult'>";
+              nuevaFila+="<td>"+result[i].nombre+"</td>";
+              nuevaFila+="<td>"+result[i].color+"</td>";
+              nuevaFila+="<td>"+result[i].talla+"</td>";
+              nuevaFila+="<td>"+result[i].cant+"</td>";
+              nuevaFila+="</tr>";
+              $("#tabla").append(nuevaFila);
+              i++;
+            });
+
+      }
+      },
+    error:function(result){
+      console.log(result);
+    }
+  });
 	$(".wrapModalPedido").css("display","flex");
 })
 $("#closePedido").click(function() {
@@ -335,3 +364,23 @@ function alerta(msn){
   },2000);
 }
 // responsive menu
+function confirmDeletePedido(id){
+	if (confirm("¿Realmente deseas eliminar este pedido?")) {
+		$.ajax({
+			url:"eliminar-pedido",
+			type:"post",
+			dataType:"json",
+			data:({data:id}),
+			success:function(result){
+				if (result==true) {
+					alerta("eliminado Exitosamente.");
+					setTimeout(function(){location.reload();},2500);
+				}else{
+					alerta(result);
+				}
+			},
+			error:function(result){console.log(result);}
+		});
+
+	}
+}

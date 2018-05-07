@@ -82,7 +82,7 @@ class DoizerController{
 //ARCHIVOS
 	public function ValidateImage($image,$folder){
 	        if (isset($image['file']) && $image['file']['error'] == 0) {
-	            $allowed = array('jpg'=>'image/jpg','png'=>'image/png','gif'=>'image/gif','jpeg'=>'image/jpeg');
+	            $allowed = array('JPG'=>'image/jpg','PNG'=>'image/png','jpg'=>'image/jpg','png'=>'image/png','gif'=>'image/gif','jpeg'=>'image/jpeg');
 	            $filetype=$image['file']['type'];
 	            $filesize=$image['file']['size'];
 	            $extention = pathinfo($image['file']['name']);
@@ -146,7 +146,7 @@ class DoizerController{
 			function validateNoticia($archivo,$path){
 				$archivo =  $_FILES["archivo1"];
 				$folder =$path;
-				$allowed = array('jpg'=>'image/jpg','png'=>'image/png','gif'=>'image/gif','jpeg'=>'image/jpeg');
+				$allowed = array('JPG'=>'image/jpg','PNG'=>'image/png','jpg'=>'image/jpg','png'=>'image/png','gif'=>'image/gif','jpeg'=>'image/jpeg');
 				$filetype=$archivo['type'];
 				$filesize=$archivo['size'];
 				$extention = pathinfo($archivo['name']);
@@ -156,7 +156,7 @@ class DoizerController{
 				$filename=$tmp_name.$extention;
 				$extention=pathinfo($filename,PATHINFO_EXTENSION);
 				if (!array_key_exists($extention,$allowed)) {
-				    echo  json_encode("Error: Seleccione un formato valido(mp4) ");
+				    echo  json_encode("Error: Seleccione un formato valido(jpg,png) ");
 				    return;
 				}
 				$maxsize=60000000;

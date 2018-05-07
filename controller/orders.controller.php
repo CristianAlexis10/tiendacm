@@ -68,6 +68,15 @@ Class OrdersController{
       echo json_encode($this->doizer->knowError($result));
     }
   }
+  function preview(){
+    $data = $this->master->selectBy("pedidos",array("ped_codigo",$_POST['data']));
+       $data = $this->master->procedure->PRByAll("verDetallesPedido",array($data['token']));
+       $result ;
+        foreach ($data as $row) {
+            $result[]= array("nombre"=>$row['pro_nombre'],"color"=>$row['col_color'],"talla"=>$row['tal_talla'],"cant"=>$row['cantidad']);
+       }
+       echo json_encode($result);
+  }
 
 }
 ?>

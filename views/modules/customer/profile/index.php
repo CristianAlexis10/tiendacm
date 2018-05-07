@@ -38,8 +38,11 @@
                     <td><?php echo number_format($row['ped_total']); ?></td>
                     <td><?php echo $row['ped_estado']; ?></td>
                     <td>
-                      <a href="#"><i class="far fa-eye" id="opneModalPedido"></i></a>
-                      <a href="#" onclick="return confirmDelete( <?php echo $row['ped_codigo']; ?> )"><i class="fas fa-trash-alt"></i></a>
+                      <a href="#"><i class="far fa-eye opneModalPedido" id="<?php echo $row['ped_codigo']; ?>"></i></a>
+                      <?php
+                        if ($row['ped_estado']=="Bodega") {?>
+                          <a href="#" onclick="return confirmDeletePedido( <?php echo $row['ped_codigo']; ?> )"><i class="fas fa-trash-alt"></i></a>
+                        <?php } ?>
                     </td>
                 </tr>
               <?php } ?>
@@ -97,30 +100,17 @@
 <div class="wrapModalPedido">
   <div class="modalPedido">
     <div class="">
-      <table class="datatable">
+      <table class="datatable" id="tabla">
         <thead>
             <tr>
-                <th>Codigo</th>
-                <th>Fecha De entrega</th>
-                <th>Dirección</th>
-                <th>Estado</th>
-                <th>Acciones</th>
+                <th>Producto</th>
+                <th>Color</th>
+                <th>Talla</th>
+                <th>Cantidad</th>
             </tr>
         </thead>
         <tbody>
-          <?php $result = $this->master->selectAllBy('pedidos',array('usu_id',$_SESSION['USER']['CODE']));
-           foreach ($result as $row) {?>
-            <tr>
-                <td><?php echo $row['token']; ?></td>
-                <td><?php echo $row['ped_fecha_entrega']; ?></td>
-                <td><?php echo $row['ped_direccion']; ?></td>
-                <td><?php echo $row['ped_estado']; ?></td>
-                <td>
-                  <a href="moficar-producto-<?php echo $row['ped_codigo']; ?>"><i class="far fa-eye"></i></a>
-                  <a href="#" onclick="return confirmDelete( <?php echo $row['ped_codigo']; ?> )"><i class="fas fa-trash-alt"></i></a>
-                </td>
-            </tr>
-          <?php } ?>
+
         </tbody>
       </table>
     </div>

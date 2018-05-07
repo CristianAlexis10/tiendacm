@@ -58,6 +58,7 @@ RewriteRule ^ver-pedidos-hechos$ index.php?c=carrito&a=viewAllOrder
 RewriteRule ^ver-pedido-(\w+)-(\w+)$ index.php?c=carrito&a=viewOrder&data=$1&data2=$2
 RewriteRule ^eliminar-pedido$ index.php?c=orders&a=delete
 RewriteRule ^enviado-pedido$ index.php?c=orders&a=update
+RewriteRule ^ver-pedido-vista$ index.php?c=orders&a=preview
 
 #CLIENTES
 RewriteRule ^cliente$ index.php?c=customer
