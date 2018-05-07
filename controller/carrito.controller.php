@@ -12,8 +12,11 @@
 			$color = $this->master->selectBy("color",array('col_codigo',$data['color']));
 			$talla = $this->master->selectBy("talla",array('tal_codigo',$data['talla']));
 			if (!isset($_SESSION['cart_item'])) {
-				if ($data['cantidad']>=10) {
-					$precio = 9999;
+				if ($data['cantidad']>=12) {
+					$total = $result['pro_precio']*$data['cantidad'];
+					$rebajaUnidad = ($result['pro_precio']*42)/100;
+					$rebajaTotal= $rebajaUnidad*$data['cantidad'];
+					$precio = $total-$rebajaTotal;
 				}else{
 					$precio = ($result['pro_precio']*$data['cantidad']);
 				}
@@ -26,8 +29,10 @@
 						return;
 					}
 				}
-				if ($data['cantidad']>=10) {
-					$precio = 9999;
+				if ($data['cantidad']>=12) {
+					$cien = $result['pro_precio']*$data['cantidad'];
+					$rebaja = (($result['pro_precio']*$data['cantidad'])*43)/100;
+					$precio = $cien-$rebaja;
 				}else{
 					$precio = ($result['pro_precio']*$data['cantidad']);
 				}
