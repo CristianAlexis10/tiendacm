@@ -580,3 +580,32 @@ function confirmDeleteUser(id){
 	}
 
 }
+$("#datosPersonales").submit(function(e){
+	e.preventDefault();
+	var data = [];
+	if ($("#nombre").val() != "" && $("#ape1").val() != "" && $("#ape2").val() != "" && $("#correo").val() != "" && $("#direccion").val() != ""  && $("#celular").val() != "") {
+			data.push($("#nombre").val());
+			data.push($("#ape1").val());
+			data.push($("#ape2").val());
+			data.push($("#correo").val());
+			data.push($("#direccion").val());
+			data.push($("#ciu").val());
+			data.push($("#celular").val());
+		$.ajax({
+			url:"actualizar-datos-personales-admin",
+			type:"post",
+			dataType:"json",
+			data:({data:data}),
+			success:function(result){
+				if (result==true) {
+						location.reload();
+				}else{
+					alerta(result);
+				}
+			},
+			error:function(result){console.log(result);}
+		});
+	}else{
+		alerta("Por favor completar todos los campos.");
+	}
+});
