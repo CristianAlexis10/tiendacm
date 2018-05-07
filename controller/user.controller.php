@@ -69,5 +69,24 @@
 					header("Location:inicio");
 			}
 		}
+		function delete(){
+			$result=$this->master->delete("usuario",array("usu_codigo",$_POST['data']));
+			// die(json_encode($result));
+			if ($result==1) {
+				echo json_encode(true);
+			}else{
+				echo json_encode($this->doizer->knowError($result));
+			}
+		}
+		function viewUpdate(){
+			if ($_SESSION['USER']['ROL']==1) {
+				require_once("views/include/dashboard/header.php");
+				require_once("views/modules/admin/users/update.php");
+				require_once("views/include/dashboard/footer.php");
+			}else{
+					session_destroy();
+					header("Location:inicio");
+			}
+		}
 	}
 ?>

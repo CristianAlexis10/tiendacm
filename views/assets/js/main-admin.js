@@ -559,3 +559,24 @@ $("#terminado").click(function(){
 	}
 
 });
+function confirmDeleteUser(id){
+	if (confirm("¿Realmente desea eliminar este Usuario?")) {
+		$.ajax({
+			url:"eliminar-usuario",
+			type:"post",
+			dataType:"json",
+			data:({data:id}),
+			success:function(result){
+				if (result==true) {
+					alerta("Elimindao  Exitosamente.");
+					setTimeout(function(){location.reload();},2500);
+				}else{
+					alerta(result);
+				}
+			},
+			error:function(result){console.log(result);}
+		});
+
+	}
+
+}

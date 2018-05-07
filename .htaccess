@@ -39,6 +39,8 @@ RewriteRule ^agregar-imagen$ index.php?c=products&a=addImage
 #USUARIOS
 RewriteRule ^guardar-usuario$ index.php?c=user&a=newUser
 RewriteRule ^ver-usuarios-registrados$ index.php?c=user&a=viewAllUser
+RewriteRule ^eliminar-usuario$ index.php?c=user&a=delete
+RewriteRule ^modificar-usuario-(\w+)$ index.php?c=user&a=viewUpdate&data=$1
 
 #NOTICIAS
 RewriteRule ^noticias$ index.php?c=news

@@ -15,31 +15,30 @@ if (isset($_SESSION['messagge'])) {
       <table class="datatable">
         <thead>
             <tr>
-                <th>Codigo</th>
                 <th>Cliente</th>
-                <th>Fecha Realizacion</th>
+                <th>Correo</th>
+                <th>Telefono</th>
                 <th>Direccion</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-          <?php $result = $this->master->selectAll('pedidos');
+          <?php $result = $this->master->selectAll('usuario');
            foreach ($result as $row) {
-              $dataUser = $this->master->selectBy("usuario",array("usu_codigo",$row['usu_id']));
+              // $dataUser = $this->master->selectBy("usuario",array("usu_codigo",$row['usu_id']));
               $dataMun = $this->master->selectBy("municipio",array("mun_codigo",$row['mun_codigo']));
              ?>
             <tr>
-                <td><?php echo $row['token']; ?></td>
-                <td><?php echo $dataUser['usu_nombre1']." ".$dataUser['usu_apellido1']; ?></td>
-                <td><?php echo $row['ped_fecha_realizacion']; ?></td>
-                <!-- <td><?php //echo $row['pro_cant']; ?></td> -->
-                <td><?php echo $dataMun['mun_nombre'].",".$row['ped_direccion']; ?></td>
+                <td><?php echo $row['usu_nombre1']." ".$row['usu_apellido1']; ?></td>
+                <td><?php echo $row['usu_correo']; ?></td>
+                <td><?php echo $row['usu_telefono']; ?></td>
+                <td><?php echo $dataMun['mun_nombre'].",".$row['usu_dir']; ?></td>
                 <td>
-                    <a href="moficar-producto-<?php echo $row['pro_codigo']; ?>"><i class="fas fa-sync"></i></a>
+                    <a href="modificar-usuario-<?php echo $row['usu_codigo']; ?>"><i class="fas fa-sync"></i></a>
 
-                        <a href="#" onclick="return confirmDelete(
+                        <a href="#" onclick="return confirmDeleteUser(
                             <?php
-                                echo $row['pro_codigo'];
+                                echo $row['usu_codigo'];
                             ?>
                            )"><i class="fas fa-trash-alt"></i></a>
                 </td>

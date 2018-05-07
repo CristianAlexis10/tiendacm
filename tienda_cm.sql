@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-05-2018 a las 17:33:28
+-- Tiempo de generación: 07-05-2018 a las 17:54:02
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -247,12 +247,10 @@ CREATE TABLE `acceso` (
 --
 
 INSERT INTO `acceso` (`acc_token`, `usu_id`, `acc_contra`) VALUES
-('014e4694d7376256832eff31ef3efb49', 15, '$2y$10$1o68uwEU5NFlCH3pSx7KU.z3gn567DGIJbDDiIpnf5LsMPORzVjcC'),
 ('01adb163751f819cb56e323785670957', 6, '$2y$10$Hl9HVC4KYCBQsgCSUPN0quaobvP0I/6T3l.OK1tXU.z13ToF0qX2S'),
 ('2b2e20abb22842e39c39e7c82fd23750', 22, '$2y$10$8FjyoCjFx.NNY8VZm9iseOEuTq8pYUA.p/05UcYxwKzEq5pTuyKRm'),
 ('4fc94a9051176d0133b76d74f6df6293', 17, '$2y$10$QcGaoFDm/giJV6hsCkQ5I.V/y6UFbNx3y49tejy6cOY2kHl0XOSqu'),
 ('54da05c46b595b86b23f02667e06b706', 23, '$2y$10$wU9ICr4Hv4HhWD7rjXoh4e6JGzS.xkbETfYvh6pZ/mMdrzauPFDGe'),
-('665a565a47e732f7bf96e40eb2cfc226', 16, '$2y$10$WxfTypIQ1zLUcv46zyCAte6MnA3Zgv9XMIDKaIU7gA0qfcTZfmacu'),
 ('6697a149eefdae6fdec244a5215fad3c', 19, '$2y$10$Rbxw6t9dNiPrSEme3OEKGOZFHl8HQ7tQK0NRNndHhRNkl/ydClWfy'),
 ('98196083e10dd13ff159d30678f1a8c2', 20, '$2y$10$pPQOCCr9BoSrkLyG7hmxgO1HVU8cAHSnsnvZPKKoisvfLleN.JDey'),
 ('d5cf38ba4f7816b2e7a6515ecbdf9732', 9, '$2y$10$NsaGCqsAXw.5cRjOQMIvFe6xzYxL3u2KJ5w2s/sLTB9S/YbHvODX.'),
@@ -655,8 +653,6 @@ INSERT INTO `usuario` (`usu_codigo`, `usu_nombre1`, `usu_apellido1`, `usu_apelli
 (3, 'julio', 'arias', NULL, 'algo@algo.com', 1, 1, '0rewsrdtf', 1, 0),
 (6, 'julio', 'arias', NULL, 'nose@gds.com', 2, 1, '0', 1, 0),
 (9, 'jufdsgfs', 'gdsags', NULL, 'gsag@gsag', 2, 1, '0', 1, 0),
-(15, 'dsf', 'dsf', NULL, 's@s.com', 2, 1, '0', 1, 0),
-(16, 'Alexis', 'lopera', NULL, 'yo@yo.com', 1, 1, '0', 1, 0),
 (17, 'cristian', 'lopera', NULL, 'alexis__1020@hotmail.com', 1, 1, '0324', 1, 0),
 (18, 'Andress', 'nada', 'ew', 'cliente@cliente.com', 2, 1, 'calle 95 b', 1, 89765),
 (19, 'nada', 'nada', NULL, 'nada@nada.com', 2, 1, '0', 1, 0),
