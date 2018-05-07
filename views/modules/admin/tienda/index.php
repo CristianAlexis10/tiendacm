@@ -21,10 +21,10 @@
     <section class="wrap--contenido">
 
 <div class="contenidoProduct">
-  <div class="titleProduct">
+  <div class="titleProductTable">
     <h1>Gestion de Pedidos</h1>
-    <h4 id="modalColor"><i class="fas fa-plus-circle"></i>En proceso</h4>
-    <h4 id="modalTalla"><i class="fas fa-plus-circle"></i> Terminados</h4>
+    <h4><i class="fas fa-plus-circle"></i>En proceso</h4>
+    <h4><i class="fas fa-plus-circle"></i> Terminados</h4>
   </div>
 <?php
 if (isset($_SESSION['messagge'])) {
