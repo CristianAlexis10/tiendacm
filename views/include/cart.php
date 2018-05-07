@@ -56,7 +56,7 @@
     ?>
   </div>
   <div class="btn-comprar">
-    <button type="button" name="button" id="btnCartCompra" onclick="datosEnvio()">Hacer compra (<?php echo number_format($totalPedido); ?>)</button>
+    <button type="button" name="button" id="btnCartCompra" onclick="datosEnvio()">Hacer compra <?php if (isset($_SESSION['cart_item'])) {?>(<?php echo number_format($totalPedido); ?>) <?php } ?></button>
   </div>
 </div>
 <div class="fondoModalCart" id="fondoModalCart"></div>
