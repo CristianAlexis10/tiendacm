@@ -496,3 +496,66 @@ function alerta(msn){
     $("p").remove();
   },2000);
 }
+//eliminar pedido
+function confirmDeletePedido(id){
+	if (confirm("¿Realmente deseas eliminar este pedido? el usuario sera notificado")) {
+		$.ajax({
+			url:"eliminar-pedido",
+			type:"post",
+			dataType:"json",
+			data:({data:id}),
+			success:function(result){
+				if (result==true) {
+					alerta("eliminado Exitosamente.");
+					setTimeout(function(){location.reload();},2500);
+				}else{
+					alerta(result);
+				}
+			},
+			error:function(result){console.log(result);}
+		});
+
+	}
+}
+$("#enviado").click(function(){
+	if (confirm("¿Realmente desea cambiar el estado del pedido? el usuario sera notificado")) {
+		$.ajax({
+			url:"enviado-pedido",
+			type:"post",
+			dataType:"json",
+			data:({estado:"En Proceso"}),
+			success:function(result){
+				if (result==true) {
+					alerta("Modificacion  Exitosamente.");
+					setTimeout(function(){location.reload();},2500);
+				}else{
+					alerta(result);
+				}
+			},
+			error:function(result){console.log(result);}
+		});
+
+	}
+
+});
+$("#terminado").click(function(){
+	if (confirm("¿Realmente desea cambiar el estado del pedido? el usuario sera notificado")) {
+		$.ajax({
+			url:"enviado-pedido",
+			type:"post",
+			dataType:"json",
+			data:({estado:"Terminado"}),
+			success:function(result){
+				if (result==true) {
+					alerta("Modificacion  Exitosamente.");
+					setTimeout(function(){location.reload();},2500);
+				}else{
+					alerta(result);
+				}
+			},
+			error:function(result){console.log(result);}
+		});
+
+	}
+
+});

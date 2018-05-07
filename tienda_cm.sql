@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-05-2018 a las 22:30:11
+-- Tiempo de generación: 07-05-2018 a las 03:15:32
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -142,6 +142,12 @@ BEGIN
 DELETE FROM categoria WHERE cat_codigo = cod;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `eliminarPedido` (IN `id` INT)  NO SQL
+BEGIN 
+DELETE FROM producto_pedido WHERE producto_pedido.ped_codigo = id;
+DELETE FROM pedidos WHERE pedidos.ped_codigo=id;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `eliminarProducto` (IN `cod` INT(11))  NO SQL
 BEGIN
 DELETE FROM producto WHERE pro_codigo = cod;
@@ -170,6 +176,11 @@ END$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarImagenCategoria` (IN `cod` INT(11), IN `img` VARCHAR(150))  NO SQL
 BEGIN
 UPDATE categoria SET cat_img = img WHERE cat_codigo = cod;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarPedido` (IN `id` INT, IN `est` VARCHAR(20))  NO SQL
+BEGIN 
+UPDATE pedidos SET pedidos.ped_estado = est WHERE pedidos.ped_codigo = id;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarVideo` (IN `id` INT, IN `nombre` VARCHAR(50))  NO SQL
@@ -205,6 +216,11 @@ END$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `updatePro` (IN `nom` VARCHAR(30), IN `precio` INT(11), IN `cantidad` INT(11), IN `des` LONGTEXT, IN `cat` INT(11), IN `est` VARCHAR(20), IN `cod` INT(11))  NO SQL
 BEGIN 
 UPDATE producto set pro_nombre = nom , pro_precio = precio , pro_cant= cantidad , pro_des = des , cat_codigo = cat , pro_estado = est WHERE pro_codigo = cod;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `verDetallesPedido` (IN `token` VARCHAR(20))  NO SQL
+BEGIN 
+SELECT * FROM pedidos  INNER JOIN usuario  ON pedidos.usu_id = usuario.usu_codigo  INNER JOIN producto_pedido ON producto_pedido.ped_codigo = pedidos.ped_codigo INNER JOIN producto ON producto.pro_codigo = producto_pedido.pro_codigo  INNER JOIN municipio ON municipio.mun_codigo = pedidos.mun_codigo INNER JOIN color ON color.col_codigo = producto_pedido.col_codigo INNER JOIN talla ON talla.tal_codigo = producto_pedido.tal_codigo   WHERE pedidos.token = token ;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `verPedido` (IN `usu` INT)  NO SQL
@@ -432,66 +448,7 @@ CREATE TABLE `pedidos` (
 --
 
 INSERT INTO `pedidos` (`ped_codigo`, `usu_id`, `mun_codigo`, `ped_direccion`, `ped_fecha_realizacion`, `ped_fecha_entrega`, `token`, `ped_estado`) VALUES
-(3, 20, 1, 'calle 95 b', '2018-03-05', '2018-08-02', 'vsfT3ZJ-RcSbm2l', ''),
-(4, 20, 1, 'calle 95 b', '2018-03-05', '2018-08-02', 'XP1CnlZ-8aFiLEh', ''),
-(5, 20, 1, 'calle 95 b', '2018-03-05', '2018-08-02', 'RIEHMZk-Xre6nUG', ''),
-(6, 20, 1, 'calle 95 b', '2018-03-05', '2018-08-02', '8UWwGRP-cTZfIRw', ''),
-(7, 20, 1, 'calle 95 b', '2018-03-05', '2018-08-02', '2b9xEW6-zvJ6w4E', ''),
-(8, 20, 1, 'calle 95 b', '2018-03-05', '2018-08-02', 'mckjBYK-M3FhFqD', ''),
-(9, 20, 1, 'calle 95 b', '2018-03-05', '2018-08-02', 'p3VI6xh-fOdI6wG', ''),
-(10, 20, 1, 'calle 95 b', '2018-03-05', '2018-08-02', '2MQ4elN-lNrKykL', ''),
-(11, 20, 1, 'calle 95 b', '2018-03-05', '0000-00-00', 'GzMAJxK-hHlLJdG', ''),
-(12, 20, 1, 'calle 95 b', '2018-03-05', '0000-00-00', 'aomMPfJ-n4KpFJS', ''),
-(13, 20, 1, 'calle 95 b', '2018-03-05', '0000-00-00', 'YmZwEQl-4nwMU5Z', ''),
-(14, 20, 1, 'calle 95 b', '2018-03-05', '2018-01-28', 'EqWXBvj-ARUQauO', ''),
-(15, 20, 1, 'calle 95 b', '2018-03-05', '2018-01-28', 'lH5WcCL-wdV5hL4', ''),
-(16, 20, 1, 'calle 95 b', '2018-03-05', '2018-01-28', 'bqF1CGi-fvgsJqT', ''),
-(17, 20, 1, 'calle 95 b', '2018-03-05', '2018-01-28', 'POOJAms-L8qo5Qr', ''),
-(18, 20, 1, 'calle 95 b', '2018-03-05', '2018-03-16', 'D8NAVVB-Q5JTwIh', ''),
-(19, 20, 1, 'calle 95 b', '2018-03-05', '2018-03-06', 'nEfmN8c-ZKayQkX', ''),
-(20, 20, 1, 'calle 95 b', '2018-03-05', '2018-03-22', 'usS0aaW-QQ7m5zw', ''),
-(21, 20, 1, 'calle 95 b', '2018-03-05', '2018-03-04', 'WHY5397-2wpD6HX', ''),
-(22, 20, 1, 'calle 95 b', '2018-03-05', '2018-03-06', 'XJYLhZ5-qDj5O8S', ''),
-(23, 20, 1, 'calle 95 b', '2018-03-05', '2018-03-06', 'cL1gilQ-RdZq0G1', ''),
-(24, 20, 1, 'calle 95 b', '2018-03-05', '2018-03-20', '6lbxCwU-FuXwGEe', ''),
-(25, 20, 1, 'calle 95 b', '2018-03-05', '2018-03-06', 'ATOmcq3-76X5FEW', ''),
-(26, 18, 1, 'calle 95 b', '2018-03-06', '2018-03-07', 'nE9Bh0Z-G8aSvwT', 'oiyt'),
-(27, 18, 1, 'calle 95 b', '2018-03-06', '2018-03-21', 'bVkipYA-ZazfUzV', 'Bodega'),
-(28, 18, 1, 'calle 95 b', '2018-03-06', '2018-03-07', 'PRx9hPN-dqmRLRb', 'Bodega'),
-(29, 18, 1, 'calle 95 b', '2018-03-06', '2018-03-07', 'ng370cA-xrDoe12', 'Bodega'),
-(30, 18, 1, 'calle 95 b', '2018-03-06', '2018-03-07', 'ZSJPulj-cFF3fRl', 'Bodega'),
-(31, 18, 1, 'calle 95 b', '2018-03-06', '2018-03-07', 'glYDdf9-MLOEDK0', 'Bodega'),
-(32, 18, 1, 'calle 95 b', '2018-03-06', '2018-03-07', '8h8mL1X-l5uLqzL', 'Bodega'),
-(33, 18, 1, 'calle 95 b', '2018-03-06', '2018-03-07', 'AsBnKTv-7ZNBeSR', 'Bodega'),
-(34, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'xisNmvY-CIHrphe', 'Bodega'),
-(35, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'lN2rtCX-eeliN44', 'Bodega'),
-(36, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'gYZoB6q-qv2mJH7', 'Bodega'),
-(37, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'fqqc55m-BkPLbWd', 'Bodega'),
-(38, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'kioniLF-SmXdPKG', 'Bodega'),
-(39, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', '0ObjvVT-GHLz83p', 'Bodega'),
-(40, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'swwugaA-3cWdJ0a', 'Bodega'),
-(41, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'SBSHwfx-SDNeycN', 'Bodega'),
-(42, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'E3En1eZ-73qF7Yu', 'Bodega'),
-(43, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'EXvLpKS-6V4MOE2', 'Bodega'),
-(44, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'rMzdBk8-Isjk8J3', 'Bodega'),
-(45, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'ByDqWzU-KPhKRch', 'Bodega'),
-(46, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'ns9fTFT-gAot2Gu', 'Bodega'),
-(47, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', '5X6Sfo0-Cui6Jnm', 'Bodega'),
-(48, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'HG2PFr2-omuthAM', 'Bodega'),
-(49, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'XdINzqA-uUBxk4Z', 'Bodega'),
-(50, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'qjDiASI-JQ0T2z9', 'Bodega'),
-(51, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'gpBjpzh-VrLsYXG', 'Bodega'),
-(52, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'sW2y8Lh-5PWMvoq', 'Bodega'),
-(53, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', '7xaGpp0-HeOeVHY', 'Bodega'),
-(54, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'GlnDJpn-Zd6hKsT', 'Bodega'),
-(55, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'cakJIW9-6WhLYqV', 'Bodega'),
-(56, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'xOj4iAa-soL5iFj', 'Bodega'),
-(57, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'EMVBWry-feIMY7m', 'Bodega'),
-(58, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', '4oJnm6n-OkYy42f', 'Bodega'),
-(59, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', '596DkvB-k7795Or', 'Bodega'),
-(60, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'P5fre5L-BshdT5p', 'Bodega'),
-(61, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'LUoyzZS-PAZtwwh', 'Bodega'),
-(62, 18, 1, 'calle 95 b', '2018-03-07', '2018-03-08', 'FIAFp1v-wbwvGYN', 'Bodega');
+(66, 18, 1, 'calle 95 b', '2018-05-07', '2018-05-24', 'bFBvkb9-8lRnLHN', 'Bodega');
 
 -- --------------------------------------------------------
 
@@ -575,34 +532,8 @@ CREATE TABLE `producto_pedido` (
 --
 
 INSERT INTO `producto_pedido` (`ped_codigo`, `pro_codigo`, `cantidad`, `col_codigo`, `tal_codigo`) VALUES
-(23, 24, 1, 1, 1),
-(24, 24, 1, 1, 1),
-(25, 24, 1, 1, 1),
-(26, 26, 1, 1, 1),
-(27, 29, 1, 1, 1),
-(28, 29, 1, 1, 1),
-(29, 29, 1, 1, 1),
-(30, 29, 1, 1, 1),
-(31, 26, 1, 1, 1),
-(32, 24, 1, 1, 1),
-(34, 24, 1, 1, 1),
-(35, 26, 1, 1, 1),
-(35, 26, 1, 1, 1),
-(35, 26, 1, 1, 1),
-(35, 24, 1, 1, 1),
-(35, 24, 1, 1, 1),
-(35, 24, 1, 1, 1),
-(46, 24, 1, 1, 1),
-(47, 28, 1, 1, 1),
-(47, 27, 1, 1, 1),
-(57, 26, 1, 1, 1),
-(58, 30, 1, 1, 1),
-(58, 30, 1, 1, 1),
-(58, 28, 1, 1, 1),
-(61, 27, 1, 1, 1),
-(61, 25, 1, 1, 1),
-(61, 27, 1, 1, 1),
-(62, 28, 1, 1, 1);
+(66, 30, 1, 1, 1),
+(66, 28, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -904,7 +835,7 @@ ALTER TABLE `estructura_noticia`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `ped_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `ped_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --

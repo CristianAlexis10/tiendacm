@@ -54,6 +54,8 @@ RewriteRule ^cerrar-sesion$ index.php?c=auth&a=singOut
 RewriteRule ^realizar-pedido$ index.php?c=carrito&a=newOrder
 RewriteRule ^ver-pedidos-hechos$ index.php?c=carrito&a=viewAllOrder
 RewriteRule ^ver-pedido-(\w+)-(\w+)$ index.php?c=carrito&a=viewOrder&data=$1&data2=$2
+RewriteRule ^eliminar-pedido$ index.php?c=orders&a=delete
+RewriteRule ^enviado-pedido$ index.php?c=orders&a=update
 
 #CLIENTES
 RewriteRule ^cliente$ index.php?c=customer

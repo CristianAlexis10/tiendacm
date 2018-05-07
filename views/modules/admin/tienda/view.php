@@ -1,4 +1,6 @@
-<?php $data = $this->master->procedure->PRByAll("verDetallesPedido",array($_GET['data']."-".$_GET['data2']));?>
+<?php $data = $this->master->procedure->PRByAll("verDetallesPedido",array($_GET['data']."-".$_GET['data2']));
+  $_SESSION['ped'] = $data[0]['ped_codigo'];
+?>
 <section class="contenido" id="cat-conte">
   <h1>Pedido</h1>
   <div class="details">
@@ -16,6 +18,9 @@
     </div>
     <div>
       <span>Direccion de envio: <?php echo $data[0]['mun_nombre']."-".$data[0]['ped_direccion'];?></span>
+    </div>
+    <div>
+      <span>Estado: <?php echo $data[0]['ped_estado'];?></span>
     </div>
 
     <table class="datatable">
@@ -40,6 +45,13 @@
       </tbody>
     </table>
   </div>
-  <input type="button" id="enviado" value="Marcar como enviado">
-  <input type="button" id="terminado" value="Marcar como terminado">
+<?php
+if ($data[0]['ped_estado']=="Bodega") {
+  echo '<input type="button" id="enviado" value="Marcar como en proceso">';
+}
+if ($data[0]['ped_estado']=="En Proceso") {
+  echo '<input type="button" id="terminado" value="Marcar como terminado">';
+}
+?>
+
 </section>

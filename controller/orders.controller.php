@@ -44,7 +44,30 @@ Class OrdersController{
 
 
   }
-
+  function delete(){
+    $res = $this->master->selectBy("pedidos",array("ped_codigo",$_POST['data']));
+    $data = $this->master->procedure->PRByAll("verDetallesPedido",array($res['token']));
+    $cabeceras= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    // mail($data[0]['usu_correo'], "Tu pedido ha sido eliminado", "El pedido con el codigo ".$res['token']." ha sido eliminado.", $cabeceras);
+    $result = $this->master->procedure->NRP("eliminarPedido",array($_POST['data']));
+    if ($result==true) {
+      echo json_encode($result);
+    }else{
+      echo json_encode($this->doizer->knowError($result));
+    }
+  }
+  function update(){
+    $res = $this->master->selectBy("pedidos",array("ped_codigo",$_SESSION['ped']));
+    $data = $this->master->procedure->PRByAll("verDetallesPedido",array($res['token']));
+    $cabeceras= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    $result = $this->master->procedure->NRP("modificarPedido",array($_SESSION['ped'],$_POST['estado']));
+    // mail($data[0]['usu_correo'], "Estado de tu pedido", "tu pedido ahora esta  ".$res['estado'], $cabeceras);
+    if ($result==true) {
+      echo json_encode($result);
+    }else{
+      echo json_encode($this->doizer->knowError($result));
+    }
+  }
 
 }
 ?>

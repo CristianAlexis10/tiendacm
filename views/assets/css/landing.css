@@ -34,9 +34,9 @@
 }
 .categorias-recomendadas, .productos-recomendados{
   width: 90%;
-  position: relative;
+  /* position: relative; */
   margin: 20px auto;
-  max-width: 980px
+  max-width: 980px;
 }
 .categorias-recomendadas h2, .productos-recomendados h2{
   font-family: "Anton";
@@ -61,6 +61,10 @@
   display: grid;
   grid-template-columns: repeat(3,1fr);
   grid-gap: 10px;
+  width: 90%;
+  max-width: 980px;
+  margin: 0px auto;
+  margin-bottom: 20px
 }
 .bloqueP{
   background-color: #d5d5d5;
@@ -92,109 +96,6 @@
 .wrap-imagen img{
   max-width: 100%;
   max-height: 100%;
-}
-@media (max-width: 768px) {
-  .modal{
-    width: 100%;
-    height: 100vh;
-    left: 0px;
-    top:0px;
-  }
-  .login{
-    width: 100%;
-    height: 100vh;
-  }
-  .registro{
-    left: 100%;
-    height: 100vh;
-  }
-  .wrap-content-form{
-    width: 95%;
-    height: 100vh;
-  }
-  .btn_inicio{
-    right: 35px;
-    bottom: 75px;
-  }
-}
-@media (max-width: 900px) {
-  .contenido-categorias{
-    grid-template-columns: repeat(2,1fr);
-    grid-gap:10px;
-  }
-}
-@media (max-width: 375px) {
-  .btn_registro{
-    right: 18px;
-  }
-}
-@media (max-width: 460px) {
-  .contenido-categorias{
-    grid-template-columns: repeat(1,1fr);
-    grid-gap:10px;
-  }
-  .contenido-productos{
-    grid-template-columns: repeat(1,1fr);-
-    grid-gap:10px;
-  }
-  .wrap-content-form{
-    width: 90%;
-    height: 100vh;
-  }
-  .caja_registros_usu{
-    margin: 40px 0px;
-  }
-  .btn_inicio{
-    right: 15px;
-    bottom: 75px;
-  }
-}
-@media (max-width: 768px) {
-  .wrap--logo{
-    left: 10px;
-  }
-}
-@media (max-width: 700px) {
-  .caja--menu{
-    position: absolute;
-    display: block !important;
-    right: 0px;
-    top: 50px;
-    background: black;
-  }
-  .wrap-cajaMenu{
-    display: none;
-  }
-  .caja--menu li{
-    background: black;
-  }
-  .menu--mobile{
-    color: white;
-    position: absolute;
-    right: 15px;
-    font-size: 28px;
-    top: 11px;
-    display: block;
-  }
-  .menu--mobile a{
-    color: white;
-  }
-  .home img{
-    width: initial;
-    height: 100vh;
-  }
-}
-@media  (min-width: 521px) and (max-width: 700px) {
-  .home img{
-    position: relative;
-    left: 0px
-  }
-}
-@media  (min-width: 100px) and (max-width: 520px) {
-  .home img{
-    position: relative;
-    left: -300px
-  }
 }
 @keyframes slider {
   0%,25%{

@@ -3,8 +3,8 @@
 <div class="contenidoProduct">
   <div class="titleProduct">
     <h1>Gestion de Usuarios</h1>
-    <h4 id="modalColor"><i class="fas fa-plus-circle"></i>En proceso</h4>
-    <h4 id="modalTalla"><i class="fas fa-plus-circle"></i> Terminados</h4>
+    <!-- <h4 id="modalColor"><i class="fas fa-plus-circle"></i>En proceso</h4>
+    <h4 id="modalTalla"><i class="fas fa-plus-circle"></i> Terminados</h4> -->
   </div>
 <?php
 if (isset($_SESSION['messagge'])) {
