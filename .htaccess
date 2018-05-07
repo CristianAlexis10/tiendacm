@@ -62,6 +62,7 @@ RewriteRule ^enviado-pedido$ index.php?c=orders&a=update
 #CLIENTES
 RewriteRule ^cliente$ index.php?c=customer
 RewriteRule ^actualizar-datos-personales$ index.php?c=customer&a=update
+RewriteRule ^actualizar-datos-personales-admin$ index.php?c=customer&a=updateAdmin
 RewriteRule ^mi-perfil$ index.php?c=customer&a=profile
 RewriteRule finalizar-sesion$ index.php?c=customer&a=logout
 
