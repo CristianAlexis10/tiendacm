@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-05-2018 a las 17:54:02
--- Versión del servidor: 10.1.21-MariaDB
--- Versión de PHP: 5.6.30
+-- Tiempo de generación: 07-05-2018 a las 20:38:48
+-- Versión del servidor: 10.1.30-MariaDB
+-- Versión de PHP: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -27,6 +29,11 @@ DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cambiar_imagen` (IN `img` VARCHAR(150), IN `pro` INT)  NO SQL
 BEGIN 
 UPDATE producto SET producto.pro_imagen = img WHERE producto.pro_codigo = pro;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `categoriaLimit` ()  NO SQL
+BEGIN 
+SELECT * FROM categoria WHERE categoria.cat_estado = 1  LIMIT 4;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `colores` (IN `cod` INT(11))  NO SQL
@@ -197,6 +204,11 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `paginasVideos` (IN `ini` INT, IN `f
 BEGIN
 SELECT * FROM video LIMIT ini , fin ;
 end$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `productoLimit` ()  NO SQL
+BEGIN 
+SELECT *  FROM  producto WHERE producto.pro_estado = "activo" LIMIT 6;
+END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `productosBycategoria` (IN `cat` VARCHAR(50), IN `ini` INT, IN `fin` INT)  NO SQL
 BEGIN
@@ -421,6 +433,7 @@ CREATE TABLE `noticia` (
 --
 
 INSERT INTO `noticia` (`not_codigo`, `usu_id`, `not_titulo`, `not_preview`, `not_poster`, `art_fecha`) VALUES
+('hUmjogUwe8nahROOi97Z', 17, 'dsf', 'dsfds', '64c691f9ba91b665966a2a544274def6.png', '2018-05-07'),
 ('ifUXeeJZzznn0DibMes3', 17, 'uno', 'esta', '558d8c3036c1091f4ac31c8fa8e08fa0.png', '2018-05-05'),
 ('YiyQCi61JkQh8mnjbRMn', 17, 'kjh', 'liou', '163f065f67ab5aa1d687874906fc02a2.png', '2018-05-05');
 
@@ -447,8 +460,7 @@ CREATE TABLE `pedidos` (
 --
 
 INSERT INTO `pedidos` (`ped_codigo`, `usu_id`, `mun_codigo`, `ped_direccion`, `ped_fecha_realizacion`, `ped_fecha_entrega`, `token`, `ped_estado`, `ped_total`) VALUES
-(66, 18, 1, 'calle 95 b', '2018-05-07', '2018-05-24', 'bFBvkb9-8lRnLHN', 'En Proceso', 1909),
-(67, 18, 1, 'calle 95 b', '2018-05-07', '2018-05-24', 'q2jOzN5-FXTgANa', 'Bodega', 18796);
+(66, 18, 1, 'calle 95 b', '2018-05-07', '2018-05-24', 'bFBvkb9-8lRnLHN', 'En Proceso', 1909);
 
 -- --------------------------------------------------------
 
@@ -533,9 +545,7 @@ CREATE TABLE `producto_pedido` (
 
 INSERT INTO `producto_pedido` (`ped_codigo`, `pro_codigo`, `cantidad`, `col_codigo`, `tal_codigo`) VALUES
 (66, 30, 1, 1, 1),
-(66, 28, 1, 1, 1),
-(67, 29, 1, 1, 1),
-(67, 29, 20, 1, 2);
+(66, 28, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -654,7 +664,7 @@ INSERT INTO `usuario` (`usu_codigo`, `usu_nombre1`, `usu_apellido1`, `usu_apelli
 (6, 'julio', 'arias', NULL, 'nose@gds.com', 2, 1, '0', 1, 0),
 (9, 'jufdsgfs', 'gdsags', NULL, 'gsag@gsag', 2, 1, '0', 1, 0),
 (17, 'cristian', 'lopera', NULL, 'alexis__1020@hotmail.com', 1, 1, '0324', 1, 0),
-(18, 'Andress', 'nada', 'ew', 'cliente@cliente.com', 2, 1, 'calle 95 b', 1, 89765),
+(18, 'Andreszz', 'nada', 'ew', 'cliente@cliente.com', 2, 1, 'calle 95 b', 1, 89765),
 (19, 'nada', 'nada', NULL, 'nada@nada.com', 2, 1, '0', 1, 0),
 (20, 'Dompi', 'Lopera', NULL, 'dompi@gmail.com', 2, 1, 'calle 95 b', 1, 3233557660),
 (22, 'nada', 'todo', NULL, 'aaa@aa.a', 2, 1, 'sadsa', 1, 32333),
@@ -821,41 +831,49 @@ ALTER TABLE `video`
 --
 ALTER TABLE `categoria`
   MODIFY `cat_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
 --
 -- AUTO_INCREMENT de la tabla `color`
 --
 ALTER TABLE `color`
   MODIFY `col_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT de la tabla `estructura_noticia`
 --
 ALTER TABLE `estructura_noticia`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
   MODIFY `ped_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
   MODIFY `pro_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
 --
 -- AUTO_INCREMENT de la tabla `talla`
 --
 ALTER TABLE `talla`
   MODIFY `tal_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `usu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
 --
 -- AUTO_INCREMENT de la tabla `video`
 --
 ALTER TABLE `video`
   MODIFY `id_video` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- Restricciones para tablas volcadas
 --
@@ -939,6 +957,7 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `video`
   ADD CONSTRAINT `video_ibfk_1` FOREIGN KEY (`usu_codigo`) REFERENCES `usuario` (`usu_codigo`) ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
