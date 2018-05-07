@@ -36,6 +36,7 @@ if (isset($_SESSION['messagge'])) {
         <thead>
             <tr>
                 <th>Codigo</th>
+                <th>Estado</th>
                 <th>Cliente</th>
                 <th>Fecha Realizacion</th>
                 <th>Direccion</th>
@@ -50,6 +51,7 @@ if (isset($_SESSION['messagge'])) {
              ?>
             <tr>
                 <td><?php echo $row['token']; ?></td>
+                <td><?php echo $row['ped_estado']; ?></td>
                 <td><?php echo $dataUser['usu_nombre1']." ".$dataUser['usu_apellido1']; ?></td>
                 <td><?php echo $row['ped_fecha_realizacion']; ?></td>
                 <!-- <td><?php //echo $row['pro_cant']; ?></td> -->

@@ -19,6 +19,7 @@
             <thead>
                 <tr>
                     <th>Codigo</th>
+                    <th>Estado</th>
                     <th>Fecha De entrega</th>
                     <th>Dirección</th>
                     <th>Estado</th>
@@ -30,6 +31,7 @@
                foreach ($result as $row) {?>
                 <tr>
                     <td><?php echo $row['token']; ?></td>
+                    <td><?php echo $row['ped_estado']; ?></td>
                     <td><?php echo $row['ped_fecha_entrega']; ?></td>
                     <td><?php echo $row['ped_direccion']; ?></td>
                     <td><?php echo $row['ped_estado']; ?></td>
