@@ -4,25 +4,25 @@
 <section class="contenido" id="cat-conte">
   <h1>Pedido</h1>
   <div class="details">
-    <div>
+    <div class="infoDetail">
       <span>Cliente: <?php echo $data[0]['usu_nombre1']." ".$data[0]['usu_apellido1'];?></span>
     </div>
-    <div>
+    <div class="infoDetail">
       <span>Correo Cliente: <?php echo $data[0]['usu_correo'];?></span>
     </div>
-    <div>
+    <div class="infoDetail">
       <span>Telefono Cliente: <?php echo $data[0]['usu_telefono'];?></span>
     </div>
-    <div>
+    <div class="infoDetail">
       <span>Fecha de entrega del pedido: <?php echo $data[0]['ped_fecha_entrega'];?></span>
     </div>
-    <div>
+    <div class="infoDetail">
       <span>Direccion de envio: <?php echo $data[0]['mun_nombre']."-".$data[0]['ped_direccion'];?></span>
     </div>
-    <div>
+    <div class="infoDetail">
       <span>Estado: <?php echo $data[0]['ped_estado'];?></span>
     </div>
-
+    <div class="">
     <table class="datatable">
       <thead>
           <tr>
@@ -45,6 +45,7 @@
       </tbody>
     </table>
   </div>
+</div>
 <?php
 if ($data[0]['ped_estado']=="Bodega") {
   echo '<input type="button" id="enviado" value="Marcar como en proceso">';

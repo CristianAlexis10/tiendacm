@@ -1104,7 +1104,16 @@ td a i{
 /* pedidos */
 .titleProductTable{
   display: grid;
-  grid-template-columns: repeat(1,1fr) 150px 150px;
+  grid-template-columns: repeat(1,1fr) 150px 150px 150px;
   border-bottom: 2px solid #c6c6c6;
   margin: 10px;
+}
+/* detalle pedidos */
+.details{
+  padding: 10px;
+}
+.infoDetail{
+  margin: 10px 0px;
+  font-family: arial;
+  /* font-size: 20px; */
 }

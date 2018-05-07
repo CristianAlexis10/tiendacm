@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="views/assets/css/dashboard.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=lato|Anton|Roboto:300,400,700">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
     <link type="text/css" rel="stylesheet" href="views/assets/css/croppie.css"  media="screen,projection"/>
     <script src="views/assets/js/multiple-select.js"></script>
@@ -23,9 +23,9 @@
 <div class="contenidoProduct">
   <div class="titleProductTable">
     <h1>Gestion de Pedidos</h1>
-    <h4 id="bodega"><i class="fas fa-plus-circle" ></i>En Bodega</h4>
-    <h4 id="pro"><i class="fas fa-plus-circle" ></i>En proceso</h4>
-    <h4 id="ter"><i class="fas fa-plus-circle" ></i> Terminados</h4>
+    <h4 id="bodega"><i class="fas fa-info-circle"></i> En Bodega</h4>
+    <h4 id="pro"><i class="fas fa-info-circle"></i> En proceso</h4>
+    <h4 id="ter"><i class="fas fa-info-circle"></i> Terminados</h4>
   </div>
 <?php
 if (isset($_SESSION['messagge'])) {
@@ -58,7 +58,7 @@ if (isset($_SESSION['messagge'])) {
                 <!-- <td><?php //echo $row['pro_cant']; ?></td> -->
                 <td><?php echo $dataMun['mun_nombre'].",".$row['ped_direccion']; ?></td>
                 <td>
-                    <a href="ver-pedido-<?php echo $row['token']; ?>">ver</a>
+                    <a href="ver-pedido-<?php echo $row['token']; ?>"><i class="far fa-eye"></i></a>
 
                         <a href="#" onclick="return confirmDeletePedido(
                             <?php
