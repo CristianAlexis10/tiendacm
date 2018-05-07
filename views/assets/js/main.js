@@ -78,7 +78,7 @@ $("#formulario-login").submit(function(e) {
             });
 });
 // animaciones login
-
+// top: 50px;
 $('#modal-login').click(function(){
 	$('#modal-login-registro').css("display","grid");
 	$("#login").css("display","grid");
@@ -91,10 +91,12 @@ $('#cerrar_modal').click(function(){
 $('#btn_registro').click(function(){
 	$("#login").css("display","none");
 	$("#registro").css("display","grid");
+	$("#cerrar_modal").css("top","50px");
 });
 $("#btn_login").click(function() {
 	$("#login").css("display","grid");
 	$("#registro").css("display","none");
+	$("#cerrar_modal").css("top","144px");
 })
 //modales TIENDA
 $('.wea').click(function() {
